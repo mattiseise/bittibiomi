@@ -151,7 +151,7 @@
             <ul>
               <li>Mikä Minecraft-versio ja kuka päättää versiopäivityksistä?</li>
               <li>Millä avoimella lisenssillä paketti julkaistaan?</li>
-              <li>Mitä oppilaitos sallii julkisessa julkaisemisessa: repositoryn näkyvyys, nimet ja jakelupalvelut?</li>
+              <li>Mitä oppilaitos sallii julkisessa julkaisemisessa: tekijänimi, kuvat ja jakelupalvelut?</li>
               <li>Julkaistaanko paketti myös Modrinthissa tai Planet Minecraftissa, ja kuka luo tilin?</li>
               <li>Kuka hyväksyy rajauksen ja väliversion?</li>
             </ul>
@@ -223,7 +223,7 @@
               <ul>
                 <li>Mikä Minecraft-versio ja kuka päättää versiopäivityksistä?</li>
                 <li>Millä avoimella lisenssillä paketti julkaistaan?</li>
-                <li>Mitä oppilaitos sallii julkisessa julkaisemisessa: repositoryn näkyvyys, nimet ja jakelupalvelut?</li>
+                <li>Mitä oppilaitos sallii julkisessa julkaisemisessa: tekijänimi, kuvat ja jakelupalvelut?</li>
                 <li>Julkaistaanko paketti myös Modrinthissa tai Planet Minecraftissa, ja kuka luo tilin?</li>
                 <li>Kuka hyväksyy rajauksen ja väliversion?</li>
               </ul>
@@ -264,7 +264,7 @@
                   <textarea rows="3" data-gdd-field="reasoning" placeholder="Miksi juuri tämä teema, resoluutio ja paletti tälle kohderyhmälle?"></textarea>
                 </label>
               </div>
-              <p class="gdd-calibration"><strong>Ei riitä:</strong> ”koska se näyttää hyvältä” tai tekoälyn yleisperustelu ilman kytkentää omaan pakettiin. <strong>Riittää:</strong> ”Valitsin 16×16-resoluution, koska se sulautuu pelin muihin blokkeihin, ja Lospecin syyspaletin, koska kerho toivoi kotikylästä lämminsävyistä.”</p>
+              <p class="gdd-calibration"><strong>Ei riitä:</strong> ”koska se näyttää hyvältä” tai tekoälyn yleisperustelu ilman kytkentää omaan pakettiin. <strong>Riittää:</strong> ”Valitsin 16×16-resoluution, koska se sulautuu pelin muihin blokkeihin, ja Lospecin syyspaletin, koska halusin paketin sopivan tavalliseen selviytymismaailmaan ilman että se erottuu räikeästi.”</p>
             </fieldset>
             <fieldset>
               <legend>C · Ohjaajan vastaus: ohjaaja omistaa tämän</legend>
@@ -281,7 +281,7 @@
                     <option value="CC0 1.0">CC0 1.0 — luovutetaan vapaaseen käyttöön ilman ehtoja</option>
                     <option value="MIT">MIT — yleinen ohjelmistolisenssi, sopii datapaketin skripteille</option>
                   </select>
-                  <small>Lisenssi kertoo, mitä muut saavat paketillasi tehdä. Valinta tehdään ohjaajan kanssa ja kirjataan LICENSE-tiedostoon viikolla 46.</small>
+                  <small>Lisenssi kertoo, mitä muut saavat paketillasi tehdä. Valinta tehdään ohjaajan kanssa, ja LICENSE-tiedosto lisätään repositoryyn heti kun lisenssi on sovittu — viimeistään viikolla 35. Viikolla 46 se tarkistetaan.</small>
                 </label>
               </div>
               <small class="gdd-field-note">Nämä sovitaan ohjaajan kanssa (ks. avoimet asiat). Versio määrää molempien pakettien pack_format-arvot. Jos versiota ei vielä ole, jätä tyhjäksi, niin suunnitelma merkitsee asian avoimeksi.</small>
@@ -328,7 +328,7 @@
           <details class="week-card" id="week-34" data-week="34" open>
             <summary><span class="week-number">34</span><span class="week-title"><small>17.–21.8.</small><strong>Aloitus: teema ja työkalut</strong></span><span class="week-status">0 / 3</span></summary>
             <div class="week-content">
-              <label><input type="checkbox" data-task="34-1"> <span>Lue toimeksianto, laadi vähintään 8 kysymystä ja pidä aloituskeskustelu.</span></label>
+              <label><input type="checkbox" data-task="34-1"> <span>Lue toimeksianto, laadi vähintään 8 kysymystä ja pidä aloituskeskustelu. Tutki lisäksi kaksi jo julkaistua teemapakettia ja kirjaa, mitä ne tekevät ja mitä sinun pakettisi tekee toisin.</span></label>
               <div class="task-assignment" aria-labelledby="task-assignment-title">
                 <div class="assignment-context-heading"><span id="task-assignment-title">Toimeksianto on tässä luettavana</span><a href="#toimeksianto">Avaa myös pääversio ↑</a></div>
                 <p>Tee oma teemapaketti Minecraft Java Editioniin ja julkaise se avoimena lähdekoodina. Paketti muuttaa pelin ilmettä valitun teeman mukaiseksi: siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.</p>
@@ -337,13 +337,15 @@
                 <p>Valmis paketti julkaistaan niin, että kuka tahansa pelaaja löytää sen, lataa ja asentaa kirjallisen ohjeen avulla — ja niin, että toinen tekijä voi lisenssin puitteissa jatkaa työtä siitä eteenpäin.</p>
               </div>
               <label><input type="checkbox" data-task="34-2"> <span>Asenna Blockbench ja VS Code, varmista sovittu Minecraft Java -versio ja luo tyhjä resurssipaketti, joka näkyy pelin pakettivalikossa.</span></label>
-              <label><input type="checkbox" data-task="34-3"> <span>Perusta julkinen Git-repository, README, .gitignore ja kansiot resourcepack, datapack ja project-docs.</span></label>
+              <label><input type="checkbox" data-task="34-3"> <span>Käy läpi, mitä julkiseen repositoryyn ei laiteta, sovi tekijänimi ja perusta sitten julkinen Git-repository: README, .gitignore ja kansiot resourcepack, datapack ja project-docs.</span></label>
               <div class="lesson-instructions">
                 <p class="lesson-label"><span>Ohjattu työ</span> Näin etenet</p>
                 <ol>
                   <li><strong>Merkitse vaatimukset.</strong> Alleviivaa toimeksiannosta pakolliset asiat ja kirjoita epäselvät kohdat kysymyksiksi.</li>
                   <li><strong>Pidä 15 minuutin aloituskeskustelu.</strong> Kirjaa jokainen vastaus päätökseksi, avoimeksi asiaksi tai oletukseksi.</li>
+                  <li><strong>Katso mitä muut ovat tehneet.</strong> Avaa kaksi julkaistua teemapakettia Modrinthissa tai Planet Minecraftissa. Kirjaa, kenelle ne on tehty, mitä ne sisältävät ja mitä sinun pakettisi tekee toisin — tästä syntyy kuvaus omasta kohdeyleisöstä.</li>
                   <li><strong>Tee tyhjä tekninen testi.</strong> Luo pack.mcmeta ja pack.png ja varmista, että paketti näkyy pelin valikossa ennen yhtäkään tekstuuria.</li>
+                  <li><strong>Tarkista mitä julkaiset.</strong> Julkiseen repositoryyn ei laiteta henkilötietoja, kotiosoitetta, koulun tunnisteita eikä muiden nimiä tai käyttäjänimiä kuvakaappauksissa. Git-historia on pysyvä: kertaalleen pushattua on vaikea poistaa. Sovi tekijänimi ohjaajan kanssa; alaikäisenä sovi julkisesta repositorystä myös huoltajan kanssa.</li>
                   <li><strong>Tallenna lähtötilanne.</strong> Lisää README ja kansiorakenne. Tee commit, jonka viesti kertoo projektin perustamisesta.</li>
                 </ol>
                 <p class="checkpoint"><strong>Ennen kuin jatkat:</strong> toinen henkilö pystyy avaamaan repositoryn ja ymmärtää README:stä, mitä olet tekemässä.</p>
@@ -455,18 +457,18 @@
             <summary><span class="week-number">40</span><span class="week-title"><small>28.9.–2.10.</small><strong>Asset 5 · Äänet ja tunnelma</strong></span><span class="week-status">0 / 3</span></summary>
             <div class="week-content">
               <label><input type="checkbox" data-task="40-1"> <span>Hanki tai äänitä vähintään yksi ääni, muunna se ogg-muotoon ja lisää omaan nimiavaruuteen sounds.json-määrittelyllä.</span></label>
-              <label><input type="checkbox" data-task="40-2"> <span>Kirjaa äänen lähde ja lisenssi README:hen; älä käytä materiaalia ilman lupaa.</span></label>
+              <label><input type="checkbox" data-task="40-2"> <span>Kirjaa äänen lähde ja lisenssi CREDITS-tiedostoon; käytä vain materiaalia, jonka lisenssi sallii uudelleenjulkaisun.</span></label>
               <label><input type="checkbox" data-task="40-3"> <span>Testaa ääni pelissä /playsound-komennolla ja kirjaa tulos.</span></label>
               <div class="lesson-instructions">
                 <p class="lesson-label"><span>Ohjattu työ</span> Näin etenet</p>
                 <ol>
-                  <li><strong>Valitse lähde.</strong> Äänitä itse tai käytä vapaasti lisensoitua ääntä — lisenssi talteen heti.</li>
+                  <li><strong>Valitse lähde.</strong> Äänitä itse tai käytä ääntä, jonka lisenssi sallii uudelleenjulkaisun — lisenssi talteen heti.</li>
                   <li><strong>Muunna ja määrittele.</strong> Tallenna ogg-tiedosto omaan nimiavaruuteen ja kirjoita sounds.json.</li>
                   <li><strong>Testaa komennolla.</strong> Soita ääni /playsound-komennolla ja säädä voimakkuus sopivaksi.</li>
                 </ol>
-                <p class="checkpoint"><strong>Ennen kuin jatkat:</strong> oma ääni kuuluu pelissä komennolla ja sen lähde ja lisenssi on kirjattu.</p>
+                <p class="checkpoint"><strong>Ennen kuin jatkat:</strong> oma ääni kuuluu pelissä komennolla ja sen lähde ja lisenssi on kirjattu CREDITS-tiedostoon.</p>
               </div>
-              <p class="evidence"><strong>Näytä:</strong> sounds.json-commit, lisenssikirjaus README:ssä ja testimerkintä.</p>
+              <p class="evidence"><strong>Näytä:</strong> sounds.json-commit, lisenssikirjaus CREDITS-tiedostossa ja testimerkintä.</p>
             </div>
           </details>
 
@@ -480,12 +482,12 @@
                 <p class="lesson-label"><span>Ohjattu työ</span> Näin etenet</p>
                 <ol>
                   <li><strong>Tee puhdas kokeiluversio.</strong> Asenna zip itse puhtaaseen peliin ja varmista, että kaikki tähänastinen sisältö toimii.</li>
-                  <li><strong>Anna testaajien kokeilla.</strong> Älä neuvo heti. Tarkkaile, mikä paketissa jää huomaamatta tai epäselväksi.</li>
+                  <li><strong>Anna testaajien kokeilla.</strong> Älä neuvo heti. Tarkkaile, mikä paketissa jää huomaamatta tai epäselväksi. Kun he ovat kokeilleet, käy 5–10 minuutissa läpi paketin sisältö ja kolme omaa valintaa perusteluineen.</li>
                   <li><strong>Päätä yksi muutos.</strong> Kirjaa palaute, arvioi työmäärä ja valitse vain rajaukseen sopiva palautemuutos.</li>
                 </ol>
                 <p class="checkpoint"><strong>Ennen kuin jatkat:</strong> katselmointilokissa näkyvät osallistujat, palaute, päätös ja hyväksytty seuraava tehtävä.</p>
               </div>
-              <p class="evidence"><strong>Näytä:</strong> katselmointiloki, palaute, päätetty muutos ja toimiva väliversio-zip.</p>
+              <p class="evidence"><strong>Näytä:</strong> katselmointiloki, esittelyn runko, palaute, päätetty muutos ja toimiva väliversio-zip.</p>
             </div>
           </details>
         </div>
@@ -560,12 +562,13 @@
             <div class="week-content">
               <label><input type="checkbox" data-task="46-1"> <span>Siisti kansiorakenne ja tiedostonimet, poista käyttämättömät tiedostot ja yhtenäistä nimiavaruus.</span></label>
               <label><input type="checkbox" data-task="46-2"> <span>Pyydä katselmointi ohjaajalta tai vertaiselta ja kirjaa palaute.</span></label>
-              <label><input type="checkbox" data-task="46-3"> <span>Tee lisenssitarkistus: lisää sovittu LICENSE-tiedosto ja CREDITS-tiedosto, ja varmista ettei paketissa ole Mojangin eikä muiden materiaalia ilman uudelleenjulkaisun sallivaa lisenssiä.</span></label>
+              <label><input type="checkbox" data-task="46-3"> <span>Tee lisenssitarkistus: varmista että LICENSE on repositoryn juuressa ja vastaa sovittua, täydennä CREDITS ja tarkista, ettei paketissa ole Mojangin eikä muiden materiaalia ilman uudelleenjulkaisun sallivaa lisenssiä. Vastaa oman LICENSE-tiedostosi tekstin perusteella: saako toinen pelaaja julkaista muokatun version paketistasi, ja mitä hänen pitää tehdä?</span></label>
               <div class="lesson-instructions">
                 <p class="lesson-label"><span>Ohjattu työ</span> Näin etenet</p>
                 <ol>
                   <li><strong>Etsi kolme laatuhaittaa.</strong> Tarkista epäselvät tiedostonimet, väärässä paikassa olevat tiedostot ja kuolleet viittaukset.</li>
                   <li><strong>Siisti yksi asia kerrallaan.</strong> Älä muuta paketin toimintaa. Testaa peli jokaisen siivouksen jälkeen.</li>
+                  <li><strong>Tarkista lisenssit.</strong> Varmista LICENSE ja täydennä CREDITS. Vastaa oman lisenssisi tekstin perusteella, mitä toinen tekijä saa paketillasi tehdä.</li>
                   <li><strong>Selitä ratkaisusi.</strong> Käy paketti läpi katselmoijan kanssa ja selitä yksi oma ja yksi tekoälyavusteinen ratkaisu omin sanoin.</li>
                 </ol>
                 <p class="checkpoint"><strong>Ennen kuin jatkat:</strong> siivous ei muuttanut testituloksia ja katselmointipalautteeseen on vastattu.</p>
@@ -598,21 +601,23 @@
           </details>
 
           <details class="week-card" id="week-48" data-week="48">
-            <summary><span class="week-number">48</span><span class="week-title"><small>23.–27.11.</small><strong>Julkaisu · v1.0 julki</strong></span><span class="week-status">0 / 3</span></summary>
+            <summary><span class="week-number">48</span><span class="week-title"><small>23.–27.11.</small><strong>Julkaisu · v1.0 julki</strong></span><span class="week-status">0 / 4</span></summary>
             <div class="week-content">
               <label><input type="checkbox" data-task="48-1"> <span>Korjaa vain julkaisemisen estävät ja selvästi tärkeät virheet.</span></label>
               <label><input type="checkbox" data-task="48-2"> <span>Tee v1.0-tagi ja julkaise GitHub-release: zip-paketit, README, LICENSE, CHANGELOG, kuvakaappaukset ja asennusohje. Valinnainen bonus: julkaise lisäksi Modrinthissa tai Planet Minecraftissa opettajan kanssa sovitusti.</span></label>
-              <label><input type="checkbox" data-task="48-3"> <span>Testaa julkaistu lataus toisella koneella tai puhtaalla pelillä ja viimeistele käyttöohje.</span></label>
+              <label><input type="checkbox" data-task="48-3"> <span>Testaa julkaistu lataus itse toisella koneella tai puhtaalla pelillä ja viimeistele käyttöohje.</span></label>
+              <label><input type="checkbox" data-task="48-4"> <span>Pyydä yksi henkilö, joka ei ole tekijä, asentamaan julkaistu v1.0 release-sivulta pelkän ohjeen avulla. Kirjaa hänen roolinsa, päivä ja havainnot.</span></label>
               <div class="lesson-instructions">
                 <p class="lesson-label"><span>Ohjattu työ</span> Näin etenet</p>
                 <ol>
                   <li><strong>Korjaa vain estävät virheet.</strong> Aja niille uusintatestit ja lopeta, kun hyväksytty lista on tyhjä.</li>
                   <li><strong>Julkaise release.</strong> Lataa zipit GitHub-releaseen, kirjoita julkaisuteksti ja lisää kuvat.</li>
                   <li><strong>Testaa oikea lataus.</strong> Lataa julkaistu paketti itse ja asenna se puhtaaseen peliin ohjeen mukaan.</li>
+                  <li><strong>Anna ulkopuolisen asentaa.</strong> Yksi henkilö, joka ei ole tekijä, lataa v1.0:n release-sivulta ja asentaa sen pelkän ohjeen avulla. Kirjaa rooli, päivä ja havainnot.</li>
                 </ol>
                 <p class="checkpoint"><strong>Ennen kuin jatkat:</strong> henkilö, joka ei tunne projektia, pystyy lataamaan ja asentamaan version 1.0 ohjeen avulla.</p>
               </div>
-              <p class="evidence"><strong>Näytä:</strong> toimiva release-linkki, v1.0-tagi, asennusohje ja tunnetut puutteet.</p>
+              <p class="evidence"><strong>Näytä:</strong> toimiva release-linkki, v1.0-tagi, asennusohje, ulkopuolisen asennustestin kirjaus ja tunnetut puutteet.</p>
             </div>
           </details>
 
@@ -764,7 +769,7 @@
             <label><input type="checkbox" data-evidence="k1"><span><strong>Kehittämisympäristön käyttöönotto</strong> Blockbench, VS Code, sovittu Minecraft-versio ja paketin lataus peliin.</span></label>
             <label><input type="checkbox" data-evidence="k2"><span><strong>Kirjaston mahdollisuudet ja rajoitteet</strong> Viikon 45 kirjaus pakettijärjestelmän rajoituksista ja viikon 48 julkaisupäätökset tunnettuine puutteineen.</span></label>
             <label><input type="checkbox" data-evidence="k3"><span><strong>Kirjaston toiminnot ja työkalut</strong> Blockbenchin mallinnus, UV-editointi ja esikatselu committeina ja kuvina.</span></label>
-            <label><input type="checkbox" data-evidence="k4"><span><strong>Ulkoiset komponentit</strong> Paletit, äänet ja referenssit tuotuina; lähteet ja lisenssit kirjattu Asset-pack-suunnitelmaan tai README:hen.</span></label>
+            <label><input type="checkbox" data-evidence="k4"><span><strong>Ulkoiset komponentit</strong> Paletit, äänet ja referenssit tuotuina; lähteet ja lisenssit kirjattu CREDITS-tiedostoon.</span></label>
             <p class="matrix-group" role="heading" aria-level="4">Opiskelija toteuttaa ohjelmiston ohjelmistokomponenttikirjastolla</p>
             <label><input type="checkbox" data-evidence="k5"><span><strong>Suunnittelu, toteutus ja testaus kirjastolla</strong> Asset-pack-suunnitelman päätökset ja backlog, Assetit 1–7 committeina, testiloki T01–T12.</span></label>
             <label><input type="checkbox" data-evidence="k6"><span><strong>Julkaisu asiakkaan ympäristöön</strong> Julkinen GitHub-release, jonka toinen henkilö on asentanut peliinsä pelkän ohjeen avulla.</span></label>

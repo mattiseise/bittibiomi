@@ -59,22 +59,22 @@
       deliverable: "Tarvekartoitus, pelin valikossa näkyvä tyhjä resurssipaketti ja Git-repository.",
       why: "Jos avoimet asiat jäävät oletuksiksi, voit rakentaa väärän paketin. Varhainen pakettitesti varmistaa, että pack_format-arvo ja kansiorakenne toimivat ennen varsinaista asset-työtä.",
       done: "Ohjaajan vastaukset, avoimet asiat ja oletukset on eroteltu. Toinen henkilö löytää julkisen repositoryn README:stä projektin tavoitteen, ja tyhjä paketti näkyy pelin pakettivalikossa.",
-      record: "Kirjoita Vko 34 -merkintään keskustelun päivä, osallistujien roolit, 8 kysymystä vastauksineen, avoimet asiat, sovittu Minecraft-versio, ensimmäisen commitin tunniste ja kuva paketista pelin valikossa.",
+      record: "Kirjoita Vko 34 -merkintään keskustelun päivä, osallistujien roolit, 8 kysymystä vastauksineen, avoimet asiat, kahden tutkitun paketin havainnot ja oma kohdeyleisö, sovittu Minecraft-versio ja lisenssi, ensimmäisen commitin tunniste ja kuva paketista pelin valikossa.",
       skills: ["toimeksianto", "pakettirunko", "Git"],
       steps: [
-        ["Selvitä tarve", "Merkitse toimeksiannon pakolliset asiat, laadi vähintään 8 päätökseen johtavaa kysymystä ja kirjaa keskustelun vastaukset, avoimet asiat ja oletukset."],
+        ["Selvitä tarve", "Merkitse toimeksiannon pakolliset asiat, laadi vähintään 8 päätökseen johtavaa kysymystä ja kirjaa keskustelun vastaukset, avoimet asiat ja oletukset. Avaa lisäksi kaksi julkaistua teemapakettia Modrinthissa tai Planet Minecraftissa: kenelle ne on tehty, mitä ne sisältävät ja mitä sinun pakettisi tekee toisin? Tästä syntyy kuvaus omasta kohdeyleisöstä."],
         ["Tee pakettitesti", "Luo resourcepack-kansioon pack.mcmeta ja pack.png ja tarkista, että paketti näkyy pelin valikossa oikealla kuvauksella. Kirjaa sovittu Minecraft-versio ja pack_format."],
-        ["Perusta julkinen Git", "Lisää README, .gitignore ja kansiot resourcepack, datapack ja project-docs. Aseta repository julkiseksi heti alussa — paketti julkaistaan avoimena. Tee ensimmäinen commit ja push."]
+        ["Perusta julkinen Git", "Käy ensin läpi, mitä julkiseen repositoryyn ei laiteta: henkilötiedot, kotiosoite, koulun tunnisteet eikä muiden nimiä tai käyttäjänimiä kuvakaappauksissa. Git-historia on pysyvä. Sovi tekijänimi ohjaajan kanssa, ja alaikäisenä sovi julkisesta repositorystä myös huoltajan kanssa. Lisää sitten README, .gitignore ja kansiot resourcepack, datapack ja project-docs, aseta repository julkiseksi ja tee ensimmäinen commit."]
       ],
       help: {
         title: "Luo pakettirunko ja Git-repository",
-        tree: "teemapaketti/ (julkinen repository)\n├─ resourcepack/\n│  ├─ pack.mcmeta\n│  ├─ pack.png\n│  └─ assets/\n├─ datapack/           (täytetään viikolla 43)\n├─ project-docs/\n│  └─ projektipaivakirja.md\n├─ .gitignore\n├─ README.md\n└─ LICENSE             (lisätään kun lisenssi on sovittu)",
+        tree: "teemapaketti/ (julkinen repository)\n├─ resourcepack/\n│  ├─ pack.mcmeta\n│  ├─ pack.png\n│  └─ assets/\n├─ datapack/           (täytetään viikolla 43)\n├─ project-docs/\n│  └─ projektipaivakirja.md\n├─ .gitignore\n├─ README.md\n└─ LICENSE             (lisätään heti kun lisenssi on sovittu, vko 35)",
         actions: [
           "Luo repositoryn juureen kansiot resourcepack, datapack ja project-docs. Kansioiden nimet pienillä kirjaimilla ilman ääkkösiä.",
           "Kirjoita VS Codella resourcepack/pack.mcmeta. Kopioi rakenne alta ja vaihda description omaan teemaasi.",
           "Tee pack.png: 64×64 pikselin neliökuva paketin tunnukseksi. Piskelin export riittää.",
           "Avaa pelissä Options → Resource Packs → Open Pack Folder ja kopioi resourcepack-kansio sinne. Paketti näkyy valikossa ilman zippausta.",
-          "Luo GitHubiin tyhjä repository ja valitse näkyvyydeksi Public, lisää README ja .gitignore ja tee ensimmäinen commit. Varmista, että kaikki kolme kansiota näkyvät GitHubissa."
+          "Luo GitHubiin tyhjä repository ja valitse näkyvyydeksi Public — tarkista ennen ensimmäistä pushia, ettei mukana ole henkilötietoja. Lisää README ja .gitignore ja tee ensimmäinen commit. Varmista, että kaikki kolme kansiota näkyvät GitHubissa."
         ],
         code: "{\n  \"pack\": {\n    \"pack_format\": 34,\n    \"description\": \"Kotikylä – oma teemapaketti\"\n  }\n}\n\npack_format 34 vastaa Java-versiota 1.21.\nTarkista sovitun version arvo Minecraft Wikin\nsivulta Pack format ja kirjaa se README:hen.",
         test: "Sulje peli ja avaa se uudelleen. Paketti näkyy Resource Packs -valikossa omalla kuvalla ja kuvauksella, eikä peli näytä varoitusta väärästä versiosta.",
@@ -100,7 +100,7 @@
         ["Avaa koko toimeksianto", "#toimeksianto", false]
       ],
       steps: [
-        ["Täytä suunnitelma", "Täytä Asset-pack-suunnitelman omat päätökset tällä sivulla: teema ja kohdeyleisö omin sanoin, resoluutio, paletti ja P0-määrät perusteluineen. Kirjaa myös ohjaajan kanssa sovittu lisenssi ja lisää LICENSE-tiedosto repositoryyn heti, kun lisenssi on selvä. Lataa asset-pack-suunnitelma.md ja vie se project-docs-kansioon."],
+        ["Täytä suunnitelma", "Täytä Asset-pack-suunnitelman omat päätökset tällä sivulla: teema ja kohdeyleisö omin sanoin, resoluutio, paletti ja P0-määrät perusteluineen. Kirjaa myös ohjaajan kanssa sovittu lisenssi ja lisää LICENSE-tiedosto repositoryn juureen heti, kun lisenssi on selvä — viimeistään tällä viikolla. Lataa asset-pack-suunnitelma.md ja vie se project-docs-kansioon."],
         ["Tee pieni backlog", "Kirjoita jokainen P0-asset omaksi 0,5–1 päivän issueksi. Lisää prioriteetti ja havaittava valmis kun -ehto."],
         ["Kokoa moodboard", "Valitse väripaletti, kerää referenssikuvat ja piirrä kolme tekstuuriluonnosta paperille tai Piskeliin. Tallenna kuvat project-docs-kansioon."]
       ],
@@ -257,7 +257,7 @@
       type: "feature",
       feature: "Paketti saa äänen: oma tai uudelleenjulkaisun sallivalla lisenssillä hankittu ääni kuuluu pelissä.",
       excerpt: "Kaiken sisällön pitää olla itse tehtyä tai lisensoitu niin, että sen saa julkaista uudelleen.",
-      connection: "Tekstuurit ja mallit näkyvät — ääni tuo teeman tunnelman. Ääni lisätään omaan nimiavaruuteen eli paketin omaan nimettyyn lokeroon, jottei se sotke pelin omia ääniä.",
+      connection: "Tekstuurit ja mallit näkyvät — ääni tuo teeman tunnelman. Ääni lisätään omaan nimiavaruuteen eli paketin omaan nimettyyn lokeroon, jottei se sotke pelin omia ääniä. Huomaa lisenssin kaksi suuntaa: tässä kysymys on sisään tulevasta lisenssistä (saanko käyttää tätä ääntä?), kun taas viikolla 35 sovittu oma lisenssi on ulos menevä (mitä muut saavat tehdä paketillasi?).",
       deliverable: "Ogg-muotoinen ääni omassa nimiavaruudessa, sounds.json-määrittely ja kirjattu lisenssi.",
       why: "Äänen mukana opit kaksi julkaisun kannalta pakollista asiaa: tiedostomuodon vaatimukset ja lisenssikirjaukset. Avoimessa julkaisussa riittämätön lisenssi on julkaisueste, vaikka tekniikka toimisi.",
       done: "Oma ääni kuuluu pelissä /playsound-komennolla, tekstitys näkyy ja äänen lähde sekä lisenssi on kirjattu CREDITS-tiedostoon.",
@@ -296,11 +296,11 @@
       deliverable: "Testattu väliversio, katselmointimuistio ja yksi hyväksytty muutostehtävä.",
       why: "Palaute tarvitaan ennen viimeistelyä, jotta muutokselle jää aikaa. Testaajan alkuperäisen havainnon erottaminen omasta tulkinnastasi tekee päätöksestä luotettavan.",
       done: "Ohjaaja ja vertaistestaaja ovat pelanneet paketin kanssa. Muistiossa näkyvät alkuperäinen palaute, oma tulkinta, päätös, hyväksyjä ja yksi rajattu issue.",
-      record: "Kirjoita Vko 41 -merkintään väliversion tunniste, katselmoinnin päivä, osallistujien roolit, testaajien sanat, oma tulkinta ja linkki hyväksyttyyn muutostehtävään.",
+      record: "Kirjoita Vko 41 -merkintään väliversion tunniste, katselmoinnin päivä, osallistujien roolit, esittelyssä kertomasi kolme valintaa, testaajien sanat, oma tulkinta ja linkki hyväksyttyyn muutostehtävään.",
       skills: ["palautteen keruu", "katselmointi", "priorisointi"],
       steps: [
         ["Valmistele väliversio", "Kokoa resurssipaketista zip, jossa tähänastinen sisältö toimii: tekstuurit, nimet, mallit ja ääni. Asenna se itse puhtaaseen peliin ennen testaajia."],
-        ["Anna testaajien kokeilla", "Testaajat ovat ohjaaja ja yksi vertainen. Pyydä heitä pelaamaan vapaasti; älä neuvo heti — kirjaa alkuperäinen havainto ja kysy tarkentava kysymys."],
+        ["Anna testaajien kokeilla", "Testaajat ovat ohjaaja ja yksi vertainen. Pyydä heitä pelaamaan vapaasti; älä neuvo heti — kirjaa alkuperäinen havainto ja kysy tarkentava kysymys. Kun he ovat kokeilleet, käy 5–10 minuutissa läpi paketin sisältö ja kolme omaa valintaa perusteluineen."],
         ["Päätä yksi muutos", "Yhdistä palaute yhteen rajattuun issueen, arvioon ja hyväksymisehtoon. Päivitä backlog vasta päätöksen jälkeen."]
       ],
       help: {
@@ -433,15 +433,16 @@
       feature: "Paketti toimii kuten ennen, mutta rakenne on siisti ja jokainen tiedosto on lisenssiltään julkaisukelpoinen.",
       excerpt: "Kaiken sisällön pitää olla itse tehtyä tai lisensoitu niin, että sen saa julkaista uudelleen.",
       connection: "Avoimessa julkaisussa paketin avaa joku muu kuin sinä — ja lisenssi antaa hänelle luvan jatkaa työtä. Kansiorakenne, tiedostonimet ja README kertovat, mistä mikäkin löytyy; LICENSE ja CREDITS kertovat, mitä paketilla saa tehdä.",
-      deliverable: "Siistitty kansiorakenne, ihmisen tekemä katselmointi sekä LICENSE- ja CREDITS-tiedostot.",
+      deliverable: "Siistitty kansiorakenne, ihmisen tekemä katselmointi sekä tarkistetut LICENSE- ja CREDITS-tiedostot.",
       why: "Selkeä rakenne helpottaa virheiden löytämistä ja myöhempiä muutoksia. Ilman LICENSE-tiedostoa julkinen paketti ei ole avoin, vaikka koodi näkyisi kaikille: oletuksena kaikki oikeudet jäävät sinulle eikä kukaan saa käyttää työtäsi.",
-      done: "Sama testi menee läpi ennen siivousta ja sen jälkeen. Katselmointikommenttiin on vastattu, LICENSE on repositoryn juuressa ja CREDITS listaa jokaisen ulkopuolisen lähteen lisensseineen — tai toteaa, että kaikki on itse tehtyä.",
-      record: "Kirjoita Vko 46 -merkintään havaitut laatuhaitat, tehdyt siivoukset, katselmoijan rooli ja kommentti, valittu lisenssi perusteluineen sekä lisenssitarkistuksen tulos. Lisää siivouscommitin linkki.",
+      done: "Sama testi menee läpi ennen siivousta ja sen jälkeen. Katselmointikommenttiin on vastattu, LICENSE on repositoryn juuressa ja vastaa sovittua, ja CREDITS listaa jokaisen ulkopuolisen lähteen lisensseineen — tai toteaa, että kaikki on itse tehtyä. Katselmoija pystyy myös osoittamaan, mihin uusi tekstuuri lisättäisiin ja mistä lähdetiedostot kuten .bbmodel löytyvät: silloin toinen tekijä voi jatkaa työtä.",
+      record: "Kirjoita Vko 46 -merkintään havaitut laatuhaitat, tehdyt siivoukset, katselmoijan rooli ja kommentti sekä lisenssitarkistuksen tulos. Vastaa oman LICENSE-tiedostosi perusteella kahteen kysymykseen: saako toinen pelaaja julkaista muokatun version paketistasi, ja mitä hänen pitää tehdä? Kerro, mistä kohdasta lisenssitekstiä vastaus löytyy. Kirjaa myös, miten selitit katselmoijalle yhden oman ja yhden tekoälyavusteisen ratkaisun. Lisää siivouscommitin linkki.",
       skills: ["rakenteen laatu", "avoin lisenssi", "CREDITS"],
       steps: [
         ["Etsi kolme laatuhaittaa", "Tarkista epäselvät tiedostonimet, väärässä paikassa olevat tiedostot ja kuolleet viittaukset — esimerkiksi sounds.json-rivi, jonka tiedosto puuttuu."],
         ["Siisti toimintaa muuttamatta", "Tee yksi rajattu siivous kerrallaan ja aja paketin latautumistesti jokaisen jälkeen."],
-        ["Lisää LICENSE ja CREDITS", "Kirjoita sovittu lisenssi LICENSE-tiedostoksi repositoryn juureen. Käy sitten läpi jokainen tekstuuri, malli ja ääni: itse tehty vai lisensoitu? Kirjaa jokainen ulkopuolinen lähde CREDITS-tiedostoon lisenssin nimellä."]
+        ["Tarkista lisenssit", "Varmista, että LICENSE on repositoryn juuressa ja vastaa viikolla 35 sovittua. Käy sitten läpi jokainen tekstuuri, malli ja ääni: itse tehty vai lisensoitu? Täydennä CREDITS niin, että jokainen ulkopuolinen lähde on siinä lisenssin nimellä. Lue lopuksi oma LICENSE-teksti ja vastaa sen perusteella: saako toinen pelaaja julkaista muokatun version paketistasi, ja mitä hänen pitää tehdä?"],
+        ["Selitä ratkaisusi", "Käy paketti läpi katselmoijan kanssa ja selitä omin sanoin yksi oma ja yksi tekoälyavusteinen ratkaisu. Näytä samalla, mistä lähdetiedostot löytyvät ja mihin uusi tekstuuri lisättäisiin."]
       ],
       example: "Ennen: uusi_kansio2/temp.png. Jälkeen: assets/teema/textures/block/kylan_kivi.png — nimi kertoo sisällön.",
       notEnough: "Pelkkä tiedostojen siirtely ilman testiä tai lisenssitarkistus ”kaikki ok” ilman läpikäyntiä ei ole laatutyötä. Julkinen repository ilman LICENSE-tiedostoa ei ole avoin paketti."
@@ -472,12 +473,13 @@
       deliverable: "Julkinen GitHub-release v1.0: zip-paketit, asennusohje, LICENSE, CHANGELOG, kuvakaappaukset ja tunnettujen puutteiden lista.",
       why: "Lataajan pitää pystyä asentamaan paketti ilman sinua. Vain julkaistun latauksen testaaminen osoittaa, että zipit, ohje ja tiedostorakenne toimivat oikeassa ympäristössä.",
       done: "v1.0-tagin commit vastaa julkaistua versiota. Toinen henkilö lataa releasen ja asentaa paketin puhtaaseen peliin pelkän ohjeen avulla.",
-      record: "Kirjoita Vko 48 -merkintään ketju v1.0-tagi → commit → release-linkki. Lisää testattu peliversio, testaajan rooli, testitulos ja tunnetut puutteet. Jos julkaisit lisäksi Modrinthissa tai Planet Minecraftissa, kirjaa linkki ja se, mitä ehtoja palvelu vaati.",
+      record: "Kirjoita Vko 48 -merkintään ketju v1.0-tagi → commit → release-linkki. Lisää testattu peliversio, ulkopuolisen asentajan rooli ja päivä, testitulos ja tunnetut puutteet. Jos julkaisit lisäksi Modrinthissa tai Planet Minecraftissa, kirjaa linkki ja se, mitä ehtoja palvelu vaati.",
       skills: ["GitHub-release", "versiointi", "asennusohje"],
       steps: [
         ["Korjaa vain estävät virheet", "Aja viikon 47 korjauslistan uusintatestit ja lopeta, kun hyväksytty lista on tyhjä."],
         ["Julkaise release", "Tee v1.0-tagi, luo GitHub-release ja liitä zipit, julkaisuteksti ja kuvat. Kirjoita CHANGELOG, joka kertoo mitä v1.0 sisältää, ja varmista että LICENSE näkyy repositoryn etusivulla. Valinnainen bonus: Modrinth tai Planet Minecraft opettajan kanssa sovitusti."],
-        ["Testaa oikea lataus", "Lataa julkaistu release itse, asenna puhtaaseen peliin ohjeen mukaan ja korjaa ohjeen epäselvyydet."]
+        ["Testaa oikea lataus", "Lataa julkaistu release itse, asenna puhtaaseen peliin ohjeen mukaan ja korjaa ohjeen epäselvyydet."],
+        ["Anna ulkopuolisen asentaa", "Pyydä yksi henkilö, joka ei ole tekijä, lataamaan v1.0 release-sivulta ja asentamaan se pelkän ohjeen avulla. Kirjaa hänen roolinsa, päivä ja jokainen kohta, jossa hän epäröi — ne ovat ohjeen korjauslista."]
       ],
       help: {
         title: "Julkaise GitHub-release",
@@ -781,7 +783,7 @@
       ? `Minecraft-versio: ${String(planData.mcVersion).trim()} (sovittu ohjaajan kanssa${planFilled("mcAgreed") ? ` — ${String(planData.mcAgreed).trim()}` : ""})`
       : "Minecraft-versio: EI VIELÄ SOVITTU — avoin asia";
     const licenseLine = planFilled("license")
-      ? `Lisenssi: ${String(planData.license).trim()} — LICENSE-tiedosto lisätään repositoryyn viikolla 46`
+      ? `Lisenssi: ${String(planData.license).trim()} — LICENSE-tiedosto lisätään repositoryyn heti, viimeistään viikolla 35`
       : "Lisenssi: EI VIELÄ SOVITTU — avoin asia";
     return [
       `# Asset-pack-suunnitelma – ${planValue("name", "_(paketin nimi puuttuu)_")}`,
@@ -814,7 +816,7 @@
       "",
       `- ${versionLine}`,
       `- ${licenseLine}`,
-      "- Mitä oppilaitos sallii julkisessa julkaisemisessa: repositoryn näkyvyys, nimet ja jakelupalvelut? — kirjaa vastaus tai jätä avoimeksi",
+      "- Mitä oppilaitos sallii julkisessa julkaisemisessa: tekijänimi, kuvat ja jakelupalvelut? — kirjaa vastaus tai jätä avoimeksi",
       "- Julkaistaanko paketti myös Modrinthissa tai Planet Minecraftissa, ja kuka luo tilin? — kirjaa vastaus tai jätä avoimeksi",
       "- Kuka hyväksyy rajauksen ja väliversion? — kirjaa vastaus tai jätä avoimeksi",
       "",

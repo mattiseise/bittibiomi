@@ -91,6 +91,7 @@ tp.push(p("Paperinen työpaketti · ohjattu näyttöprojekti", { size: 28, align
 tp.push(p("Oma Minecraft-teemapaketti: tekstuurit, mallit, äänet ja skriptit", { size: 24, align: AlignmentType.CENTER, after: 400, color: "555555" }));
 tp.push(p("Viikot 34–49 · syysloma vko 42 · luovutus pe 4.12.2026", { size: 24, bold: true, align: AlignmentType.CENTER, after: 2000 }));
 tp.push(p("Tämä paketti on aikataulu ja tarkistuslista tilanteisiin, joissa sivusto ei ole auki. Projektipäiväkirja kirjoitetaan sivustolla ja viedään repositorion project-docs-kansioon. Rasti tässä vihossa ei ole palautus — työnäyte on aina Git-repositoryssa.", { size: 21, align: AlignmentType.CENTER, color: "555555" }));
+tp.push(p('Paketti julkaistaan avoimella lisenssillä ja repository on julkinen ensimmäisestä commitista. Älä laita julkiseen repositoryyn henkilötietoja, kotiosoitetta, koulun tunnisteita tai muiden nimiä — Git-historia on pysyvä. Sovi tekijänimi ohjaajan kanssa, ja alaikäisenä sovi julkisesta repositorystä myös huoltajan kanssa.', { size: 21, align: AlignmentType.CENTER, color: "555555", before: 200 }));
 tp.push(pageBreak());
 
 tp.push(h1("Aikataulu yhdellä aukeamalla"));
@@ -303,7 +304,8 @@ th { background: #e8f5e9; }
 .muted { color: #555; }
 .item { font-size: 9pt; margin: 2pt 0; }
 </style></head><body>`);
-H.push(`<div class="cover"><h1>BittiBiomi</h1><p style="font-size:14pt">Paperinen työpaketti · ohjattu näyttöprojekti</p><p>Oma Minecraft-teemapaketti: tekstuurit, mallit, äänet ja skriptit</p><p style="font-size:12pt"><strong>Viikot 34–49 · syysloma vko 42 · luovutus pe 4.12.2026</strong></p><p style="max-width:120mm;margin:18pt auto 0">Tämä paketti on aikataulu ja tarkistuslista tilanteisiin, joissa sivusto ei ole auki. Projektipäiväkirja kirjoitetaan sivustolla ja viedään repositorion project-docs-kansioon. Rasti tässä vihossa ei ole palautus — työnäyte on aina Git-repositoryssa.</p></div>`);
+H.push(`<div class="cover"><h1>BittiBiomi</h1><p style="font-size:14pt">Paperinen työpaketti · ohjattu näyttöprojekti</p><p>Oma Minecraft-teemapaketti: tekstuurit, mallit, äänet ja skriptit</p><p style="font-size:12pt"><strong>Viikot 34–49 · syysloma vko 42 · luovutus pe 4.12.2026</strong></p><p style="max-width:120mm;margin:18pt auto 0">Tämä paketti on aikataulu ja tarkistuslista tilanteisiin, joissa sivusto ei ole auki. Projektipäiväkirja kirjoitetaan sivustolla ja viedään repositorion project-docs-kansioon. Rasti tässä vihossa ei ole palautus — työnäyte on aina Git-repositoryssa.</p>
+<p style="max-width:120mm;margin:10pt auto 0">Paketti julkaistaan avoimella lisenssillä ja repository on julkinen ensimmäisestä commitista. Älä laita julkiseen repositoryyn henkilötietoja, kotiosoitetta, koulun tunnisteita tai muiden nimiä — Git-historia on pysyvä. Sovi tekijänimi ohjaajan kanssa, ja alaikäisenä sovi julkisesta repositorystä myös huoltajan kanssa.</p></div>`);
 H.push(`<h1>Aikataulu</h1><table><tr><th>Vko</th><th>Pvm</th><th>Viikon aihe</th><th>Vaihe</th></tr>`);
 for (const ph of PHASES) for (const wn of ph.weeks) {
   if (wn === 43) H.push(`<tr><td>42</td><td>12.–16.10.</td><td>Syysloma — ei projektityötä</td><td>—</td></tr>`);
