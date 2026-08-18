@@ -26,7 +26,7 @@
       skillsLabel: "Viikon tekniikka: arvioidaan näytössä"
     },
     katselmointi: {
-      kicker: "Katselmointi: asiakas kokeilee",
+      kicker: "Katselmointi: paketti testissä",
       connectionLabel: "Näin viikko vie pakettia eteenpäin:",
       deliverableLabel: "Tällä viikolla valmistuu",
       skillsLabel: "Viikon tekniikka: arvioidaan näytössä"
@@ -55,26 +55,26 @@
     34: {
       type: "pohjustus",
       feature: "Viikon jälkeen tiedät, millainen paketti tehdään ja kenelle. Tyhjä paketti näkyy pelin valikossa.",
-      connection: "Asset-työkierto alkaa asiakkaan tarpeesta: ennen yhtäkään pikseliä päätät, mitä teemaa paketti toteuttaa ja millä Minecraft-versiolla se toimii.",
+      connection: "Asset-työkierto alkaa toimeksiannosta: ennen yhtäkään pikseliä päätät, mitä teemaa paketti toteuttaa, kenelle se tehdään ja millä Minecraft-versiolla se toimii.",
       deliverable: "Tarvekartoitus, pelin valikossa näkyvä tyhjä resurssipaketti ja Git-repository.",
       why: "Jos avoimet asiat jäävät oletuksiksi, voit rakentaa väärän paketin. Varhainen pakettitesti varmistaa, että pack_format-arvo ja kansiorakenne toimivat ennen varsinaista asset-työtä.",
-      done: "Asiakkaan vastaukset, avoimet asiat ja oletukset on eroteltu. Toinen henkilö löytää repositoryn README:stä projektin tavoitteen, ja tyhjä paketti näkyy pelin pakettivalikossa.",
+      done: "Ohjaajan vastaukset, avoimet asiat ja oletukset on eroteltu. Toinen henkilö löytää julkisen repositoryn README:stä projektin tavoitteen, ja tyhjä paketti näkyy pelin pakettivalikossa.",
       record: "Kirjoita Vko 34 -merkintään keskustelun päivä, osallistujien roolit, 8 kysymystä vastauksineen, avoimet asiat, sovittu Minecraft-versio, ensimmäisen commitin tunniste ja kuva paketista pelin valikossa.",
-      skills: ["asiakastarve", "pakettirunko", "Git"],
+      skills: ["toimeksianto", "pakettirunko", "Git"],
       steps: [
-        ["Selvitä tarve", "Merkitse toimeksiannon pakolliset asiat, laadi vähintään 8 päätökseen johtavaa kysymystä ja kirjaa asiakaskeskustelun vastaukset, avoimet asiat ja oletukset."],
+        ["Selvitä tarve", "Merkitse toimeksiannon pakolliset asiat, laadi vähintään 8 päätökseen johtavaa kysymystä ja kirjaa keskustelun vastaukset, avoimet asiat ja oletukset."],
         ["Tee pakettitesti", "Luo resourcepack-kansioon pack.mcmeta ja pack.png ja tarkista, että paketti näkyy pelin valikossa oikealla kuvauksella. Kirjaa sovittu Minecraft-versio ja pack_format."],
-        ["Perusta Git", "Lisää README, .gitignore ja kansiot resourcepack, datapack ja project-docs. Tee ensimmäinen commit ja push."]
+        ["Perusta julkinen Git", "Lisää README, .gitignore ja kansiot resourcepack, datapack ja project-docs. Aseta repository julkiseksi heti alussa — paketti julkaistaan avoimena. Tee ensimmäinen commit ja push."]
       ],
       help: {
         title: "Luo pakettirunko ja Git-repository",
-        tree: "teemapaketti/ (repository)\n├─ resourcepack/\n│  ├─ pack.mcmeta\n│  ├─ pack.png\n│  └─ assets/\n├─ datapack/           (täytetään viikolla 43)\n├─ project-docs/\n│  └─ projektipaivakirja.md\n├─ .gitignore\n└─ README.md",
+        tree: "teemapaketti/ (julkinen repository)\n├─ resourcepack/\n│  ├─ pack.mcmeta\n│  ├─ pack.png\n│  └─ assets/\n├─ datapack/           (täytetään viikolla 43)\n├─ project-docs/\n│  └─ projektipaivakirja.md\n├─ .gitignore\n├─ README.md\n└─ LICENSE             (lisätään kun lisenssi on sovittu)",
         actions: [
           "Luo repositoryn juureen kansiot resourcepack, datapack ja project-docs. Kansioiden nimet pienillä kirjaimilla ilman ääkkösiä.",
           "Kirjoita VS Codella resourcepack/pack.mcmeta. Kopioi rakenne alta ja vaihda description omaan teemaasi.",
           "Tee pack.png: 64×64 pikselin neliökuva paketin tunnukseksi. Piskelin export riittää.",
           "Avaa pelissä Options → Resource Packs → Open Pack Folder ja kopioi resourcepack-kansio sinne. Paketti näkyy valikossa ilman zippausta.",
-          "Luo GitHubiin tyhjä repository, lisää README ja .gitignore ja tee ensimmäinen commit. Varmista, että kaikki kolme kansiota näkyvät GitHubissa."
+          "Luo GitHubiin tyhjä repository ja valitse näkyvyydeksi Public, lisää README ja .gitignore ja tee ensimmäinen commit. Varmista, että kaikki kolme kansiota näkyvät GitHubissa."
         ],
         code: "{\n  \"pack\": {\n    \"pack_format\": 34,\n    \"description\": \"Kotikylä – oma teemapaketti\"\n  }\n}\n\npack_format 34 vastaa Java-versiota 1.21.\nTarkista sovitun version arvo Minecraft Wikin\nsivulta Pack format ja kirjaa se README:hen.",
         test: "Sulje peli ja avaa se uudelleen. Paketti näkyy Resource Packs -valikossa omalla kuvalla ja kuvauksella, eikä peli näytä varoitusta väärästä versiosta.",
@@ -82,25 +82,25 @@
           ["Minecraft Wiki: Pack format -taulukko", "https://minecraft.wiki/w/Pack_format"]
         ]
       },
-      example: "Kysymys: Mikä Minecraft-versio kerholla on käytössä? Vastaus: [asiakkaan vastaus]. Päätös: versio ja pack_format kirjattu README:hen.",
-      notEnough: "Kahdeksan lähes samaa tekoälykysymystä tai itse keksityt asiakkaan vastaukset eivät osoita asiakastarpeen selvittämistä."
+      example: "Kysymys: Mikä Minecraft-versio ja millä avoimella lisenssillä paketti julkaistaan? Vastaus: [ohjaajan vastaus]. Päätös: versio, pack_format ja lisenssi kirjattu README:hen.",
+      notEnough: "Kahdeksan lähes samaa tekoälykysymystä tai itse keksityt vastaukset eivät osoita, että olet selvittänyt toimeksiannon."
     },
     35: {
       type: "pohjustus",
-      feature: "Viikon jälkeen paketti on paperilla: teema, väripaletti ja sisältölista tekojärjestyksessä. Asiakas on hyväksynyt rajauksen.",
-      excerpt: "Pakettiin kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
-      connection: "Nyt muutat toimeksiannon näkyväksi suunnitelmaksi: teema, paletti, sisältölista, tehtävät ja valmiin työn ehdot. Viikon 34 asiakasvastaukset ovat suunnitelman pohja.",
-      deliverable: "Hyväksytty pakollinen perusversio, pieni backlog, moodboard ja kolme tekstuuriluonnosta.",
+      feature: "Viikon jälkeen paketti on paperilla: teema, väripaletti, lisenssi ja sisältölista tekojärjestyksessä. Ohjaaja on hyväksynyt rajauksen.",
+      excerpt: "Siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
+      connection: "Nyt muutat toimeksiannon näkyväksi suunnitelmaksi: teema, paletti, sisältölista, tehtävät ja valmiin työn ehdot. Viikon 34 vastaukset ohjaajalta ovat suunnitelman pohja.",
+      deliverable: "Hyväksytty pakollinen perusversio, sovittu lisenssi, pieni backlog, moodboard ja kolme tekstuuriluonnosta.",
       why: "Rajaus estää pakettia kasvamasta liian suureksi. Kun jokaisella tehtävällä on selvä valmis kun -ehto, tiedät, mitä seuraavaksi tehdään ja milloin työ voidaan testata.",
       done: "Pakollinen perusversio on hyväksytty. Jokaisella P0-tehtävällä on 0,5–1 päivän arvio ja havaittava valmis kun -ehto. Moodboardissa näkyvät paletti ja referenssit.",
-      record: "Kirjoita Vko 35 -merkintään, mitkä Asset-pack-suunnitelman päätökset teit ja miksi, hyväksyjän rooli ja päivä sekä mitkä asiat jäivät asiakkaalle avoimiksi. Lisää linkit suunnitelmaan, backlogiin ja moodboardiin.",
+      record: "Kirjoita Vko 35 -merkintään, mitkä Asset-pack-suunnitelman päätökset teit ja miksi, hyväksyjän rooli ja päivä sekä mitkä asiat jäivät ohjaajalle avoimiksi. Lisää linkit suunnitelmaan, backlogiin ja moodboardiin.",
       skills: ["rajaus", "moodboard", "työn pilkkominen"],
       resources: [
         ["Täytä Asset-pack-suunnitelma tällä sivulla", "#gdd", false],
         ["Avaa koko toimeksianto", "#toimeksianto", false]
       ],
       steps: [
-        ["Täytä suunnitelma", "Täytä Asset-pack-suunnitelman omat päätökset tällä sivulla: teema ja kohde omin sanoin, resoluutio, paletti ja P0-määrät perusteluineen. Lataa asset-pack-suunnitelma.md ja vie se project-docs-kansioon."],
+        ["Täytä suunnitelma", "Täytä Asset-pack-suunnitelman omat päätökset tällä sivulla: teema ja kohdeyleisö omin sanoin, resoluutio, paletti ja P0-määrät perusteluineen. Kirjaa myös ohjaajan kanssa sovittu lisenssi ja lisää LICENSE-tiedosto repositoryyn heti, kun lisenssi on selvä. Lataa asset-pack-suunnitelma.md ja vie se project-docs-kansioon."],
         ["Tee pieni backlog", "Kirjoita jokainen P0-asset omaksi 0,5–1 päivän issueksi. Lisää prioriteetti ja havaittava valmis kun -ehto."],
         ["Kokoa moodboard", "Valitse väripaletti, kerää referenssikuvat ja piirrä kolme tekstuuriluonnosta paperille tai Piskeliin. Tallenna kuvat project-docs-kansioon."]
       ],
@@ -108,7 +108,7 @@
         title: "Tee issue, moodboard ja sisältölista",
         tree: "project-docs/evidence/week-35/\n├─ moodboard.png\n├─ paletti.png\n└─ luonnokset/\n   ├─ luonnos-1.png\n   ├─ luonnos-2.png\n   └─ luonnos-3.png",
         actions: [
-          "Kirjoita ensin projektipäiväkirjaan teema, kohde, rajaus ja pakollinen perusversio. Käytä asiakkaan vastauksia; älä keksi vastauksia avoimiin asioihin.",
+          "Kirjoita ensin projektipäiväkirjaan teema, kohdeyleisö, rajaus ja pakollinen perusversio. Käytä ohjaajan vastauksia; älä keksi vastauksia avoimiin asioihin.",
           "Avaa GitHubissa repository → Issues → New issue. Tee yksi issue jokaisesta P0-assetista. Kirjoita otsikko verbillä, esimerkiksi Piirrä kolme blokkitekstuuria.",
           "Lisää issueen työmääräarvio ja valmis kun -ehto, jonka toinen ihminen voi testata pelissä. Jaa yli päivän mittainen issue pienempiin osiin.",
           "Valitse paletti Lospecista tai rakenna oma 5–8 värin paletti. Sama paletti kaikkiin tekstuureihin — se pitää paketin yhtenäisenä.",
@@ -123,7 +123,7 @@
     36: {
       type: "feature",
       feature: "Pelin maailma näyttää ensimmäistä kertaa sinun teemaltasi: kolme omaa blokkitekstuuria on pelissä.",
-      excerpt: "Pakettiin kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
+      excerpt: "Siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
       connection: "Tämä on asset-työkierron ensimmäinen täysi kierros: luonnos, pikselityö, tiedosto oikeaan polkuun, paketti peliin ja testi. Sama kierto toistuu jokaisena asset-viikkona.",
       deliverable: "Kolme omaa 16×16-blokkitekstuuria pelissä, oikea kansiorakenne ja ensimmäiset testimerkinnät.",
       why: "Blokkitekstuuri on paketin perusyksikkö. Kun korvausperiaate ja kansiorakenne ovat hallussa, loput assetit ovat saman kaavan toistoa eri sisällöllä.",
@@ -159,7 +159,7 @@
     37: {
       type: "feature",
       feature: "Esineet saavat oman ilmeen ja teeman mukaiset suomenkieliset nimet.",
-      excerpt: "Pakettiin kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
+      excerpt: "Siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
       connection: "Viikolla 36 korvasit blokkitekstuurit — sama korvausperiaate pätee esineisiin, kansio vain vaihtuu. Uutena asiana kirjoitat ensimmäisen JSON-tiedoston: kielitiedoston, joka nimeää sisällön uudelleen.",
       deliverable: "Kolme esinetekstuuria, fi_fi.json-kielitiedosto ja testit myös rikkinäisellä JSONilla.",
       why: "Kielitiedosto on ensimmäinen tekstimuotoinen määrittely paketissasi. JSONin tarkkuus — pilkut, lainausmerkit, avaimet — on sama taito, jota reseptit ja saavutus vaativat viikolla 44.",
@@ -190,7 +190,7 @@
     38: {
       type: "feature",
       feature: "Pelissä on ensimmäinen oma 3D-malli — blokki, jota ei ole kenelläkään muulla.",
-      excerpt: "Pakettiin kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
+      excerpt: "Siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
       connection: "Tekstuuri muuttaa blokin pinnan; malli muuttaa sen muodon. Blockbenchissä rakennat kuutioista oman muodon ja korvaat sillä valitun blokin mallin — sama korvausperiaate kuin viikoilla 36 ja 37.",
       deliverable: "Blockbenchillä tehty ja teksturoitu blokkimalli, joka toimii pelissä maassa ja kädessä.",
       why: "3D-malli on paketin vaativin asset-tyyppi. Pieni onnistunut malli opettaa koordinaatiston, UV-teksturoinnin ja mallitiedoston rakenteen ennen viikon 39 isompaa työtä.",
@@ -225,7 +225,7 @@
     39: {
       type: "feature",
       feature: "Paketti saa näyttävimmän yksittäisen assetinsa: ison mallin tai hahmon uuden ilmeen.",
-      excerpt: "Pakettiin kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
+      excerpt: "Siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
       connection: "Viikon 38 pieni malli opetti työkalut. Nyt valitset kahdesta isommasta työstä perustellusti toisen: monimutkaisempi blokkimalli tai hahmon (mobin) uusi tekstuuri. Vertailu ja päätös ovat osa näyttöä.",
       deliverable: "Kahden vaihtoehdon vertailu, perusteltu päätös ja valmis toteutus pelissä.",
       why: "Vertailu osoittaa, ettet valinnut ratkaisua sattumalta. Työmäärän, näkyvyyden ja riskin punnitseminen ennen toteutusta on sama taito, jota käytät jokaisessa tulevassa projektissa.",
@@ -255,20 +255,20 @@
     },
     40: {
       type: "feature",
-      feature: "Paketti saa äänen: oma tai luvallisesti hankittu ääni kuuluu pelissä.",
-      excerpt: "Kaiken paketin sisällön pitää olla itse tehtyä tai luvallisesti lisensoitua.",
+      feature: "Paketti saa äänen: oma tai uudelleenjulkaisun sallivalla lisenssillä hankittu ääni kuuluu pelissä.",
+      excerpt: "Kaiken sisällön pitää olla itse tehtyä tai lisensoitu niin, että sen saa julkaista uudelleen.",
       connection: "Tekstuurit ja mallit näkyvät — ääni tuo teeman tunnelman. Ääni lisätään omaan nimiavaruuteen eli paketin omaan nimettyyn lokeroon, jottei se sotke pelin omia ääniä.",
       deliverable: "Ogg-muotoinen ääni omassa nimiavaruudessa, sounds.json-määrittely ja kirjattu lisenssi.",
-      why: "Äänen mukana opit kaksi julkaisun kannalta pakollista asiaa: tiedostomuodon vaatimukset ja lisenssikirjaukset. Ilman lupaa käytetty ääni on julkaisueste, vaikka tekniikka toimisi.",
-      done: "Oma ääni kuuluu pelissä /playsound-komennolla, tekstitys näkyy ja äänen lähde sekä lisenssi on kirjattu README:hen.",
-      record: "Kirjoita Vko 40 -merkintään äänen lähde, lisenssi, muunnosvaiheet ja /playsound-testin tulos. Lisää sounds.json-commit ja README-kirjauksen linkki.",
+      why: "Äänen mukana opit kaksi julkaisun kannalta pakollista asiaa: tiedostomuodon vaatimukset ja lisenssikirjaukset. Avoimessa julkaisussa riittämätön lisenssi on julkaisueste, vaikka tekniikka toimisi.",
+      done: "Oma ääni kuuluu pelissä /playsound-komennolla, tekstitys näkyy ja äänen lähde sekä lisenssi on kirjattu CREDITS-tiedostoon.",
+      record: "Kirjoita Vko 40 -merkintään äänen lähde, lisenssi ja se, salliiko lisenssi uudelleenjulkaisun, sekä muunnosvaiheet ja /playsound-testin tulos. Lisää sounds.json-commit ja CREDITS-kirjauksen linkki.",
       skills: ["äänet", "sounds.json", "lisenssit"],
       resources: [
         ["Freesound – CC-lisensoituja ääniä, tarkista lisenssi", "https://freesound.org/", false],
         ["Minecraft Wiki – sounds.json", "https://minecraft.wiki/w/Sounds.json", false]
       ],
       steps: [
-        ["Valitse lähde", "Äänitä itse puhelimella tai valitse vapaasti lisensoitu ääni. Kirjaa lähde ja lisenssi README:hen heti, älä jälkikäteen."],
+        ["Valitse lähde", "Äänitä itse puhelimella tai valitse ääni, jonka lisenssi sallii uudelleenjulkaisun (esimerkiksi CC0 tai CC BY). Kirjaa lähde ja lisenssi CREDITS-tiedostoon heti, älä jälkikäteen."],
         ["Muunna ja määrittele", "Muunna ääni ogg-muotoon (esimerkiksi Audacityllä) ja tallenna omaan nimiavaruuteen. Kirjoita sounds.json."],
         ["Testaa komennolla", "Soita ääni /playsound-komennolla, tarkista tekstitys ja säädä voimakkuus sopivaksi."]
       ],
@@ -276,7 +276,7 @@
         title: "Lisää oma ääni pakettiin",
         tree: "resourcepack/assets/teema/\n├─ sounds.json\n└─ sounds/\n   └─ kyla_kello.ogg\n\nKansio teema on oma nimiavaruutesi: vaihda siihen\noman pakettisi nimi pienillä kirjaimilla. Omat äänet\nlisätään omaan nimiavaruuteen — pelin ääniä ei korvata.",
         actions: [
-          "Äänitä lyhyt ääni puhelimella tai lataa CC-lisensoitu ääni. Tallenna lisenssitieto ennen kuin teet mitään muuta.",
+          "Äänitä lyhyt ääni puhelimella tai lataa CC-lisensoitu ääni. Tarkista, että lisenssi sallii uudelleenjulkaisun, ja tallenna lisenssitieto ennen kuin teet mitään muuta.",
           "Avaa ääni Audacityssä, leikkaa se enintään pariin sekuntiin ja vie ogg-muodossa (File → Export → OGG).",
           "Nimeä tiedosto pienillä kirjaimilla ilman ääkkösiä ja välilyöntejä, esimerkiksi kyla_kello.ogg.",
           "Kirjoita sounds.json oman nimiavaruuden juureen alla olevan mallin mukaan.",
@@ -286,21 +286,21 @@
         test: "Aja /playsound teema:kyla.kello master @s ja kytke tekstitykset päälle (Options → Accessibility). Ääni kuuluu ja tekstitys Kylän kello näkyy ruudun kulmassa."
       },
       example: "kyla_kello.ogg, oma äänitys 28.9. / sounds.json teema:kyla.kello / testattu /playsound-komennolla, tekstitys näkyy.",
-      notEnough: "Ääni ilman lähde- ja lisenssikirjausta on julkaisueste, vaikka se toimisi pelissä. Tekoälyllä tuotettu ääni käy vain opettajan luvalla ja AI-lokiin kirjattuna — sama sääntö kuin grafiikassa."
+      notEnough: "Ääni ilman lähde- ja lisenssikirjausta on julkaisueste, vaikka se toimisi pelissä. Lisenssi, joka kieltää uudelleenjulkaisun, ei kelpaa avoimeen pakettiin. Tekoälyllä tuotettu ääni käy vain opettajan luvalla ja AI-lokiin kirjattuna — sama sääntö kuin grafiikassa."
     },
     41: {
       type: "katselmointi",
-      feature: "Asiakas kokeilee pakettia ensimmäistä kertaa ja antaa palautteen. Yksi muutos sovitaan.",
+      feature: "Ensimmäiset testaajat kokeilevat pakettia ja antavat palautteen. Yksi muutos sovitaan.",
       excerpt: "Haluan nähdä paketista toimivan väliversion vähintään kerran ennen lopullista versiota, jotta voin pyytää muutoksia.",
-      connection: "Asiakas pelaa nyt oikealla paketilla. Sinä tarkkailet, mikä teemasta välittyy ja mikä jää huomaamatta — omalle työlle sokeutuu, ja juuri siksi katselmointi tehdään.",
-      deliverable: "Asiakkaan kokeilema väliversio, katselmointimuistio ja yksi hyväksytty muutostehtävä.",
-      why: "Palaute tarvitaan ennen viimeistelyä, jotta muutokselle jää aikaa. Asiakkaan alkuperäisen havainnon erottaminen omasta tulkinnastasi tekee päätöksestä luotettavan.",
-      done: "Asiakas on pelannut paketin kanssa. Muistiossa näkyvät alkuperäinen palaute, oma tulkinta, päätös, hyväksyjä ja yksi rajattu issue.",
-      record: "Kirjoita Vko 41 -merkintään väliversion tunniste, katselmoinnin päivä, osallistujien roolit, asiakkaan sanat, oma tulkinta ja linkki hyväksyttyyn muutostehtävään.",
-      skills: ["asiakasviestintä", "katselmointi", "priorisointi"],
+      connection: "Testaajat pelaavat nyt oikealla paketilla. Sinä tarkkailet, mikä teemasta välittyy ja mikä jää huomaamatta — omalle työlle sokeutuu, ja juuri siksi katselmointi tehdään.",
+      deliverable: "Testattu väliversio, katselmointimuistio ja yksi hyväksytty muutostehtävä.",
+      why: "Palaute tarvitaan ennen viimeistelyä, jotta muutokselle jää aikaa. Testaajan alkuperäisen havainnon erottaminen omasta tulkinnastasi tekee päätöksestä luotettavan.",
+      done: "Ohjaaja ja vertaistestaaja ovat pelanneet paketin kanssa. Muistiossa näkyvät alkuperäinen palaute, oma tulkinta, päätös, hyväksyjä ja yksi rajattu issue.",
+      record: "Kirjoita Vko 41 -merkintään väliversion tunniste, katselmoinnin päivä, osallistujien roolit, testaajien sanat, oma tulkinta ja linkki hyväksyttyyn muutostehtävään.",
+      skills: ["palautteen keruu", "katselmointi", "priorisointi"],
       steps: [
-        ["Valmistele väliversio", "Kokoa resurssipaketista zip, jossa tähänastinen sisältö toimii: tekstuurit, nimet, mallit ja ääni. Asenna se itse puhtaaseen peliin ennen asiakasta."],
-        ["Anna asiakkaan kokeilla", "Asiakasta esittää pelikerhon ohjaaja tai opettaja. Pyydä häntä pelaamaan vapaasti; älä neuvo heti — kirjaa alkuperäinen havainto ja kysy tarkentava kysymys."],
+        ["Valmistele väliversio", "Kokoa resurssipaketista zip, jossa tähänastinen sisältö toimii: tekstuurit, nimet, mallit ja ääni. Asenna se itse puhtaaseen peliin ennen testaajia."],
+        ["Anna testaajien kokeilla", "Testaajat ovat ohjaaja ja yksi vertainen. Pyydä heitä pelaamaan vapaasti; älä neuvo heti — kirjaa alkuperäinen havainto ja kysy tarkentava kysymys."],
         ["Päätä yksi muutos", "Yhdistä palaute yhteen rajattuun issueen, arvioon ja hyväksymisehtoon. Päivitä backlog vasta päätöksen jälkeen."]
       ],
       help: {
@@ -311,23 +311,23 @@
           "Tarkista zip avaamalla se: jos ensimmäinen taso on kansio eikä pack.mcmeta, peli ei tunnista pakettia.",
           "Kirjoita lyhyt asennusohje alla olevan pohjan mukaan ja tallenna se zipin viereen.",
           "Asenna väliversio itse puhtaaseen peliin pelkän oman ohjeesi avulla — korjaa ohje, jos jouduit poikkeamaan siitä.",
-          "Vasta sitten anna paketti asiakkaalle. Katselmoinnissa asiakas asentaa tai sinä asennat — kirjaa kumpi."
+          "Vasta sitten anna paketti testaajille. Katselmoinnissa testaaja asentaa itse tai sinä asennat — kirjaa kumpi."
         ],
         code: "ASENNUSOHJE-POHJA (viikon 41 väliversio)\n1. Lataa resurssipaketti-zip.\n2. Avaa pelissä Options → Resource Packs →\n   Open Pack Folder ja siirrä zip kansioon.\n3. Ota paketti käyttöön valikosta.\nVaatii Minecraft Java -version: [x.y.z]\n\nViikolla 47 ohjeeseen lisätään datapaketti:\nzip maailman kansioon .minecraft/saves/\n<maailma>/datapacks/ ja pelissä /reload.",
         test: "Anna ohje ja zipit henkilölle, joka ei ole nähnyt projektiasi. Hän saa paketin toimimaan ilman suullista apua — tai kirjaat kohdan, johon hän jumittui, ja korjaat ohjeen."
       },
       example: "Palaute: Lyhtyä ei erota tavallisesta. Päätös: kirkkaampi hehkutekstuuri / P0 / 2 h / hyväksytty 8.10.",
-      notEnough: "Itse tai tekoälyllä keksitty asiakaspalaute ei ole katselmointi. Tallenna asiakkaan alkuperäinen havainto erilleen omasta tulkinnastasi."
+      notEnough: "Itse tai tekoälyllä keksitty palaute ei ole katselmointi. Tallenna testaajan alkuperäinen havainto erilleen omasta tulkinnastasi."
     },
     43: {
       type: "feature",
-      feature: "Asiakkaan pyytämä muutos on pelissä, ja paketilla on nyt myös toimiva datapaketti.",
+      feature: "Palautteessa pyydetty muutos on pelissä, ja paketilla on nyt myös toimiva datapaketti.",
       excerpt: "Haluan nähdä paketista toimivan väliversion vähintään kerran ennen lopullista versiota, jotta voin pyytää muutoksia.",
       connection: "Palautemuutos tehdään omassa Git-haarassa, jotta toimiva main säilyy. Samalla viikolla paketti saa toisen puoliskonsa: datapaketin, jonka rakenne on sama kuin viikon 34 resurssipaketissa — vain pack_format-arvo ja kansiot eroavat.",
       deliverable: "Testattu palautemuutos mainissa ja datapaketin runko, jonka funktio toimii /reload- ja /function-komennoilla.",
       why: "Erillinen Git-haara pitää toimivan version turvassa ja näyttää, miten palaute muuttui tehtäväksi, toteutukseksi ja testiksi. Datapaketin runko avaa viikon 44 skriptityöt.",
       done: "Main sisältää testatun palautemuutoksen. Datapaketti latautuu /reload-komennolla ilman virheitä ja funktio vastaa /function-kutsuun.",
-      record: "Kirjoita Vko 43 -merkintään ketju: asiakaspalaute → issue → Git-haara → merge → testi. Lisää datapaketin ensimmäisen funktion commit ja /reload-testin tulos.",
+      record: "Kirjoita Vko 43 -merkintään ketju: palaute → issue → Git-haara → merge → testi. Lisää datapaketin ensimmäisen funktion commit ja /reload-testin tulos.",
       skills: ["issue", "feature-branch", "mcfunction"],
       steps: [
         ["Toteuta palautemuutos", "Kirjoita palaute issueksi hyväksymisehtoineen, tee muutos feature-branchissa ja yhdistä mainiin vasta testin jälkeen."],
@@ -358,7 +358,7 @@
     44: {
       type: "feature",
       feature: "Paketti saa pelillisen lisän: omat reseptit, saavutuksen ja palkintofunktion.",
-      excerpt: "Pakettiin halutaan myös pelillinen lisä: omia valmistusreseptejä, vähintään yksi saavutus ja komentoskripti, jotka toimivat tavallisessa selviytymismaailmassa ilman modeja.",
+      excerpt: "Pakettiin kuuluu myös pelillinen lisä: omia valmistusreseptejä, vähintään yksi saavutus ja komentoskripti, jotka toimivat tavallisessa selviytymismaailmassa ilman modeja.",
       connection: "Viikon 43 datapakettirunko saa nyt sisällön. Reseptit ja saavutus ovat JSON-tiedostoja — sama tarkkuus kuin viikon 37 kielitiedostossa — ja palkinto on mcfunction-skripti, jollaisia kirjoitit jo viikolla 43.",
       deliverable: "Kaksi omaa reseptiä, saavutus laukaisimineen ja palkintofunktio, testattuna selviytymistilassa.",
       why: "Tämä viikko on paketin skriptausosuuden ydin. Resepti, laukaisin ja funktio muodostavat ketjun, jossa data ohjaa pelin toimintaa — ilman riviäkään ohjelmointikieltä.",
@@ -397,7 +397,7 @@
     45: {
       type: "laatu",
       feature: "Paketti kestää käyttöä: asennus, sisältö ja virhetilanteet on testattu järjestelmällisesti.",
-      excerpt: "Paketin pitää latautua ilman virheilmoituksia kerhon sopimalla Minecraft-versiolla.",
+      excerpt: "Paketin pitää latautua ilman virheilmoituksia sillä Minecraft-versiolla, joka sovitaan projektin alussa.",
       connection: "Testaat koko paketin järjestelmällisesti: asennuksen, jokaisen asset-tyypin ja virhetilanteet. Sama kirjaamisen kaava kuin viikon 36 ensimmäisissä testeissä — nyt kattavuus ratkaisee.",
       deliverable: "Vähintään 12 testitapauksen testausmatriisi ja kolme täydellistä virheenkorjausketjua.",
       why: "Järjestelmällinen testaus näyttää, että paketti toimii myös rajoilla ja virhetilanteissa. Korjausketju todistaa, että osaat löytää syyn etkä vain peittää oiretta.",
@@ -430,35 +430,35 @@
     },
     46: {
       type: "laatu",
-      feature: "Paketti toimii kuten ennen, mutta rakenne on siisti ja jokainen tiedosto on luvallinen.",
-      excerpt: "Kaiken paketin sisällön pitää olla itse tehtyä tai luvallisesti lisensoitua.",
-      connection: "Julkaisussa paketin avaa joku muu kuin sinä. Kansiorakenne, tiedostonimet ja README kertovat hänelle, mistä mikäkin löytyy — ja käyttöoikeustarkistus varmistaa, että kaikki sisältö saa oikeasti liikkua eteenpäin.",
-      deliverable: "Siistitty kansiorakenne, ihmisen tekemä katselmointi ja kirjattu käyttöoikeustarkistus.",
-      why: "Selkeä rakenne helpottaa virheiden löytämistä ja myöhempiä muutoksia. Lisenssien tarkistus viimeistään nyt estää julkaisun kaatumisen viikolla 48.",
-      done: "Sama testi menee läpi ennen siivousta ja sen jälkeen. Katselmointikommenttiin on vastattu, ja README listaa jokaisen ulkopuolisen lähteen lisensseineen — tai toteaa, että kaikki on itse tehtyä.",
-      record: "Kirjoita Vko 46 -merkintään havaitut laatuhaitat, tehdyt siivoukset, katselmoijan rooli ja kommentti sekä käyttöoikeustarkistuksen tulos. Lisää siivouscommitin linkki.",
-      skills: ["rakenteen laatu", "nimiavaruus", "käyttöoikeudet"],
+      feature: "Paketti toimii kuten ennen, mutta rakenne on siisti ja jokainen tiedosto on lisenssiltään julkaisukelpoinen.",
+      excerpt: "Kaiken sisällön pitää olla itse tehtyä tai lisensoitu niin, että sen saa julkaista uudelleen.",
+      connection: "Avoimessa julkaisussa paketin avaa joku muu kuin sinä — ja lisenssi antaa hänelle luvan jatkaa työtä. Kansiorakenne, tiedostonimet ja README kertovat, mistä mikäkin löytyy; LICENSE ja CREDITS kertovat, mitä paketilla saa tehdä.",
+      deliverable: "Siistitty kansiorakenne, ihmisen tekemä katselmointi sekä LICENSE- ja CREDITS-tiedostot.",
+      why: "Selkeä rakenne helpottaa virheiden löytämistä ja myöhempiä muutoksia. Ilman LICENSE-tiedostoa julkinen paketti ei ole avoin, vaikka koodi näkyisi kaikille: oletuksena kaikki oikeudet jäävät sinulle eikä kukaan saa käyttää työtäsi.",
+      done: "Sama testi menee läpi ennen siivousta ja sen jälkeen. Katselmointikommenttiin on vastattu, LICENSE on repositoryn juuressa ja CREDITS listaa jokaisen ulkopuolisen lähteen lisensseineen — tai toteaa, että kaikki on itse tehtyä.",
+      record: "Kirjoita Vko 46 -merkintään havaitut laatuhaitat, tehdyt siivoukset, katselmoijan rooli ja kommentti, valittu lisenssi perusteluineen sekä lisenssitarkistuksen tulos. Lisää siivouscommitin linkki.",
+      skills: ["rakenteen laatu", "avoin lisenssi", "CREDITS"],
       steps: [
         ["Etsi kolme laatuhaittaa", "Tarkista epäselvät tiedostonimet, väärässä paikassa olevat tiedostot ja kuolleet viittaukset — esimerkiksi sounds.json-rivi, jonka tiedosto puuttuu."],
         ["Siisti toimintaa muuttamatta", "Tee yksi rajattu siivous kerrallaan ja aja paketin latautumistesti jokaisen jälkeen."],
-        ["Tarkista käyttöoikeudet", "Käy läpi jokainen tekstuuri, malli ja ääni: itse tehty vai lisensoitu? Kirjaa tulos README:hen."]
+        ["Lisää LICENSE ja CREDITS", "Kirjoita sovittu lisenssi LICENSE-tiedostoksi repositoryn juureen. Käy sitten läpi jokainen tekstuuri, malli ja ääni: itse tehty vai lisensoitu? Kirjaa jokainen ulkopuolinen lähde CREDITS-tiedostoon lisenssin nimellä."]
       ],
       example: "Ennen: uusi_kansio2/temp.png. Jälkeen: assets/teema/textures/block/kylan_kivi.png — nimi kertoo sisällön.",
-      notEnough: "Pelkkä tiedostojen siirtely ilman testiä tai käyttöoikeustarkistus ”kaikki ok” ilman läpikäyntiä ei ole laatutyötä."
+      notEnough: "Pelkkä tiedostojen siirtely ilman testiä tai lisenssitarkistus ”kaikki ok” ilman läpikäyntiä ei ole laatutyötä. Julkinen repository ilman LICENSE-tiedostoa ei ole avoin paketti."
     },
     47: {
       type: "julkaisu",
       feature: "Koko paketti on testikäytössä täsmälleen siinä muodossa, jossa se julkaistaan.",
-      excerpt: "Valmis paketti pitää julkaista niin, että kerholaiset voivat ladata ja asentaa sen itse kirjallisen ohjeen avulla.",
+      excerpt: "Valmis paketti julkaistaan niin, että kuka tahansa pelaaja löytää sen, lataa ja asentaa kirjallisen ohjeen avulla.",
       connection: "Release candidate 1 eli RC1 on paketin ensimmäinen julkaisuehdokas: zipit ja asennusohje testataan sellaisina kuin ne aiotaan julkaista. Asennusohje on yhtä tärkeä testattava kuin paketti itse.",
       deliverable: "Jäädytetty RC1 (zipit + asennusohje), kahden henkilön testipalaute ja päätetty julkaisun korjauslista.",
       why: "Sisältöjäädytys estää uusia muutoksia rikkomasta lähes valmista pakettia. Palautteen luokittelu kohdistaa ajan vain julkaisuun vaikuttaviin virheisiin.",
-      done: "RC1 on sidottu yhteen committiin. Asiakas ja toinen käyttäjä ovat asentaneet paketin pelkän ohjeen avulla, ja jokaisella havainnolla on vakavuus, toistettavuus ja päätös.",
+      done: "RC1 on sidottu yhteen committiin. Ohjaaja ja toinen käyttäjä ovat asentaneet paketin pelkän ohjeen avulla, ja jokaisella havainnolla on vakavuus, toistettavuus ja päätös.",
       record: "Kirjoita Vko 47 -merkintään RC1:n commit, testaajien roolit, heidän havaintonsa ja päätökset: korjataan nyt, tunnettu puute tai myöhemmin. Kirjaa erikseen, onnistuiko asennus pelkällä ohjeella.",
       skills: ["release candidate", "palautteen luokittelu", "julkaisupäätös"],
       steps: [
         ["Nimeä RC1", "Kokoa molemmat zipit yhdestä main-commitista ja päivitä asennusohje (zip-sääntö ja ohjepohja: viikon 41 toteutusapu). Lopeta uuden sisällön lisääminen."],
-        ["Anna kahden ihmisen testata", "Asiakas (pelikerhon ohjaaja tai opettaja) ja toinen käyttäjä asentavat paketin itse ohjeen avulla ja käyvät koko sisällön läpi. Jos toista käyttäjää ei löydy omasta ryhmästä, testaaja voi olla toisen ryhmän opiskelija tai toinen ohjaaja."],
+        ["Anna kahden ihmisen testata", "Ohjaaja ja toinen käyttäjä asentavat paketin itse ohjeen avulla ja käyvät koko sisällön läpi. Jos toista käyttäjää ei löydy omasta ryhmästä, testaaja voi olla toisen ryhmän opiskelija tai toinen ohjaaja."],
         ["Tee julkaisupäätökset", "Kirjaa jokaiselle havainnolle vakavuus, toistettavuus ja päätös: korjataan, tunnettu puute tai myöhemmin."]
       ],
       example: "Lyhdyn hehku ei näy yöllä / vakava / toistuu aina / korjataan ennen julkaisua / testi T47-03.",
@@ -466,17 +466,17 @@
     },
     48: {
       type: "julkaisu",
-      feature: "Paketti on julkaistu. Kerholainen lataa ja asentaa sen itse ohjeen avulla.",
-      excerpt: "Valmis paketti pitää julkaista niin, että kerholaiset voivat ladata ja asentaa sen itse kirjallisen ohjeen avulla.",
+      feature: "Paketti on julkaistu avoimella lisenssillä. Kuka tahansa lataa ja asentaa sen itse ohjeen avulla.",
+      excerpt: "Valmis paketti julkaistaan niin, että kuka tahansa pelaaja löytää sen, lataa ja asentaa kirjallisen ohjeen avulla.",
       connection: "Paketti siirtyy nyt omalta koneelta GitHub-releaseen eli repositoryn viralliseen julkaisuun. Testaat julkaistua latausta, et omaa työkansiota.",
-      deliverable: "GitHub-release v1.0: zip-paketit, asennusohje, kuvakaappaukset ja tunnettujen puutteiden lista.",
-      why: "Asiakkaan pitää pystyä asentamaan paketti ilman sinua. Vain julkaistun latauksen testaaminen osoittaa, että zipit, ohje ja tiedostorakenne toimivat oikeassa ympäristössä.",
+      deliverable: "Julkinen GitHub-release v1.0: zip-paketit, asennusohje, LICENSE, CHANGELOG, kuvakaappaukset ja tunnettujen puutteiden lista.",
+      why: "Lataajan pitää pystyä asentamaan paketti ilman sinua. Vain julkaistun latauksen testaaminen osoittaa, että zipit, ohje ja tiedostorakenne toimivat oikeassa ympäristössä.",
       done: "v1.0-tagin commit vastaa julkaistua versiota. Toinen henkilö lataa releasen ja asentaa paketin puhtaaseen peliin pelkän ohjeen avulla.",
       record: "Kirjoita Vko 48 -merkintään ketju v1.0-tagi → commit → release-linkki. Lisää testattu peliversio, testaajan rooli, testitulos ja tunnetut puutteet. Jos julkaisit lisäksi Modrinthissa tai Planet Minecraftissa, kirjaa linkki ja se, mitä ehtoja palvelu vaati.",
       skills: ["GitHub-release", "versiointi", "asennusohje"],
       steps: [
         ["Korjaa vain estävät virheet", "Aja viikon 47 korjauslistan uusintatestit ja lopeta, kun hyväksytty lista on tyhjä."],
-        ["Julkaise release", "Tee v1.0-tagi, luo GitHub-release ja liitä zipit, julkaisuteksti ja kuvat. Valinnainen bonus: Modrinth tai Planet Minecraft opettajan kanssa sovitusti."],
+        ["Julkaise release", "Tee v1.0-tagi, luo GitHub-release ja liitä zipit, julkaisuteksti ja kuvat. Kirjoita CHANGELOG, joka kertoo mitä v1.0 sisältää, ja varmista että LICENSE näkyy repositoryn etusivulla. Valinnainen bonus: Modrinth tai Planet Minecraft opettajan kanssa sovitusti."],
         ["Testaa oikea lataus", "Lataa julkaistu release itse, asenna puhtaaseen peliin ohjeen mukaan ja korjaa ohjeen epäselvyydet."]
       ],
       help: {
@@ -485,24 +485,24 @@
         actions: [
           "Tee zipit: avaa resourcepack-kansio, valitse sen sisältö (pack.mcmeta, pack.png, assets) ja pakkaa. Toista datapack-kansiolle.",
           "Tarkista zip avaamalla se: jos ensimmäinen taso on kansio eikä pack.mcmeta, peli ei tunnista pakettia.",
-          "Luo GitHubissa Releases → Draft a new release → tag v1.0. Liitä molemmat zipit ja kirjoita julkaisuteksti: mitä paketti sisältää, mille versiolle, miten asennetaan.",
-          "Lisää 2–4 kuvakaappausta pelistä releaseen tai README:hen — kerholainen päättää kuvien perusteella, lataako paketin.",
+          "Luo GitHubissa Releases → Draft a new release → tag v1.0. Liitä molemmat zipit ja kirjoita julkaisuteksti: mitä paketti sisältää, mille versiolle, miten asennetaan ja millä lisenssillä paketti julkaistaan.",
+          "Lisää 2–4 kuvakaappausta pelistä releaseen tai README:hen — lataaja päättää kuvien perusteella, ottaako paketin käyttöön.",
           "Lataa julkaistu release itse toisella koneella tai puhtaalla pelillä ja asenna pelkän ohjeen avulla."
         ],
-        code: "JULKAISUN TARKISTUSLISTA\n[ ] pack.mcmeta on zipin juuressa\n[ ] resurssi- ja datapaketti omina zippeinä\n[ ] v1.0-tagi vastaa julkaistua committia\n[ ] julkaisuteksti: sisältö, peliversio, asennus\n[ ] README: tunnetut puutteet ja lisenssit\n[ ] lataus testattu puhtaaseen peliin ohjeella",
+        code: "JULKAISUN TARKISTUSLISTA\n[ ] pack.mcmeta on zipin juuressa\n[ ] resurssi- ja datapaketti omina zippeinä\n[ ] v1.0-tagi vastaa julkaistua committia\n[ ] julkaisuteksti: sisältö, peliversio, asennus, lisenssi\n[ ] LICENSE ja CREDITS repositoryn juuressa\n[ ] CHANGELOG kertoo mitä v1.0 sisältää\n[ ] README: tunnetut puutteet ja lisenssi\n[ ] lataus testattu puhtaaseen peliin ohjeella",
         test: "Lataa release yksityisen selainikkunan kautta ja asenna ohjeen mukaan puhtaaseen peliin. Jos joudut poikkeamaan ohjeesta yhdessäkin kohdassa, korjaa ohje ja testaa uudelleen.",
         links: [
           ["GitHub: Releasen luominen", "https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository"],
           ["Minecraft Wiki: Pack format", "https://minecraft.wiki/w/Pack_format"]
         ]
       },
-      example: "README: Lataa zipit → siirrä resourcepacks- ja datapacks-kansioihin → ota käyttöön. Testattu 1.21 / v1.0 / tunnettu puute: [asia].",
-      notEnough: "”Toimii omalla koneella” ei osoita, että kerholainen pystyy asentamaan julkaistun paketin ohjeen avulla."
+      example: "README: Lataa zipit → siirrä resourcepacks- ja datapacks-kansioihin → ota käyttöön. Testattu 1.21 / v1.0 / lisenssi CC BY 4.0 / tunnettu puute: [asia].",
+      notEnough: "”Toimii omalla koneella” ei osoita, että ulkopuolinen lataaja pystyy asentamaan julkaistun paketin ohjeen avulla."
     },
     49: {
       type: "naytto",
       feature: "Paketti, repository ja projektipäiväkirja todistavat osaamisesi ilman suullista selitystä.",
-      excerpt: "Valmis paketti pitää julkaista niin, että kerholaiset voivat ladata ja asentaa sen itse kirjallisen ohjeen avulla.",
+      excerpt: "Valmis paketti julkaistaan niin, että kuka tahansa pelaaja löytää sen, lataa ja asentaa kirjallisen ohjeen avulla.",
       connection: "Pakettiin ei enää lisätä sisältöä. Yhdistät jokaisen vaatimuksen täsmälliseen tiedostoon, testiin, releaseen ja Gitin työnäytteeseen.",
       deliverable: "Valmis projektipäiväkirja, näyttömatriisi, itsearviointi, jäädytetty v1.0 ja harjoiteltu demo.",
       why: "Arvioija voi arvioida vain näkyvän ja löydettävän osaamisen. Täsmälliset linkit säästävät aikaa ja osoittavat, miten vaatimus muuttui suunnitelmaksi, toteutukseksi ja testiksi.",
@@ -778,8 +778,11 @@
 
   function planMarkdown() {
     const versionLine = planFilled("mcVersion")
-      ? `Minecraft-versio: ${String(planData.mcVersion).trim()} (sovittu asiakkaan kanssa${planFilled("mcAgreed") ? ` — ${String(planData.mcAgreed).trim()}` : ""})`
+      ? `Minecraft-versio: ${String(planData.mcVersion).trim()} (sovittu ohjaajan kanssa${planFilled("mcAgreed") ? ` — ${String(planData.mcAgreed).trim()}` : ""})`
       : "Minecraft-versio: EI VIELÄ SOVITTU — avoin asia";
+    const licenseLine = planFilled("license")
+      ? `Lisenssi: ${String(planData.license).trim()} — LICENSE-tiedosto lisätään repositoryyn viikolla 46`
+      : "Lisenssi: EI VIELÄ SOVITTU — avoin asia";
     return [
       `# Asset-pack-suunnitelma – ${planValue("name", "_(paketin nimi puuttuu)_")}`,
       "",
@@ -787,7 +790,7 @@
       "",
       "## 1. Konsepti",
       "",
-      "Yhtenäinen teemapaketti pelikerhon Minecraft Java -maailmaan: resurssipaketti muuttaa pelin ilmettä ja datapaketti lisää reseptit, saavutuksen ja funktiot.",
+      "Avoimella lisenssillä julkaistava teemapaketti Minecraft Java Editioniin: resurssipaketti muuttaa pelin ilmettä ja datapaketti lisää reseptit, saavutuksen ja funktiot.",
       "",
       "## 2. Teema ja kohde omin sanoin",
       "",
@@ -807,11 +810,12 @@
       "",
       planValue("reasoning"),
       "",
-      "## 5. Asiakkaan kanssa sovittavat asiat",
+      "## 5. Ohjaajan kanssa sovittavat asiat",
       "",
       `- ${versionLine}`,
-      "- Mitkä blokit, esineet ja äänet ovat kerholle tärkeimmät? — kirjaa vastaus tai jätä avoimeksi",
-      "- Korvataanko pelin omia ääniä vai lisätäänkö vain uusia? — kirjaa vastaus tai jätä avoimeksi",
+      `- ${licenseLine}`,
+      "- Mitä oppilaitos sallii julkisessa julkaisemisessa: repositoryn näkyvyys, nimet ja jakelupalvelut? — kirjaa vastaus tai jätä avoimeksi",
+      "- Julkaistaanko paketti myös Modrinthissa tai Planet Minecraftissa, ja kuka luo tilin? — kirjaa vastaus tai jätä avoimeksi",
       "- Kuka hyväksyy rajauksen ja väliversion? — kirjaa vastaus tai jätä avoimeksi",
       "",
       "## 6. Assetit tekojärjestyksessä",
@@ -828,7 +832,7 @@
       "",
       "## 7. Teknologia",
       "",
-      "Minecraft Java Edition, resurssipaketti + datapaketti, Blockbench ja Piskel, skriptaus mcfunction-komennoilla ja JSONilla, julkaisu GitHub-releasena.",
+      "Minecraft Java Edition, resurssipaketti + datapaketti, Blockbench ja Piskel, skriptaus mcfunction-komennoilla ja JSONilla, julkaisu julkisena GitHub-releasena avoimella lisenssillä.",
       "",
       "## 8. Rajaus – mitä ei tehdä",
       "",
@@ -836,7 +840,7 @@
       "",
       "---",
       "",
-      "Tallenna tämä tiedosto polkuun `project-docs/asset-pack-suunnitelma.md` ja tee commit. Päivitä tiedostoa, kun asiakas vastaa avoimiin asioihin.",
+      "Tallenna tämä tiedosto polkuun `project-docs/asset-pack-suunnitelma.md` ja tee commit. Päivitä tiedostoa, kun ohjaaja vastaa avoimiin asioihin.",
       ""
     ].join("\n");
   }
@@ -875,7 +879,7 @@
       38: "Ensimmäinen malli",
       39: "Isompi malli tai ilme",
       40: "Äänet ja tunnelma",
-      41: "Asiakas kokeilee",
+      41: "Ensimmäiset testaajat",
       42: "Syysloma",
       43: "Palautemuutos + datapaketti",
       44: "Skriptattu ominaisuus",

@@ -208,11 +208,11 @@ dp.push(pageBreak());
 
 dp.push(h1("3 · Katselmointiloki (vkot 41 ja 47)"));
 const kRows = [
-  ["Päivä ja versio (commit)", ""], ["Osallistujat ja roolit", ""], ["Asiakkaan alkuperäinen havainto (hänen sanoillaan)", ""],
+  ["Päivä ja versio (commit)", ""], ["Osallistujat ja roolit", ""], ["Testaajan alkuperäinen havainto (hänen sanoillaan)", ""],
   ["Oma tulkinta", ""], ["Päätös ja hyväksyjä", ""], ["Sovittu muutos (issue + arvio + valmis kun -ehto)", ""],
 ].map(([k]) => new TableRow({ children: [cell(k, { w: 3400, bold: true, fill: "F1F8E9" }), cell("", { w: 6238 })] }));
 dp.push(table([3400, 6238], kRows));
-dp.push(p("Asiakasta esittää pelikerhon ohjaaja tai opettaja. Erota aina asiakkaan sanat omasta tulkinnastasi.", { before: 120, italics: true, color: "555555" }));
+dp.push(p("Testaajat ovat ohjaaja ja vertaistestaaja. Erota aina testaajan sanat omasta tulkinnastasi.", { before: 120, italics: true, color: "555555" }));
 dp.push(pageBreak());
 
 dp.push(h1("4 · Testimatriisi (vko 45)"));
@@ -239,7 +239,19 @@ dp.push(h1("5 · Virheenkorjausketju (vko 45, 3 kpl)"));
 });
 dp.push(pageBreak());
 
-dp.push(h1("6 · AI-lokin paperiversio"));
+dp.push(h1("6 · Lisenssi- ja CREDITS-kirjaus (vko 46)"));
+dp.push(p("Paketin oma lisenssi: ____________________  ·  sovittu ohjaajan kanssa (pvm): ____________", { after: 160 }));
+const cRows = [new TableRow({ tableHeader: true, children: [
+  cell("Tiedosto tai asset", { w: 3000, bold: true, fill: "E8F5E9" }),
+  cell("Lähde: itse tehty vai mistä?", { w: 3400, bold: true, fill: "E8F5E9" }),
+  cell("Lisenssi ja salliiko uudelleenjulkaisun", { w: 3238, bold: true, fill: "E8F5E9" }),
+]})];
+for (let i = 0; i < 8; i++) cRows.push(new TableRow({ children: [cell("", { w: 3000 }), cell("", { w: 3400 }), cell("", { w: 3238 })] }));
+dp.push(table([3000, 3400, 3238], cRows));
+dp.push(p("Siirrä tämän taulukon sisältö CREDITS-tiedostoon repositoryyn. Jos kaikki on itse tehtyä, kirjaa se yhdellä rivillä.", { before: 120, italics: true, color: "555555" }));
+dp.push(pageBreak());
+
+dp.push(h1("7 · AI-lokin paperiversio"));
 dp.push(p("Sivuston AI-loki on ensisijainen. Käytä tätä, jos kirjaat merkinnän ilman selainta — siirrä se sivustolle saman päivän aikana.", { color: "555555" }));
 const aRows = [new TableRow({ tableHeader: true, children: [
   cell("Päivä ja työkalu", { w: 1900, bold: true, fill: "E8F5E9" }),

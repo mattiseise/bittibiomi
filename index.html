@@ -61,7 +61,7 @@
         <div class="hero-copy reveal">
           <p class="eyebrow eyebrow-accent">Näyttöprojekti · 17.8.–4.12.2026</p>
           <h1 id="hero-title">Tee paketti.<br><em>Näytä osaamisesi.</em></h1>
-          <p class="lead">Teet oman teemapaketin Minecraft Java Editioniin asset kerrallaan. Asset on pelissä näkyvä tai kuuluva paketin osa: tekstuuri, 3D-malli, ääni tai skriptattu lisä. Järjestys: blokkitekstuurit, esineet ja nimet, Blockbench-mallit, äänet, reseptit ja funktiot. Jokaisen assetin tekniikka arvioidaan näytössä. Projektipäiväkirja kirjoitetaan tälle sivulle.</p>
+          <p class="lead">Teet oman teemapaketin Minecraft Java Editioniin asset kerrallaan ja julkaiset sen avoimella lisenssillä kaikkien ladattavaksi. Asset on pelissä näkyvä tai kuuluva paketin osa: tekstuuri, 3D-malli, ääni tai skriptattu lisä. Järjestys: blokkitekstuurit, esineet ja nimet, Blockbench-mallit, äänet, reseptit ja funktiot. Jokaisen assetin tekniikka arvioidaan näytössä. Projektipäiväkirja kirjoitetaan tälle sivulle.</p>
           <div class="hero-actions">
             <button class="button button-primary" type="button" data-continue>Aloita paketin rakentaminen</button>
             <a class="button button-secondary" href="downloads/bittibiomi-tyopaketti.pdf" download>Lataa paperinen aikataulu</a>
@@ -120,13 +120,13 @@
 
       <section class="project-brief section-pad reveal" id="toimeksianto" aria-labelledby="brief-title">
         <div class="brief-main">
-          <p class="eyebrow">Alkuperäinen asiakastoimeksianto · annettu 17.8.2026</p>
-          <h2 id="brief-title">Pelikerhon teemapaketti</h2>
+          <p class="eyebrow">Alkuperäinen toimeksianto · annettu 17.8.2026</p>
+          <h2 id="brief-title">Avoin teemapaketti</h2>
           <div class="full-assignment">
-            <p>Koulun pelikerho haluaa yhteiseen Minecraft Java -maailmaansa oman teemapaketin, joka muuttaa pelin ilmettä valitun teeman mukaiseksi. Pakettiin kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.</p>
-            <p>Pakettiin halutaan myös pelillinen lisä: omia valmistusreseptejä, vähintään yksi saavutus ja komentoskripti, jotka toimivat tavallisessa selviytymismaailmassa ilman modeja. Paketin pitää latautua ilman virheilmoituksia kerhon sopimalla Minecraft-versiolla.</p>
-            <p>Kaiken paketin sisällön pitää olla itse tehtyä tai luvallisesti lisensoitua. Haluan nähdä paketista toimivan väliversion vähintään kerran ennen lopullista versiota, jotta voin pyytää muutoksia.</p>
-            <p>Valmis paketti pitää julkaista niin, että kerholaiset voivat ladata ja asentaa sen itse kirjallisen ohjeen avulla.</p>
+            <p>Tee oma teemapaketti Minecraft Java Editioniin ja julkaise se avoimena lähdekoodina. Paketti muuttaa pelin ilmettä valitun teeman mukaiseksi: siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.</p>
+            <p>Pakettiin kuuluu myös pelillinen lisä: omia valmistusreseptejä, vähintään yksi saavutus ja komentoskripti, jotka toimivat tavallisessa selviytymismaailmassa ilman modeja. Paketin pitää latautua ilman virheilmoituksia sillä Minecraft-versiolla, joka sovitaan projektin alussa.</p>
+            <p>Kaiken sisällön pitää olla itse tehtyä tai lisensoitu niin, että sen saa julkaista uudelleen. Paketille valitaan avoin lisenssi, ja repository on julkinen ensimmäisestä commitista asti. Haluan nähdä paketista toimivan väliversion vähintään kerran ennen lopullista versiota, jotta voin pyytää muutoksia.</p>
+            <p>Valmis paketti julkaistaan niin, että kuka tahansa pelaaja löytää sen, lataa ja asentaa kirjallisen ohjeen avulla — ja niin, että toinen tekijä voi lisenssin puitteissa jatkaa työtä siitä eteenpäin.</p>
           </div>
         </div>
         <div class="brief-aside">
@@ -138,23 +138,24 @@
               <li>reseptit, funktiot ja saavutus <code>datapack</code>-kansioon</li>
               <li>skriptaus mcfunction-komennoilla ja JSONilla — ei ohjelmointikieltä</li>
               <li>P0 eli pakollinen perusversio: 8 tekstuuria, 2 mallia, omat nimet, 2 reseptiä, 1 funktio ja 1 saavutus</li>
-              <li>lopuksi julkaisu GitHub-releasena (zip-paketit + asennusohje)</li>
+              <li>lopuksi julkinen GitHub-release: zip-paketit, LICENSE ja asennusohje</li>
             </ul>
-            <p>Käytä pelikerhon sopimaa Minecraft Java -versiota koko projektin ajan. Version vaihto kesken projektin muuttaa pack_format-arvoja.</p>
+            <p>Käytä projektin alussa sovittua Minecraft Java -versiota koko projektin ajan. Version vaihto kesken projektin muuttaa pack_format-arvoja.</p>
           </div>
           <div class="scope-box">
             <p class="eyebrow">Pidä rajaus</p>
             <p><strong>Tee ensin toimiva P0-versio.</strong> Modit (Forge/Fabric), palvelinpluginit, uudet pelimekaniikat ja maksullinen sisältö eivät kuulu tähän projektiin.</p>
           </div>
           <div class="decision-box">
-            <p class="eyebrow">Sovi asiakkaan kanssa</p>
+            <p class="eyebrow">Sovi ohjaajan kanssa</p>
             <ul>
               <li>Mikä Minecraft-versio ja kuka päättää versiopäivityksistä?</li>
-              <li>Mitkä blokit, esineet ja äänet ovat kerholle tärkeimmät?</li>
-              <li>Korvataanko pelin omia ääniä vai lisätäänkö vain uusia?</li>
+              <li>Millä avoimella lisenssillä paketti julkaistaan?</li>
+              <li>Mitä oppilaitos sallii julkisessa julkaisemisessa: repositoryn näkyvyys, nimet ja jakelupalvelut?</li>
+              <li>Julkaistaanko paketti myös Modrinthissa tai Planet Minecraftissa, ja kuka luo tilin?</li>
               <li>Kuka hyväksyy rajauksen ja väliversion?</li>
             </ul>
-            <p><strong>Asiakasta esittää pelikerhon ohjaaja tai opettaja</strong> — sovi ensimmäinen keskustelu heti viikolla 34. <strong>Älä keksi vastauksia itse tai tekoälyllä.</strong> Merkitse vastaamattomat kohdat avoimiksi.</p>
+            <p><strong>Toimeksiantaja on ohjaaja tai opettaja</strong> — sovi ensimmäinen keskustelu heti viikolla 34. <strong>Älä keksi vastauksia itse tai tekoälyllä.</strong> Merkitse vastaamattomat kohdat avoimiksi.</p>
           </div>
           <div class="graphics-box">
             <p class="eyebrow">Mistä tekstuurit ja mallit?</p>
@@ -166,7 +167,7 @@
               <li><a href="https://lospec.com/palette-list" target="_blank" rel="noreferrer">Lospec</a> — valmiit väripaletit pikselitaiteeseen</li>
               <li><a href="https://minecraft.wiki/" target="_blank" rel="noreferrer">Minecraft Wiki</a> — pakettien tekninen ohje: kansiorakenne ja pack_format</li>
             </ul>
-            <p>Älä jaa paketissasi Mojangin alkuperäisiä tai niistä muokattuja tiedostoja — piirrä omat tekstuurit alusta asti. Muiden tekijöiden materiaali vain luvalla; kirjaa lähteet ja lisenssit README:hen. Tekoälyllä tuotettu grafiikka: P0-ydinsisältö piirretään aina itse; P1/P2-lisäsisällössä tekoäly käy vain, jos opettaja erikseen sallii — kirjaa AI-lokiin.</p>
+            <p>Älä jaa paketissasi Mojangin alkuperäisiä tai niistä muokattuja tiedostoja — piirrä omat tekstuurit alusta asti. Muiden tekijöiden materiaalia saa käyttää vain, jos lisenssi sallii uudelleenjulkaisun ja muokkaamisen; kirjaa lähteet ja lisenssit CREDITS-tiedostoon. Tekoälyllä tuotettu grafiikka: P0-ydinsisältö piirretään aina itse; P1/P2-lisäsisällössä tekoäly käy vain, jos opettaja erikseen sallii — kirjaa AI-lokiin.</p>
           </div>
         </div>
         <div class="traceability-card">
@@ -191,7 +192,7 @@
           <p class="eyebrow">Paketin suunnitteludokumentti</p>
           <h2 id="gdd-title">Asset-pack-suunnitelma: teema ja sisältölista</h2>
           <p>Asset-pack-suunnitelma on tämän projektin suunnitteludokumentti — pelialan GDD:n vastine asset-työlle. Pohja on esitäytetty toimeksiannosta. Sinä teet omat päätökset ja lataat valmiin asset-pack-suunnitelma.md-tiedoston repositoryysi.</p>
-          <p class="gdd-timing"><strong>Ajoitus:</strong> täytä viikolla 35 aloituskeskustelun jälkeen. Omat päätökset vaativat viikon 34 asiakasvastaukset.</p>
+          <p class="gdd-timing"><strong>Ajoitus:</strong> täytä viikolla 35 aloituskeskustelun jälkeen. Omat päätökset vaativat viikon 34 vastaukset ohjaajalta.</p>
         </div>
         <figure class="gdd-visual reveal">
           <div class="image-stage"><img src="assets/suunnitelma-luonnos.svg" width="1128" height="540" alt="Työpöytä, jolla on luonnoslehtiö kolmella tekstuuri-idealla, viiden värin paletti ja ruutupaperille piirretty sisältölista."></div>
@@ -200,7 +201,7 @@
         <div class="gdd-layout">
           <div class="gdd-prefilled reveal" aria-label="Asset-pack-suunnitelman esitäytetty pohja">
             <p class="eyebrow">Esitäytetty pohja · tulee mukaan tiedostoon</p>
-            <article><h3>1 · Konsepti</h3><p>Yhtenäinen teemapaketti pelikerhon Minecraft Java -maailmaan: resurssipaketti muuttaa pelin ilmettä ja datapaketti lisää reseptit, saavutuksen ja funktiot.</p></article>
+            <article><h3>1 · Konsepti</h3><p>Avoimella lisenssillä julkaistava teemapaketti Minecraft Java Editioniin: resurssipaketti muuttaa pelin ilmettä ja datapaketti lisää reseptit, saavutuksen ja funktiot.</p></article>
             <article><h3>2 · Asset-työkierto</h3><p>Luonnos → Blockbench tai Piskel → pakettiin → peliin → testi → commit.</p></article>
             <article>
               <h3>3 · Assetit tekojärjestyksessä</h3>
@@ -218,14 +219,15 @@
             <article><h3>4 · Teknologia</h3><p>Minecraft Java Edition, resurssipaketti + datapaketti, Blockbench ja Piskel, skriptaus mcfunction-komennoilla ja JSONilla, julkaisu GitHub-releasena.</p></article>
             <article><h3>5 · Rajaus — mitä ei tehdä</h3><p>Ei modeja, ei palvelinpluginejä, ei uusia pelimekaniikkoja eikä maksullista sisältöä. Ensin toimiva P0-versio.</p></article>
             <article>
-              <h3>6 · Avoimet asiat — asiakas omistaa</h3>
+              <h3>6 · Avoimet asiat — ohjaaja omistaa</h3>
               <ul>
                 <li>Mikä Minecraft-versio ja kuka päättää versiopäivityksistä?</li>
-                <li>Mitkä blokit, esineet ja äänet ovat kerholle tärkeimmät?</li>
-                <li>Korvataanko pelin omia ääniä vai lisätäänkö vain uusia?</li>
+                <li>Millä avoimella lisenssillä paketti julkaistaan?</li>
+                <li>Mitä oppilaitos sallii julkisessa julkaisemisessa: repositoryn näkyvyys, nimet ja jakelupalvelut?</li>
+                <li>Julkaistaanko paketti myös Modrinthissa tai Planet Minecraftissa, ja kuka luo tilin?</li>
                 <li>Kuka hyväksyy rajauksen ja väliversion?</li>
               </ul>
-              <small class="gdd-open-note">EI PÄÄTETÄ ITSE. Kirjaa asiakkaan vastaus tai jätä avoimeksi. Älä keksi vastauksia itse tai tekoälyllä.</small>
+              <small class="gdd-open-note">EI PÄÄTETÄ ITSE. Kirjaa ohjaajan vastaus tai jätä avoimeksi. Älä keksi vastauksia itse tai tekoälyllä.</small>
             </article>
           </div>
           <form class="gdd-form reveal" data-gdd-form data-delay="1">
@@ -245,7 +247,7 @@
               <div class="gdd-fields">
                 <label class="gdd-wide">Teema ja kohde omin sanoin
                   <textarea rows="3" data-gdd-field="goal" placeholder="Mikä teema, millainen tunnelma ja kenelle paketti tehdään? Mikä on sinun roolisi tässä projektissa?"></textarea>
-                  <small>Käytä viikon 34 asiakasvastauksia. Jos jokin asia on avoin, mainitse se.</small>
+                  <small>Käytä viikon 34 vastauksia ohjaajalta. Kerro myös, kenelle paketti on tarkoitettu. Jos jokin asia on avoin, mainitse se.</small>
                 </label>
                 <label>Tekstuuriresoluutio
                   <select data-gdd-field="resolution">
@@ -265,20 +267,30 @@
               <p class="gdd-calibration"><strong>Ei riitä:</strong> ”koska se näyttää hyvältä” tai tekoälyn yleisperustelu ilman kytkentää omaan pakettiin. <strong>Riittää:</strong> ”Valitsin 16×16-resoluution, koska se sulautuu pelin muihin blokkeihin, ja Lospecin syyspaletin, koska kerho toivoi kotikylästä lämminsävyistä.”</p>
             </fieldset>
             <fieldset>
-              <legend>C · Asiakkaan vastaus: asiakas omistaa tämän</legend>
+              <legend>C · Ohjaajan vastaus: ohjaaja omistaa tämän</legend>
               <div class="gdd-fields">
                 <label>Minecraft-versio
                   <input type="text" data-gdd-field="mcVersion" placeholder="esim. 1.21.8 — tyhjä = vielä avoin">
                 </label>
-                <label>Sovittu pvm ja kenen kanssa<input type="text" data-gdd-field="mcAgreed" placeholder="esim. 24.8. / pelikerhon ohjaaja"></label>
+                <label>Sovittu pvm ja kenen kanssa<input type="text" data-gdd-field="mcAgreed" placeholder="esim. 24.8. / ohjaaja"></label>
+                <label class="gdd-wide">Paketin avoin lisenssi
+                  <select data-gdd-field="license">
+                    <option value="">Ei vielä sovittu</option>
+                    <option value="CC BY 4.0">CC BY 4.0 — saa käyttää ja muokata, tekijä mainittava</option>
+                    <option value="CC BY-SA 4.0">CC BY-SA 4.0 — kuten edellä, mutta muokkaukset samalla lisenssillä</option>
+                    <option value="CC0 1.0">CC0 1.0 — luovutetaan vapaaseen käyttöön ilman ehtoja</option>
+                    <option value="MIT">MIT — yleinen ohjelmistolisenssi, sopii datapaketin skripteille</option>
+                  </select>
+                  <small>Lisenssi kertoo, mitä muut saavat paketillasi tehdä. Valinta tehdään ohjaajan kanssa ja kirjataan LICENSE-tiedostoon viikolla 46.</small>
+                </label>
               </div>
-              <small class="gdd-field-note">Tämä sovitaan asiakkaan kanssa (ks. avoimet asiat). Versio määrää molempien pakettien pack_format-arvot. Jos versiota ei vielä ole, jätä tyhjäksi, niin suunnitelma merkitsee asian avoimeksi.</small>
+              <small class="gdd-field-note">Nämä sovitaan ohjaajan kanssa (ks. avoimet asiat). Versio määrää molempien pakettien pack_format-arvot. Jos versiota ei vielä ole, jätä tyhjäksi, niin suunnitelma merkitsee asian avoimeksi.</small>
             </fieldset>
             <div class="gdd-actions">
               <button class="button button-primary" type="button" data-gdd-export>Lataa asset-pack-suunnitelma.md</button>
-              <small>Tallenna tiedosto polkuun <code>project-docs/asset-pack-suunnitelma.md</code> ja tee commit. Päivitä, kun asiakas vastaa avoimiin asioihin.</small>
+              <small>Tallenna tiedosto polkuun <code>project-docs/asset-pack-suunnitelma.md</code> ja tee commit. Päivitä, kun ohjaaja vastaa avoimiin asioihin.</small>
             </div>
-            <p class="gdd-ai-note"><strong>Muista:</strong> älä anna tekoälyn päättää puolestasi. Asiakkaan omistamia asioita ei päätetä itse eikä tekoälyllä. Jos käytit tekoälyä ideointiin, kirjaa se AI-lokiin.</p>
+            <p class="gdd-ai-note"><strong>Muista:</strong> älä anna tekoälyn päättää puolestasi. Ohjaajan omistamia asioita ei päätetä itse eikä tekoälyllä. Jos käytit tekoälyä ideointiin, kirjaa se AI-lokiin.</p>
           </form>
         </div>
       </section>
@@ -319,13 +331,13 @@
               <label><input type="checkbox" data-task="34-1"> <span>Lue toimeksianto, laadi vähintään 8 kysymystä ja pidä aloituskeskustelu.</span></label>
               <div class="task-assignment" aria-labelledby="task-assignment-title">
                 <div class="assignment-context-heading"><span id="task-assignment-title">Toimeksianto on tässä luettavana</span><a href="#toimeksianto">Avaa myös pääversio ↑</a></div>
-                <p>Koulun pelikerho haluaa yhteiseen Minecraft Java -maailmaansa oman teemapaketin, joka muuttaa pelin ilmettä valitun teeman mukaiseksi. Pakettiin kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.</p>
-                <p>Pakettiin halutaan myös pelillinen lisä: omia valmistusreseptejä, vähintään yksi saavutus ja komentoskripti, jotka toimivat tavallisessa selviytymismaailmassa ilman modeja. Paketin pitää latautua ilman virheilmoituksia kerhon sopimalla Minecraft-versiolla.</p>
-                <p>Kaiken paketin sisällön pitää olla itse tehtyä tai luvallisesti lisensoitua. Haluan nähdä paketista toimivan väliversion vähintään kerran ennen lopullista versiota, jotta voin pyytää muutoksia.</p>
-                <p>Valmis paketti pitää julkaista niin, että kerholaiset voivat ladata ja asentaa sen itse kirjallisen ohjeen avulla.</p>
+                <p>Tee oma teemapaketti Minecraft Java Editioniin ja julkaise se avoimena lähdekoodina. Paketti muuttaa pelin ilmettä valitun teeman mukaiseksi: siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.</p>
+                <p>Pakettiin kuuluu myös pelillinen lisä: omia valmistusreseptejä, vähintään yksi saavutus ja komentoskripti, jotka toimivat tavallisessa selviytymismaailmassa ilman modeja. Paketin pitää latautua ilman virheilmoituksia sillä Minecraft-versiolla, joka sovitaan projektin alussa.</p>
+                <p>Kaiken sisällön pitää olla itse tehtyä tai lisensoitu niin, että sen saa julkaista uudelleen. Paketille valitaan avoin lisenssi, ja repository on julkinen ensimmäisestä commitista asti. Haluan nähdä paketista toimivan väliversion vähintään kerran ennen lopullista versiota, jotta voin pyytää muutoksia.</p>
+                <p>Valmis paketti julkaistaan niin, että kuka tahansa pelaaja löytää sen, lataa ja asentaa kirjallisen ohjeen avulla — ja niin, että toinen tekijä voi lisenssin puitteissa jatkaa työtä siitä eteenpäin.</p>
               </div>
               <label><input type="checkbox" data-task="34-2"> <span>Asenna Blockbench ja VS Code, varmista sovittu Minecraft Java -versio ja luo tyhjä resurssipaketti, joka näkyy pelin pakettivalikossa.</span></label>
-              <label><input type="checkbox" data-task="34-3"> <span>Perusta Git-repository, README, .gitignore ja kansiot resourcepack, datapack ja project-docs.</span></label>
+              <label><input type="checkbox" data-task="34-3"> <span>Perusta julkinen Git-repository, README, .gitignore ja kansiot resourcepack, datapack ja project-docs.</span></label>
               <div class="lesson-instructions">
                 <p class="lesson-label"><span>Ohjattu työ</span> Näin etenet</p>
                 <ol>
@@ -336,7 +348,7 @@
                 </ol>
                 <p class="checkpoint"><strong>Ennen kuin jatkat:</strong> toinen henkilö pystyy avaamaan repositoryn ja ymmärtää README:stä, mitä olet tekemässä.</p>
               </div>
-              <p class="evidence"><strong>Näytä:</strong> asiakastarpeen muistiinpano, repository-linkki, ensimmäinen commit ja kuva paketista pelin valikossa.</p>
+              <p class="evidence"><strong>Näytä:</strong> toimeksiantokeskustelun muistiinpano, julkisen repositoryn linkki, ensimmäinen commit ja kuva paketista pelin valikossa.</p>
             </div>
           </details>
 
@@ -353,7 +365,7 @@
                   <li><strong>Pilko työ issueiksi.</strong> Yhden tehtävän pitää valmistua 0,5–1 työpäivässä. Lisää jokaiselle P0-, P1- tai P2-prioriteetti ja hyväksymisehto.</li>
                   <li><strong>Kokoa moodboard.</strong> Valitse paletti, kerää referenssit ja luonnostele kolme tekstuuria ennen pikselityötä.</li>
                 </ol>
-                <p class="checkpoint"><strong>Ennen kuin jatkat:</strong> asiakas tai ohjaaja hyväksyy P0-rajauksen, moodboardin ja ensimmäisen viikon tehtävät.</p>
+                <p class="checkpoint"><strong>Ennen kuin jatkat:</strong> ohjaaja hyväksyy P0-rajauksen, moodboardin ja ensimmäisen viikon tehtävät.</p>
               </div>
               <p class="evidence"><strong>Näytä:</strong> hyväksytty rajaus, päivätty moodboard, asset-pack-suunnitelma.md ja backlog.</p>
             </div>
@@ -459,16 +471,16 @@
           </details>
 
           <details class="week-card" id="week-41" data-week="41">
-            <summary><span class="week-number">41</span><span class="week-title"><small>5.–9.10.</small><strong>Katselmointi · Asiakas kokeilee pakettiasi</strong></span><span class="week-status">0 / 3</span></summary>
+            <summary><span class="week-number">41</span><span class="week-title"><small>5.–9.10.</small><strong>Katselmointi · Ensimmäiset testaajat</strong></span><span class="week-status">0 / 3</span></summary>
             <div class="week-content">
               <label><input type="checkbox" data-task="41-1"> <span>Kokoa kokeiltava väliversio (zip) ja kirjallinen asennusohje sekä valmistele 5–10 minuutin esittely.</span></label>
-              <label><input type="checkbox" data-task="41-2"> <span>Anna asiakkaan (pelikerhon ohjaaja tai opettaja) pelata paketin kanssa, kerää palaute ja sovi yksi rajattu muutos.</span></label>
+              <label><input type="checkbox" data-task="41-2"> <span>Anna ohjaajan ja yhden vertaistestaajan pelata paketin kanssa, kerää palaute ja sovi yksi rajattu muutos.</span></label>
               <label><input type="checkbox" data-task="41-3"> <span>Päivitä backlog, prioriteetit, arviot ja katselmointiloki.</span></label>
               <div class="lesson-instructions">
                 <p class="lesson-label"><span>Ohjattu työ</span> Näin etenet</p>
                 <ol>
                   <li><strong>Tee puhdas kokeiluversio.</strong> Asenna zip itse puhtaaseen peliin ja varmista, että kaikki tähänastinen sisältö toimii.</li>
-                  <li><strong>Anna asiakkaan kokeilla.</strong> Älä neuvo heti. Tarkkaile, mikä paketissa jää huomaamatta tai epäselväksi.</li>
+                  <li><strong>Anna testaajien kokeilla.</strong> Älä neuvo heti. Tarkkaile, mikä paketissa jää huomaamatta tai epäselväksi.</li>
                   <li><strong>Päätä yksi muutos.</strong> Kirjaa palaute, arvioi työmäärä ja valitse vain rajaukseen sopiva palautemuutos.</li>
                 </ol>
                 <p class="checkpoint"><strong>Ennen kuin jatkat:</strong> katselmointilokissa näkyvät osallistujat, palaute, päätös ja hyväksytty seuraava tehtävä.</p>
@@ -489,7 +501,7 @@
           <details class="week-card" id="week-43" data-week="43">
             <summary><span class="week-number">43</span><span class="week-title"><small>19.–23.10.</small><strong>Asset 6 · Palautemuutos ja datapaketin runko</strong></span><span class="week-status">0 / 3</span></summary>
             <div class="week-content">
-              <label><input type="checkbox" data-task="43-1"> <span>Muuta asiakkaan palaute pieniksi tehtäviksi ja toteuta sovittu muutos omassa feature-branchissa eli muutokselle rajatussa Git-haarassa.</span></label>
+              <label><input type="checkbox" data-task="43-1"> <span>Muuta saatu palaute pieniksi tehtäviksi ja toteuta sovittu muutos omassa feature-branchissa eli muutokselle rajatussa Git-haarassa.</span></label>
               <label><input type="checkbox" data-task="43-2"> <span>Luo datapaketin runko ja ensimmäinen mcfunction-skripti, joka toimii /reload- ja /function-komennoilla.</span></label>
               <label><input type="checkbox" data-task="43-3"> <span>Katselmoi, testaa ja yhdistä muutokset toimivaan main-versioon.</span></label>
               <div class="lesson-instructions">
@@ -548,7 +560,7 @@
             <div class="week-content">
               <label><input type="checkbox" data-task="46-1"> <span>Siisti kansiorakenne ja tiedostonimet, poista käyttämättömät tiedostot ja yhtenäistä nimiavaruus.</span></label>
               <label><input type="checkbox" data-task="46-2"> <span>Pyydä katselmointi ohjaajalta tai vertaiselta ja kirjaa palaute.</span></label>
-              <label><input type="checkbox" data-task="46-3"> <span>Tee käyttöoikeustarkistus: paketissa ei ole Mojangin eikä muiden materiaalia ilman lupaa, ja lähteet ja lisenssit ovat README:ssä.</span></label>
+              <label><input type="checkbox" data-task="46-3"> <span>Tee lisenssitarkistus: lisää sovittu LICENSE-tiedosto ja CREDITS-tiedosto, ja varmista ettei paketissa ole Mojangin eikä muiden materiaalia ilman uudelleenjulkaisun sallivaa lisenssiä.</span></label>
               <div class="lesson-instructions">
                 <p class="lesson-label"><span>Ohjattu työ</span> Näin etenet</p>
                 <ol>
@@ -558,7 +570,7 @@
                 </ol>
                 <p class="checkpoint"><strong>Ennen kuin jatkat:</strong> siivous ei muuttanut testituloksia ja katselmointipalautteeseen on vastattu.</p>
               </div>
-              <p class="evidence"><strong>Näytä:</strong> katselmointimuistio, siivouscommit ja käyttöoikeustarkistuksen kirjaus.</p>
+              <p class="evidence"><strong>Näytä:</strong> katselmointimuistio, siivouscommit sekä LICENSE- ja CREDITS-tiedostot.</p>
             </div>
           </details>
         </div>
@@ -570,7 +582,7 @@
             <summary><span class="week-number">47</span><span class="week-title"><small>16.–20.11.</small><strong>Julkaisu · RC1 testikäytössä</strong></span><span class="week-status">0 / 3</span></summary>
             <div class="week-content">
               <label><input type="checkbox" data-task="47-1"> <span>Kokoa release candidate (RC1): zip-paketit ja asennusohje. Jäädytä uuden sisällön lisääminen.</span></label>
-              <label><input type="checkbox" data-task="47-2"> <span>Anna asiakkaan ja vähintään yhden muun käyttäjän asentaa ja testata paketti pelkän ohjeen avulla. Jos teet yksin, toinen testaaja voi olla toisen ryhmän opiskelija tai ohjaaja.</span></label>
+              <label><input type="checkbox" data-task="47-2"> <span>Anna ohjaajan ja vähintään yhden muun käyttäjän asentaa ja testata paketti pelkän ohjeen avulla. Jos et löydä toista testaajaa omasta ryhmästä, hän voi olla toisen ryhmän opiskelija tai toinen ohjaaja.</span></label>
               <label><input type="checkbox" data-task="47-3"> <span>Luokittele palaute: korjataan, tunnettu puute tai myöhempään versioon.</span></label>
               <div class="lesson-instructions">
                 <p class="lesson-label"><span>Ohjattu työ</span> Näin etenet</p>
@@ -589,7 +601,7 @@
             <summary><span class="week-number">48</span><span class="week-title"><small>23.–27.11.</small><strong>Julkaisu · v1.0 julki</strong></span><span class="week-status">0 / 3</span></summary>
             <div class="week-content">
               <label><input type="checkbox" data-task="48-1"> <span>Korjaa vain julkaisemisen estävät ja selvästi tärkeät virheet.</span></label>
-              <label><input type="checkbox" data-task="48-2"> <span>Tee v1.0-tagi ja julkaise GitHub-release: zip-paketit, README, kuvakaappaukset ja asennusohje. Valinnainen bonus: julkaise lisäksi Modrinthissa tai Planet Minecraftissa opettajan kanssa sovitusti.</span></label>
+              <label><input type="checkbox" data-task="48-2"> <span>Tee v1.0-tagi ja julkaise GitHub-release: zip-paketit, README, LICENSE, CHANGELOG, kuvakaappaukset ja asennusohje. Valinnainen bonus: julkaise lisäksi Modrinthissa tai Planet Minecraftissa opettajan kanssa sovitusti.</span></label>
               <label><input type="checkbox" data-task="48-3"> <span>Testaa julkaistu lataus toisella koneella tai puhtaalla pelillä ja viimeistele käyttöohje.</span></label>
               <div class="lesson-instructions">
                 <p class="lesson-label"><span>Ohjattu työ</span> Näin etenet</p>
@@ -669,7 +681,7 @@
           <p>Saat käyttää tekoälyä ideointiin, selityksiin, JSON- ja komentovirheiden tutkimiseen, testitapausten ehdottamiseen ja tekstin selkeyttämiseen. Tekstuurit, mallit ja äänet teet itse tai hankit luvallisesti — ne ovat tämän näytön ydintä, eikä tekoäly tuota niitä puolestasi ilman opettajan erillistä lupaa ja AI-lokimerkintää. Jokainen pakettiin jäävä ratkaisu on sinun vastuullasi.</p>
         </div>
         <figure class="ai-visual reveal" data-delay="1">
-          <div class="image-stage"><img src="assets/tekoalyapu.svg" width="1500" height="1000" alt="Pikselityylinen nelivaiheinen kuva: opiskelija kysyy tekoälyltä JSON-virheestä, vertaa vastausta dokumentaatioon, testaa korjauksen pelissä ja kirjaa opitun lokiin. Alareunassa muistutus: tekstuurit, mallit ja äänet tehdään itse tai hankitaan luvallisesti."></div>
+          <div class="image-stage"><img src="assets/tekoalyapu.svg" width="1500" height="1000" alt="Pikselityylinen nelivaiheinen kuva: opiskelija kysyy tekoälyltä JSON-virheestä, vertaa vastausta dokumentaatioon, testaa korjauksen pelissä ja kirjaa opitun lokiin. Alareunassa muistutus: tekstuurit, mallit ja äänet tehdään itse, ja muu materiaali käy vain avoimella lisenssillä."></div>
           <figcaption>Kysy → tarkista → testaa → kirjaa ja opi.</figcaption>
         </figure>
         <div class="ai-rules">
@@ -693,7 +705,7 @@
           </form>
           <div class="ai-log-actions">
             <button class="button button-secondary" type="button" data-export-log>Lataa vain AI-loki (.md)</button>
-            <small>Älä syötä henkilötietoja, salaisuuksia tai asiakkaan luottamuksellista aineistoa.</small>
+            <small>Älä syötä henkilötietoja, salaisuuksia tai muuta luottamuksellista aineistoa.</small>
           </div>
           <div class="log-entries" data-ai-entries aria-live="polite"><p class="empty-state">Ei merkintöjä vielä.</p></div>
         </div>
@@ -728,8 +740,8 @@
         <details class="matrix reveal">
           <summary>Ohjelmistokehittäjänä toimiminen · 14 vaatimusta</summary>
           <div class="matrix-list">
-            <label><input type="checkbox" data-evidence="s1"><span><strong>Asiakkaan tarpeet</strong> Kysymyslista ja aloitusmuistio.</span></label>
-            <label><input type="checkbox" data-evidence="s2"><span><strong>Asiakaslähtöinen viestintä</strong> Ymmärrettävä yhteenveto vaihtoehdoista ja rajoista.</span></label>
+            <label><input type="checkbox" data-evidence="s1"><span><strong>Asiakkaan tarpeet</strong> Kysymyslista ohjaajalle, aloitusmuistio ja kuvaus paketin kohdeyleisöstä.</span></label>
+            <label><input type="checkbox" data-evidence="s2"><span><strong>Asiakaslähtöinen viestintä</strong> Ymmärrettävä yhteenveto vaihtoehdoista ja rajoista sekä lataajalle kirjoitettu README ja asennusohje.</span></label>
             <label><input type="checkbox" data-evidence="s3"><span><strong>Version katselmointi</strong> Lokit viikoilta 41 ja 47.</span></label>
             <label><input type="checkbox" data-evidence="s4"><span><strong>Priorisointi</strong> P0/P1/P2-backlog ennen ja jälkeen palautteen.</span></label>
             <label><input type="checkbox" data-evidence="s5"><span><strong>Tehtäviksi jakaminen</strong> 0,5–1 päivän issuet ja nimetyt tekijät.</span></label>
@@ -738,7 +750,7 @@
             <label><input type="checkbox" data-evidence="s8"><span><strong>Tietovaraston valinta</strong> JSON-tiedostojen rakenne ja perustelu.</span></label>
             <label><input type="checkbox" data-evidence="s9"><span><strong>Yhteys tietovarastoon</strong> Tekstuurien, mallien ja datan kytkeytyminen pelin resursseihin nimiavaruuksien kautta.</span></label>
             <label><input type="checkbox" data-evidence="s10"><span><strong>Rajapinnat ja tieto</strong> Pakettirajapinta: pack.mcmeta, tiedostopolut ja niitä vastaavat tiedostot.</span></label>
-            <label><input type="checkbox" data-evidence="s11"><span><strong>Tietoturva</strong> Lisenssit, luotettavat lataukset ja se, ettei paketissa ole henkilötietoja tai salaisuuksia.</span></label>
+            <label><input type="checkbox" data-evidence="s11"><span><strong>Tietoturva</strong> Oma lisenssi ja kolmansien osapuolten lisenssit, luotettavat lataukset ja se, ettei julkisessa repositoryssa ole henkilötietoja tai salaisuuksia.</span></label>
             <label><input type="checkbox" data-evidence="s12"><span><strong>Versionhallinta</strong> Jatkuva Git-historia ja toimiva main.</span></label>
             <label><input type="checkbox" data-evidence="s13"><span><strong>Osan liittäminen</strong> Testattu merge tai pull request.</span></label>
             <label><input type="checkbox" data-evidence="s14"><span><strong>Tuotantojulkaisu</strong> Toimiva v1.0-release-linkki.</span></label>
@@ -755,8 +767,8 @@
             <label><input type="checkbox" data-evidence="k4"><span><strong>Ulkoiset komponentit</strong> Paletit, äänet ja referenssit tuotuina; lähteet ja lisenssit kirjattu Asset-pack-suunnitelmaan tai README:hen.</span></label>
             <p class="matrix-group" role="heading" aria-level="4">Opiskelija toteuttaa ohjelmiston ohjelmistokomponenttikirjastolla</p>
             <label><input type="checkbox" data-evidence="k5"><span><strong>Suunnittelu, toteutus ja testaus kirjastolla</strong> Asset-pack-suunnitelman päätökset ja backlog, Assetit 1–7 committeina, testiloki T01–T12.</span></label>
-            <label><input type="checkbox" data-evidence="k6"><span><strong>Julkaisu asiakkaan ympäristöön</strong> GitHub-release asennettuna kerhon peliin; asiakas on kokeillut julkaistua pakettia.</span></label>
-            <label><input type="checkbox" data-evidence="k7"><span><strong>Ohjelmiston dokumentointi</strong> README, asennusohje, asset-pack-suunnitelma.md ja projektipäiväkirja project-docs-kansiossa.</span></label>
+            <label><input type="checkbox" data-evidence="k6"><span><strong>Julkaisu asiakkaan ympäristöön</strong> Julkinen GitHub-release, jonka toinen henkilö on asentanut peliinsä pelkän ohjeen avulla.</span></label>
+            <label><input type="checkbox" data-evidence="k7"><span><strong>Ohjelmiston dokumentointi</strong> README, asennusohje, LICENSE, CREDITS, asset-pack-suunnitelma.md ja projektipäiväkirja.</span></label>
           </div>
         </details>
       </section>
@@ -792,7 +804,7 @@
         <div class="section-heading reveal">
           <p class="eyebrow">Julkaistut paketit</p>
           <h2 id="gallery-title">Galleria</h2>
-          <p>Valmiit v1.0-paketit nostetaan tänne viikolla 48: paketin nimi, kuvakaappaus ja release-linkki. Galleriaan pääsee, kun julkaisu on testattu toisella koneella pelkän ohjeen avulla.</p>
+          <p>Valmiit v1.0-paketit nostetaan tänne viikolla 48: paketin nimi, kuvakaappaus, lisenssi ja release-linkki. Galleriaan pääsee, kun julkaisu on testattu toisella koneella pelkän ohjeen avulla.</p>
         </div>
         <div class="gallery-grid" data-gallery>
           <!-- Opettaja lisää kortin per julkaistu paketti:

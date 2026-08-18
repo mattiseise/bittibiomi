@@ -299,7 +299,7 @@ for i, (t1, t2) in enumerate(panels):
     b.append(label(cx, py + ph - 38, t2, 19, TXT2))
     if i < 3:
         b.append(arrow(x + pw + 6, py + ph / 2 - 20, 44))
-b.append(label(W/2, 830, "TEKSTUURIT, MALLIT JA ÄÄNET TEET ITSE TAI HANKIT LUVALLISESTI", 24, GOLD))
+b.append(label(W/2, 830, "TEKSTUURIT, MALLIT JA ÄÄNET TEET ITSE — MUU VAIN AVOIMELLA LISENSSILLÄ", 24, GOLD))
 save("tekoalyapu.svg", svg(W, H, "".join(b), "Tekoälyn käytön neljä askelta"))
 
 # ---------- Faviconit (PIL) ----------
