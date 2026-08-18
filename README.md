@@ -1,6 +1,6 @@
 # BittiBiomi – ohjattu näyttöprojekti
 
-Selainpohjainen oppimispolku oman Minecraft-teemapaketin toteuttamiseen: itse piirretyt tekstuurit, Blockbench-mallit, äänet ja kevyt datapaketti (reseptit, saavutus ja mcfunction-skriptit). Sivusto sisältää viikot 34–49, syysloman viikolla 42, 4.12.2026 päättyvän aikataulun, vastuullisen tekoälyn käyttöohjeet, AI-lokin, testauksen vähimmäistavoitteet ja näytön todisteiden tarkistuslistat.
+Selainpohjainen oppimispolku oman Minecraft-teemapaketin toteuttamiseen: itse piirretyt tekstuurit, Blockbench-mallit, äänet ja kevyt datapaketti (reseptit, saavutus ja mcfunction-skriptit). Sivusto sisältää viikot 34–49, syysloman viikolla 42, 4.12.2026 päättyvän aikataulun, tekoälyn vastuullisen käytön ohjeet, AI-lokin, testauksen vähimmäistavoitteet ja näyttöaineiston tarkistuslistat.
 
 Sivusto on [KahvilaKoodi-näyttöprojektin](https://github.com/mattiseise/pelinayttoprojektit) sisarprojekti: sama runko ja viikkorytmi, eri sisältö ja ryhmä.
 

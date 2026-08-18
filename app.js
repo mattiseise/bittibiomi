@@ -91,7 +91,7 @@
       excerpt: "Pakettiin kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
       connection: "Nyt muutat toimeksiannon näkyväksi suunnitelmaksi: teema, paletti, sisältölista, tehtävät ja valmiin työn ehdot. Viikon 34 asiakasvastaukset ovat suunnitelman pohja.",
       deliverable: "Hyväksytty pakollinen perusversio, pieni backlog, moodboard ja kolme tekstuuriluonnosta.",
-      why: "Rajaus estää pakettia kasvamasta liian suureksi. Kun jokaisella tehtävällä on selvä valmis kun -ehto, tiedät mitä seuraavaksi tehdään ja milloin työ voidaan testata.",
+      why: "Rajaus estää pakettia kasvamasta liian suureksi. Kun jokaisella tehtävällä on selvä valmis kun -ehto, tiedät, mitä seuraavaksi tehdään ja milloin työ voidaan testata.",
       done: "Pakollinen perusversio on hyväksytty. Jokaisella P0-tehtävällä on 0,5–1 päivän arvio ja havaittava valmis kun -ehto. Moodboardissa näkyvät paletti ja referenssit.",
       record: "Kirjoita Vko 35 -merkintään, mitkä Asset-pack-suunnitelman päätökset teit ja miksi, hyväksyjän rooli ja päivä sekä mitkä asiat jäivät asiakkaalle avoimiksi. Lisää linkit suunnitelmaan, backlogiin ja moodboardiin.",
       skills: ["rajaus", "moodboard", "työn pilkkominen"],
@@ -108,14 +108,14 @@
         title: "Tee issue, moodboard ja sisältölista",
         tree: "project-docs/evidence/week-35/\n├─ moodboard.png\n├─ paletti.png\n└─ luonnokset/\n   ├─ luonnos-1.png\n   ├─ luonnos-2.png\n   └─ luonnos-3.png",
         actions: [
-          "Kirjoita ensin projektipäiväkirjaan teema, kohde, rajaus ja pakollinen perusversio. Käytä asiakkaan vastauksia; älä keksi avoimia päätöksiä.",
+          "Kirjoita ensin projektipäiväkirjaan teema, kohde, rajaus ja pakollinen perusversio. Käytä asiakkaan vastauksia; älä keksi vastauksia avoimiin asioihin.",
           "Avaa GitHubissa repository → Issues → New issue. Tee yksi issue jokaisesta P0-assetista. Kirjoita otsikko verbillä, esimerkiksi Piirrä kolme blokkitekstuuria.",
-          "Lisää issueen työmääräarvio ja valmis kun -ehto, jonka toinen ihminen voi testata pelissä. Jaa yli päivän mittainen issue pienemmäksi.",
-          "Valitse paletti Lospecista tai rakenna oma 5–8 väristä. Sama paletti kaikkiin tekstuureihin — se pitää paketin yhtenäisenä.",
+          "Lisää issueen työmääräarvio ja valmis kun -ehto, jonka toinen ihminen voi testata pelissä. Jaa yli päivän mittainen issue pienempiin osiin.",
+          "Valitse paletti Lospecista tai rakenna oma 5–8 värin paletti. Sama paletti kaikkiin tekstuureihin — se pitää paketin yhtenäisenä.",
           "Piirrä kolme luonnosta ja pyydä hyväksyntä ennen pikselityötä. Luonnos saa olla karkea; sen tehtävä on lukita suunta."
         ],
         code: "ISSUE-POHJA\nOtsikko: [verbi + näkyvä asset]\n\nMiksi tämä tarvitaan:\n[linkki toimeksiannon vaatimukseen]\n\nToteutan:\n[rajattu muutos]\n\nValmis kun:\n[havaittava testitulos pelissä]\n\nArvio:\n[0,5 tai 1 työpäivä]",
-        test: "Valitse yksi P0-issue sattumalta. Toinen henkilö pystyy kertomaan sen tekstin perusteella, mikä pakettiin muuttuu, miten tulos testataan pelissä ja milloin tehtävä on valmis."
+        test: "Valitse yksi P0-issue sattumanvaraisesti. Toinen henkilö pystyy kertomaan sen tekstin perusteella, mikä pakettiin muuttuu, miten tulos testataan pelissä ja milloin tehtävä on valmis."
       },
       example: "Issue: Piirrä kolme blokkitekstuuria / P0 / 4 h / Valmis kun blokit näkyvät pelissä 3×3-ruudukossa ilman saumavirheitä.",
       notEnough: "Tehtävä nimeltä Tee paketti tai tekoälyn generoima teemalista ilman omaa valintaa ja perustelua ei ole toteutuskelpoinen suunnitelma."
@@ -151,7 +151,7 @@
           "Aseta korvattuja blokkeja 3×3-ruudukkoon ja katso saumakohtia. Jos toisto häiritsee, riko kuvion symmetria muutamalla pikselillä."
         ],
         code: "TEKSTUURIN TARKISTUS\n[ ] koko täsmälleen 16×16\n[ ] tiedostonimi sama kuin korvattavalla\n[ ] polku assets/minecraft/textures/block/\n[ ] F3 + T lataa paketin uudelleen\n[ ] saumat testattu 3×3-ruudukossa\n[ ] commit ja push tehty",
-        test: "Poista paketti käytöstä ja ota se uudelleen käyttöön pelin valikosta. Omat tekstuurit ilmestyvät ja katoavat — silloin korvaus toimii paketista, ei sattumasta."
+        test: "Poista paketti käytöstä ja ota se uudelleen käyttöön pelin valikosta. Omat tekstuurit ilmestyvät ja katoavat — silloin korvaus tulee paketista, ei sattumasta."
       },
       example: "T36-01 / stone.png 16×16 / odotus: kiviseinä yhtenäinen / havainto: sauma näkyy → paletti korjattu → uusintatesti ok.",
       notEnough: "Netistä ladattu tai tekoälyllä generoitu tekstuuri ei ole oma työnäyte. Piirrä itse — luonnokset ja välivaiheet todistavat sen."
@@ -160,7 +160,7 @@
       type: "feature",
       feature: "Esineet saavat oman ilmeen ja teeman mukaiset suomenkieliset nimet.",
       excerpt: "Pakettiin kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
-      connection: "Viikolla 36 korvasit blokkitekstuurit — sama korvausperiaate toimii esineisiin, kansio vain vaihtuu. Uutena asiana kirjoitat ensimmäisen JSON-tiedoston: kielitiedoston, joka nimeää sisällön uudelleen.",
+      connection: "Viikolla 36 korvasit blokkitekstuurit — sama korvausperiaate pätee esineisiin, kansio vain vaihtuu. Uutena asiana kirjoitat ensimmäisen JSON-tiedoston: kielitiedoston, joka nimeää sisällön uudelleen.",
       deliverable: "Kolme esinetekstuuria, fi_fi.json-kielitiedosto ja testit myös rikkinäisellä JSONilla.",
       why: "Kielitiedosto on ensimmäinen tekstimuotoinen määrittely paketissasi. JSONin tarkkuus — pilkut, lainausmerkit, avaimet — on sama taito, jota reseptit ja saavutus vaativat viikolla 44.",
       done: "Esineet näkyvät omilla tekstuureilla ja suomenkielisillä nimillä tavaraluettelossa ja kädessä. Rikkinäisen JSONin vaikutus on testattu ja kirjattu.",
@@ -169,7 +169,7 @@
       steps: [
         ["Piirrä esineet", "Piirrä kolme 16×16-esinetekstuuria ja vie ne polkuun assets/minecraft/textures/item/ korvattavan esineen nimellä."],
         ["Kirjoita kielitiedosto", "Luo assets/minecraft/lang/fi_fi.json ja anna teeman mukaiset nimet muokkaamillesi blokeille ja esineille."],
-        ["Riko tarkoituksella", "Poista JSONista pilkku, lataa paketti ja katso mitä tapahtuu. Palauta pilkku ja varmista, että nimet palaavat."]
+        ["Riko tarkoituksella", "Poista JSONista pilkku, lataa paketti ja katso, mitä tapahtuu. Palauta pilkku ja varmista, että nimet palaavat."]
       ],
       help: {
         title: "Nimeä sisältö uudelleen kielitiedostolla",
@@ -185,7 +185,7 @@
         test: "Poista fi_fi.json-tiedostosta yksi pilkku ja lataa paketti. Nimet palautuvat oletuksiin. Palauta pilkku — omat nimet palaavat. Kirjaa molemmat havainnot testilokiin."
       },
       example: "fi_fi.json: block.minecraft.stone → Kylänkivi. Nimi näkyy pelissä, kun kieleksi on valittu suomi.",
-      notEnough: "Pelkkä tiedosto repositoryssa ei riitä: nimen pitää näkyä pelissä ja rikkinäisen JSONin vaikutus pitää olla testattu."
+      notEnough: "Pelkkä tiedosto repositoryssa ei riitä: nimen pitää näkyä pelissä ja rikkinäisen JSONin vaikutuksen pitää olla testattu."
     },
     38: {
       type: "feature",
@@ -219,7 +219,7 @@
         code: "{\n  \"textures\": { \"0\": \"block/oma_koriste\" },\n  \"elements\": [\n    {\n      \"from\": [5, 0, 5],\n      \"to\": [11, 8, 11],\n      \"faces\": {\n        \"north\": { \"texture\": \"#0\" },\n        \"south\": { \"texture\": \"#0\" },\n        \"east\":  { \"texture\": \"#0\" },\n        \"west\":  { \"texture\": \"#0\" },\n        \"up\":    { \"texture\": \"#0\" },\n        \"down\":  { \"texture\": \"#0\" }\n      }\n    }\n  ]\n}\n\nBlockbench kirjoittaa tämän puolestasi — lue silti\nrakenne: elements ovat kuutioita from–to-koordinaateilla.",
         test: "Aseta blokki maahan, katso sitä neljästä ilmansuunnasta ja ota se käteen. Muoto ja tekstuuri pysyvät oikeina joka näkymässä, eikä lokissa ole puuttuvan tekstuurin varoituksia."
       },
-      example: "Koristelyhty: 3 kuutiota, oma tekstuuri, korvaa kukkaruukun mallin. Kuvat pelistä maasta ja kädestä.",
+      example: "Koristelyhty: 3 kuutiota, oma tekstuuri, korvaa kukkaruukun mallin. Kuvat pelistä maassa ja kädessä.",
       notEnough: "Blockbenchin kuvakaappaus ilman peliin vietyä mallia ei osoita, että malli toimii paketissa."
     },
     39: {
@@ -233,7 +233,7 @@
       record: "Kirjoita Vko 39 -merkintään vaihtoehdot A ja B, vertailuperusteet, keskustelukumppanin rooli, valittu ratkaisu ja pelitestin tulokset eri etäisyyksiltä. Lisää commit-linkki.",
       skills: ["vaihtoehtojen vertailu", "entity-tekstuuri", "mallinnus"],
       steps: [
-        ["Vertaa ja valitse", "Vertaa toisen henkilön kanssa vaihtoehtoa A (isompi blokkimalli) ja B (mobin uusi tekstuuri) työmäärän, näkyvyyden ja riskin perusteella. Kirjaa päätös."],
+        ["Vertaa ja valitse", "Vertaa toisen henkilön kanssa vaihtoehtoja A (isompi blokkimalli) ja B (mobin uusi tekstuuri) työmäärän, näkyvyyden ja riskin perusteella. Kirjaa päätös."],
         ["Toteuta kahdessa osassa", "Tee runko ensimmäisenä päivänä ja yksityiskohdat toisena. Committaa molemmat vaiheet erikseen."],
         ["Testaa aidossa tilanteessa", "Katso työtä pelissä läheltä, kaukaa ja yöllä — ei vain Blockbenchin esikatselussa."]
       ],
@@ -257,7 +257,7 @@
       type: "feature",
       feature: "Paketti saa äänen: oma tai luvallisesti hankittu ääni kuuluu pelissä.",
       excerpt: "Kaiken paketin sisällön pitää olla itse tehtyä tai luvallisesti lisensoitua.",
-      connection: "Tekstuurit ja mallit näkyvät — ääni tuo teeman tunnelman. Ääni lisätään omaan nimiavaruuteen, eli paketin omaan nimettyyn lokeroon, jottei se sotke pelin omia ääniä.",
+      connection: "Tekstuurit ja mallit näkyvät — ääni tuo teeman tunnelman. Ääni lisätään omaan nimiavaruuteen eli paketin omaan nimettyyn lokeroon, jottei se sotke pelin omia ääniä.",
       deliverable: "Ogg-muotoinen ääni omassa nimiavaruudessa, sounds.json-määrittely ja kirjattu lisenssi.",
       why: "Äänen mukana opit kaksi julkaisun kannalta pakollista asiaa: tiedostomuodon vaatimukset ja lisenssikirjaukset. Ilman lupaa käytetty ääni on julkaisueste, vaikka tekniikka toimisi.",
       done: "Oma ääni kuuluu pelissä /playsound-komennolla, tekstitys näkyy ja äänen lähde sekä lisenssi on kirjattu README:hen.",
@@ -317,7 +317,7 @@
         test: "Anna ohje ja zipit henkilölle, joka ei ole nähnyt projektiasi. Hän saa paketin toimimaan ilman suullista apua — tai kirjaat kohdan, johon hän jumittui, ja korjaat ohjeen."
       },
       example: "Palaute: Lyhtyä ei erota tavallisesta. Päätös: kirkkaampi hehkutekstuuri / P0 / 2 h / hyväksytty 8.10.",
-      notEnough: "Itse tai tekoälyllä keksitty asiakaspalaute ei ole katselmointi. Tallenna asiakkaan alkuperäinen havainto erikseen omasta tulkinnastasi."
+      notEnough: "Itse tai tekoälyllä keksitty asiakaspalaute ei ole katselmointi. Tallenna asiakkaan alkuperäinen havainto erilleen omasta tulkinnastasi."
     },
     43: {
       type: "feature",
@@ -330,7 +330,7 @@
       record: "Kirjoita Vko 43 -merkintään ketju: asiakaspalaute → issue → Git-haara → merge → testi. Lisää datapaketin ensimmäisen funktion commit ja /reload-testin tulos.",
       skills: ["issue", "feature-branch", "mcfunction"],
       steps: [
-        ["Toteuta palautemuutos", "Kirjoita palaute issueksi hyväksymisehtoineen, tee muutos feature-branchissa ja yhdistä maniin vasta testin jälkeen."],
+        ["Toteuta palautemuutos", "Kirjoita palaute issueksi hyväksymisehtoineen, tee muutos feature-branchissa ja yhdistä mainiin vasta testin jälkeen."],
         ["Rakenna datapaketin runko", "Luo datapack-kansioon pack.mcmeta ja oman nimiavaruuden function-kansio. Kirjoita load-funktio, joka tervehtii pelaajaa."],
         ["Testaa komennoilla", "Asenna datapaketti testimaailmaan, aja /reload ja /datapack list ja varmista vihreä latausviesti."]
       ],
@@ -342,11 +342,11 @@
           "Yhdistä testin jälkeen: GitHubissa Compare & pull request → Merge pull request, tai komennoilla git checkout main ja git merge korjaus/kuvaava-nimi.",
           "Kirjoita datapack/pack.mcmeta. Datapaketilla on eri pack_format-arvo kuin resurssipaketilla — tarkista molemmat samasta wikitaulukosta.",
           "Luo kansiot data/teema/function/ ja kirjoita load.mcfunction: yksi tellraw-rivi riittää.",
-          "Kirjoita data/minecraft/tags/function/load.json, joka kertoo pelille mikä funktio ajetaan latauksessa.",
+          "Kirjoita data/minecraft/tags/function/load.json, joka kertoo pelille, mikä funktio ajetaan latauksessa.",
           "Kopioi datapack-kansio testimaailman datapacks-kansioon: .minecraft/saves/<maailma>/datapacks/.",
           "Aja pelissä /reload ja /datapack list. Vihreä viesti ja paketti listassa = runko toimii."
         ],
-        code: "# Feature-branchin työnkulku\ngit checkout -b korjaus/lyhdyn-hehku\ngit add .\ngit commit -m \"Kirkasta lyhdyn hehku\"\ngit push -u origin korjaus/lyhdyn-hehku\n# GitHubissa: Compare & pull request → Merge\n\n# datapack/pack.mcmeta\n{ \"pack\": { \"pack_format\": 48, \"description\": \"Kotikylä – datapaketti\" } }\n\n# data/minecraft/tags/function/load.json\n{ \"values\": [ \"teema:load\" ] }\n\n# data/teema/function/load.mcfunction\ntellraw @a {\"text\":\"Kotikylä-paketti ladattu.\",\"color\":\"green\"}\n\npack_format 48 vastaa 1.21:tä — resurssi- ja\ndatapaketilla on ERI arvot samalle pelivesiolle.",
+        code: "# Feature-branchin työnkulku\ngit checkout -b korjaus/lyhdyn-hehku\ngit add .\ngit commit -m \"Kirkasta lyhdyn hehku\"\ngit push -u origin korjaus/lyhdyn-hehku\n# GitHubissa: Compare & pull request → Merge\n\n# datapack/pack.mcmeta\n{ \"pack\": { \"pack_format\": 48, \"description\": \"Kotikylä – datapaketti\" } }\n\n# data/minecraft/tags/function/load.json\n{ \"values\": [ \"teema:load\" ] }\n\n# data/teema/function/load.mcfunction\ntellraw @a {\"text\":\"Kotikylä-paketti ladattu.\",\"color\":\"green\"}\n\npack_format 48 vastaa 1.21:tä — resurssi- ja\ndatapaketilla on ERI arvot samalle peliversiolle.",
         test: "Aja /reload. Vihreä latausviesti näkyy chatissa. Aja /function teema:tervehdys — funktion viesti tulostuu. Jos komento ei löydä funktiota, tarkista kansioiden yksikkö/monikko-muoto versiosi mukaan.",
         links: [
           ["Minecraft Wiki: Data pack", "https://minecraft.wiki/w/Data_pack"]
@@ -359,7 +359,7 @@
       type: "feature",
       feature: "Paketti saa pelillisen lisän: omat reseptit, saavutuksen ja palkintofunktion.",
       excerpt: "Pakettiin halutaan myös pelillinen lisä: omia valmistusreseptejä, vähintään yksi saavutus ja komentoskripti, jotka toimivat tavallisessa selviytymismaailmassa ilman modeja.",
-      connection: "Viikon 43 datapakettirunko saa nyt sisällön. Reseptit ja saavutus ovat JSON-tiedostoja — sama tarkkuus kuin viikon 37 kielitiedostossa — ja palkinto on mcfunction-skripti, joita kirjoitit jo viikolla 43.",
+      connection: "Viikon 43 datapakettirunko saa nyt sisällön. Reseptit ja saavutus ovat JSON-tiedostoja — sama tarkkuus kuin viikon 37 kielitiedostossa — ja palkinto on mcfunction-skripti, jollaisia kirjoitit jo viikolla 43.",
       deliverable: "Kaksi omaa reseptiä, saavutus laukaisimineen ja palkintofunktio, testattuna selviytymistilassa.",
       why: "Tämä viikko on paketin skriptausosuuden ydin. Resepti, laukaisin ja funktio muodostavat ketjun, jossa data ohjaa pelin toimintaa — ilman riviäkään ohjelmointikieltä.",
       done: "Reseptit löytyvät reseptikirjasta ja tuottavat esineet. Saavutus laukeaa oikeasta teosta ja palkintofunktio toimii. Koko polku on testattu tuoreessa selviytymismaailmassa.",
@@ -378,13 +378,13 @@
         title: "Tee resepti, saavutus ja palkintofunktio",
         tree: "datapack/data/teema/\n├─ recipe/\n│  ├─ teemalyhty.json\n│  └─ kylaleipa.json\n├─ advancement/\n│  └─ kylan_valot.json\n└─ function/\n   └─ palkinto.mcfunction",
         actions: [
-          "Kirjoita ensimmäinen resepti alla olevan mallin pohjalta. Pattern on 3×3-ruudukko riveinä; key kertoo mitä kukin merkki tarkoittaa.",
+          "Kirjoita ensimmäinen resepti alla olevan mallin pohjalta. Pattern on 3×3-ruudukko riveinä; key kertoo, mitä kukin merkki tarkoittaa.",
           "Tarkista JSON-rakenne tarvittaessa Misoden generaattorilla — kirjoita silti itse ja ymmärrä jokainen kenttä.",
           "Kirjoita advancement: display näyttää saavutuksen, criteria määrää laukaisimen ja rewards ajaa funktion.",
           "Kirjoita palkinto.mcfunction: tellraw-viesti ja pieni xp-palkinto riittävät.",
           "Aja /reload ja testaa. Saavutuksen voi nollata uusintatestiä varten komennolla /advancement revoke @s only teema:kylan_valot."
         ],
-        code: "# recipe/teemalyhty.json\n{\n  \"type\": \"minecraft:crafting_shaped\",\n  \"pattern\": [ \" R \", \"RLR\", \" R \" ],\n  \"key\": { \"R\": \"minecraft:redstone\", \"L\": \"minecraft:lantern\" },\n  \"result\": { \"id\": \"minecraft:soul_lantern\", \"count\": 1 }\n}\n\n# advancement/kylan_valot.json\n{\n  \"display\": {\n    \"icon\": { \"id\": \"minecraft:soul_lantern\" },\n    \"title\": \"Kylän valot\",\n    \"description\": \"Valmista teemalyhty\",\n    \"frame\": \"task\"\n  },\n  \"criteria\": {\n    \"lyhty_tehty\": {\n      \"trigger\": \"minecraft:recipe_crafted\",\n      \"conditions\": { \"recipe_id\": \"teema:teemalyhty\" }\n    }\n  },\n  \"rewards\": { \"function\": \"teema:palkinto\" }\n}\n\n# function/palkinto.mcfunction\ntellraw @s {\"text\":\"Saavutus avattu: Kylän valot\",\"color\":\"gold\"}\nxp add @s 10 points\n\nVanhemmissa versioissa result-kenttä on muotoa\n{\"item\": ...} — tarkista sovitun version rakenne.",
+        code: "# recipe/teemalyhty.json\n{\n  \"type\": \"minecraft:crafting_shaped\",\n  \"pattern\": [ \" R \", \"RLR\", \" R \" ],\n  \"key\": { \"R\": \"minecraft:redstone\", \"L\": \"minecraft:lantern\" },\n  \"result\": { \"id\": \"minecraft:soul_lantern\", \"count\": 1 }\n}\n\n# advancement/kylan_valot.json\n{\n  \"display\": {\n    \"icon\": { \"id\": \"minecraft:soul_lantern\" },\n    \"title\": \"Kylän valot\",\n    \"description\": \"Valmista teemalyhty\",\n    \"frame\": \"task\"\n  },\n  \"criteria\": {\n    \"lyhty_tehty\": {\n      \"trigger\": \"minecraft:recipe_crafted\",\n      \"conditions\": { \"recipe_id\": \"teema:teemalyhty\" }\n    }\n  },\n  \"rewards\": { \"function\": \"teema:palkinto\" }\n}\n\n# function/palkinto.mcfunction\ntellraw @s {\"text\":\"Saavutus avattu: Kylän valot\",\"color\":\"gold\"}\nxp add @s 10 points\n\nHuom: versioissa 1.21–1.21.1 sekä key-ainekset\nettä result kirjoitetaan {\"item\": ...} -muodossa;\nyllä oleva muoto toimii 1.21.2:sta alkaen.\nTarkista sovitun version rakenne Misodesta tai wikistä.",
         test: "Luo uusi selviytymismaailma. Hanki ainekset, valmista teemalyhty työpöydällä, ja saavutus ponnahtaa ruutuun palkintoviestin kera. Komennoilla annettu esine ei kelpaa testiksi.",
         links: [
           ["Minecraft Wiki: Recipe", "https://minecraft.wiki/w/Recipe"],
@@ -392,7 +392,7 @@
         ]
       },
       example: "Resepti teema:teemalyhty → saavutus Kylän valot laukeaa → palkintofunktio antaa 10 xp. Testattu tuoreessa maailmassa.",
-      notEnough: "Komennoilla itselle annettu esine ei todista reseptiä. Koko polku pitää toimia selviytymistilassa."
+      notEnough: "Komennoilla itselle annettu esine ei todista reseptiä. Koko polun pitää toimia selviytymistilassa."
     },
     45: {
       type: "laatu",
@@ -425,7 +425,7 @@
         code: "TESTIMATRIISIN POHJA (testimatriisi.md)\n\nT01 | lähtötila | toiminta | odotus | havainto | tulos\n\nEsimerkkirivit:\nT01 / puhdas peli / asenna molemmat paketit ohjeella / ei virheilmoituksia / [havainto] / ok\nT05 / paketti käytössä / vaihda kieli suomeksi / omat nimet näkyvät / [havainto] / ok\nT09 / pack_format väärä / käynnistä peli / varoitus vanhentuneesta paketista / [havainto] / ok\n\nLuokat: T01–T04 normaali · T05–T08 rajat · T09–T12 virheet",
         test: "Anna matriisi toiselle henkilölle: hän pystyy ajamaan testin T05 pelkän rivin perusteella ja päätymään samaan tulokseen."
       },
-      example: "T05 / väärä pack_format / odotus: peli varoittaa vanhentuneesta paketista / havainto: vastasi odotusta / ok.",
+      example: "T09 / väärä pack_format / odotus: peli varoittaa vanhentuneesta paketista / havainto: vastasi odotusta / ok.",
       notEnough: "Tekoälyn ehdottamaa testiä ei saa merkitä ajetuksi eikä bugia löytyneeksi ilman omaa testiajoa."
     },
     46: {
@@ -435,7 +435,7 @@
       connection: "Julkaisussa paketin avaa joku muu kuin sinä. Kansiorakenne, tiedostonimet ja README kertovat hänelle, mistä mikäkin löytyy — ja käyttöoikeustarkistus varmistaa, että kaikki sisältö saa oikeasti liikkua eteenpäin.",
       deliverable: "Siistitty kansiorakenne, ihmisen tekemä katselmointi ja kirjattu käyttöoikeustarkistus.",
       why: "Selkeä rakenne helpottaa virheiden löytämistä ja myöhempiä muutoksia. Lisenssien tarkistus viimeistään nyt estää julkaisun kaatumisen viikolla 48.",
-      done: "Sama testi läpäisee ennen ja jälkeen siivouksen. Katselmointikommenttiin on vastattu, ja README listaa jokaisen ulkopuolisen lähteen lisensseineen — tai toteaa, että kaikki on itse tehtyä.",
+      done: "Sama testi menee läpi ennen siivousta ja sen jälkeen. Katselmointikommenttiin on vastattu, ja README listaa jokaisen ulkopuolisen lähteen lisensseineen — tai toteaa, että kaikki on itse tehtyä.",
       record: "Kirjoita Vko 46 -merkintään havaitut laatuhaitat, tehdyt siivoukset, katselmoijan rooli ja kommentti sekä käyttöoikeustarkistuksen tulos. Lisää siivouscommitin linkki.",
       skills: ["rakenteen laatu", "nimiavaruus", "käyttöoikeudet"],
       steps: [
@@ -444,7 +444,7 @@
         ["Tarkista käyttöoikeudet", "Käy läpi jokainen tekstuuri, malli ja ääni: itse tehty vai lisensoitu? Kirjaa tulos README:hen."]
       ],
       example: "Ennen: uusi_kansio2/temp.png. Jälkeen: assets/teema/textures/block/kylan_kivi.png — nimi kertoo sisällön.",
-      notEnough: "Pelkkä tiedostojen siirtely ilman testiä tai käyttöoikeustarkistus kaikki ok ilman läpikäyntiä ei ole laatutyötä."
+      notEnough: "Pelkkä tiedostojen siirtely ilman testiä tai käyttöoikeustarkistus ”kaikki ok” ilman läpikäyntiä ei ole laatutyötä."
     },
     47: {
       type: "julkaisu",
@@ -472,7 +472,7 @@
       deliverable: "GitHub-release v1.0: zip-paketit, asennusohje, kuvakaappaukset ja tunnettujen puutteiden lista.",
       why: "Asiakkaan pitää pystyä asentamaan paketti ilman sinua. Vain julkaistun latauksen testaaminen osoittaa, että zipit, ohje ja tiedostorakenne toimivat oikeassa ympäristössä.",
       done: "v1.0-tagin commit vastaa julkaistua versiota. Toinen henkilö lataa releasen ja asentaa paketin puhtaaseen peliin pelkän ohjeen avulla.",
-      record: "Kirjoita Vko 48 -merkintään ketju v1.0-tagi → commit → release-linkki. Lisää testattu peliversio, testaajan rooli, testitulos ja tunnetut puutteet. Jos julkaisit lisäksi Modrinthissa tai Planet Minecraftissa, kirjaa linkki ja mitä ehtoja palvelu vaati.",
+      record: "Kirjoita Vko 48 -merkintään ketju v1.0-tagi → commit → release-linkki. Lisää testattu peliversio, testaajan rooli, testitulos ja tunnetut puutteet. Jos julkaisit lisäksi Modrinthissa tai Planet Minecraftissa, kirjaa linkki ja se, mitä ehtoja palvelu vaati.",
       skills: ["GitHub-release", "versiointi", "asennusohje"],
       steps: [
         ["Korjaa vain estävät virheet", "Aja viikon 47 korjauslistan uusintatestit ja lopeta, kun hyväksytty lista on tyhjä."],
@@ -497,7 +497,7 @@
         ]
       },
       example: "README: Lataa zipit → siirrä resourcepacks- ja datapacks-kansioihin → ota käyttöön. Testattu 1.21 / v1.0 / tunnettu puute: [asia].",
-      notEnough: "Toimii omalla koneella ei osoita, että kerholainen pystyy asentamaan julkaistun paketin ohjeen avulla."
+      notEnough: "”Toimii omalla koneella” ei osoita, että kerholainen pystyy asentamaan julkaistun paketin ohjeen avulla."
     },
     49: {
       type: "naytto",
@@ -519,7 +519,7 @@
         ["Harjoittele ja luovuta", "Näytä 8–10 minuutissa paketti pelissä, yksi tekninen ratkaisu, yksi korjattu bugi, Git-historia ja tekoälyn tarkistettu käyttö. Anna toisen henkilön avata palautus ennen 4.12."]
       ],
       example: "P3 Toimintojen testaus → project-docs/projektipaivakirja.md#vko-45 → testit T01–T12 → release v1.0 → tarkka linkki.",
-      notEnough: "Pelkkä rastitettu matriisi, repositoryn etusivulinkki tai tekoälyn kirjoittama kokemuksellinen itsearviointi ei riitä."
+      notEnough: "Pelkkä rastitettu matriisi, repositoryn etusivulinkki tai tekoälyn kirjoittama, omakohtaiselta kuulostava itsearviointi ei riitä."
     }
   };
 
