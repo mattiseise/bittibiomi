@@ -42,8 +42,8 @@ if (weeks.length !== 15) throw new Error("viikkoja " + weeks.length);
 const matrices = [];
 const matRe = /<details class="matrix[^>]*>\s*<summary>([^<]+)<\/summary>([\s\S]*?)<\/details>/g;
 while ((m = matRe.exec(html))) {
-  const items = [...m[2].matchAll(/data-evidence="[a-z0-9]+"><span><strong>([^<]+)<\/strong>\s*([\s\S]*?)<\/span>/g)]
-    .map((i) => ({ title: stripTags(i[1]), hint: stripTags(i[2]) }));
+  const items = [...m[2].matchAll(/data-evidence="([a-z0-9]+)"><span><strong>([^<]+)<\/strong>\s*([\s\S]*?)<\/span>/g)]
+    .map((i) => ({ id: i[1], title: stripTags(i[2]), hint: stripTags(i[3]) }));
   matrices.push({ title: stripTags(m[1]), items });
 }
 
@@ -338,3 +338,125 @@ H.push(`<p class="muted" style="margin-top:10pt"><em>Muista: sivuston rastit ja 
 H.push(`</body></html>`);
 fs.writeFileSync(path.join(__dirname, "tyopaketti-print.html"), H.join("\n"));
 console.log("tyopaketti-print.html kirjoitettu");
+
+// ---------- 4. Näyttösuunnitelma (opettajan lähdeaineisto) ----------
+// Vaatimukset luetaan sivuston matriisista; viikko- ja työnäytemäppäys alla.
+const MAP = {
+  p1:  ["34, 38", "Kuva paketista pelin valikossa, Blockbench-projektitiedosto ja julkisen repositoryn linkki"],
+  p2:  ["45", "Kolme täydellistä virheenkorjausketjua: havainto, syy, korjauscommit ja uusintatesti"],
+  p3:  ["45", "Testimatriisi T01–T12 lähtötiloineen, odotuksineen ja tuloksineen"],
+  p4:  ["43, 44", "Datapaketin funktiot omassa nimiavaruudessa, reseptit erillisinä tiedostoina, advancement kutsuu palkintofunktiota"],
+  p5:  ["46", "Siivouscommit: selkeät tiedostonimet, siisti JSON, poistetut kuolleet viittaukset"],
+  p6:  ["36, 37", "Pelinäkymän luettavuus: tekstuurien ja suomenkielisten nimien ennen/jälkeen-kuvat"],
+  p7:  ["36–44", "Assetit 1–7 issueina, valmis kun -ehtoina ja committeina"],
+  p8:  ["35, 41", "Priorisoitu backlog hyväksyntöineen ja katselmoinnissa sovittu muutostehtävä"],
+  p9:  ["39", "Kahden toteutusvaihtoehdon vertailumuistio ja perusteltu päätös"],
+  p10: ["41, 46", "Katselmointilokit: palaute, oma tulkinta, päätös ja vastaus kommentteihin"],
+  p11: ["49", "Itsearviointi: kolme vahvuutta työnäytteineen ja yksi kehitysaskel"],
+  s1:  ["34", "Kysymyslista ohjaajalle vastauksineen, kahden julkaistun paketin vertailu ja kuvaus omasta kohdeyleisöstä"],
+  s2:  ["41, 47, 48", "Lataajalle kirjoitettu asennusohje, jonka ulkopuolinen läpäisee ilman apua; 5–10 min esittely ja julkaisuteksti"],
+  s3:  ["41, 47", "Väliversion ja RC1:n katselmointilokit osallistujineen"],
+  s4:  ["35, 41, 43", "P0/P1/P2-backlog ennen ja jälkeen palautteen"],
+  s5:  ["35", "Issuet, joiden työmäärä on 0,5–1 päivää, hyväksymisehtoineen"],
+  s6:  ["35, 43", "Työmääräarvio verrattuna toteumaan"],
+  s7:  ["44", "Reseptit, palkintofunktio ja saavutus laukaisimineen, testattuna selviytymistilassa"],
+  s8:  ["37, 44", "JSON-rakenteiden valinta ja perustelu: lang, reseptit, advancement"],
+  s9:  ["36–38, 40", "Tekstuurien, mallien ja äänten kytkentä pelin resursseihin nimiavaruuksien kautta"],
+  s10: ["34, 43", "Pakettirajapinta: pack.mcmeta, tiedostopolut ja load.json niitä vastaavine tiedostoineen"],
+  s11: ["34, 46", "Julkisen repositoryn yksityisyystarkistus, oma LICENSE ja kolmansien osapuolten lisenssit CREDITSissä"],
+  s12: ["34–49", "Jatkuva Git-historia ja toimiva main koko projektin ajan"],
+  s13: ["43", "Feature-branch ja testattu merge tai pull request"],
+  s14: ["48", "Julkinen GitHub-release v1.0 zip-paketteineen ja LICENSEineen"],
+  k1:  ["34, 38", "Blockbench, VS Code, sovittu Minecraft-versio ja paketin lataus peliin"],
+  k2:  ["45, 48", "Kirjaus pakettijärjestelmän rajoituksista ja julkaisupäätökset tunnettuine puutteineen"],
+  k3:  ["38, 39", "Blockbenchin mallinnus ja UV-teksturointi committeina ja kuvina"],
+  k4:  ["35, 40", "Paletit, äänet ja referenssit lähteineen ja lisensseineen CREDITSissä"],
+  k5:  ["35–45", "Asset-pack-suunnitelma, assetit 1–7 committeina ja testiloki T01–T12"],
+  k6:  ["48", "Ulkopuolinen henkilö on asentanut julkaistun v1.0:n release-sivulta pelkän ohjeen avulla (tehtävä 48-4)"],
+  k7:  ["46, 48, 49", "Lataajalle: README, asennusohje, LICENSE, CREDITS ja CHANGELOG. Arviointiin: asset-pack-suunnitelma.md ja projektipäiväkirja"],
+};
+
+const ns = [];
+ns.push(new Paragraph({ children: [new TextRun({ text: "Näyttösuunnitelma", size: 52, bold: true, color: GREEN })], spacing: { before: 200, after: 100 } }));
+ns.push(p("BittiBiomi · avoimen Minecraft-teemapaketin toteutus ja julkaisu · viikot 34–49, luovutus pe 4.12.2026", { size: 23, after: 60 }));
+ns.push(p("Opettajan lähdeaineisto. Vaatimukset on luettu sivuston näyttömatriisista, joten tämä asiakirja pysyy sivuston kanssa yhdenmukaisena.", { size: 20, color: "555555", after: 300 }));
+
+ns.push(h1("1 · Näytön kohde ja ympäristö"));
+ns.push(p("Opiskelija suunnittelee, toteuttaa ja julkaisee oman teemapaketin Minecraft Java Editioniin. Paketti koostuu resurssipaketista (itse piirretyt tekstuurit, Blockbench-mallit, äänet ja suomenkieliset nimet) ja kevyestä datapaketista (reseptit, saavutus ja mcfunction-skriptit). Skriptaus tehdään komennoilla ja JSONilla, ei ohjelmointikielellä."));
+ns.push(p("Paketti julkaistaan avoimella lisenssillä julkisena GitHub-releasena. Repository on julkinen ensimmäisestä commitista. Näyttöympäristö on siis kaksiosainen: oppilaitoksen työtila ja julkinen jakelukanava."));
+ns.push(p("Pakollinen perusversio (P0): 8 omaa tekstuuria, 2 Blockbench-mallia, omat suomenkieliset nimet, 2 reseptiä, 1 funktio ja 1 saavutus.", { bold: true }));
+
+ns.push(h1("2 · Roolit"));
+ns.push(table([2600, 7038], [
+  new TableRow({ children: [cell("Opiskelija", { w: 2600, bold: true, fill: "F1F8E9" }), cell("Toteuttaa paketin, kirjoittaa dokumentaation lataajalle, julkaisee ja kokoaa näyttöaineiston.", { w: 7038 })] }),
+  new TableRow({ children: [cell("Ohjaaja / opettaja", { w: 2600, bold: true, fill: "F1F8E9" }), cell("Antaa toimeksiannon, päättää lisenssistä ja oppilaitoksen linjasta julkaisemisessa, tarkistaa laadun ja antaa palautetta katselmoinneissa. Ei ole paketin käyttäjä.", { w: 7038 })] }),
+  new TableRow({ children: [cell("Vertaistestaaja", { w: 2600, bold: true, fill: "F1F8E9" }), cell("Kokeilee väliversion (vko 41) ja asentaa julkaistun paketin ohjeen avulla (vkot 47–48).", { w: 7038 })] }),
+  new TableRow({ children: [cell("Lataaja", { w: 2600, bold: true, fill: "F1F8E9" }), cell("Kuka tahansa, joka lataa paketin julkaisun jälkeen. Dokumentaatio kirjoitetaan hänelle.", { w: 7038 })] }),
+]));
+
+ns.push(h1("3 · Laadun tarkistuspisteet"));
+ns.push(p("Opettaja tarkistaa laadun ja antaa palautteen näissä kohdissa. Muut viikot opiskelija työskentelee itsenäisesti sivuston ohjeilla."));
+ns.push(table([1500, 3200, 4938], [
+  new TableRow({ tableHeader: true, children: [cell("Viikko", { w: 1500, bold: true, fill: "E8F5E9" }), cell("Tarkistuspiste", { w: 3200, bold: true, fill: "E8F5E9" }), cell("Mitä tarkistetaan", { w: 4938, bold: true, fill: "E8F5E9" })] }),
+  new TableRow({ children: [cell("34", { w: 1500 }), cell("Toimeksianto ja lisenssi", { w: 3200 }), cell("Kysymykset, kohdeyleisö, sovittu Minecraft-versio ja lisenssi, julkisen repositoryn yksityisyys ja tekijänimi", { w: 4938 })] }),
+  new TableRow({ children: [cell("35", { w: 1500 }), cell("Rajaus", { w: 3200 }), cell("P0-rajaus, moodboard, backlog ja LICENSE-tiedosto repositoryn juuressa", { w: 4938 })] }),
+  new TableRow({ children: [cell("41", { w: 1500 }), cell("Väliversion katselmointi", { w: 3200 }), cell("Asennusohje toimii ilman apua, palaute kirjattu erillään omasta tulkinnasta, yksi muutos sovittu", { w: 4938 })] }),
+  new TableRow({ children: [cell("46", { w: 1500 }), cell("Laatukatselmointi", { w: 3200 }), cell("Rakenne, LICENSE ja CREDITS, lisenssin ymmärrys, selitys omasta ja tekoälyavusteisesta ratkaisusta", { w: 4938 })] }),
+  new TableRow({ children: [cell("47", { w: 1500 }), cell("RC1", { w: 3200 }), cell("Sisältöjäädytys, kahden testaajan asennus ohjeella, palautteen luokittelu", { w: 4938 })] }),
+  new TableRow({ children: [cell("49", { w: 1500 }), cell("Luovutus", { w: 3200 }), cell("Näyttömatriisin täsmälinkit, projektipäiväkirja, AI-loki, demo ja jäädytetty v1.0", { w: 4938 })] }),
+]));
+ns.push(pageBreak());
+
+ns.push(h1("4 · Arvioinnin kohteet ja työnäytteet"));
+ns.push(p("Sama työnäyte voi kelvata useaan kohtaan. Viikkosarake kertoo, missä työnäyte syntyy."));
+for (const mat of matrices) {
+  ns.push(h2(mat.title));
+  const rows = [new TableRow({ tableHeader: true, children: [
+    cell("Arvioinnin kohde", { w: 2700, bold: true, fill: "E8F5E9" }),
+    cell("Vko", { w: 1000, bold: true, fill: "E8F5E9" }),
+    cell("Työnäyte", { w: 5938, bold: true, fill: "E8F5E9" }),
+  ]})];
+  for (const it of mat.items) {
+    const [wks, proof] = MAP[it.id] || ["—", it.hint];
+    rows.push(new TableRow({ children: [
+      cell(it.title, { w: 2700, bold: true }), cell(wks, { w: 1000 }), cell(proof, { w: 5938 }),
+    ]}));
+  }
+  ns.push(table([2700, 1000, 5938], rows));
+  ns.push(p("", { after: 120 }));
+}
+ns.push(pageBreak());
+
+ns.push(h1("5 · Dokumentaatio ja sen kohdeyleisö"));
+ns.push(p("Dokumentaatio tehdään käyttäjille ja mahdollisille paketin lataajille, ei arviointia varten. Arviointiaineisto on erillinen.", { bold: true }));
+ns.push(table([2900, 6738], [
+  new TableRow({ tableHeader: true, children: [cell("Lataajalle", { w: 2900, bold: true, fill: "E8F5E9" }), cell("Arviointiin", { w: 6738, bold: true, fill: "E8F5E9" })] }),
+  new TableRow({ children: [
+    cell("README, asennusohje, LICENSE, CREDITS, CHANGELOG ja julkaisuteksti releasessa", { w: 2900 }),
+    cell("Asset-pack-suunnitelma (project-docs/asset-pack-suunnitelma.md), projektipäiväkirja, AI-loki, testimatriisi ja näyttömatriisin täsmälinkit", { w: 6738 }),
+  ]}),
+]));
+ns.push(p("Asennusohjeen vaatimus on kova: ulkopuolinen henkilö asentaa paketin pelkän ohjeen avulla ilman suullista apua (vkot 41, 47 ja 48). Tämä on samalla asiakaslähtöisen viestinnän työnäyte.", { before: 120 }));
+
+ns.push(h1("6 · Tekoälyn käyttö"));
+ns.push(p("Tekoäly on sallittu apuväline ideointiin, selityksiin, JSON- ja komentovirheiden tutkimiseen ja testitapausten ehdottamiseen. Tekstuurit, mallit ja äänet opiskelija tekee itse tai hankkii lisenssillä, joka sallii uudelleenjulkaisun. P0-ydinsisältö piirretään aina itse; P1/P2-lisäsisällössä tekoäly käy vain opettajan erillisellä luvalla."));
+ns.push(p("Merkittävä tekoälyapu kirjataan AI-lokiin: työkalu, kysymys, mitä käytettiin tai hylättiin, miten tarkistettiin ja aineistoviite. Viikolla 46 opiskelija selittää katselmoijalle yhden oman ja yhden tekoälyavusteisen ratkaisun omin sanoin."));
+
+ns.push(h1("7 · Palautuspaketti"));
+[["Julkaistu paketti", "Julkinen GitHub-release v1.0: resurssipaketti- ja datapakettizipit, LICENSE, CREDITS, CHANGELOG ja asennusohje"],
+ ["Repository", "Julkinen repository jatkuvalla Git-historialla ja toimivalla main-haaralla"],
+ ["Projektipäiväkirja", "project-docs/projektipaivakirja.md, kaikki 15 viikkoa kirjattuina"],
+ ["Näyttömatriisi", "32 arviointikohdetta täsmälinkeillä työnäytteisiin"],
+ ["Demo", "8–10 minuuttia: paketti pelissä, yksi tekninen ratkaisu, yksi korjattu bugi, Git-historia ja tekoälyn käyttö"],
+].forEach(([k, v]) => { ns.push(p(k, { bold: true, after: 20 })); ns.push(p(v, { size: 20, color: "555555", after: 120 })); });
+ns.push(p("Luovutus viimeistään pe 4.12.2026.", { bold: true, before: 100 }));
+
+ns.push(h1("8 · Huomioita opettajalle"));
+[["Rakenteinen ohjelmointi ilman ohjelmointikieltä", "Vaatimus todennetaan datapaketin rakenteesta: funktiot omassa nimiavaruudessa, reseptit ja advancement erillisinä tiedostoina, ja advancement kutsuu palkintofunktiota. Vastuiden jako ja nimeäminen ovat arvioitavissa samoin kuin koodissa."],
+ ["Julkinen repository ja alaikäisyys", "Julkisuudesta ja tekijänimestä sovitaan viikolla 34, alaikäisellä myös huoltajan kanssa. Sivusto ohjeistaa, mitä julkiseen repositoryyn ei laiteta, ja muistuttaa Git-historian pysyvyydestä."],
+ ["Lisenssi on ohjaajan päätös", "Opiskelija ei päätä lisenssiä yksin. Viikolla 46 hän osoittaa ymmärtäneensä valinnan vastaamalla oman LICENSE-tiedostonsa tekstin perusteella, mitä muut saavat paketilla tehdä."],
+ ["Tekoälyn kestävyys", "Jokainen viikko vaatii oman konkreettisen kontekstin, havainnoitavan artefaktin tai nimetyn ihmisen osallistumisen. Yhtäkään viikkoa ei voi kuitata kopioimalla tehtävänanto kielimalliin."],
+ ["Valinnainen julkinen jakelu", "Modrinth tai Planet Minecraft on bonus, ei vaatimus. Tili luodaan opettajan ja huoltajan kanssa sovitusti."],
+].forEach(([k, v]) => { ns.push(p(k, { bold: true, after: 20 })); ns.push(p(v, { size: 20, color: "555555", after: 140 })); });
+
+(async () => { await saveDoc("nayttosuunnitelma.docx", ns); })();
