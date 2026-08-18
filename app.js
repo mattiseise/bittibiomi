@@ -88,7 +88,7 @@
     35: {
       type: "pohjustus",
       feature: "Viikon jälkeen paketti on paperilla: teema, väripaletti, lisenssi ja sisältölista tekojärjestyksessä. Ohjaaja on hyväksynyt rajauksen.",
-      excerpt: "Siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
+      excerpt: "Paketti muuttaa pelin ilmettä valitun teeman mukaiseksi: siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
       connection: "Nyt muutat toimeksiannon näkyväksi suunnitelmaksi: teema, paletti, sisältölista, tehtävät ja valmiin työn ehdot. Viikon 34 vastaukset ohjaajalta ovat suunnitelman pohja.",
       deliverable: "Hyväksytty pakollinen perusversio, sovittu lisenssi, pieni backlog, moodboard ja kolme tekstuuriluonnosta.",
       why: "Rajaus estää pakettia kasvamasta liian suureksi. Kun jokaisella tehtävällä on selvä valmis kun -ehto, tiedät, mitä seuraavaksi tehdään ja milloin työ voidaan testata.",
@@ -123,7 +123,7 @@
     36: {
       type: "feature",
       feature: "Pelin maailma näyttää ensimmäistä kertaa sinun teemaltasi: kolme omaa blokkitekstuuria on pelissä.",
-      excerpt: "Siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
+      excerpt: "Paketti muuttaa pelin ilmettä valitun teeman mukaiseksi: siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
       connection: "Tämä on asset-työkierron ensimmäinen täysi kierros: luonnos, pikselityö, tiedosto oikeaan polkuun, paketti peliin ja testi. Sama kierto toistuu jokaisena asset-viikkona.",
       deliverable: "Kolme omaa 16×16-blokkitekstuuria pelissä, oikea kansiorakenne ja ensimmäiset testimerkinnät.",
       why: "Blokkitekstuuri on paketin perusyksikkö. Kun korvausperiaate ja kansiorakenne ovat hallussa, loput assetit ovat saman kaavan toistoa eri sisällöllä.",
@@ -159,7 +159,7 @@
     37: {
       type: "feature",
       feature: "Esineet saavat oman ilmeen ja teeman mukaiset suomenkieliset nimet.",
-      excerpt: "Siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
+      excerpt: "Paketti muuttaa pelin ilmettä valitun teeman mukaiseksi: siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
       connection: "Viikolla 36 korvasit blokkitekstuurit — sama korvausperiaate pätee esineisiin, kansio vain vaihtuu. Uutena asiana kirjoitat ensimmäisen JSON-tiedoston: kielitiedoston, joka nimeää sisällön uudelleen.",
       deliverable: "Kolme esinetekstuuria, fi_fi.json-kielitiedosto ja testit myös rikkinäisellä JSONilla.",
       why: "Kielitiedosto on ensimmäinen tekstimuotoinen määrittely paketissasi. JSONin tarkkuus — pilkut, lainausmerkit, avaimet — on sama taito, jota reseptit ja saavutus vaativat viikolla 44.",
@@ -190,7 +190,7 @@
     38: {
       type: "feature",
       feature: "Pelissä on ensimmäinen oma 3D-malli — blokki, jota ei ole kenelläkään muulla.",
-      excerpt: "Siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
+      excerpt: "Paketti muuttaa pelin ilmettä valitun teeman mukaiseksi: siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
       connection: "Tekstuuri muuttaa blokin pinnan; malli muuttaa sen muodon. Blockbenchissä rakennat kuutioista oman muodon ja korvaat sillä valitun blokin mallin — sama korvausperiaate kuin viikoilla 36 ja 37.",
       deliverable: "Blockbenchillä tehty ja teksturoitu blokkimalli, joka toimii pelissä maassa ja kädessä.",
       why: "3D-malli on paketin vaativin asset-tyyppi. Pieni onnistunut malli opettaa koordinaatiston, UV-teksturoinnin ja mallitiedoston rakenteen ennen viikon 39 isompaa työtä.",
@@ -225,7 +225,7 @@
     39: {
       type: "feature",
       feature: "Paketti saa näyttävimmän yksittäisen assetinsa: ison mallin tai hahmon uuden ilmeen.",
-      excerpt: "Siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
+      excerpt: "Paketti muuttaa pelin ilmettä valitun teeman mukaiseksi: siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
       connection: "Viikon 38 pieni malli opetti työkalut. Nyt valitset kahdesta isommasta työstä perustellusti toisen: monimutkaisempi blokkimalli tai hahmon (mobin) uusi tekstuuri. Vertailu ja päätös ovat osa näyttöä.",
       deliverable: "Kahden vaihtoehdon vertailu, perusteltu päätös ja valmis toteutus pelissä.",
       why: "Vertailu osoittaa, ettet valinnut ratkaisua sattumalta. Työmäärän, näkyvyyden ja riskin punnitseminen ennen toteutusta on sama taito, jota käytät jokaisessa tulevassa projektissa.",
@@ -450,7 +450,7 @@
     47: {
       type: "julkaisu",
       feature: "Koko paketti on testikäytössä täsmälleen siinä muodossa, jossa se julkaistaan.",
-      excerpt: "Valmis paketti julkaistaan niin, että kuka tahansa pelaaja löytää sen, lataa ja asentaa kirjallisen ohjeen avulla.",
+      excerpt: "Valmis paketti julkaistaan niin, että kuka tahansa pelaaja löytää sen, lataa ja asentaa kirjallisen ohjeen avulla — ja niin, että toinen tekijä voi lisenssin puitteissa jatkaa työtä siitä eteenpäin.",
       connection: "Release candidate 1 eli RC1 on paketin ensimmäinen julkaisuehdokas: zipit ja asennusohje testataan sellaisina kuin ne aiotaan julkaista. Asennusohje on yhtä tärkeä testattava kuin paketti itse.",
       deliverable: "Jäädytetty RC1 (zipit + asennusohje), kahden henkilön testipalaute ja päätetty julkaisun korjauslista.",
       why: "Sisältöjäädytys estää uusia muutoksia rikkomasta lähes valmista pakettia. Palautteen luokittelu kohdistaa ajan vain julkaisuun vaikuttaviin virheisiin.",
@@ -468,7 +468,7 @@
     48: {
       type: "julkaisu",
       feature: "Paketti on julkaistu avoimella lisenssillä. Kuka tahansa lataa ja asentaa sen itse ohjeen avulla.",
-      excerpt: "Valmis paketti julkaistaan niin, että kuka tahansa pelaaja löytää sen, lataa ja asentaa kirjallisen ohjeen avulla.",
+      excerpt: "Valmis paketti julkaistaan niin, että kuka tahansa pelaaja löytää sen, lataa ja asentaa kirjallisen ohjeen avulla — ja niin, että toinen tekijä voi lisenssin puitteissa jatkaa työtä siitä eteenpäin.",
       connection: "Paketti siirtyy nyt omalta koneelta GitHub-releaseen eli repositoryn viralliseen julkaisuun. Testaat julkaistua latausta, et omaa työkansiota.",
       deliverable: "Julkinen GitHub-release v1.0: zip-paketit, asennusohje, LICENSE, CHANGELOG, kuvakaappaukset ja tunnettujen puutteiden lista.",
       why: "Lataajan pitää pystyä asentamaan paketti ilman sinua. Vain julkaistun latauksen testaaminen osoittaa, että zipit, ohje ja tiedostorakenne toimivat oikeassa ympäristössä.",
@@ -504,7 +504,7 @@
     49: {
       type: "naytto",
       feature: "Paketti, repository ja projektipäiväkirja todistavat osaamisesi ilman suullista selitystä.",
-      excerpt: "Valmis paketti julkaistaan niin, että kuka tahansa pelaaja löytää sen, lataa ja asentaa kirjallisen ohjeen avulla.",
+      excerpt: "Valmis paketti julkaistaan niin, että kuka tahansa pelaaja löytää sen, lataa ja asentaa kirjallisen ohjeen avulla — ja niin, että toinen tekijä voi lisenssin puitteissa jatkaa työtä siitä eteenpäin.",
       connection: "Pakettiin ei enää lisätä sisältöä. Yhdistät jokaisen vaatimuksen täsmälliseen tiedostoon, testiin, releaseen ja Gitin työnäytteeseen.",
       deliverable: "Valmis projektipäiväkirja, näyttömatriisi, itsearviointi, jäädytetty v1.0 ja harjoiteltu demo.",
       why: "Arvioija voi arvioida vain näkyvän ja löydettävän osaamisen. Täsmälliset linkit säästävät aikaa ja osoittavat, miten vaatimus muuttui suunnitelmaksi, toteutukseksi ja testiksi.",
