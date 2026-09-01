@@ -1,70 +1,125 @@
-// Ajo: npm install docx && node tyokalut/tee_lataukset.js
-// PDF: Chrome headless --print-to-pdf tyokalut/tyopaketti-print.html-tiedostosta (ks. README).
-// BittiBiomin ladattavat docx-materiaalit. Viikkodata luetaan suoraan
-// index.html:stä ja app.js:stä, jotta paperiversio pysyy sivuston kanssa synkassa.
+/*
+ * Ajo: npm install docx && node tyokalut/tee_lataukset.js
+ * PDF: Chrome headless --print-to-pdf tyokalut/tyopaketti-print.html-tiedostosta.
+ *
+ * Geneerinen generaattori. Kaikki teksti tulee sisalto.js:stä ja index.html:stä,
+ * jotta paperiversio pysyy sivuston kanssa synkassa. Tähän tiedostoon ei
+ * kirjoiteta projektikohtaista sisältöä.
+ */
 const fs = require("fs");
 const path = require("path");
 const {
   Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType,
-  Table, TableRow, TableCell, WidthType, ShadingType, BorderStyle, PageBreak,
+  Table, TableRow, TableCell, WidthType, ShadingType, PageBreak,
 } = require("docx");
 
 const SITE = path.join(__dirname, "..");
 const OUT = path.join(SITE, "downloads");
 fs.mkdirSync(OUT, { recursive: true });
 
-// ---------- Sivuston datan poiminta ----------
+/* ---------- sisalto.js ---------- */
+global.window = {};
+require(path.join(SITE, "sisalto.js"));
+const P = global.window.NAYTTOPROJEKTI;
+if (!P) throw new Error("sisalto.js ei asettanut window.NAYTTOPROJEKTI");
+const O = P.opettaja || {};
+const NS = O.nayttosuunnitelma || O.projektisuunnitelma || {};
+
+/* Työpaketin ja print-HTML:n tekstit. Oletukset suomeksi; projekti voi korvata
+   minkä tahansa avaimen sisalto.js:n `lataukset`-objektista (muunkielinen sivusto).
+   Opettajan dokumentointipohjat pysyvät suomeksi — ne ovat opettajan aineistoa. */
+const L_OLETUS = {
+  lang: "fi",
+  tyopakettiOtsikko: "Paperinen työpaketti",
+  tyopakettiTiedostoOtsikko: "työpaketti",
+  kansiJohdanto: "Tämä paketti on aikataulu ja tarkistuslista tilanteisiin, joissa sivusto ei ole auki. Projektipäiväkirja kirjoitetaan sivustolla ja viedään repositoryn project-docs-kansioon. Rasti tässä vihossa ei ole palautus: työ on aina Git-repositoryssa.",
+  luovutus: (d) => `luovutus ${d}`,
+  aikatauluOtsikko: "Aikataulu yhdellä aukeamalla",
+  aikatauluLyhyt: "Aikataulu",
+  sarakeViikko: "Vko",
+  sarakePvm: "Pvm",
+  sarakeAihe: "Viikon aihe",
+  sarakeVaihe: "Vaihe",
+  eiProjektityota: (title) => `${title} – ei projektityötä`,
+  palautusHuomio: (d) => `Palautus viimeistään ${d}. Sivusto: tehtävien tarkat ohjeet, toteutusavut ja projektipäiväkirja.`,
+  vaiheOtsikko: (tunnus, otsikko) => `Vaihe ${tunnus} – ${otsikko}`,
+  viikkoOtsikko: (num, dates, title) => `Vko ${num} · ${dates} – ${title}`,
+  valmisKun: "Valmis kun: ",
+  valmisKunLabel: "Valmis kun:",
+  evidenceLabel: "Työnäyte Git-repositoryyn ennen rastia:",
+  viimeisetPaivatOtsikko: "Viimeiset viisi päivää",
+  matriisiOtsikko: (n) => `Näyttömatriisi – ${n} osaamisvaatimusta`,
+  matriisiJohdanto: "Rasti vasta, kun vaatimukselle on täsmällinen työnäyte: linkki, commit, kuva, testirivi tai muistio. Sama työnäyte voi kelvata useaan kohtaan.",
+  selainHuomio: "Muista: sivuston rastit ja kentät tallentuvat vain selaimeen. Ne eivät siirry opettajalle eivätkä korvaa Gitissä olevaa työtä."
+};
+const L = Object.assign({}, L_OLETUS, P.lataukset || {});
+const lt = (key, ...args) => {
+  const value = L[key];
+  return typeof value === "function" ? value(...args) : value;
+};
+
 const html = fs.readFileSync(path.join(SITE, "index.html"), "utf8");
-const appjs = fs.readFileSync(path.join(SITE, "app.js"), "utf8");
 
 function stripTags(s) {
-  return s.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/\s+/g, " ").trim();
+  return s.replace(/<[^>]+>/g, "")
+    .replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ").trim();
 }
 
-// weekGuidance-objekti app.js:stä (IIFE:n sisällä → poimitaan ja evaloidaan erikseen)
-const gm = appjs.match(/const weekGuidance = (\{[\s\S]*?\n  \});\n/);
-if (!gm) throw new Error("weekGuidance ei löytynyt");
-const weekGuidance = eval("(" + gm[1] + ")");
-
-// Viikkokortit index.html:stä
+/* Viikkokortit index.html:stä (kaksipalstainen layout: <article class="week-card">,
+   data-week-label kantaa "Vko"-sarakkeen tekstin, <h1 class="view-title"> otsikon). */
 const weeks = [];
-const cardRe = /<details class="week-card" id="week-(\d+)"[\s\S]*?<small>([^<]+)<\/small><strong>([^<]+)<\/strong>[\s\S]*?<\/details>/g;
+const cardRe = /<article class="week-card" id="week-(\d+)" data-week="\d+">\s*<p class="view-eyebrow" data-week-label="([^"]+)"[^>]*>[^<]*<\/p>\s*<h1 class="view-title">([^<]+)<\/h1>[\s\S]*?<\/article>/g;
 let m;
 while ((m = cardRe.exec(html))) {
   const [block, num, dates, title] = m;
-  const tasks = [...block.matchAll(/data-task="[\d-]+"> <span>([\s\S]*?)<\/span><\/label>/g)].map((t) => stripTags(t[1]).replace(/tällä sivulla/g, "sivustolla"));
-  const ev = block.match(/<p class="evidence"><strong>[^<]*<\/strong>\s*([\s\S]*?)<\/p>/);
+  const tasks = [...block.matchAll(/data-task="[\d-]+"[^>]*>\s*<span class="task-box"[^>]*><\/span>\s*<span class="task-text">([\s\S]*?)<\/span><\/label>/g)]
+    .map((t) => stripTags(t[1]).replace(/tällä sivulla/g, "sivustolla").replace(/on this page/g, "on the site"));
+  const ev = block.match(/<p class="evidence">([\s\S]*?)<\/p>/);
   weeks.push({ num: +num, dates, title, tasks, evidence: ev ? stripTags(ev[1]) : "" });
 }
-if (weeks.length !== 15) throw new Error("viikkoja " + weeks.length);
 
-// Näyttömatriisi
+/* Lomaviikot holiday-cardeista (sama otsikkomuoto kuin week-cardeissa:
+   view-eyebrow kantaa data-week-label-attribuutin, h1.view-title on nimi). */
+const holidays = {};
+const holRe = /<article class="holiday-card" id="week-(\d+)" data-week="\d+">\s*<p class="view-eyebrow" data-week-label="([^"]+)"[^>]*>[^<]*<\/p>\s*<h1 class="view-title">([^<]+)<\/h1>\s*<p>([\s\S]*?)<\/p>/g;
+while ((m = holRe.exec(html))) {
+  holidays[+m[1]] = { dates: stripTags(m[2]), title: stripTags(m[3]), text: stripTags(m[4]) };
+}
+
+/* Näyttömatriisi (kaksipalstainen layout: otsikko + laskuri omissa <span>:eissä) */
 const matrices = [];
-const matRe = /<details class="matrix[^>]*>\s*<summary>([^<]+)<\/summary>([\s\S]*?)<\/details>/g;
+const matRe = /<details class="matrix"[^>]*>\s*<summary><span class="matrix-title">([^<]+)<\/span><span class="matrix-count">[^<]*<\/span><\/summary>([\s\S]*?)<\/details>/g;
 while ((m = matRe.exec(html))) {
   const items = [...m[2].matchAll(/data-evidence="([a-z0-9]+)"><span><strong>([^<]+)<\/strong>\s*([\s\S]*?)<\/span>/g)]
     .map((i) => ({ id: i[1], title: stripTags(i[2]), hint: stripTags(i[3]) }));
   matrices.push({ title: stripTags(m[1]), items });
 }
+const requirementCount = matrices.reduce((sum, mat) => sum + mat.items.length, 0);
 
-const PHASES = [
-  { key: "A", label: "Paketin ydin: teema, työkalut ja ensimmäiset omat tekstuurit", weeks: [34, 35, 36, 37], color: "8D5A2B" },
-  { key: "B", label: "Paketin featuret: 3D-mallit, äänet ja katselmointi", weeks: [38, 39, 40, 41], color: "1A6FAE" },
-  { key: "C", label: "Paketti valmiiksi: skriptit, palautemuutos ja laatu", weeks: [43, 44, 45, 46], color: "C03434" },
-  { key: "D", label: "Julkaisu ja näyttö", weeks: [47, 48, 49], color: "7C3AED" },
-];
-const GREEN = "1B5E20";
+/* Tarkistukset: hiljainen epäsynkka on pahempi kuin kaatuminen */
+const expectedWeeks = (P.viikot || []).filter((w) => !(P.lomaViikot || []).includes(w));
+if (weeks.length !== expectedWeeks.length) {
+  throw new Error(`index.html: viikkokortteja ${weeks.length}, sisalto.js odottaa ${expectedWeeks.length}`);
+}
+weeks.forEach((w) => { if (!P.viikkoOhjeet[w.num]) throw new Error(`sisalto.js: viikolta ${w.num} puuttuu viikkoOhjeet`); });
+/* Matriisi on valinnainen: pelkkä projektisivusto ei sisällä näyttömatriisia. */
+
+/* ---------- ulkoasu ---------- */
+const ACCENT = (P.paletti?.aksenttiTumma || "#1b5e20").replace("#", "");
+const TINT = (P.paletti?.taulukkoSavy || "#e8f5e9").replace("#", "");
+const TINT2 = (P.paletti?.riviSavy || "#f1f8e9").replace("#", "");
+const GREY = "555555";
 const PAGE = { size: { width: 11906, height: 16838 }, margin: { top: 1134, bottom: 1134, left: 1134, right: 1134 } };
 const CW = 11906 - 2 * 1134; // sisältöleveys DXA
 
-// ---------- docx-apurit ----------
 const p = (text, opts = {}) => new Paragraph({
   children: [new TextRun({ text, size: opts.size || 21, bold: opts.bold, italics: opts.italics, color: opts.color })],
   spacing: { after: opts.after ?? 120, before: opts.before ?? 0 },
   alignment: opts.align,
 });
-const h1 = (text) => new Paragraph({ heading: HeadingLevel.HEADING_1, children: [new TextRun({ text, color: GREEN, bold: true })], spacing: { before: 320, after: 160 } });
-const h2 = (text, color = GREEN) => new Paragraph({ heading: HeadingLevel.HEADING_2, children: [new TextRun({ text, color, bold: true })], spacing: { before: 260, after: 120 } });
+const h1 = (text) => new Paragraph({ heading: HeadingLevel.HEADING_1, children: [new TextRun({ text, color: ACCENT, bold: true })], spacing: { before: 320, after: 160 } });
+const h2 = (text, color = ACCENT) => new Paragraph({ heading: HeadingLevel.HEADING_2, children: [new TextRun({ text, color, bold: true })], spacing: { before: 260, after: 120 } });
 const box = (text) => p("☐  " + text, { after: 80 });
 const pageBreak = () => new Paragraph({ children: [new PageBreak()] });
 
@@ -77,194 +132,277 @@ function cell(text, { w, bold, fill, size = 19, color } = {}) {
   });
 }
 function table(colWidths, rows) {
-  return new Table({
-    width: { size: colWidths.reduce((a, b) => a + b, 0), type: WidthType.DXA },
-    columnWidths: colWidths,
-    rows,
+  return new Table({ width: { size: colWidths.reduce((a, b) => a + b, 0), type: WidthType.DXA }, columnWidths: colWidths, rows });
+}
+function headerRow(cols) {
+  return new TableRow({ tableHeader: true, children: cols.map(([text, w]) => cell(text, { w, bold: true, fill: TINT })) });
+}
+/* Sarakeleveydet suhdeluvuista, jäännös viimeiselle sarakkeelle. */
+function widths(ratios) {
+  const total = ratios.reduce((a, b) => a + b, 0);
+  const cols = ratios.map((r) => Math.round((r / total) * CW));
+  cols[cols.length - 1] = CW - cols.slice(0, -1).reduce((a, b) => a + b, 0);
+  return cols;
+}
+
+/* Viikot vaiheittain, lomaviikot oikeilla paikoillaan */
+function walkWeeks(onWeek, onHoliday) {
+  (P.viikot || []).forEach((num) => {
+    if (holidays[num]) { onHoliday(num, holidays[num]); return; }
+    const wk = weeks.find((w) => w.num === num);
+    if (wk) onWeek(wk, P.viikkoOhjeet[num] || {}, (P.vaiheet || []).find((f) => f.viikot.includes(num)));
   });
 }
 
-// ---------- 1. Työpaketti ----------
+const jakso = O.jakso || `Viikot ${P.viikot[0]}–${P.viikot[P.viikot.length - 1]}`;
+const deadline = O.deadline || "";
+/* Työpaketti on opiskelijan aineisto → nämä voi antaa sivuston kielellä
+   lataukset-lohkossa. Opettajan asiakirjat käyttävät aina O:n suomenkielisiä arvoja. */
+const tpJakso = L.jakso || jakso;
+const tpDeadline = L.deadline || deadline;
+const tpKansiKuvaus = L.kansiKuvaus || O.kansiKuvaus;
+const tpKansiHuomiot = L.kansiHuomiot || O.kansiHuomiot || [];
+const tpViimeisetPaivat = L.viimeisetPaivat || O.viimeisetPaivat || [];
+
+/* ---------- 1. Työpaketti ---------- */
 const tp = [];
-tp.push(new Paragraph({ children: [new TextRun({ text: "BittiBiomi", size: 72, bold: true, color: GREEN })], spacing: { before: 2400, after: 200 }, alignment: AlignmentType.CENTER }));
-tp.push(p("Paperinen työpaketti · ohjattu näyttöprojekti", { size: 28, align: AlignmentType.CENTER, after: 60 }));
-tp.push(p("Oma Minecraft-teemapaketti: tekstuurit, mallit, äänet ja skriptit", { size: 24, align: AlignmentType.CENTER, after: 400, color: "555555" }));
-tp.push(p("Viikot 34–49 · syysloma vko 42 · luovutus pe 4.12.2026", { size: 24, bold: true, align: AlignmentType.CENTER, after: 2000 }));
-tp.push(p("Tämä paketti on aikataulu ja tarkistuslista tilanteisiin, joissa sivusto ei ole auki. Projektipäiväkirja kirjoitetaan sivustolla ja viedään repositorion project-docs-kansioon. Rasti tässä vihossa ei ole palautus — työnäyte on aina Git-repositoryssa.", { size: 21, align: AlignmentType.CENTER, color: "555555" }));
-tp.push(p('Paketti julkaistaan avoimella lisenssillä ja repository on julkinen ensimmäisestä commitista. Älä laita julkiseen repositoryyn henkilötietoja, kotiosoitetta, koulun tunnisteita tai muiden nimiä — Git-historia on pysyvä. Sovi tekijänimi ohjaajan kanssa, ja alaikäisenä sovi julkisesta repositorystä myös huoltajan kanssa.', { size: 21, align: AlignmentType.CENTER, color: "555555", before: 200 }));
+tp.push(new Paragraph({ children: [new TextRun({ text: P.nimi, size: 72, bold: true, color: ACCENT })], spacing: { before: 2400, after: 200 }, alignment: AlignmentType.CENTER }));
+tp.push(p(lt("tyopakettiOtsikko"), { size: 28, align: AlignmentType.CENTER, after: 60 }));
+if (tpKansiKuvaus) tp.push(p(tpKansiKuvaus, { size: 24, align: AlignmentType.CENTER, after: 400, color: GREY }));
+tp.push(p(`${tpJakso}${tpDeadline ? ` · ${lt("luovutus", tpDeadline)}` : ""}`, { size: 24, bold: true, align: AlignmentType.CENTER, after: 2000 }));
+tp.push(p(lt("kansiJohdanto"), { size: 21, align: AlignmentType.CENTER, color: GREY }));
+tpKansiHuomiot.forEach((note) => tp.push(p(note, { size: 21, align: AlignmentType.CENTER, color: GREY, before: 200 })));
 tp.push(pageBreak());
 
-tp.push(h1("Aikataulu yhdellä aukeamalla"));
-const schedRows = [new TableRow({ tableHeader: true, children: [
-  cell("Vko", { w: 900, bold: true, fill: "E8F5E9" }),
-  cell("Pvm", { w: 1800, bold: true, fill: "E8F5E9" }),
-  cell("Viikon aihe", { w: 5138, bold: true, fill: "E8F5E9" }),
-  cell("Vaihe", { w: 1800, bold: true, fill: "E8F5E9" }),
-]})];
-for (const ph of PHASES) {
-  for (const wn of ph.weeks) {
-    if (wn === 43) schedRows.push(new TableRow({ children: [
-      cell("42", { w: 900 }), cell("12.–16.10.", { w: 1800 }), cell("Syysloma — ei projektityötä", { w: 5138 }), cell("—", { w: 1800 }),
-    ]}));
-    const wk = weeks.find((x) => x.num === wn);
-    schedRows.push(new TableRow({ children: [
-      cell(String(wk.num), { w: 900, bold: true }),
-      cell(wk.dates, { w: 1800 }),
-      cell(wk.title, { w: 5138 }),
-      cell(ph.key + " · " + ph.label.split(":")[0], { w: 1800 }),
-    ]}));
-  }
-}
-tp.push(table([900, 1800, 5138, 1800], schedRows));
-tp.push(p("Palautus viimeistään pe 4.12.2026. Sivusto: tehtävien tarkat ohjeet, toteutusavut ja projektipäiväkirja.", { before: 160, italics: true, color: "555555" }));
+tp.push(h1(lt("aikatauluOtsikko")));
+const schedW = widths([9, 18, 51, 18]);
+const schedRows = [headerRow([[lt("sarakeViikko"), schedW[0]], [lt("sarakePvm"), schedW[1]], [lt("sarakeAihe"), schedW[2]], [lt("sarakeVaihe"), schedW[3]]])];
+walkWeeks(
+  (wk, g, phase) => schedRows.push(new TableRow({ children: [
+    cell(String(wk.num), { w: schedW[0], bold: true }),
+    cell(wk.dates, { w: schedW[1] }),
+    cell(wk.title, { w: schedW[2] }),
+    cell(phase ? `${phase.tunnus} · ${phase.lyhyt || phase.otsikko.split(":")[0]}` : "–", { w: schedW[3] }),
+  ]})),
+  (num, hol) => schedRows.push(new TableRow({ children: [
+    cell(String(num), { w: schedW[0] }), cell(hol.dates, { w: schedW[1] }),
+    cell(lt("eiProjektityota", hol.title), { w: schedW[2] }), cell("–", { w: schedW[3] }),
+  ]}))
+);
+tp.push(table(schedW, schedRows));
+if (tpDeadline) tp.push(p(lt("palautusHuomio", tpDeadline), { before: 160, italics: true, color: GREY }));
 tp.push(pageBreak());
 
-for (const ph of PHASES) {
-  tp.push(h1("Vaihe " + ph.key + " — " + ph.label));
-  for (const wn of ph.weeks) {
-    if (wn === 43) {
-      tp.push(h2("Vko 42 · 12.–16.10. — Syysloma", "8A6D00"));
-      tp.push(p("Ei projektityötä eikä korvaavia tehtäviä. Jatka viikolla 43 viimeisimmästä toimivasta main-versiosta.", { after: 200 }));
+(P.vaiheet || []).forEach((phase) => {
+  tp.push(h1(lt("vaiheOtsikko", phase.tunnus, phase.otsikko)));
+  phase.viikot.forEach((num) => {
+    if (holidays[num]) {
+      const hol = holidays[num];
+      tp.push(h2(lt("viikkoOtsikko", num, hol.dates, hol.title), "8A6D00"));
+      tp.push(p(hol.text, { after: 200 }));
+      return;
     }
-    const wk = weeks.find((x) => x.num === wn);
-    const g = weekGuidance[wn] || {};
-    tp.push(h2("Vko " + wk.num + " · " + wk.dates + " — " + wk.title));
-    if (g.feature) tp.push(p(g.feature, { italics: true, color: "555555" }));
+    const wk = weeks.find((w) => w.num === num);
+    if (!wk) return;
+    const g = P.viikkoOhjeet[num] || {};
+    tp.push(h2(lt("viikkoOtsikko", wk.num, wk.dates, wk.title)));
+    if (g.feature) tp.push(p(g.feature, { italics: true, color: GREY }));
     wk.tasks.forEach((t) => tp.push(box(t)));
-    if (g.done) tp.push(p("Valmis kun: " + g.done, { size: 19, color: GREEN, after: 60 }));
-    if (wk.evidence) tp.push(p("Työnäyte Git-repositoryyn ennen rastia: " + wk.evidence, { size: 19, color: "555555", after: 240 }));
-  }
+    if (g.done) tp.push(p(lt("valmisKun") + g.done, { size: 19, color: ACCENT, after: 60 }));
+    if (wk.evidence) tp.push(p(`${lt("evidenceLabel")} ${wk.evidence}`, { size: 19, color: GREY, after: 240 }));
+  });
+});
+
+if (tpViimeisetPaivat.length) {
+  tp.push(pageBreak());
+  tp.push(h1(lt("viimeisetPaivatOtsikko")));
+  tpViimeisetPaivat.forEach(([d, t], i) => tp.push(p(`${d}  ·  ${t}`, { bold: i === tpViimeisetPaivat.length - 1, after: 80 })));
 }
 
-tp.push(pageBreak());
-tp.push(h1("Viimeiset viisi päivää"));
-[["Ma 30.11.", "Sisältöjäädytys — viimeinen hyväksytty versio"],
- ["Ti 1.12.", "Aineisto — päiväkirja, testit ja linkit"],
- ["Ke 2.12.", "Harjoittelu — 8–10 min demo ja itsearviointi"],
- ["To 3.12.", "Puskuri — tarkistus toisen henkilön kanssa"],
- ["Pe 4.12.", "LUOVUTUS — paketti, repository, projektipäiväkirja ja näyttö"],
-].forEach(([d, t]) => tp.push(p(d + "  ·  " + t, { bold: d.startsWith("Pe"), after: 80 })));
-
-tp.push(pageBreak());
-tp.push(h1("Näyttömatriisi — 32 osaamisvaatimusta"));
-tp.push(p("Rasti vasta, kun vaatimukselle on täsmällinen työnäyte: linkki, commit, kuva, testirivi tai muistio. Sama työnäyte voi kelvata useaan kohtaan.", { color: "555555" }));
-for (const mat of matrices) {
-  tp.push(h2(mat.title));
-  mat.items.forEach((i) => tp.push(p("☐  " + i.title + " — " + i.hint, { size: 19, after: 60 })));
+if (matrices.length) {
+  tp.push(pageBreak());
+  tp.push(h1(lt("matriisiOtsikko", requirementCount)));
+  tp.push(p(lt("matriisiJohdanto"), { color: GREY }));
+  matrices.forEach((mat) => {
+    tp.push(h2(mat.title));
+    mat.items.forEach((i) => tp.push(p(`☐  ${i.title} – ${i.hint}`, { size: 19, after: 60 })));
+  });
 }
-tp.push(p("Muista: sivuston rastit ja kentät tallentuvat vain selaimeen. Ne eivät siirry opettajalle eivätkä korvaa Gitissä olevaa työnäytettä.", { before: 240, italics: true, color: "555555" }));
+tp.push(p(lt("selainHuomio"), { before: 240, italics: true, color: GREY }));
 
-// ---------- 2. Teemaideat ----------
-const THEMES = [
-  ["Kotikylä", "Lämmin suomalainen kylä: puutalot, sauna ja pihapiiri.", "hirsiseinä, pärekatto, saunankiuas", "kiulu, vihta, kahvipannu", "pihakeinu tai kaivonvintti", "saunan kiukaan sihahdus", "kiulun resepti + saavutus Löylynheittäjä"],
-  ["Avaruusasema", "Kylmä metalli ja neonvalot kiertoradalla.", "metallipaneeli, valolattia, kaapelikouru", "happipullo, työkalu, avaruusruoka", "antenni tai ohjauspaneeli", "ilmalukon suhina", "happipullon resepti + saavutus Ulkoavaruudessa"],
-  ["Satumetsä", "Sammaleinen, utuinen ja vähän taianomainen metsä.", "sammalkivi, sienirunko, hehkulehvästö", "taikasauva, sienikori, hohtomarja", "jättisieni", "metsän kuiskaus", "hohtomarjan resepti + saavutus Metsänhenki"],
-  ["Talviselkonen", "Lumi, jää ja revontulet Lapissa.", "hankilumi, jääkuutio, honkaseinä", "sukset, lapaset, kuksa", "kota tai pulkka", "pakkasen narske", "kuksan resepti + saavutus Kaamoksen valo"],
-  ["Merenalainen", "Sukellus koralliriutalle ja hylylle.", "koralli, merilevä, hylkylankku", "sukelluslasit, harppuuna, helmi", "ruostunut ankkuri", "kuplien pulputus", "sukelluslasien resepti + saavutus Syvyyksien tutkija"],
-  ["Villi länsi", "Pölyinen preeriakaupunki ja kultaryntäys.", "hiekkakivi, saluunalauta, kaktus", "lasso, kultahippu, stetson", "tuulimylly tai vesitorni", "saluunan ovi", "kultahipun resepti + saavutus Kullankaivaja"],
-  ["Muinainen temppeli", "Hiekkaan hautautunut raunio ja hieroglyfit.", "hieroglyfikivi, kultatiili, hiekkalattia", "soihtu, aarrekartta, skarabee", "sfinksipatsas", "kiviluukun jyrinä", "soihdun resepti + saavutus Haudanryöstäjä"],
-  ["Kauhukartano", "Naristva vanha talo — sopivan pelottava, ei liian.", "lahopuu, hämähäkinseitti-ikkuna, kellariportaat", "lyhty, vanha avain, hämäränaamio", "kummitusveistos", "narisevat portaat", "lyhdyn resepti + saavutus Rohkea vieras"],
-  ["Kyberkaupunki", "Neonvalot, hologrammit ja sadekadut.", "neonseinä, hologrammilattia, piirilevy", "datalevy, neonlasit, energiajuoma", "mainoskyltti", "syntetisaattoripiippaus", "datalevyn resepti + saavutus Verkossa"],
-  ["Koulun oma teema", "Oman koulun värit, tilat ja sisäpiirin jutut.", "koulun seinätiili, liitutaulu, käytävälaatta", "läppäri, ruokalan tarjotin, avainnauha", "koulun logo -veistos", "välituntikello", "tarjottimen resepti + saavutus Ysiluokkalainen"],
-];
+/* ---------- 2. Ideapankki (valinnainen) ---------- */
+const bank = O.ideapankki;
 const ti = [];
-ti.push(new Paragraph({ children: [new TextRun({ text: "Teemaideat", size: 56, bold: true, color: GREEN })], spacing: { before: 200, after: 120 } }));
-ti.push(p("BittiBiomi · 10 teemaa sisältölistoineen. Nämä ovat lähtökohtia — oma idea on aina paras, kunhan se kestää 15 viikkoa. Valitse teema, jonka jaksat katsoa joulukuuhun asti.", { size: 22, after: 300, color: "555555" }));
-for (const [name, desc, blocks, items, model, sound, script] of THEMES) {
-  ti.push(h2(name));
-  ti.push(p(desc, { italics: true, after: 100 }));
-  ti.push(table([2200, 7438], [
-    new TableRow({ children: [cell("Blokkitekstuurit", { w: 2200, bold: true, fill: "F1F8E9" }), cell(blocks, { w: 7438 })] }),
-    new TableRow({ children: [cell("Esinetekstuurit", { w: 2200, bold: true, fill: "F1F8E9" }), cell(items, { w: 7438 })] }),
-    new TableRow({ children: [cell("3D-malli", { w: 2200, bold: true, fill: "F1F8E9" }), cell(model, { w: 7438 })] }),
-    new TableRow({ children: [cell("Ääni", { w: 2200, bold: true, fill: "F1F8E9" }), cell(sound, { w: 7438 })] }),
-    new TableRow({ children: [cell("Skriptattu lisä", { w: 2200, bold: true, fill: "F1F8E9" }), cell(script, { w: 7438 })] }),
-  ]));
-  ti.push(p("", { after: 160 }));
+if (bank) {
+  ti.push(new Paragraph({ children: [new TextRun({ text: bank.otsikko, size: 56, bold: true, color: ACCENT })], spacing: { before: 200, after: 120 } }));
+  ti.push(p(bank.johdanto, { size: 22, after: 300, color: GREY }));
+  const bw = widths([23, 77]);
+  bank.ideat.forEach(([name, desc, ...cols]) => {
+    ti.push(h2(name));
+    ti.push(p(desc, { italics: true, after: 100 }));
+    ti.push(table(bw, bank.sarakkeet.map((label, idx) => new TableRow({ children: [
+      cell(label, { w: bw[0], bold: true, fill: TINT2 }), cell(cols[idx] || "", { w: bw[1] }),
+    ]}))));
+    ti.push(p("", { after: 160 }));
+  });
+  if (bank.loppu) ti.push(p(bank.loppu, { bold: true, before: 120 }));
 }
-ti.push(p("Muista rajaus: P0 ensin — 8 tekstuuria, 2 mallia, omat nimet, 2 reseptiä, 1 funktio ja 1 saavutus. Lisäideat ovat P1/P2-listaa.", { bold: true, before: 120 }));
 
-// ---------- 3. Dokumentointipohjat ----------
+/* ---------- 3. Dokumentointipohjat ---------- */
+const T = O.pohjat || {};
+const testCount = T.testeja || 12;
 const dp = [];
-dp.push(new Paragraph({ children: [new TextRun({ text: "Näytön dokumentointipohjat", size: 48, bold: true, color: GREEN })], spacing: { before: 200, after: 120 } }));
-dp.push(p("BittiBiomi · kopioi tarvitsemasi pohja project-docs-kansioon tai täytä paperilla ja skannaa. Jokainen pohja vastaa sivuston viikkotehtävää.", { size: 22, after: 300, color: "555555" }));
+dp.push(new Paragraph({ children: [new TextRun({ text: "Projektin dokumentointipohjat", size: 48, bold: true, color: ACCENT })], spacing: { before: 200, after: 120 } }));
+dp.push(p(`${P.nimi} · kopioi tarvitsemasi pohja project-docs-kansioon tai täytä paperilla ja skannaa. Jokainen pohja vastaa sivuston viikkotehtävää.`, { size: 22, after: 300, color: GREY }));
 
-dp.push(h1("1 · Aloituskeskustelun muistiinpanot (vko 34)"));
-dp.push(p("Päivä ja osallistujien roolit: ______________________________", { after: 160 }));
-const qRows = [new TableRow({ tableHeader: true, children: [
-  cell("#", { w: 600, bold: true, fill: "E8F5E9" }),
-  cell("Kysymys", { w: 4300, bold: true, fill: "E8F5E9" }),
-  cell("Vastaus / avoin / oletus", { w: 4738, bold: true, fill: "E8F5E9" }),
-]})];
-for (let i = 1; i <= 8; i++) qRows.push(new TableRow({ children: [cell(String(i), { w: 600 }), cell("", { w: 4300 }), cell("", { w: 4738 })] }));
-dp.push(table([600, 4300, 4738], qRows));
-dp.push(pageBreak());
-
-dp.push(h1("2 · Vaihtoehtojen vertailumuistio (vko 39)"));
-[["Vaihtoehto A", ""], ["Vaihtoehto B", ""], ["Työmäärä (pv): A / B", ""], ["Näkyvyys pelissä: A / B", ""], ["Riski: A / B", ""], ["Valinta ja perustelu (2–3 virkettä)", ""], ["Keskustelukumppani, rooli ja pvm", ""]].forEach(([k]) => {
-  dp.push(p(k + ":", { bold: true, after: 40 }));
-  dp.push(p("________________________________________________________________", { after: 160, color: "888888" }));
-});
-dp.push(pageBreak());
-
-dp.push(h1("3 · Katselmointiloki (vkot 41 ja 47)"));
-const kRows = [
-  ["Päivä ja versio (commit)", ""], ["Osallistujat ja roolit", ""], ["Testaajan alkuperäinen havainto (hänen sanoillaan)", ""],
-  ["Oma tulkinta", ""], ["Päätös ja hyväksyjä", ""], ["Sovittu muutos (issue + arvio + valmis kun -ehto)", ""],
-].map(([k]) => new TableRow({ children: [cell(k, { w: 3400, bold: true, fill: "F1F8E9" }), cell("", { w: 6238 })] }));
-dp.push(table([3400, 6238], kRows));
-dp.push(p("Testaajat ovat ohjaaja ja vertaistestaaja. Erota aina testaajan sanat omasta tulkinnastasi.", { before: 120, italics: true, color: "555555" }));
-dp.push(pageBreak());
-
-dp.push(h1("4 · Testimatriisi (vko 45)"));
-const tRows = [new TableRow({ tableHeader: true, children: [
-  cell("T#", { w: 700, bold: true, fill: "E8F5E9" }),
-  cell("Lähtötila", { w: 2100, bold: true, fill: "E8F5E9" }),
-  cell("Toiminta", { w: 2400, bold: true, fill: "E8F5E9" }),
-  cell("Odotus", { w: 2100, bold: true, fill: "E8F5E9" }),
-  cell("Havainto", { w: 1600, bold: true, fill: "E8F5E9" }),
-  cell("Tulos", { w: 738, bold: true, fill: "E8F5E9" }),
-]})];
-for (let i = 1; i <= 12; i++) {
-  const label = "T" + String(i).padStart(2, "0");
-  tRows.push(new TableRow({ children: [cell(label, { w: 700 }), cell("", { w: 2100 }), cell("", { w: 2400 }), cell("", { w: 2100 }), cell("", { w: 1600 }), cell("", { w: 738 })] }));
+function blanks(labels) {
+  labels.forEach((k) => {
+    dp.push(p(k + ":", { bold: true, after: 40 }));
+    dp.push(p("________________________________________________________________", { after: 160, color: "888888" }));
+  });
 }
-dp.push(table([700, 2100, 2400, 2100, 1600, 738], tRows));
-dp.push(p("Luokat: T01–T04 normaali käyttö · T05–T08 rajat · T09–T12 virhetilanteet. Kirjoita odotus ennen testiajoa.", { before: 120, italics: true, color: "555555" }));
+
+dp.push(h1(`1 · Aloituskeskustelun muistiinpanot (vko ${T.aloitusVko ?? P.viikot[0]})`));
+dp.push(p("Päivä ja osallistujien roolit: ______________________________", { after: 160 }));
+const qw = widths([6, 45, 49]);
+const qRows = [headerRow([["#", qw[0]], ["Kysymys", qw[1]], ["Vastaus / avoin / oletus", qw[2]]])];
+for (let i = 1; i <= (T.kysymyksia || 8); i++) qRows.push(new TableRow({ children: [cell(String(i), { w: qw[0] }), cell("", { w: qw[1] }), cell("", { w: qw[2] })] }));
+dp.push(table(qw, qRows));
 dp.push(pageBreak());
 
-dp.push(h1("5 · Virheenkorjausketju (vko 45, 3 kpl)"));
-[["Havainto tai merkitty vikatehtävä", ""], ["Toistamisohje", ""], ["Syy", ""], ["Korjaus (commit)", ""], ["Uusintatestin tulos", ""], ["Regressiotesti (mitä muuta testattiin)", ""]].forEach(([k]) => {
-  dp.push(p(k + ":", { bold: true, after: 40 }));
-  dp.push(p("________________________________________________________________", { after: 160, color: "888888" }));
-});
+dp.push(h1(`2 · Vaihtoehtojen vertailumuistio (vko ${T.vertailuVko ?? ""})`));
+blanks(["Vaihtoehto A", "Vaihtoehto B", "Työmäärä (pv): A / B", "Vaikutus lopputulokseen: A / B", "Riski: A / B", "Valinta ja perustelu (2–3 virkettä)", "Keskustelukumppani, rooli ja pvm"]);
 dp.push(pageBreak());
 
-dp.push(h1("6 · Lisenssi- ja CREDITS-kirjaus (vko 46)"));
-dp.push(p("Paketin oma lisenssi: ____________________  ·  sovittu ohjaajan kanssa (pvm): ____________", { after: 160 }));
-const cRows = [new TableRow({ tableHeader: true, children: [
-  cell("Tiedosto tai asset", { w: 3000, bold: true, fill: "E8F5E9" }),
-  cell("Lähde: itse tehty vai mistä?", { w: 3400, bold: true, fill: "E8F5E9" }),
-  cell("Lisenssi ja salliiko uudelleenjulkaisun", { w: 3238, bold: true, fill: "E8F5E9" }),
-]})];
-for (let i = 0; i < 8; i++) cRows.push(new TableRow({ children: [cell("", { w: 3000 }), cell("", { w: 3400 }), cell("", { w: 3238 })] }));
-dp.push(table([3000, 3400, 3238], cRows));
-dp.push(p("Siirrä tämän taulukon sisältö CREDITS-tiedostoon repositoryyn. Jos kaikki on itse tehtyä, kirjaa se yhdellä rivillä.", { before: 120, italics: true, color: "555555" }));
+dp.push(h1(`3 · Katselmointiloki (vkot ${T.katselmointiVkot ?? ""})`));
+const kw = widths([35, 65]);
+dp.push(table(kw, [
+  "Päivä ja versio (commit)", "Osallistujat ja roolit", "Testaajan alkuperäinen havainto (hänen sanoillaan)",
+  "Oma tulkinta", "Päätös ja hyväksyjä", "Sovittu muutos (issue + arvio + valmis kun -ehto)",
+].map((k) => new TableRow({ children: [cell(k, { w: kw[0], bold: true, fill: TINT2 }), cell("", { w: kw[1] })] }))));
+dp.push(p("Erota aina testaajan sanat omasta tulkinnastasi.", { before: 120, italics: true, color: GREY }));
+dp.push(pageBreak());
+
+dp.push(h1(`4 · Testimatriisi (vko ${T.testiVko ?? ""})`));
+const tw = widths([7, 22, 25, 22, 17, 7]);
+const tRows = [headerRow([["T#", tw[0]], ["Lähtötila", tw[1]], ["Toiminta", tw[2]], ["Odotus", tw[3]], ["Havainto", tw[4]], ["Tulos", tw[5]]])];
+for (let i = 1; i <= testCount; i++) {
+  tRows.push(new TableRow({ children: [
+    cell("T" + String(i).padStart(2, "0"), { w: tw[0] }),
+    cell("", { w: tw[1] }), cell("", { w: tw[2] }), cell("", { w: tw[3] }), cell("", { w: tw[4] }), cell("", { w: tw[5] }),
+  ]}));
+}
+dp.push(table(tw, tRows));
+const third = Math.ceil(testCount / 3);
+dp.push(p(`Luokat: T01–T${String(third).padStart(2, "0")} normaali käyttö · T${String(third + 1).padStart(2, "0")}–T${String(third * 2).padStart(2, "0")} rajat · loput virhetilanteet. Kirjoita odotus ennen testiajoa.`, { before: 120, italics: true, color: GREY }));
+dp.push(pageBreak());
+
+dp.push(h1(`5 · Virheenkorjausketju (vko ${T.testiVko ?? ""}, ${T.ketjuja || 3} kpl)`));
+blanks(["Havainto tai merkitty vikatehtävä", "Toistamisohje", "Syy", "Korjaus (commit)", "Uusintatestin tulos", "Regressiotesti (mitä muuta testattiin)"]);
+dp.push(pageBreak());
+
+dp.push(h1(`6 · Lisenssi- ja CREDITS-kirjaus (vko ${T.lisenssiVko ?? ""})`));
+dp.push(p("Työn oma lisenssi: ____________________  ·  sovittu ohjaajan kanssa (pvm): ____________", { after: 160 }));
+const cw = widths([31, 35, 34]);
+const cRows = [headerRow([["Tiedosto tai aineisto", cw[0]], ["Lähde: itse tehty vai mistä?", cw[1]], ["Lisenssi ja salliiko uudelleenjulkaisun", cw[2]]])];
+for (let i = 0; i < 8; i++) cRows.push(new TableRow({ children: [cell("", { w: cw[0] }), cell("", { w: cw[1] }), cell("", { w: cw[2] })] }));
+dp.push(table(cw, cRows));
+dp.push(p("Siirrä tämän taulukon sisältö CREDITS-tiedostoon repositoryyn. Jos kaikki on itse tehtyä, kirjaa se yhdellä rivillä.", { before: 120, italics: true, color: GREY }));
 dp.push(pageBreak());
 
 dp.push(h1("7 · AI-lokin paperiversio"));
-dp.push(p("Sivuston AI-loki on ensisijainen. Käytä tätä, jos kirjaat merkinnän ilman selainta — siirrä se sivustolle saman päivän aikana.", { color: "555555" }));
-const aRows = [new TableRow({ tableHeader: true, children: [
-  cell("Päivä ja työkalu", { w: 1900, bold: true, fill: "E8F5E9" }),
-  cell("Mihin pyysit apua?", { w: 2400, bold: true, fill: "E8F5E9" }),
-  cell("Mitä käytit, muutit tai hylkäsit?", { w: 2700, bold: true, fill: "E8F5E9" }),
-  cell("Miten tarkistit ja mitä opit?", { w: 2638, bold: true, fill: "E8F5E9" }),
-]})];
-for (let i = 0; i < 6; i++) aRows.push(new TableRow({ children: [cell("", { w: 1900 }), cell("", { w: 2400 }), cell("", { w: 2700 }), cell("", { w: 2638 })] }));
-dp.push(table([1900, 2400, 2700, 2638], aRows));
-dp.push(p("Vahvista jokaisesta merkinnästä: en syöttänyt henkilötietoja, salaisuuksia tai luottamuksellista aineistoa. Lisää aineistoviite (issue, commit tai testi).", { before: 120, italics: true, color: "555555" }));
+dp.push(p("Sivuston AI-loki on ensisijainen. Käytä tätä, jos kirjaat merkinnän ilman selainta: siirrä se sivustolle saman päivän aikana.", { color: GREY }));
+const aw = widths([20, 25, 28, 27]);
+const aRows = [headerRow([["Päivä ja työkalu", aw[0]], ["Mihin pyysit apua?", aw[1]], ["Mitä käytit, muutit tai hylkäsit?", aw[2]], ["Miten tarkistit ja mitä opit?", aw[3]]])];
+for (let i = 0; i < 6; i++) aRows.push(new TableRow({ children: aw.map((w) => cell("", { w })) }));
+dp.push(table(aw, aRows));
+dp.push(p("Vahvista jokaisesta merkinnästä: en syöttänyt henkilötietoja, salaisuuksia tai luottamuksellista aineistoa. Lisää aineistoviite (issue, commit tai testi).", { before: 120, italics: true, color: GREY }));
 
-// ---------- Tallennus ----------
+/* ---------- 4. Näyttösuunnitelma (opettajan lähdeaineisto) ---------- */
+const ns = [];
+if (NS.kohde) {
+  ns.push(new Paragraph({ children: [new TextRun({ text: NS.otsikko || "Näyttösuunnitelma", size: 52, bold: true, color: ACCENT })], spacing: { before: 200, after: 100 } }));
+  ns.push(p(`${P.nimi} · ${O.kansiKuvaus || ""} · ${jakso}${deadline ? `, luovutus ${deadline}` : ""}`, { size: 23, after: 60 }));
+  ns.push(p(NS.johdanto || "Opettajan lähdeaineisto. Vaatimukset on luettu sivuston näyttömatriisista, joten tämä asiakirja pysyy sivuston kanssa yhdenmukaisena.", { size: 20, color: GREY, after: 300 }));
+
+  ns.push(h1(NS.kohdeOtsikko || "1 · Näytön kohde ja ympäristö"));
+  NS.kohde.forEach((par) => ns.push(p(par)));
+  if (NS.p0) ns.push(p(NS.p0, { bold: true }));
+
+  if ((NS.roolit || []).length) {
+    ns.push(h1("2 · Roolit"));
+    const rw = widths([27, 73]);
+    ns.push(table(rw, NS.roolit.map(([role, desc]) => new TableRow({ children: [
+      cell(role, { w: rw[0], bold: true, fill: TINT2 }), cell(desc, { w: rw[1] }),
+    ]}))));
+  }
+
+  if ((NS.tarkistuspisteet || []).length) {
+    ns.push(h1("3 · Laadun tarkistuspisteet"));
+    ns.push(p("Opettaja tarkistaa laadun ja antaa palautteen näissä kohdissa. Muut viikot opiskelija työskentelee itsenäisesti sivuston ohjeilla."));
+    const pw = widths([15, 33, 52]);
+    ns.push(table(pw, [
+      headerRow([["Viikko", pw[0]], ["Tarkistuspiste", pw[1]], ["Mitä tarkistetaan", pw[2]]]),
+      ...NS.tarkistuspisteet.map(([wk, name, what]) => new TableRow({ children: [
+        cell(String(wk), { w: pw[0] }), cell(name, { w: pw[1] }), cell(what, { w: pw[2] }),
+      ]})),
+    ]));
+    ns.push(pageBreak());
+  }
+
+  /* Arvioinnin kohteet vain jos sivustolla on näyttömatriisi. */
+  if (matrices.length) {
+    ns.push(h1("4 · Arvioinnin kohteet ja työnäytteet"));
+    ns.push(p("Sama työnäyte voi kelvata useaan kohtaan. Viikkosarake kertoo, missä työnäyte syntyy."));
+    const MAP = NS.tyonaytteet || {};
+    const missing = [];
+    const mw = widths([28, 10, 62]);
+    matrices.forEach((mat) => {
+      ns.push(h2(mat.title));
+      const rows = [headerRow([["Arvioinnin kohde", mw[0]], ["Vko", mw[1]], ["Työnäyte", mw[2]]])];
+      mat.items.forEach((it) => {
+        if (!MAP[it.id]) missing.push(it.id);
+        const [wks, proof] = MAP[it.id] || ["–", it.hint];
+        rows.push(new TableRow({ children: [
+          cell(it.title, { w: mw[0], bold: true }), cell(wks, { w: mw[1] }), cell(proof, { w: mw[2] }),
+        ]}));
+      });
+      ns.push(table(mw, rows));
+      ns.push(p("", { after: 120 }));
+    });
+    if (missing.length) console.warn("VAROITUS: suunnitelmasta puuttuu työnäytemäppäys:", missing.join(", "));
+    ns.push(pageBreak());
+  }
+
+  if (NS.dokumentaatio) {
+    ns.push(h1("5 · Dokumentaatio ja sen kohdeyleisö"));
+    ns.push(p("Dokumentaatio tehdään käyttäjille, ei arviointia varten. Arviointiaineisto on erillinen.", { bold: true }));
+    const dw = widths([30, 70]);
+    ns.push(table(dw, [
+      headerRow([["Käyttäjälle", dw[0]], ["Arviointiin", dw[1]]]),
+      new TableRow({ children: [cell(NS.dokumentaatio.kayttajalle, { w: dw[0] }), cell(NS.dokumentaatio.arviointiin, { w: dw[1] })] }),
+    ]));
+    if (NS.dokumentaatio.vaatimus) ns.push(p(NS.dokumentaatio.vaatimus, { before: 120 }));
+  }
+
+  if ((NS.tekoaly || []).length) {
+    ns.push(h1("6 · Tekoälyn käyttö"));
+    NS.tekoaly.forEach((par) => ns.push(p(par)));
+  }
+
+  if ((NS.palautuspaketti || []).length) {
+    ns.push(h1("7 · Palautuspaketti"));
+    NS.palautuspaketti.forEach(([k, v]) => { ns.push(p(k, { bold: true, after: 20 })); ns.push(p(v, { size: 20, color: GREY, after: 120 })); });
+    if (deadline) ns.push(p(`Luovutus viimeistään ${deadline}.`, { bold: true, before: 100 }));
+  }
+
+  if ((NS.huomiot || []).length) {
+    ns.push(h1("8 · Huomioita opettajalle"));
+    NS.huomiot.forEach(([k, v]) => { ns.push(p(k, { bold: true, after: 20 })); ns.push(p(v, { size: 20, color: GREY, after: 140 })); });
+  }
+}
+
+/* ---------- Tallennus ---------- */
 async function saveDoc(name, children) {
   const doc = new Document({
     styles: { default: { document: { run: { font: "Calibri", size: 21 } } } },
@@ -276,187 +414,73 @@ async function saveDoc(name, children) {
 }
 
 (async () => {
-  await saveDoc("bittibiomi-tyopaketti.docx", tp);
-  await saveDoc("teemaideat.docx", ti);
-  await saveDoc("nayton-dokumentointipohjat.docx", dp);
+  await saveDoc(`${P.slug}-tyopaketti.docx`, tp);
+  if (ti.length) await saveDoc(`${bank.tiedosto || "ideapankki"}.docx`, ti);
+  await saveDoc(L.dokumentointipohjatTiedosto || "nayton-dokumentointipohjat.docx", dp);
+  if (ns.length) await saveDoc(NS.tiedosto || "nayttosuunnitelma.docx", ns);
 })();
 
-// ---------- Print-HTML samasta datasta (Chrome headless → PDF) ----------
-function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+/* ---------- Print-HTML samasta datasta (Chrome headless → PDF) ---------- */
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
 const H = [];
-H.push(`<!doctype html><html lang="fi"><head><meta charset="utf-8"><title>BittiBiomi – työpaketti</title><style>
+H.push(`<!doctype html><html lang="${esc(lt("lang"))}"><head><meta charset="utf-8"><title>${esc(P.nimi)} – ${esc(lt("tyopakettiTiedostoOtsikko"))}</title><style>
 @page { size: A4; margin: 16mm; }
 body { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 10pt; line-height: 1.45; color: #1a1a1a; margin: 0; }
-h1 { color: #1b5e20; font-size: 17pt; margin: 0 0 8pt; page-break-after: avoid; }
-h2 { color: #1b5e20; font-size: 12pt; margin: 14pt 0 5pt; page-break-after: avoid; }
+h1 { color: #${ACCENT}; font-size: 17pt; margin: 0 0 8pt; page-break-after: avoid; }
+h2 { color: #${ACCENT}; font-size: 12pt; margin: 14pt 0 5pt; page-break-after: avoid; }
 .cover { text-align: center; padding-top: 70mm; page-break-after: always; }
 .cover h1 { font-size: 34pt; }
 .cover p { color: #555; }
 table { border-collapse: collapse; width: 100%; margin: 6pt 0; page-break-inside: avoid; }
 td, th { border: 0.5pt solid #bbb; padding: 3pt 5pt; text-align: left; vertical-align: top; font-size: 9pt; }
-th { background: #e8f5e9; }
+th { background: #${TINT}; }
 .wk { page-break-inside: avoid; margin-bottom: 8pt; }
 .feature { color: #555; font-style: italic; margin: 0 0 4pt; }
 .task { margin: 2pt 0; }
-.done { color: #1b5e20; font-size: 9pt; margin: 3pt 0 0; }
+.done { color: #${ACCENT}; font-size: 9pt; margin: 3pt 0 0; }
 .ev { color: #555; font-size: 9pt; margin: 2pt 0 0; }
 .page { page-break-before: always; }
 .muted { color: #555; }
 .item { font-size: 9pt; margin: 2pt 0; }
 </style></head><body>`);
-H.push(`<div class="cover"><h1>BittiBiomi</h1><p style="font-size:14pt">Paperinen työpaketti · ohjattu näyttöprojekti</p><p>Oma Minecraft-teemapaketti: tekstuurit, mallit, äänet ja skriptit</p><p style="font-size:12pt"><strong>Viikot 34–49 · syysloma vko 42 · luovutus pe 4.12.2026</strong></p><p style="max-width:120mm;margin:18pt auto 0">Tämä paketti on aikataulu ja tarkistuslista tilanteisiin, joissa sivusto ei ole auki. Projektipäiväkirja kirjoitetaan sivustolla ja viedään repositorion project-docs-kansioon. Rasti tässä vihossa ei ole palautus — työnäyte on aina Git-repositoryssa.</p>
-<p style="max-width:120mm;margin:10pt auto 0">Paketti julkaistaan avoimella lisenssillä ja repository on julkinen ensimmäisestä commitista. Älä laita julkiseen repositoryyn henkilötietoja, kotiosoitetta, koulun tunnisteita tai muiden nimiä — Git-historia on pysyvä. Sovi tekijänimi ohjaajan kanssa, ja alaikäisenä sovi julkisesta repositorystä myös huoltajan kanssa.</p></div>`);
-H.push(`<h1>Aikataulu</h1><table><tr><th>Vko</th><th>Pvm</th><th>Viikon aihe</th><th>Vaihe</th></tr>`);
-for (const ph of PHASES) for (const wn of ph.weeks) {
-  if (wn === 43) H.push(`<tr><td>42</td><td>12.–16.10.</td><td>Syysloma — ei projektityötä</td><td>—</td></tr>`);
-  const wk = weeks.find((x) => x.num === wn);
-  H.push(`<tr><td><strong>${wk.num}</strong></td><td>${wk.dates}</td><td>${esc(wk.title)}</td><td>${ph.key}</td></tr>`);
-}
-H.push(`</table><p class="muted">Palautus viimeistään pe 4.12.2026. Tehtävien tarkat ohjeet, toteutusavut ja projektipäiväkirja ovat sivustolla.</p>`);
-for (const ph of PHASES) {
-  H.push(`<h1 class="page">Vaihe ${ph.key} — ${esc(ph.label)}</h1>`);
-  for (const wn of ph.weeks) {
-    if (wn === 43) H.push(`<div class="wk"><h2>Vko 42 · 12.–16.10. — Syysloma</h2><p>Ei projektityötä eikä korvaavia tehtäviä. Jatka viikolla 43 viimeisimmästä toimivasta main-versiosta.</p></div>`);
-    const wk = weeks.find((x) => x.num === wn);
-    const g = weekGuidance[wn] || {};
-    H.push(`<div class="wk"><h2>Vko ${wk.num} · ${wk.dates} — ${esc(wk.title)}</h2>`);
+H.push(`<div class="cover"><h1>${esc(P.nimi)}</h1><p style="font-size:14pt">${esc(lt("tyopakettiOtsikko"))}</p><p>${esc(tpKansiKuvaus || "")}</p><p style="font-size:12pt"><strong>${esc(tpJakso)}${tpDeadline ? ` · ${esc(lt("luovutus", tpDeadline))}` : ""}</strong></p><p style="max-width:120mm;margin:18pt auto 0">${esc(lt("kansiJohdanto"))}</p>${tpKansiHuomiot.map((n) => `<p style="max-width:120mm;margin:10pt auto 0">${esc(n)}</p>`).join("")}</div>`);
+H.push(`<h1>${esc(lt("aikatauluLyhyt"))}</h1><table><tr><th>${esc(lt("sarakeViikko"))}</th><th>${esc(lt("sarakePvm"))}</th><th>${esc(lt("sarakeAihe"))}</th><th>${esc(lt("sarakeVaihe"))}</th></tr>`);
+walkWeeks(
+  (wk, g, phase) => H.push(`<tr><td><strong>${wk.num}</strong></td><td>${esc(wk.dates)}</td><td>${esc(wk.title)}</td><td>${phase ? esc(phase.tunnus) : "–"}</td></tr>`),
+  (num, hol) => H.push(`<tr><td>${num}</td><td>${esc(hol.dates)}</td><td>${esc(lt("eiProjektityota", hol.title))}</td><td>–</td></tr>`)
+);
+H.push(`</table>${tpDeadline ? `<p class="muted">${esc(lt("palautusHuomio", tpDeadline))}</p>` : ""}`);
+(P.vaiheet || []).forEach((phase) => {
+  H.push(`<h1 class="page">${esc(lt("vaiheOtsikko", phase.tunnus, phase.otsikko))}</h1>`);
+  phase.viikot.forEach((num) => {
+    if (holidays[num]) {
+      const hol = holidays[num];
+      H.push(`<div class="wk"><h2>${esc(lt("viikkoOtsikko", num, hol.dates, hol.title))}</h2><p>${esc(hol.text)}</p></div>`);
+      return;
+    }
+    const wk = weeks.find((w) => w.num === num);
+    if (!wk) return;
+    const g = P.viikkoOhjeet[num] || {};
+    H.push(`<div class="wk"><h2>${esc(lt("viikkoOtsikko", wk.num, wk.dates, wk.title))}</h2>`);
     if (g.feature) H.push(`<p class="feature">${esc(g.feature)}</p>`);
     wk.tasks.forEach((t) => H.push(`<p class="task">☐&nbsp; ${esc(t)}</p>`));
-    if (g.done) H.push(`<p class="done"><strong>Valmis kun:</strong> ${esc(g.done)}</p>`);
-    if (wk.evidence) H.push(`<p class="ev"><strong>Työnäyte Git-repositoryyn ennen rastia:</strong> ${esc(wk.evidence)}</p>`);
+    if (g.done) H.push(`<p class="done"><strong>${esc(lt("valmisKunLabel"))}</strong> ${esc(g.done)}</p>`);
+    if (wk.evidence) H.push(`<p class="ev"><strong>${esc(lt("evidenceLabel"))}</strong> ${esc(wk.evidence)}</p>`);
     H.push(`</div>`);
-  }
+  });
+});
+if (tpViimeisetPaivat.length) {
+  H.push(`<h1 class="page">${esc(lt("viimeisetPaivatOtsikko"))}</h1>`);
+  tpViimeisetPaivat.forEach(([d, t]) => H.push(`<p class="task"><strong>${esc(d)}</strong> · ${esc(t)}</p>`));
 }
-H.push(`<h1 class="page">Viimeiset viisi päivää</h1>`);
-[["Ma 30.11.", "Sisältöjäädytys — viimeinen hyväksytty versio"],["Ti 1.12.", "Aineisto — päiväkirja, testit ja linkit"],["Ke 2.12.", "Harjoittelu — 8–10 min demo ja itsearviointi"],["To 3.12.", "Puskuri — tarkistus toisen henkilön kanssa"],["Pe 4.12.", "LUOVUTUS — paketti, repository, projektipäiväkirja ja näyttö"]].forEach(([d, t]) => H.push(`<p class="task"><strong>${d}</strong> · ${t}</p>`));
-H.push(`<h1 class="page">Näyttömatriisi — 32 osaamisvaatimusta</h1><p class="muted">Rasti vasta, kun vaatimukselle on täsmällinen työnäyte: linkki, commit, kuva, testirivi tai muistio. Sama työnäyte voi kelvata useaan kohtaan.</p>`);
-for (const mat of matrices) {
-  H.push(`<h2>${esc(mat.title)}</h2>`);
-  mat.items.forEach((i) => H.push(`<p class="item">☐&nbsp; <strong>${esc(i.title)}</strong> — ${esc(i.hint)}</p>`));
+if (matrices.length) {
+  H.push(`<h1 class="page">${esc(lt("matriisiOtsikko", requirementCount))}</h1><p class="muted">${esc(lt("matriisiJohdanto"))}</p>`);
+  matrices.forEach((mat) => {
+    H.push(`<h2>${esc(mat.title)}</h2>`);
+    mat.items.forEach((i) => H.push(`<p class="item">☐&nbsp; <strong>${esc(i.title)}</strong> – ${esc(i.hint)}</p>`));
+  });
 }
-H.push(`<p class="muted" style="margin-top:10pt"><em>Muista: sivuston rastit ja kentät tallentuvat vain selaimeen. Ne eivät siirry opettajalle eivätkä korvaa Gitissä olevaa työnäytettä.</em></p>`);
+H.push(`<p class="muted" style="margin-top:10pt"><em>${esc(lt("selainHuomio"))}</em></p>`);
 H.push(`</body></html>`);
 fs.writeFileSync(path.join(__dirname, "tyopaketti-print.html"), H.join("\n"));
 console.log("tyopaketti-print.html kirjoitettu");
-
-// ---------- 4. Näyttösuunnitelma (opettajan lähdeaineisto) ----------
-// Vaatimukset luetaan sivuston matriisista; viikko- ja työnäytemäppäys alla.
-const MAP = {
-  p1:  ["34, 38", "Kuva paketista pelin valikossa, Blockbench-projektitiedosto ja julkisen repositoryn linkki"],
-  p2:  ["45", "Kolme täydellistä virheenkorjausketjua: havainto, syy, korjauscommit ja uusintatesti"],
-  p3:  ["45", "Testimatriisi T01–T12 lähtötiloineen, odotuksineen ja tuloksineen"],
-  p4:  ["43, 44", "Datapaketin funktiot omassa nimiavaruudessa, reseptit erillisinä tiedostoina, advancement kutsuu palkintofunktiota"],
-  p5:  ["46", "Siivouscommit: selkeät tiedostonimet, siisti JSON, poistetut kuolleet viittaukset"],
-  p6:  ["36, 37", "Pelinäkymän luettavuus: tekstuurien ja suomenkielisten nimien ennen/jälkeen-kuvat"],
-  p7:  ["36–44", "Assetit 1–7 issueina, valmis kun -ehtoina ja committeina"],
-  p8:  ["35, 41", "Priorisoitu backlog hyväksyntöineen ja katselmoinnissa sovittu muutostehtävä"],
-  p9:  ["39", "Kahden toteutusvaihtoehdon vertailumuistio ja perusteltu päätös"],
-  p10: ["41, 46", "Katselmointilokit: palaute, oma tulkinta, päätös ja vastaus kommentteihin"],
-  p11: ["49", "Itsearviointi: kolme vahvuutta työnäytteineen ja yksi kehitysaskel"],
-  s1:  ["34", "Kysymyslista ohjaajalle vastauksineen, kahden julkaistun paketin vertailu ja kuvaus omasta kohdeyleisöstä"],
-  s2:  ["41, 47, 48", "Lataajalle kirjoitettu asennusohje, jonka ulkopuolinen läpäisee ilman apua; 5–10 min esittely ja julkaisuteksti"],
-  s3:  ["41, 47", "Väliversion ja RC1:n katselmointilokit osallistujineen"],
-  s4:  ["35, 41, 43", "P0/P1/P2-backlog ennen ja jälkeen palautteen"],
-  s5:  ["35", "Issuet, joiden työmäärä on 0,5–1 päivää, hyväksymisehtoineen"],
-  s6:  ["35, 43", "Työmääräarvio verrattuna toteumaan"],
-  s7:  ["44", "Reseptit, palkintofunktio ja saavutus laukaisimineen, testattuna selviytymistilassa"],
-  s8:  ["37, 44", "JSON-rakenteiden valinta ja perustelu: lang, reseptit, advancement"],
-  s9:  ["36–38, 40", "Tekstuurien, mallien ja äänten kytkentä pelin resursseihin nimiavaruuksien kautta"],
-  s10: ["34, 43", "Pakettirajapinta: pack.mcmeta, tiedostopolut ja load.json niitä vastaavine tiedostoineen"],
-  s11: ["34, 46", "Julkisen repositoryn yksityisyystarkistus, oma LICENSE ja kolmansien osapuolten lisenssit CREDITSissä"],
-  s12: ["34–49", "Jatkuva Git-historia ja toimiva main koko projektin ajan"],
-  s13: ["43", "Feature-branch ja testattu merge tai pull request"],
-  s14: ["48", "Julkinen GitHub-release v1.0 zip-paketteineen ja LICENSEineen"],
-  k1:  ["34, 38", "Blockbench, VS Code, sovittu Minecraft-versio ja paketin lataus peliin"],
-  k2:  ["45, 48", "Kirjaus pakettijärjestelmän rajoituksista ja julkaisupäätökset tunnettuine puutteineen"],
-  k3:  ["38, 39", "Blockbenchin mallinnus ja UV-teksturointi committeina ja kuvina"],
-  k4:  ["35, 40", "Paletit, äänet ja referenssit lähteineen ja lisensseineen CREDITSissä"],
-  k5:  ["35–45", "Asset-pack-suunnitelma, assetit 1–7 committeina ja testiloki T01–T12"],
-  k6:  ["48", "Ulkopuolinen henkilö on asentanut julkaistun v1.0:n release-sivulta pelkän ohjeen avulla (tehtävä 48-4)"],
-  k7:  ["46, 48, 49", "Lataajalle: README, asennusohje, LICENSE, CREDITS ja CHANGELOG. Arviointiin: asset-pack-suunnitelma.md ja projektipäiväkirja"],
-};
-
-const ns = [];
-ns.push(new Paragraph({ children: [new TextRun({ text: "Näyttösuunnitelma", size: 52, bold: true, color: GREEN })], spacing: { before: 200, after: 100 } }));
-ns.push(p("BittiBiomi · avoimen Minecraft-teemapaketin toteutus ja julkaisu · viikot 34–49, luovutus pe 4.12.2026", { size: 23, after: 60 }));
-ns.push(p("Opettajan lähdeaineisto. Vaatimukset on luettu sivuston näyttömatriisista, joten tämä asiakirja pysyy sivuston kanssa yhdenmukaisena.", { size: 20, color: "555555", after: 300 }));
-
-ns.push(h1("1 · Näytön kohde ja ympäristö"));
-ns.push(p("Opiskelija suunnittelee, toteuttaa ja julkaisee oman teemapaketin Minecraft Java Editioniin. Paketti koostuu resurssipaketista (itse piirretyt tekstuurit, Blockbench-mallit, äänet ja suomenkieliset nimet) ja kevyestä datapaketista (reseptit, saavutus ja mcfunction-skriptit). Skriptaus tehdään komennoilla ja JSONilla, ei ohjelmointikielellä."));
-ns.push(p("Paketti julkaistaan avoimella lisenssillä julkisena GitHub-releasena. Repository on julkinen ensimmäisestä commitista. Näyttöympäristö on siis kaksiosainen: oppilaitoksen työtila ja julkinen jakelukanava."));
-ns.push(p("Pakollinen perusversio (P0): 8 omaa tekstuuria, 2 Blockbench-mallia, omat suomenkieliset nimet, 2 reseptiä, 1 funktio ja 1 saavutus.", { bold: true }));
-
-ns.push(h1("2 · Roolit"));
-ns.push(table([2600, 7038], [
-  new TableRow({ children: [cell("Opiskelija", { w: 2600, bold: true, fill: "F1F8E9" }), cell("Toteuttaa paketin, kirjoittaa dokumentaation lataajalle, julkaisee ja kokoaa näyttöaineiston.", { w: 7038 })] }),
-  new TableRow({ children: [cell("Ohjaaja / opettaja", { w: 2600, bold: true, fill: "F1F8E9" }), cell("Antaa toimeksiannon, päättää lisenssistä ja oppilaitoksen linjasta julkaisemisessa, tarkistaa laadun ja antaa palautetta katselmoinneissa. Ei ole paketin käyttäjä.", { w: 7038 })] }),
-  new TableRow({ children: [cell("Vertaistestaaja", { w: 2600, bold: true, fill: "F1F8E9" }), cell("Kokeilee väliversion (vko 41) ja asentaa julkaistun paketin ohjeen avulla (vkot 47–48).", { w: 7038 })] }),
-  new TableRow({ children: [cell("Lataaja", { w: 2600, bold: true, fill: "F1F8E9" }), cell("Kuka tahansa, joka lataa paketin julkaisun jälkeen. Dokumentaatio kirjoitetaan hänelle.", { w: 7038 })] }),
-]));
-
-ns.push(h1("3 · Laadun tarkistuspisteet"));
-ns.push(p("Opettaja tarkistaa laadun ja antaa palautteen näissä kohdissa. Muut viikot opiskelija työskentelee itsenäisesti sivuston ohjeilla."));
-ns.push(table([1500, 3200, 4938], [
-  new TableRow({ tableHeader: true, children: [cell("Viikko", { w: 1500, bold: true, fill: "E8F5E9" }), cell("Tarkistuspiste", { w: 3200, bold: true, fill: "E8F5E9" }), cell("Mitä tarkistetaan", { w: 4938, bold: true, fill: "E8F5E9" })] }),
-  new TableRow({ children: [cell("34", { w: 1500 }), cell("Toimeksianto ja lisenssi", { w: 3200 }), cell("Kysymykset, kohdeyleisö, sovittu Minecraft-versio ja lisenssi, julkisen repositoryn yksityisyys ja tekijänimi", { w: 4938 })] }),
-  new TableRow({ children: [cell("35", { w: 1500 }), cell("Rajaus", { w: 3200 }), cell("P0-rajaus, moodboard, backlog ja LICENSE-tiedosto repositoryn juuressa", { w: 4938 })] }),
-  new TableRow({ children: [cell("41", { w: 1500 }), cell("Väliversion katselmointi", { w: 3200 }), cell("Asennusohje toimii ilman apua, palaute kirjattu erillään omasta tulkinnasta, yksi muutos sovittu", { w: 4938 })] }),
-  new TableRow({ children: [cell("46", { w: 1500 }), cell("Laatukatselmointi", { w: 3200 }), cell("Rakenne, LICENSE ja CREDITS, lisenssin ymmärrys, selitys omasta ja tekoälyavusteisesta ratkaisusta", { w: 4938 })] }),
-  new TableRow({ children: [cell("47", { w: 1500 }), cell("RC1", { w: 3200 }), cell("Sisältöjäädytys, kahden testaajan asennus ohjeella, palautteen luokittelu", { w: 4938 })] }),
-  new TableRow({ children: [cell("49", { w: 1500 }), cell("Luovutus", { w: 3200 }), cell("Näyttömatriisin täsmälinkit, projektipäiväkirja, AI-loki, demo ja jäädytetty v1.0", { w: 4938 })] }),
-]));
-ns.push(pageBreak());
-
-ns.push(h1("4 · Arvioinnin kohteet ja työnäytteet"));
-ns.push(p("Sama työnäyte voi kelvata useaan kohtaan. Viikkosarake kertoo, missä työnäyte syntyy."));
-for (const mat of matrices) {
-  ns.push(h2(mat.title));
-  const rows = [new TableRow({ tableHeader: true, children: [
-    cell("Arvioinnin kohde", { w: 2700, bold: true, fill: "E8F5E9" }),
-    cell("Vko", { w: 1000, bold: true, fill: "E8F5E9" }),
-    cell("Työnäyte", { w: 5938, bold: true, fill: "E8F5E9" }),
-  ]})];
-  for (const it of mat.items) {
-    const [wks, proof] = MAP[it.id] || ["—", it.hint];
-    rows.push(new TableRow({ children: [
-      cell(it.title, { w: 2700, bold: true }), cell(wks, { w: 1000 }), cell(proof, { w: 5938 }),
-    ]}));
-  }
-  ns.push(table([2700, 1000, 5938], rows));
-  ns.push(p("", { after: 120 }));
-}
-ns.push(pageBreak());
-
-ns.push(h1("5 · Dokumentaatio ja sen kohdeyleisö"));
-ns.push(p("Dokumentaatio tehdään käyttäjille ja mahdollisille paketin lataajille, ei arviointia varten. Arviointiaineisto on erillinen.", { bold: true }));
-ns.push(table([2900, 6738], [
-  new TableRow({ tableHeader: true, children: [cell("Lataajalle", { w: 2900, bold: true, fill: "E8F5E9" }), cell("Arviointiin", { w: 6738, bold: true, fill: "E8F5E9" })] }),
-  new TableRow({ children: [
-    cell("README, asennusohje, LICENSE, CREDITS, CHANGELOG ja julkaisuteksti releasessa", { w: 2900 }),
-    cell("Asset-pack-suunnitelma (project-docs/asset-pack-suunnitelma.md), projektipäiväkirja, AI-loki, testimatriisi ja näyttömatriisin täsmälinkit", { w: 6738 }),
-  ]}),
-]));
-ns.push(p("Asennusohjeen vaatimus on kova: ulkopuolinen henkilö asentaa paketin pelkän ohjeen avulla ilman suullista apua (vkot 41, 47 ja 48). Tämä on samalla asiakaslähtöisen viestinnän työnäyte.", { before: 120 }));
-
-ns.push(h1("6 · Tekoälyn käyttö"));
-ns.push(p("Tekoäly on sallittu apuväline ideointiin, selityksiin, JSON- ja komentovirheiden tutkimiseen ja testitapausten ehdottamiseen. Tekstuurit, mallit ja äänet opiskelija tekee itse tai hankkii lisenssillä, joka sallii uudelleenjulkaisun. P0-ydinsisältö piirretään aina itse; P1/P2-lisäsisällössä tekoäly käy vain opettajan erillisellä luvalla."));
-ns.push(p("Merkittävä tekoälyapu kirjataan AI-lokiin: työkalu, kysymys, mitä käytettiin tai hylättiin, miten tarkistettiin ja aineistoviite. Viikolla 46 opiskelija selittää katselmoijalle yhden oman ja yhden tekoälyavusteisen ratkaisun omin sanoin."));
-
-ns.push(h1("7 · Palautuspaketti"));
-[["Julkaistu paketti", "Julkinen GitHub-release v1.0: resurssipaketti- ja datapakettizipit, LICENSE, CREDITS, CHANGELOG ja asennusohje"],
- ["Repository", "Julkinen repository jatkuvalla Git-historialla ja toimivalla main-haaralla"],
- ["Projektipäiväkirja", "project-docs/projektipaivakirja.md, kaikki 15 viikkoa kirjattuina"],
- ["Näyttömatriisi", "32 arviointikohdetta täsmälinkeillä työnäytteisiin"],
- ["Demo", "8–10 minuuttia: paketti pelissä, yksi tekninen ratkaisu, yksi korjattu bugi, Git-historia ja tekoälyn käyttö"],
-].forEach(([k, v]) => { ns.push(p(k, { bold: true, after: 20 })); ns.push(p(v, { size: 20, color: "555555", after: 120 })); });
-ns.push(p("Luovutus viimeistään pe 4.12.2026.", { bold: true, before: 100 }));
-
-ns.push(h1("8 · Huomioita opettajalle"));
-[["Rakenteinen ohjelmointi ilman ohjelmointikieltä", "Vaatimus todennetaan datapaketin rakenteesta: funktiot omassa nimiavaruudessa, reseptit ja advancement erillisinä tiedostoina, ja advancement kutsuu palkintofunktiota. Vastuiden jako ja nimeäminen ovat arvioitavissa samoin kuin koodissa."],
- ["Julkinen repository ja alaikäisyys", "Julkisuudesta ja tekijänimestä sovitaan viikolla 34, alaikäisellä myös huoltajan kanssa. Sivusto ohjeistaa, mitä julkiseen repositoryyn ei laiteta, ja muistuttaa Git-historian pysyvyydestä."],
- ["Lisenssi on ohjaajan päätös", "Opiskelija ei päätä lisenssiä yksin. Viikolla 46 hän osoittaa ymmärtäneensä valinnan vastaamalla oman LICENSE-tiedostonsa tekstin perusteella, mitä muut saavat paketilla tehdä."],
- ["Tekoälyn kestävyys", "Jokainen viikko vaatii oman konkreettisen kontekstin, havainnoitavan artefaktin tai nimetyn ihmisen osallistumisen. Yhtäkään viikkoa ei voi kuitata kopioimalla tehtävänanto kielimalliin."],
- ["Valinnainen julkinen jakelu", "Modrinth tai Planet Minecraft on bonus, ei vaatimus. Tili luodaan opettajan ja huoltajan kanssa sovitusti."],
-].forEach(([k, v]) => { ns.push(p(k, { bold: true, after: 20 })); ns.push(p(v, { size: 20, color: "555555", after: 140 })); });
-
-(async () => { await saveDoc("nayttosuunnitelma.docx", ns); })();
