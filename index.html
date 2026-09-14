@@ -55,6 +55,7 @@
           <a class="nav-row" href="#view-kaytto" data-view-nav="kaytto">Näin käytät sivua<span class="nav-meta">aloita tästä</span></a>
           <a class="nav-row" href="#view-toimeksianto" data-view-nav="toimeksianto">Toimeksianto<span class="nav-meta"></span></a>
           <a class="nav-row" href="#view-tyotapa" data-view-nav="tyotapa">Työtapa<span class="nav-meta"></span></a>
+          <a class="nav-row" href="#view-termit" data-view-nav="termit">Termit<span class="nav-meta" data-glossary-count></span></a>
           <a class="nav-row" href="#view-galleria" data-view-nav="galleria">Galleria<span class="nav-meta">vko 48</span></a>
         </nav>
 
@@ -81,8 +82,9 @@
         <section class="view-section">
           <h2>Kolme tutkinnon osaa, yksi paketti</h2>
           <p class="view-lead" style="margin-top:10px">Näytössä arvioidaan sama työ kolmesta tutkinnon osasta: matriisin osiot Ohjelmointi (11 vaatimusta), Ohjelmistokehittäjänä toimiminen (14 vaatimusta) ja Ohjelmiston toteuttaminen ohjelmistokomponenttikirjastolla (7 vaatimusta) kattavat yhteensä 32 vaatimusta.</p>
-          <p class="view-lead" style="margin-top:10px">Opiskelija suunnittelee, toteuttaa ja julkaisee oman teemapaketin Minecraft Java Editioniin. Paketti koostuu resurssipaketista (itse piirretyt tekstuurit, Blockbench-mallit, äänet ja suomenkieliset nimet) ja kevyestä datapaketista (reseptit, saavutus ja mcfunction-skriptit). Skriptaus tehdään komennoilla ja JSONilla, ei ohjelmointikielellä.</p>
-          <p class="view-lead" style="margin-top:10px">Paketti julkaistaan avoimella lisenssillä julkisena GitHub-releasena. Repository on julkinen ensimmäisestä commitista. Näyttöympäristö on siis kaksiosainen: oppilaitoksen työtila ja julkinen jakelukanava.</p>
+          <p class="view-lead" style="margin-top:10px">Opiskelija suunnittelee, toteuttaa ja julkaisee oman teemapaketin Minecraft Java Editioniin. Paketti koostuu kahdesta osasta. Resurssipaketti (englanniksi resource pack) muuttaa sitä, miltä peli näyttää ja kuulostaa: itse piirretyt tekstuurit, Blockbench-mallit, äänet ja suomenkieliset nimet. Blockbench on ilmainen 3D-mallinnusohjelma. Kevyt datapaketti (data pack) lisää peliin sääntöjä: reseptit, saavutuksen ja mcfunction-skriptit.</p>
+          <p class="view-lead" style="margin-top:10px">Mcfunction on tekstitiedosto, jossa on pelin omia komentoja rivi riviltä. Skriptaus tehdään näillä komennoilla ja JSON-tiedostoilla, ei ohjelmointikielellä. JSON on yksinkertainen tekstimuoto, jolla paketin määrittelyt kirjoitetaan – peli lukee tiedoston sellaisenaan. Tällä sivulla käytetään suomenkielisiä termejä resurssipaketti ja datapaketti; englanninkieliset nimet on hyvä tuntea, koska Minecraft Wiki ja kansiorakenne käyttävät niitä.</p>
+          <p class="view-lead" style="margin-top:10px">Paketti julkaistaan avoimella lisenssillä julkisena GitHub-releasena. Release on GitHubissa julkaistu versio, jonka kuka tahansa voi ladata. Repository eli projektin koko tiedosto- ja versiohistoria GitHubissa on julkinen ensimmäisestä commitista asti. Commit on yksi Gitiin tallennettu muutos, jolla on oma viesti ja tunniste. Näyttöympäristö on siis kaksiosainen: oppilaitoksen työtila ja julkinen jakelukanava.</p>
         </section>
 
         <figure class="view-figure view-section">
@@ -91,9 +93,9 @@
         </figure>
 
         <div class="principle-grid">
-          <div class="card"><span class="num">1</span><h3>Rakenna paketissa</h3><p>Tekstuurit, mallit, äänet ja skriptit ovat paketin kansioissa.</p><small>Git-repository eli projektin tiedosto- ja versiohistoria sisältää kansiot <code>resourcepack</code>, <code>datapack</code> ja <code>project-docs</code>.</small></div>
-          <div class="card"><span class="num">2</span><h3>Ohjaa työ Gitillä</h3><p>Tehtävät ovat GitHubin tehtäväkortteja (issueita). Valmis työ näkyy pieninä tallennettuina muutoksina (committeina).</p><small>Yksi tehtäväkortti = yleensä puolen tai yhden päivän työ.</small></div>
-          <div class="card"><span class="num">3</span><h3>Kirjoita tällä sivulla</h3><p>Jokaisen viikon lopussa vastaat kolmeen kysymykseen: mitä ja miten, miksi sekä missä työnäyte on.</p><small>Kentät tallentuvat vain tähän selaimeen.</small></div>
+          <div class="card"><span class="num">1</span><h3>Rakenna paketissa</h3><p>Tekstuurit, mallit, äänet ja skriptit ovat paketin kansioissa.</p><small>Repository sisältää kansiot <code>resourcepack</code>, <code>datapack</code> ja <code>project-docs</code>.</small></div>
+          <div class="card"><span class="num">2</span><h3>Ohjaa työ Gitillä</h3><p>Työ ohjataan GitHub-issueilla. Issue on repositoryyn kirjattu tehtävä: otsikko, kuvaus ja valmis kun -ehto. Valmis työ näkyy repositoryssa committeina.</p><small>Yksi issue = yleensä puolen tai yhden päivän työ.</small></div>
+          <div class="card"><span class="num">3</span><h3>Kirjoita tällä sivulla</h3><p>Jokaisen viikon lopussa vastaat kolmeen kysymykseen: mitä ja miten, miksi sekä missä työnäyte on. Työnäyte on yksi tuotos, joka osoittaa osaamisesi: commit, kuva, testirivi tai muistio.</p><small>Kentät tallentuvat vain tähän selaimeen.</small></div>
           <div class="card"><span class="num">4</span><h3>Vie päiväkirja talteen</h3><p>Lataa koko projektipäiväkirja jokaisen viikon lopussa ja korvaa repositoryn vanha tiedosto.</p><small>Tiedosto: <code>project-docs/projektipaivakirja.md</code>. Valmis paketti julkaistaan GitHub-releasena viikolla 48.</small></div>
         </div>
 
@@ -127,7 +129,7 @@
         </details>
 
         <div class="download-card view-section" style="margin-top:20px">
-          <div><strong>Opiskelijan oma tila selaimessa</strong><p>Rastit, päiväkirja, suunnitelma ja AI-loki tallentuvat vain tähän selaimeen.</p></div>
+          <div><strong>Opiskelijan oma tila selaimessa</strong><p>Rastit, päiväkirja, suunnitelma ja AI-loki tallentuvat vain tähän selaimeen. AI-loki on kirjaus siitä, miten olet käyttänyt tekoälyä työssäsi.</p></div>
           <button class="button button-ghost" type="button" data-reset>Nollaa oma eteneminen</button>
         </div>
 
@@ -136,7 +138,7 @@
           <p>Nämä ovat opettajan lähdeaineistoa. Opiskelija ei täytä niitä ilman erillistä ohjetta. Viikkotehtävät ja projektipäiväkirja kattavat saman sisällön.</p>
           <p><a href="downloads/nayttosuunnitelma.docx" download>Näyttösuunnitelma (.docx)</a> – näytön kohde, roolit, tarkistuspisteet ja 32 vaatimuksen työnäytemäppäys.</p>
           <p><a href="downloads/nayton-dokumentointipohjat.docx" download>Dokumentointipohjat (.docx)</a> – aloituskeskustelu, vertailumuistio, katselmointiloki, testimatriisi, virheenkorjausketju, lisenssikirjaus ja AI-lokin paperiversio.</p>
-          <p><a href="downloads/teemaideat.docx" download>Teemaideat (.docx)</a> – 10 teemaideaa sisältölistoineen ja P0-rajaus.</p>
+          <p><a href="downloads/teemaideat.docx" download>Teemaideat (.docx)</a> – 10 teemaideaa sisältölistoineen ja rajausehdotus.</p>
         </details>
       </section>
 
@@ -158,15 +160,15 @@
             <ul>
               <li>tekstuurit ja Blockbench-mallit <code>resourcepack</code>-kansioon</li>
               <li>reseptit, funktiot ja saavutus <code>datapack</code>-kansioon</li>
-              <li>skriptaus mcfunction-komennoilla ja JSONilla — ei ohjelmointikieltä</li>
-              <li>P0 eli pakollinen perusversio: 8 tekstuuria, 2 mallia, omat nimet, 2 reseptiä, 1 funktio ja 1 saavutus</li>
+              <li>skriptaus mcfunction-komennoilla ja JSON-tiedostoilla — ei ohjelmointikieltä</li>
+              <li>P0 eli pakollinen ydin: 8 tekstuuria, 2 mallia, omat nimet, 2 reseptiä, 1 funktio ja 1 saavutus</li>
               <li>lopuksi julkinen GitHub-release: zip-paketit, LICENSE ja lataajalle kirjoitettu asennusohje</li>
             </ul>
-            <p style="margin-top:8px">Käytä projektin alussa sovittua Minecraft Java -versiota koko projektin ajan. Version vaihto kesken projektin muuttaa pack_format-arvoja.</p>
+            <p style="margin-top:8px">Käytä projektin alussa sovittua Minecraft Java -versiota koko projektin ajan. Version vaihto kesken projektin muuttaa pack_format-arvoja. Pack_format on numero, joka kertoo pelille, mille Minecraft-versiolle paketti on tehty; väärä arvo näkyy pelissä varoituksena.</p>
           </div>
           <div class="card">
             <p class="section-label">Pidä rajaus</p>
-            <p style="margin-top:8px"><strong>Tee ensin toimiva P0-versio.</strong> Modit (Forge/Fabric), palvelinpluginit, uudet pelimekaniikat ja maksullinen sisältö eivät kuulu tähän projektiin.</p>
+            <p style="margin-top:8px"><strong>Tee ensin toimiva P0-versio.</strong> Sisältö priorisoidaan koko projektin ajan kolmeen luokkaan: P0 on pakollinen ydin, jonka on valmistuttava; P1 on tärkeä jatkosisältö, joka tehdään vasta kun P0 toimii; P2 on valinnainen lisä, joka voidaan jättää pois. Modit (Forge/Fabric), palvelinpluginit, uudet pelimekaniikat ja maksullinen sisältö eivät kuulu tähän projektiin.</p>
           </div>
         </div>
 
@@ -206,7 +208,7 @@
           <li><span>1</span><strong>Valitse</strong><small>yksi pieni tehtävä</small></li>
           <li><span>2</span><strong>Suunnittele</strong><small>asset ja sen testi</small></li>
           <li><span>3</span><strong>Toteuta</strong><small>pala kerrallaan</small></li>
-          <li><span>4</span><strong>Testaa</strong><small>pelissä, myös reunatapaus</small></li>
+          <li><span>4</span><strong>Testaa</strong><small>pelissä, myös virhetilanne</small></li>
           <li><span>5</span><strong>Tallenna</strong><small>commit ja push</small></li>
           <li><span>6</span><strong>Kirjaa</strong><small>työnäyte ja oppi</small></li>
         </ol>
@@ -220,6 +222,7 @@
         <div class="view-section">
           <h2>Testaa kuin kehittäjä</h2>
           <p class="view-lead" style="margin-top:8px">Testaus ei ole pelkkää pelaamista. Kirjaa odotettu tulos, havaittu tulos, virheen syy, korjaus ja uusintatesti.</p>
+          <p class="view-lead" style="margin-top:8px">Testit ovat numeroituja testitapauksia. Testitapaus on yksi kirjattu testi, jolla on tunnus: T01 on ensimmäinen testitapaus, T02 toinen. Viikon omat testit saavat viikon numeron eteensä, esimerkiksi T36-01 on viikon 36 ensimmäinen testitapaus. Kun tunnus on kerran annettu, se ei muutu – siihen voi viitata myöhemmin pelkällä tunnuksella.</p>
           <div class="card risk-box view-section">
             <p class="section-label">Testauksen kattavuus</p>
             <ul>
@@ -246,6 +249,14 @@
             <div><p class="section-label">Testi ja työnäyte</p><p>T44-02 + commit-linkki</p></div>
           </div>
         </div>
+      </section>
+
+      <!-- ============ TERMIT / SANASTO ============ -->
+      <section class="view" data-view="termit" id="view-termit">
+        <p class="view-eyebrow">Sanasto · kertausta varten</p>
+        <h1 class="view-title">Tämän projektin termit</h1>
+        <p class="view-lead">Jokainen termi selitetään myös siinä kohdassa, jossa se tulee ensimmäisen kerran vastaan. Tänne voit palata, kun tunnus tai lyhenne unohtuu. Sanastossa ovat vain ne termit, joita tässä projektissa oikeasti käytetään.</p>
+        <dl class="glossary view-section" data-termisto></dl>
       </section>
 
       <!-- ============ GALLERIA ============ -->
@@ -560,7 +571,7 @@
         </article>
 
         <article class="week-card" id="week-38" data-week="38">
-          <p class="view-eyebrow" data-week-label="14.–18.9.">Vaihe B · Paketin featuret · Vko 38 · 14.–18.9.</p>
+          <p class="view-eyebrow" data-week-label="14.–18.9.">Vaihe B · Paketin ominaisuudet · Vko 38 · 14.–18.9.</p>
           <h1 class="view-title">Asset 3 · Ensimmäinen Blockbench-malli</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -633,7 +644,7 @@
         </article>
 
         <article class="week-card" id="week-39" data-week="39">
-          <p class="view-eyebrow" data-week-label="21.–25.9.">Vaihe B · Paketin featuret · Vko 39 · 21.–25.9.</p>
+          <p class="view-eyebrow" data-week-label="21.–25.9.">Vaihe B · Paketin ominaisuudet · Vko 39 · 21.–25.9.</p>
           <h1 class="view-title">Asset 4 · Isompi malli tai hahmon uusi ilme</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -706,7 +717,7 @@
         </article>
 
         <article class="week-card" id="week-40" data-week="40">
-          <p class="view-eyebrow" data-week-label="28.9.–2.10.">Vaihe B · Paketin featuret · Vko 40 · 28.9.–2.10.</p>
+          <p class="view-eyebrow" data-week-label="28.9.–2.10.">Vaihe B · Paketin ominaisuudet · Vko 40 · 28.9.–2.10.</p>
           <h1 class="view-title">Asset 5 · Äänet ja tunnelma</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -779,7 +790,7 @@
         </article>
 
         <article class="week-card" id="week-41" data-week="41">
-          <p class="view-eyebrow" data-week-label="5.–9.10.">Vaihe B · Paketin featuret · Vko 41 · 5.–9.10.</p>
+          <p class="view-eyebrow" data-week-label="5.–9.10.">Vaihe B · Paketin ominaisuudet · Vko 41 · 5.–9.10.</p>
           <h1 class="view-title">Katselmointi · Ensimmäiset testaajat</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -882,9 +893,9 @@
           <section class="view-section">
             <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="43-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Muuta saatu palaute pieniksi tehtäviksi ja toteuta sovittu muutos omassa feature-branchissa eli muutokselle rajatussa Git-haarassa.</span></label>
+            <label class="task-row"><input type="checkbox" data-task="43-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Muuta saatu palaute pieniksi tehtäviksi ja toteuta sovittu muutos omassa haarassa eli muutokselle rajatussa kopiossa projektista.</span></label>
             <label class="task-row"><input type="checkbox" data-task="43-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Luo datapaketin runko ja ensimmäinen mcfunction-skripti, joka toimii /reload- ja /function-komennoilla.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="43-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Katselmoi, testaa ja yhdistä muutokset toimivaan main-versioon.</span></label>
+            <label class="task-row"><input type="checkbox" data-task="43-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Katselmoi, testaa ja yhdistä muutokset toimivaan main-haaraan.</span></label>
             </div>
           </section>
 
@@ -906,7 +917,7 @@
 
           <div class="outcome-grid">
             <div class="card"><p class="section-label">Valmis kun</p><p class="checkpoint">Ennen kuin jatkat: tarkista viikon valmis kun -ehto.</p></div>
-            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">issue, branch/merge tai pull request, funktion commit ja katselmointiloki.</p></div>
+            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">GitHub-issue, haara ja merge tai pull request, funktion commit ja katselmointiloki.</p></div>
           </div>
 
           <section class="week-journal" data-week-journal="43">
@@ -1151,7 +1162,7 @@
 
         <article class="week-card" id="week-47" data-week="47">
           <p class="view-eyebrow" data-week-label="16.–20.11.">Vaihe D · Julkaisu ja näyttö · Vko 47 · 16.–20.11.</p>
-          <h1 class="view-title">Julkaisu · RC1 testikäytössä</h1>
+          <h1 class="view-title">Julkaisu · Julkaisuehdokas RC1 testissä</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
             <span class="section-label" data-week-kicker-label>Viikon jälkeen</span>
@@ -1174,7 +1185,7 @@
           <section class="view-section">
             <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="47-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kokoa release candidate (RC1): zip-paketit ja lataajalle kirjoitettu asennusohje. Jäädytä uuden sisällön lisääminen.</span></label>
+            <label class="task-row"><input type="checkbox" data-task="47-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kokoa ensimmäinen julkaisuehdokas eli release candidate (RC1): zip-paketit ja lataajalle kirjoitettu asennusohje. Jäädytä uuden sisällön lisääminen.</span></label>
             <label class="task-row"><input type="checkbox" data-task="47-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Anna ohjaajan ja vähintään yhden muun käyttäjän asentaa ja testata paketti pelkän ohjeen avulla. Jos et löydä toista testaajaa omasta ryhmästä, hän voi olla toisen ryhmän opiskelija tai toinen ohjaaja.</span></label>
             <label class="task-row"><input type="checkbox" data-task="47-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Luokittele palaute: korjataan, tunnettu puute tai myöhempään versioon.</span></label>
             </div>
@@ -1248,7 +1259,7 @@
             <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 4</span></div>
             <div class="task-list">
             <label class="task-row"><input type="checkbox" data-task="48-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Korjaa vain julkaisemisen estävät ja selvästi tärkeät virheet.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="48-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tee v1.0-tagi ja julkaise GitHub-release: zip-paketit, README, LICENSE, CHANGELOG, kuvakaappaukset ja asennusohje. Valinnainen bonus: julkaise lisäksi Modrinthissa tai Planet Minecraftissa opettajan kanssa sovitusti.</span></label>
+            <label class="task-row"><input type="checkbox" data-task="48-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tee v1.0-tagi ja julkaise GitHub-release: zip-paketit, README, LICENSE, CHANGELOG eli muutosloki, kuvakaappaukset ja asennusohje. Valinnainen bonus: julkaise lisäksi Modrinthissa tai Planet Minecraftissa opettajan kanssa sovitusti.</span></label>
             <label class="task-row"><input type="checkbox" data-task="48-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Testaa julkaistu lataus itse toisella koneella tai puhtaalla pelillä ja viimeistele käyttöohje.</span></label>
             <label class="task-row"><input type="checkbox" data-task="48-4"><span class="task-box" aria-hidden="true"></span><span class="task-text">Pyydä yksi henkilö, joka ei ole tekijä, asentamaan julkaistu v1.0 release-sivulta pelkän ohjeen avulla. Kirjaa hänen roolinsa, päivä ja havainnot.</span></label>
             </div>
@@ -1374,10 +1385,10 @@
       <section class="view" data-view="suunnitelma" id="view-suunnitelma">
         <p class="view-eyebrow">Paketin suunnitteludokumentti · täytä viikolla 35</p>
         <h1 class="view-title">Asset-pack-suunnitelma: teema ja sisältölista</h1>
-        <p class="view-lead">Asset-pack-suunnitelma on tämän projektin suunnitteludokumentti — pelialan GDD:n vastine asset-työlle. Pohja on esitäytetty toimeksiannosta. Sinä teet omat päätökset ja lataat valmiin asset-pack-suunnitelma.md-tiedoston repositoryysi. Omat päätökset vaativat viikon 34 vastaukset ohjaajalta; palaat niihin viikoilla 36, 39 ja 44.</p>
+        <p class="view-lead">Asset-pack-suunnitelma on tämän projektin suunnitteludokumentti: se kertoo, mitä assetteja pakettiin tehdään, missä järjestyksessä ja millä säännöillä. Asset pack tarkoittaa assettien kokoelmaa – tässä projektissa resurssipakettia ja datapakettia yhdessä. Pohja on esitäytetty toimeksiannosta. Sinä teet omat päätökset ja lataat valmiin asset-pack-suunnitelma.md-tiedoston repositoryysi. Omat päätökset vaativat viikon 34 vastaukset ohjaajalta; palaat niihin viikoilla 36, 39 ja 44.</p>
 
         <figure class="view-figure">
-          <div class="image-stage"><img src="assets/suunnitelma-luonnos.svg" width="1128" height="540" alt="Työpöytä, jolla on luonnoslehtiö kolmella tekstuuri-idealla, viiden värin paletti ja ruutupaperille piirretty sisältölista."></div>
+          <div class="image-stage"><img src="assets/suunnitelma-luonnos.svg" width="1128" height="540" alt="Työpöytä, jolla on luonnoslehtiö kolmella tekstuuri-idealla, viiden värin paletti ja ruutupaperille piirretty lista pakollisesta ydinsisällöstä eli P0:sta."></div>
           <figcaption><strong>Asset-pack-suunnitelma alkaa luonnoksista:</strong> paletti ja kolme tekstuuri-ideaa paperille ennen pikseleitä.</figcaption>
         </figure>
 
@@ -1398,7 +1409,7 @@
             </ol>
             <small>Tämä lista ei ole valmis suunnitelma: assettien pilkkominen 0,5–1 päivän issueiksi ja P0/P1/P2-priorisointi on sinun työtäsi (tehtävä 35-2).</small>
           </article>
-          <article><h3>4 · Teknologia</h3><p>Minecraft Java Edition, resurssipaketti + datapaketti, Blockbench ja Piskel, skriptaus mcfunction-komennoilla ja JSONilla, julkaisu GitHub-releasena.</p></article>
+          <article><h3>4 · Teknologia</h3><p>Minecraft Java Edition, resurssipaketti + datapaketti, Blockbench ja Piskel, skriptaus mcfunction-komennoilla ja JSON-tiedostoilla, julkaisu GitHub-releasena.</p></article>
           <article><h3>5 · Rajaus — mitä ei tehdä</h3><p>Ei modeja, ei palvelinpluginejä, ei uusia pelimekaniikkoja eikä maksullista sisältöä. Ensin toimiva P0-versio.</p></article>
           <article>
             <h3>6 · Avoimet asiat — ohjaaja omistaa</h3>
@@ -1447,7 +1458,7 @@
                 <option value="MIT">MIT — yleinen ohjelmistolisenssi, sopii datapaketin skripteille</option>
               </select>
             </label><span class="plan-row-week">avoin asia</span></div>
-          <p class="plan-calibration">Lisenssi kertoo, mitä muut saavat paketillasi tehdä. Valinta tehdään ohjaajan kanssa, ja LICENSE-tiedosto lisätään repositoryyn heti kun lisenssi on sovittu — viimeistään viikolla 35. Viikolla 46 se tarkistetaan. Versio määrää molempien pakettien pack_format-arvot.</p>
+          <p class="plan-calibration">Lisenssi kertoo, mitä muut saavat paketillasi tehdä. CC on lyhenne Creative Commons -lisensseistä, jotka on tehty kuville, äänille ja muulle sisällölle. MIT-lisenssi on yleinen ohjelmistolisenssi, joka sopii datapaketin skripteille. Valinta tehdään ohjaajan kanssa, ja LICENSE-tiedosto lisätään repositoryyn heti kun lisenssi on sovittu — viimeistään viikolla 35. Viikolla 46 se tarkistetaan. Versio määrää molempien pakettien pack_format-arvot.</p>
 
           <div class="plan-actions">
             <button class="button button-primary" type="button" data-plan-export>Lataa asset-pack-suunnitelma.md</button>
@@ -1495,7 +1506,7 @@
             <label>Mihin pyysit apua?<input type="text" name="question" required placeholder="Miksi resepti ei näy pelissä"></label>
           </div>
           <label>Mitä käytit, muutit tai hylkäsit — ja miten tarkistit?<textarea name="used" rows="2" required placeholder="Käytin virheselityksen, muutin JSONin itse, hylkäsin väärän kentän. Testasin pelissä ja vertasin Minecraft Wikiin."></textarea></label>
-          <label>Aineistoviite<input type="text" name="reference" required placeholder="Issue #12 / commit abc123 / testi T05"></label>
+          <label>Aineistoviite<input type="text" name="reference" required placeholder="GitHub-issue #12 / commit abc123 / testitapaus T05"></label>
           <div class="privacy-row">
             <label class="privacy-confirm"><input type="checkbox" name="privacy" required> Vahvistan, etten syöttänyt henkilötietoja, salaisuuksia tai luottamuksellista aineistoa.</label>
             <button class="button button-primary" type="submit">Lisää lokiin</button>

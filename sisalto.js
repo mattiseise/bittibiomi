@@ -27,7 +27,7 @@ window.NAYTTOPROJEKTI = {
   /* ---- vaiheet ---- */
   vaiheet: [
     { tunnus: "A", lyhyt: "Paketin ydin", otsikko: "Paketin ydin: teema, työkalut ja ensimmäiset omat tekstuurit", viikot: [34, 35, 36, 37], vari: "#8d5a2b" },
-    { tunnus: "B", lyhyt: "Paketin featuret", otsikko: "Paketin featuret: 3D-mallit, äänet ja katselmointi", viikot: [38, 39, 40, 41, 42], vari: "#1a6fae" },
+    { tunnus: "B", lyhyt: "Paketin ominaisuudet", otsikko: "Paketin ominaisuudet: 3D-mallit, äänet ja katselmointi", viikot: [38, 39, 40, 41, 42], vari: "#1a6fae" },
     { tunnus: "C", lyhyt: "Paketti valmiiksi", otsikko: "Paketti valmiiksi: skriptit, palautemuutos ja laatu", viikot: [43, 44, 45, 46], vari: "#c03434" },
     { tunnus: "D", lyhyt: "Julkaisu ja näyttö", otsikko: "Julkaisu ja näyttö", viikot: [47, 48, 49], vari: "#7c3aed" }
   ],
@@ -51,6 +51,40 @@ window.NAYTTOPROJEKTI = {
     48: "Julkaisu v1.0",
     49: "Näyttö ja luovutus"
   },
+
+  /* Sanasto: vain tämän projektin oikeasti käyttämät termit. Renderöidään
+     Termit-näkymään ja viikkojen "Uudet termit" -laatikoihin. Termit, jotka
+     tulevat ensimmäisen kerran vastaan aloitussivuilla (Näin käytät sivua,
+     Toimeksianto, Työtapa, Suunnitelma), ovat ilman viikkoa. */
+  termisto: [
+    { termi: "asset", nimi: "Paketin osa", selite: "Pelissä näkyvä tai kuuluva paketin osa: tekstuuri, 3D-malli, ääni tai skriptattu lisä. Tämä projekti etenee yksi asset kerrallaan." },
+    { termi: "asset pack", nimi: "Assettien kokoelma", selite: "Assettien kokoelma, joka asennetaan peliin yhtenä pakettina. Tässä projektissa asset pack tarkoittaa resurssipakettia ja datapakettia yhdessä." },
+    { termi: "resurssipaketti", nimi: "Resource pack", selite: "Paketin osa, joka muuttaa sitä, miltä peli näyttää ja kuulostaa: tekstuurit, mallit, äänet ja nimet. Kansion nimi levyllä on resourcepack." },
+    { termi: "datapaketti", nimi: "Data pack", selite: "Paketin osa, joka lisää peliin sääntöjä: reseptit, saavutukset ja funktiot. Kansion nimi levyllä on datapack." },
+    { termi: "pack.mcmeta", nimi: "Paketin käyntikortti", selite: "Pieni JSON-tiedosto paketin juuressa. Se kertoo pelille paketin kuvauksen ja pack_format-arvon. Ilman sitä peli ei tunnista pakettia." },
+    { termi: "pack_format", nimi: "Paketin versionumero", selite: "Numero pack.mcmeta-tiedostossa. Se kertoo pelille, mille Minecraft-versiolle paketti on tehty. Resurssipaketilla ja datapaketilla on eri arvo samalle peliversiolle." },
+    { termi: "mcfunction", nimi: "Komentotiedosto", selite: "Tekstitiedosto, jossa on pelin omia komentoja rivi riviltä. Peli ajaa rivit järjestyksessä /function-komennolla. Tämän projektin skriptaus tehdään näin, ei ohjelmointikielellä." },
+    { termi: "JSON", nimi: "Tekstimuotoinen määrittely", selite: "Yksinkertainen tekstimuoto, jolla paketin määrittelyt kirjoitetaan: kielitiedosto, mallit, reseptit ja saavutukset. Pilkku tai lainausmerkki väärässä paikassa rikkoo koko tiedoston." },
+    { termi: "nimiavaruus", nimi: "Paketin oma lokero", selite: "Paketin omalla nimellä varustettu kansio, jonka sisällä sinun tiedostosi ovat. Se erottaa oman sisällön pelin omasta sisällöstä, esimerkiksi teema:kyla.kello.", viikko: 40 },
+    { termi: "repository", nimi: "Projektin varasto GitHubissa", selite: "Projektin koko tiedosto- ja versiohistoria GitHubissa. Tämän projektin repository on julkinen ensimmäisestä commitista asti." },
+    { termi: "commit", nimi: "Tallennettu muutos", selite: "Yksi Gitiin tallennettu muutos, jolla on oma viesti ja tunniste. Commit-linkki on tämän projektin tavallisin työnäyte." },
+    { termi: "push", nimi: "Lähetys GitHubiin", selite: "Omalla koneella tehtyjen committien lähettäminen GitHubiin. Ennen ensimmäistä pushia tarkistetaan, ettei mukana ole henkilötietoja – Git-historia on pysyvä.", viikko: 34 },
+    { termi: "GitHub-issue", nimi: "Kirjattu tehtävä", selite: "Repositoryyn kirjattu tehtävä: otsikko, kuvaus ja valmis kun -ehto. Yksi issue on tässä projektissa noin puolen tai yhden päivän työ." },
+    { termi: "haara", nimi: "Branch", selite: "Rinnakkainen kopio projektista, jossa yksi muutos tehdään rauhassa valmiiksi. Päähaara main pysyy koko ajan toimivana.", viikko: 43 },
+    { termi: "merge", nimi: "Haarojen yhdistäminen", selite: "Haaran muutosten yhdistäminen takaisin main-haaraan. Merge tehdään vasta kun muutos on testattu.", viikko: 43 },
+    { termi: "pull request", nimi: "Pyyntö yhdistää haara", selite: "GitHubin tapa tehdä merge: pyyntö yhdistää haara mainiin. Pyynnössä muutokset voi lukea läpi ja kommentoida ennen hyväksymistä.", viikko: 43 },
+    { termi: "tagi", nimi: "Version nimilappu", selite: "Gitin nimilappu, joka kiinnitetään yhteen committiin, esimerkiksi v1.0. Tagi kertoo, mikä versio julkaistiin.", viikko: 48 },
+    { termi: "GitHub-release", nimi: "Julkaistu versio", selite: "GitHubissa julkaistu versio, jonka kuka tahansa voi ladata. Tässä projektissa releaseen liitetään zip-paketit, asennusohje ja kuvat." },
+    { termi: "P0", nimi: "Pakollinen ydin", selite: "Sisältö, jonka on valmistuttava ennen mitään lisäsisältöä. Tämän projektin P0 on 8 tekstuuria, 2 mallia, omat nimet, 2 reseptiä, 1 funktio ja 1 saavutus." },
+    { termi: "P1", nimi: "Tärkeä jatkosisältö", selite: "Sisältö, joka tehdään vasta kun P0 toimii. P1 on tärkeää mutta ei estä julkaisua." },
+    { termi: "P2", nimi: "Valinnainen lisä", selite: "Sisältö, joka voidaan jättää kokonaan pois, jos aika loppuu. P2 ei vaikuta näytön läpimenoon." },
+    { termi: "T01", nimi: "Testitapauksen tunnus", selite: "T tarkoittaa testitapausta ja numero yksilöi sen: T01 on ensimmäinen testitapaus, T02 toinen. Viikon omat testit saavat viikon numeron eteensä, esimerkiksi T36-01. Odotettu tulos kirjataan ennen ajoa." },
+    { termi: "RC", nimi: "Release candidate, julkaisuehdokas", selite: "Lähes valmis versio, jota testataan sellaisena kuin se aiotaan julkaista. RC1 on ensimmäinen julkaisuehdokas; uutta sisältöä ei enää lisätä.", viikko: 47 },
+    { termi: "backlog", nimi: "Priorisoitu tehtävälista", selite: "Lista kaikista tekemättömistä tehtävistä tärkeysjärjestyksessä. Jokaisella rivillä on prioriteetti (P0, P1 tai P2), työmääräarvio ja valmis kun -ehto.", viikko: 35 },
+    { termi: "moodboard", nimi: "Ilmeen kuvakollaasi", selite: "Kooste väripaletista ja referenssikuvista, joka lukitsee paketin ilmeen ennen pikselityötä. Moodboardiin palataan aina, kun mietit sopiiko uusi asset teemaan.", viikko: 35 },
+    { termi: "CC", nimi: "Creative Commons", selite: "Lisenssiperhe kuville, äänille ja muulle sisällölle. CC BY vaatii tekijän mainitsemisen, CC BY-SA lisäksi saman lisenssin muokkauksiin, CC0 luovuttaa työn vapaaseen käyttöön." },
+    { termi: "MIT", nimi: "MIT-lisenssi", selite: "Yleinen ja salliva ohjelmistolisenssi. Sopii datapaketin skripteille: muut saavat käyttää ja muokata koodia, kunhan lisenssiteksti pysyy mukana." }
+  ],
 
   /* ---- viikkotyyppien kehykset ---- */
   kehykset: {
@@ -99,7 +133,7 @@ window.NAYTTOPROJEKTI = {
     vihjeet: {
       work: "Kerro konkreettiset tiedostot, tekstuurit, komennot, Git-tehtävät ja testit.",
       reason: "Kerro päätös, vaihtoehdot, perustelu ja mitä opit.",
-      evidence: "Esim. commit-linkki, issue #12, testi T05 tai project-docs/evidence/week-N/kuva.png."
+      evidence: "Esim. commit-linkki, GitHub-issue #12, testitapaus T05 tai project-docs/evidence/week-N/kuva.png."
     }
   },
 
@@ -164,7 +198,7 @@ window.NAYTTOPROJEKTI = {
         "",
         "## 7. Teknologia",
         "",
-        "Minecraft Java Edition, resurssipaketti + datapaketti, Blockbench ja Piskel, skriptaus mcfunction-komennoilla ja JSONilla, julkaisu julkisena GitHub-releasena avoimella lisenssillä.",
+        "Minecraft Java Edition, resurssipaketti + datapaketti, Blockbench ja Piskel, skriptaus mcfunction-komennoilla ja JSON-tiedostoilla, julkaisu julkisena GitHub-releasena avoimella lisenssillä.",
         "",
         "## 8. Rajaus – mitä ei tehdä",
         "",
@@ -182,6 +216,7 @@ window.NAYTTOPROJEKTI = {
   viikkoOhjeet: {
     34: {
       type: "pohjustus",
+      termit: ["pack.mcmeta", "push"],
       feature: "Viikon jälkeen tiedät, millainen paketti tehdään ja kenelle. Tyhjä paketti näkyy pelin valikossa.",
       connection: "Asset-työkierto alkaa toimeksiannosta: ennen yhtäkään pikseliä päätät, mitä teemaa paketti toteuttaa, kenelle se tehdään ja millä Minecraft-versiolla se toimii.",
       deliverable: "Tarvekartoitus, pelin valikossa näkyvä tyhjä resurssipaketti ja Git-repository.",
@@ -191,7 +226,7 @@ window.NAYTTOPROJEKTI = {
       skills: ["toimeksianto", "pakettirunko", "Git"],
       steps: [
         ["Selvitä tarve", "Merkitse toimeksiannon pakolliset asiat, laadi vähintään 8 päätökseen johtavaa kysymystä ja kirjaa keskustelun vastaukset, avoimet asiat ja oletukset. Avaa lisäksi kaksi julkaistua teemapakettia Modrinthissa tai Planet Minecraftissa: kenelle ne on tehty, mitä ne sisältävät ja mitä sinun pakettisi tekee toisin? Tästä syntyy kuvaus omasta kohdeyleisöstä."],
-        ["Tee pakettitesti", "Luo resourcepack-kansioon pack.mcmeta ja pack.png ja tarkista, että paketti näkyy pelin valikossa oikealla kuvauksella. Kirjaa sovittu Minecraft-versio ja pack_format."],
+        ["Tee pakettitesti", "Luo resourcepack-kansioon pack.mcmeta ja pack.png ja tarkista, että paketti näkyy pelin valikossa oikealla kuvauksella. Pack.mcmeta on paketin käyntikortti: pieni JSON-tiedosto, joka kertoo pelille paketin kuvauksen ja pack_format-arvon. Kirjaa sovittu Minecraft-versio ja pack_format."],
         ["Perusta julkinen Git", "Käy ensin läpi, mitä julkiseen repositoryyn ei laiteta: henkilötiedot, kotiosoite, koulun tunnisteet eikä muiden nimiä tai käyttäjänimiä kuvakaappauksissa. Git-historia on pysyvä. Sovi tekijänimi ohjaajan kanssa, ja alaikäisenä sovi julkisesta repositorystä myös huoltajan kanssa. Lisää sitten README, .gitignore ja kansiot resourcepack, datapack ja project-docs, aseta repository julkiseksi ja tee ensimmäinen commit."]
       ],
       help: {
@@ -202,7 +237,7 @@ window.NAYTTOPROJEKTI = {
           "Kirjoita VS Codella resourcepack/pack.mcmeta. Kopioi rakenne alta ja vaihda description omaan teemaasi.",
           "Tee pack.png: 64×64 pikselin neliökuva paketin tunnukseksi. Piskelin export riittää.",
           "Avaa pelissä Options → Resource Packs → Open Pack Folder ja kopioi resourcepack-kansio sinne. Paketti näkyy valikossa ilman zippausta.",
-          "Luo GitHubiin tyhjä repository ja valitse näkyvyydeksi Public — tarkista ennen ensimmäistä pushia, ettei mukana ole henkilötietoja. Lisää README ja .gitignore ja tee ensimmäinen commit. Varmista, että kaikki kolme kansiota näkyvät GitHubissa."
+          "Luo GitHubiin tyhjä repository ja valitse näkyvyydeksi Public. Push tarkoittaa committien lähettämistä omalta koneelta GitHubiin — tarkista ennen ensimmäistä pushia, ettei mukana ole henkilötietoja. Lisää README ja .gitignore ja tee ensimmäinen commit. Varmista, että kaikki kolme kansiota näkyvät GitHubissa."
         ],
         code: "{\n  \"pack\": {\n    \"pack_format\": 34,\n    \"description\": \"Kotikylä – oma teemapaketti\"\n  }\n}\n\npack_format 34 vastaa Java-versiota 1.21.\nTarkista sovitun version arvo Minecraft Wikin\nsivulta Pack format ja kirjaa se README:hen.",
         test: "Sulje peli ja avaa se uudelleen. Paketti näkyy Resource Packs -valikossa omalla kuvalla ja kuvauksella, eikä peli näytä varoitusta väärästä versiosta.",
@@ -222,12 +257,13 @@ window.NAYTTOPROJEKTI = {
     },
     35: {
       type: "pohjustus",
+      termit: ["backlog", "moodboard"],
       feature: "Viikon jälkeen paketti on paperilla: teema, väripaletti, lisenssi ja sisältölista tekojärjestyksessä. Ohjaaja on hyväksynyt rajauksen.",
       excerpt: "Paketti muuttaa pelin ilmettä valitun teeman mukaiseksi: siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
-      connection: "Nyt muutat toimeksiannon näkyväksi suunnitelmaksi: teema, paletti, sisältölista, tehtävät ja valmiin työn ehdot. Viikon 34 vastaukset ohjaajalta ovat suunnitelman pohja.",
-      deliverable: "Hyväksytty pakollinen perusversio, sovittu lisenssi, pieni backlog, moodboard ja kolme tekstuuriluonnosta.",
+      connection: "Nyt muutat toimeksiannon näkyväksi suunnitelmaksi: teema, paletti, sisältölista, tehtävät ja valmiin työn ehdot. Tehtävistä kootaan backlog eli priorisoitu tehtävälista, ja teeman ilme kootaan moodboardiksi eli kuvakollaasiksi, joka lukitsee värit ja tyylin. Viikon 34 vastaukset ohjaajalta ovat suunnitelman pohja.",
+      deliverable: "Hyväksytty P0 eli pakollinen ydin, sovittu lisenssi, pieni backlog, moodboard ja kolme tekstuuriluonnosta.",
       why: "Rajaus estää pakettia kasvamasta liian suureksi. Kun jokaisella tehtävällä on selvä valmis kun -ehto, tiedät, mitä seuraavaksi tehdään ja milloin työ voidaan testata.",
-      done: "Pakollinen perusversio on hyväksytty. Jokaisella P0-tehtävällä on 0,5–1 päivän arvio ja havaittava valmis kun -ehto. Moodboardissa näkyvät paletti ja referenssit, ja sovittu LICENSE-tiedosto on repositoryn juuressa.",
+      done: "Pakollinen ydin P0 on hyväksytty. Jokaisella P0-tehtävällä on 0,5–1 päivän arvio ja havaittava valmis kun -ehto. Moodboardissa näkyvät paletti ja referenssit, ja sovittu LICENSE-tiedosto on repositoryn juuressa.",
       record: "Kirjoita Vko 35 -merkintään, mitkä Asset-pack-suunnitelman päätökset teit ja miksi, hyväksyjän rooli ja päivä sekä mitkä asiat jäivät ohjaajalle avoimiksi. Lisää linkit suunnitelmaan, backlogiin ja moodboardiin.",
       skills: ["rajaus", "moodboard", "työn pilkkominen"],
       resources: [
@@ -243,7 +279,7 @@ window.NAYTTOPROJEKTI = {
         title: "Tee issue, moodboard ja sisältölista",
         tree: "project-docs/evidence/week-35/\n├─ moodboard.png\n├─ paletti.png\n└─ luonnokset/\n   ├─ luonnos-1.png\n   ├─ luonnos-2.png\n   └─ luonnos-3.png",
         actions: [
-          "Kirjoita ensin projektipäiväkirjaan teema, kohdeyleisö, rajaus ja pakollinen perusversio. Käytä ohjaajan vastauksia; älä keksi vastauksia avoimiin asioihin.",
+          "Kirjoita ensin projektipäiväkirjaan teema, kohdeyleisö, rajaus ja P0-sisältö. Käytä ohjaajan vastauksia; älä keksi vastauksia avoimiin asioihin.",
           "Avaa GitHubissa repository → Issues → New issue. Tee yksi issue jokaisesta P0-assetista. Kirjoita otsikko verbillä, esimerkiksi Piirrä kolme blokkitekstuuria.",
           "Lisää issueen työmääräarvio ja valmis kun -ehto, jonka toinen ihminen voi testata pelissä. Jaa yli päivän mittainen issue pienempiin osiin.",
           "Valitse paletti Lospecista tai rakenna oma 5–8 värin paletti. Sama paletti kaikkiin tekstuureihin — se pitää paketin yhtenäisenä.",
@@ -328,7 +364,7 @@ window.NAYTTOPROJEKTI = {
       excerpt: "Paketti muuttaa pelin ilmettä valitun teeman mukaiseksi: siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.",
       connection: "Tekstuuri muuttaa blokin pinnan; malli muuttaa sen muodon. Blockbenchissä rakennat kuutioista oman muodon ja korvaat sillä valitun blokin mallin — sama korvausperiaate kuin viikoilla 36 ja 37.",
       deliverable: "Blockbenchillä tehty ja teksturoitu blokkimalli, joka toimii pelissä maassa ja kädessä.",
-      why: "3D-malli on paketin vaativin asset-tyyppi. Pieni onnistunut malli opettaa koordinaatiston, UV-teksturoinnin ja mallitiedoston rakenteen ennen viikon 39 isompaa työtä.",
+      why: "3D-malli on paketin vaativin asset-tyyppi. Pieni onnistunut malli opettaa koordinaatiston, mallitiedoston rakenteen ja UV-teksturoinnin – sen määrittelyn, mikä kohta tekstuurikuvasta piirtyy mihinkin mallin pintaan – ennen viikon 39 isompaa työtä.",
       done: "Oma malli näkyy pelissä oikein maassa, kädessä ja eri suunnista katsottuna ilman virheilmoituksia. Malli ja tekstuuri ovat Gitissä.",
       record: "Kirjoita Vko 38 -merkintään korvattu blokki, mallin kuutiomäärä, UV-teksturoinnin havainnot ja pelitestin tulokset. Lisää Blockbench-tiedosto, commit ja kuvakaappaukset.",
       skills: ["Blockbench-mallinnus", "mallin korvaus", "UV-teksturointi"],
@@ -366,7 +402,7 @@ window.NAYTTOPROJEKTI = {
       why: "Vertailu osoittaa, ettet valinnut ratkaisua sattumalta. Työmäärän, näkyvyyden ja riskin punnitseminen ennen toteutusta on sama taito, jota käytät jokaisessa tulevassa projektissa.",
       done: "Valittu kokonaisuus toimii pelissä ja näyttää hyvältä läheltä, kaukaa ja pimeässä. Vertailumuistio päätöksineen on kirjattu.",
       record: "Kirjoita Vko 39 -merkintään vaihtoehdot A ja B, vertailuperusteet, keskustelukumppanin rooli, valittu ratkaisu ja pelitestin tulokset eri etäisyyksiltä. Lisää commit-linkki.",
-      skills: ["vaihtoehtojen vertailu", "entity-tekstuuri", "mallinnus"],
+      skills: ["vaihtoehtojen vertailu", "hahmon eli mobin tekstuuri", "mallinnus"],
       steps: [
         ["Vertaa ja valitse", "Vertaa toisen henkilön kanssa vaihtoehtoja A (isompi blokkimalli) ja B (mobin uusi tekstuuri) työmäärän, näkyvyyden ja riskin perusteella. Kirjaa päätös."],
         ["Toteuta kahdessa osassa", "Tee runko ensimmäisenä päivänä ja yksityiskohdat toisena. Committaa molemmat vaiheet erikseen."],
@@ -390,6 +426,7 @@ window.NAYTTOPROJEKTI = {
     },
     40: {
       type: "feature",
+      termit: ["nimiavaruus"],
       feature: "Paketti saa äänen: oma tai uudelleenjulkaisun sallivalla lisenssillä hankittu ääni kuuluu pelissä.",
       excerpt: "Kaiken sisällön pitää olla itse tehtyä tai lisensoitu niin, että sen saa julkaista uudelleen.",
       connection: "Tekstuurit ja mallit näkyvät — ääni tuo teeman tunnelman. Ääni lisätään omaan nimiavaruuteen eli paketin omaan nimettyyn lokeroon, jottei se sotke pelin omia ääniä. Huomaa lisenssin kaksi suuntaa: tässä kysymys on sisään tulevasta lisenssistä (saanko käyttää tätä ääntä?), kun taas viikolla 35 sovittu oma lisenssi on ulos menevä (mitä muut saavat tehdä paketillasi?).",
@@ -456,16 +493,17 @@ window.NAYTTOPROJEKTI = {
     },
     43: {
       type: "feature",
+      termit: ["haara", "merge", "pull request"],
       feature: "Palautteessa pyydetty muutos on pelissä, ja paketilla on nyt myös toimiva datapaketti.",
       excerpt: "Haluan nähdä paketista toimivan väliversion vähintään kerran ennen lopullista versiota, jotta voin pyytää muutoksia.",
-      connection: "Palautemuutos tehdään omassa Git-haarassa, jotta toimiva main säilyy. Samalla viikolla paketti saa toisen puoliskonsa: datapaketin, jonka rakenne on sama kuin viikon 34 resurssipaketissa — vain pack_format-arvo ja kansiot eroavat.",
+      connection: "Palautemuutos tehdään omassa haarassa (englanniksi branch) eli rinnakkaisessa kopiossa projektista, jotta päähaara main säilyy koko ajan toimivana. Samalla viikolla paketti saa toisen puoliskonsa: datapaketin, jonka rakenne on sama kuin viikon 34 resurssipaketissa — vain pack_format-arvo ja kansiot eroavat.",
       deliverable: "Testattu palautemuutos mainissa ja datapaketin runko, jonka funktio toimii /reload- ja /function-komennoilla.",
-      why: "Erillinen Git-haara pitää toimivan version turvassa ja näyttää, miten palaute muuttui tehtäväksi, toteutukseksi ja testiksi. Datapaketin runko avaa viikon 44 skriptityöt.",
+      why: "Erillinen haara pitää toimivan version turvassa ja näyttää, miten palaute muuttui tehtäväksi, toteutukseksi ja testiksi. Datapaketin runko avaa viikon 44 skriptityöt.",
       done: "Main sisältää testatun palautemuutoksen. Datapaketti latautuu /reload-komennolla ilman virheitä ja funktio vastaa /function-kutsuun.",
-      record: "Kirjoita Vko 43 -merkintään ketju: palaute → issue → Git-haara → merge → testi. Lisää datapaketin ensimmäisen funktion commit ja /reload-testin tulos.",
-      skills: ["issue", "feature-branch", "mcfunction"],
+      record: "Kirjoita Vko 43 -merkintään ketju: palaute → issue → haara → merge → testi. Lisää datapaketin ensimmäisen funktion commit ja /reload-testin tulos.",
+      skills: ["GitHub-issue", "haara ja merge", "mcfunction"],
       steps: [
-        ["Toteuta palautemuutos", "Kirjoita palaute issueksi hyväksymisehtoineen, tee muutos feature-branchissa ja yhdistä mainiin vasta testin jälkeen."],
+        ["Toteuta palautemuutos", "Kirjoita palaute issueksi hyväksymisehtoineen ja tee muutos omassa haarassa. Yhdistä haara mainiin vasta testin jälkeen — yhdistämistä kutsutaan mergeksi. GitHubissa merge tehdään pull requestilla eli pyynnöllä yhdistää haara; silloin muutokset voi lukea läpi ennen hyväksymistä."],
         ["Rakenna datapaketin runko", "Luo datapack-kansioon pack.mcmeta ja oman nimiavaruuden function-kansio. Kirjoita load-funktio, joka tervehtii pelaajaa."],
         ["Testaa komennoilla", "Asenna datapaketti testimaailmaan, aja /reload ja /datapack list ja varmista vihreä latausviesti."]
       ],
@@ -481,13 +519,13 @@ window.NAYTTOPROJEKTI = {
           "Kopioi datapack-kansio testimaailman datapacks-kansioon: .minecraft/saves/<maailma>/datapacks/.",
           "Aja pelissä /reload ja /datapack list. Vihreä viesti ja paketti listassa = runko toimii."
         ],
-        code: "# Feature-branchin työnkulku\ngit checkout -b korjaus/lyhdyn-hehku\ngit add .\ngit commit -m \"Kirkasta lyhdyn hehku\"\ngit push -u origin korjaus/lyhdyn-hehku\n# GitHubissa: Compare & pull request → Merge\n\n# datapack/pack.mcmeta\n{ \"pack\": { \"pack_format\": 48, \"description\": \"Kotikylä – datapaketti\" } }\n\n# data/minecraft/tags/function/load.json\n{ \"values\": [ \"teema:load\" ] }\n\n# data/teema/function/load.mcfunction\ntellraw @a {\"text\":\"Kotikylä-paketti ladattu.\",\"color\":\"green\"}\n\npack_format 48 vastaa 1.21:tä — resurssi- ja\ndatapaketilla on ERI arvot samalle peliversiolle.",
+        code: "# Haaran työnkulku\ngit checkout -b korjaus/lyhdyn-hehku\ngit add .\ngit commit -m \"Kirkasta lyhdyn hehku\"\ngit push -u origin korjaus/lyhdyn-hehku\n# GitHubissa: Compare & pull request → Merge\n\n# datapack/pack.mcmeta\n{ \"pack\": { \"pack_format\": 48, \"description\": \"Kotikylä – datapaketti\" } }\n\n# data/minecraft/tags/function/load.json\n{ \"values\": [ \"teema:load\" ] }\n\n# data/teema/function/load.mcfunction\ntellraw @a {\"text\":\"Kotikylä-paketti ladattu.\",\"color\":\"green\"}\n\npack_format 48 vastaa 1.21:tä — resurssi- ja\ndatapaketilla on ERI arvot samalle peliversiolle.",
         test: "Aja /reload. Vihreä latausviesti näkyy chatissa. Aja /function teema:tervehdys — funktion viesti tulostuu. Jos komento ei löydä funktiota, tarkista kansioiden yksikkö/monikko-muoto versiosi mukaan.",
         links: [
           ["Minecraft Wiki: Data pack", "https://minecraft.wiki/w/Data_pack"]
         ]
       },
-      example: "Issue: Kirkasta lyhdyn hehku → branch fix/lyhty-hehku → merge. /reload lataa datapaketin ilman virheitä.",
+      example: "Issue: Kirkasta lyhdyn hehku → haara fix/lyhty-hehku → merge mainiin. /reload lataa datapaketin ilman virheitä.",
       notEnough: "Suuri suora muutos mainiin tai yksi massacommit katkaisee yhteyden palautteen, toteutuksen ja testin välillä."
     },
     44: {
@@ -499,7 +537,7 @@ window.NAYTTOPROJEKTI = {
       why: "Tämä viikko on paketin skriptausosuuden ydin. Resepti, laukaisin ja funktio muodostavat ketjun, jossa data ohjaa pelin toimintaa — ilman riviäkään ohjelmointikieltä.",
       done: "Reseptit löytyvät reseptikirjasta ja tuottavat esineet. Saavutus laukeaa oikeasta teosta ja palkintofunktio toimii. Koko polku on testattu tuoreessa selviytymismaailmassa.",
       record: "Kirjoita Vko 44 -merkintään reseptien sisältö, saavutuksen laukaisin, palkinnon toiminta ja selviytymistestin kulku. Lisää commitit ja kuvasarja tai video.",
-      skills: ["reseptit", "advancement", "funktiot"],
+      skills: ["reseptit", "saavutus eli advancement", "funktiot"],
       resources: [
         ["Misode – reseptigeneraattori, tarkista rakenne", "https://misode.github.io/recipe/", false],
         ["Misode – advancement-generaattori", "https://misode.github.io/advancement/", false]
@@ -584,6 +622,7 @@ window.NAYTTOPROJEKTI = {
     },
     47: {
       type: "julkaisu",
+      termit: ["RC"],
       feature: "Koko paketti on testikäytössä täsmälleen siinä muodossa, jossa se julkaistaan.",
       excerpt: "Valmis paketti julkaistaan niin, että kuka tahansa pelaaja löytää sen, lataa ja asentaa kirjallisen ohjeen avulla — ja niin, että toinen tekijä voi lisenssin puitteissa jatkaa työtä siitä eteenpäin.",
       connection: "Release candidate 1 eli RC1 on paketin ensimmäinen julkaisuehdokas: zipit ja asennusohje testataan sellaisina kuin ne aiotaan julkaista. Asennusohje on yhtä tärkeä testattava kuin paketti itse.",
@@ -602,9 +641,10 @@ window.NAYTTOPROJEKTI = {
     },
     48: {
       type: "julkaisu",
+      termit: ["tagi"],
       feature: "Paketti on julkaistu avoimella lisenssillä. Kuka tahansa lataa ja asentaa sen itse ohjeen avulla.",
       excerpt: "Valmis paketti julkaistaan niin, että kuka tahansa pelaaja löytää sen, lataa ja asentaa kirjallisen ohjeen avulla — ja niin, että toinen tekijä voi lisenssin puitteissa jatkaa työtä siitä eteenpäin.",
-      connection: "Paketti siirtyy nyt omalta koneelta GitHub-releaseen eli repositoryn viralliseen julkaisuun. Testaat julkaistua latausta, et omaa työkansiota.",
+      connection: "Paketti siirtyy nyt omalta koneelta GitHub-releaseen eli repositoryn viralliseen julkaisuun. Julkaistava versio merkitään tagilla: tagi on Gitin nimilappu, joka kiinnitetään yhteen committiin — tässä v1.0. Testaat julkaistua latausta, et omaa työkansiota.",
       deliverable: "Julkinen GitHub-release v1.0: zip-paketit, asennusohje, LICENSE, CHANGELOG, kuvakaappaukset ja tunnettujen puutteiden lista.",
       why: "Lataajan pitää pystyä asentamaan paketti ilman sinua. Vain julkaistun latauksen testaaminen osoittaa, että zipit, ohje ja tiedostorakenne toimivat oikeassa ympäristössä.",
       done: "v1.0-tagin commit vastaa julkaistua versiota. Toinen henkilö lataa releasen ja asentaa paketin puhtaaseen peliin pelkän ohjeen avulla.",

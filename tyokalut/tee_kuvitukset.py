@@ -180,7 +180,7 @@ for si, c in enumerate([GRASS, GRASSL, DIRTL, DIRT, DIRTD, STONE]):
     b.append(R(560, 170 + si * 48, 60, 40, c))
 # sisältölista
 b.append(R(700, 110, 350, 360, "#eceff1"))
-b.append(label(875, 150, "SISÄLTÖLISTA · P0", 20, DIRTD))
+b.append(label(875, 150, "P0 = PAKOLLINEN YDIN", 20, DIRTD))
 items = [(GRASS, 200), (GRASS, 250), (GOLD, 300), (STONE, 350), (STONE, 400)]
 for c, iy in items:
     b.append(R(724, iy - 16, 22, 22, c))
