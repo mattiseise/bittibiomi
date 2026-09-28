@@ -94,9 +94,20 @@
 
         <div class="principle-grid">
           <div class="card"><span class="num">1</span><h3>Rakenna paketissa</h3><p>Tekstuurit, mallit, äänet ja skriptit ovat paketin kansioissa.</p><small>Repository sisältää kansiot <code>resourcepack</code>, <code>datapack</code> ja <code>project-docs</code>.</small></div>
-          <div class="card"><span class="num">2</span><h3>Ohjaa työ Gitillä</h3><p>Työ ohjataan GitHub-issueilla. Issue on repositoryyn kirjattu tehtävä: otsikko, kuvaus ja valmis kun -ehto. Valmis työ näkyy repositoryssa committeina.</p><small>Yksi issue = yleensä puolen tai yhden päivän työ.</small></div>
+          <div class="card"><span class="num">2</span><h3>Ohjaa työ Gitillä</h3><p>Työ ohjataan GitHub-issueilla. Issue on repositoryyn kirjattu tehtävä: otsikko, kuvaus ja Valmis kun -ehto. Valmis työ näkyy repositoryssa committeina.</p><small>Yksi issue = yleensä puolen tai yhden päivän työ.</small></div>
           <div class="card"><span class="num">3</span><h3>Kirjoita tällä sivulla</h3><p>Jokaisen viikon lopussa vastaat kolmeen kysymykseen: mitä ja miten, miksi sekä missä työnäyte on. Työnäyte on yksi tuotos, joka osoittaa osaamisesi: commit, kuva, testirivi tai muistio.</p><small>Kentät tallentuvat vain tähän selaimeen.</small></div>
           <div class="card"><span class="num">4</span><h3>Vie päiväkirja talteen</h3><p>Lataa koko projektipäiväkirja jokaisen viikon lopussa ja korvaa repositoryn vanha tiedosto.</p><small>Tiedosto: <code>project-docs/projektipaivakirja.md</code>. Valmis paketti julkaistaan GitHub-releasena viikolla 48.</small></div>
+        </div>
+
+        <div class="card view-section checklist-box">
+          <p class="section-label section-label-accent">Näin viikon tehtävät toimivat</p>
+          <ol>
+            <li>Joka viikolla on 3–5 tehtävää. Tee ne järjestyksessä. Vain kesken oleva tehtävä on auki.</li>
+            <li>Jokainen tehtävä on pilkottu pieniin osatehtäviin. Yksi osatehtävä on yksi asia, jonka teet. Rastita se heti, kun olet tehnyt sen.</li>
+            <li>Tehtävän alussa lukee, miksi se tehdään. Uudet sanat ja tunnukset selitetään tehtävässä, jossa niitä tarvitaan.</li>
+            <li>Tehtävän lopussa lukee <strong>Valmis kun</strong> ja <strong>Tallenna työnäyte</strong>. Tarkista ne ennen kuin siirryt seuraavaan tehtävään.</li>
+            <li>Jos jäät jumiin, avaa tehtävän kohta <strong>Tarvitsen apua tähän tehtävään</strong>. Kokeile ensin itse.</li>
+          </ol>
         </div>
 
         <div class="card card-tint view-section checklist-box">
@@ -161,7 +172,7 @@
               <li>tekstuurit ja Blockbench-mallit <code>resourcepack</code>-kansioon</li>
               <li>reseptit, funktiot ja saavutus <code>datapack</code>-kansioon</li>
               <li>skriptaus mcfunction-komennoilla ja JSON-tiedostoilla — ei ohjelmointikieltä</li>
-              <li>P0 eli pakollinen ydin: 8 tekstuuria, 2 mallia, omat nimet, 2 reseptiä, 1 funktio ja 1 saavutus</li>
+              <li>Pakollinen ydin (P0): 5 tekstuuria (3 blokkia ja 2 esinettä), omat nimet, 1 Blockbench-malli, 1 isompi malli tai mobin uusi ilme, 1 resepti, 1 saavutus ja 1 palkintofunktio</li>
               <li>lopuksi julkinen GitHub-release: zip-paketit, LICENSE ja lataajalle kirjoitettu asennusohje</li>
             </ul>
             <p style="margin-top:8px">Käytä projektin alussa sovittua Minecraft Java -versiota koko projektin ajan. Version vaihto kesken projektin muuttaa pack_format-arvoja. Pack_format on numero, joka kertoo pelille, mille Minecraft-versiolle paketti on tehty; väärä arvo näkyy pelissä varoituksena.</p>
@@ -222,7 +233,7 @@
         <div class="view-section">
           <h2>Testaa kuin kehittäjä</h2>
           <p class="view-lead" style="margin-top:8px">Testaus ei ole pelkkää pelaamista. Kirjaa odotettu tulos, havaittu tulos, virheen syy, korjaus ja uusintatesti.</p>
-          <p class="view-lead" style="margin-top:8px">Testit ovat numeroituja testitapauksia. Testitapaus on yksi kirjattu testi, jolla on tunnus: T01 on ensimmäinen testitapaus, T02 toinen. Viikon omat testit saavat viikon numeron eteensä, esimerkiksi T36-01 on viikon 36 ensimmäinen testitapaus. Kun tunnus on kerran annettu, se ei muutu – siihen voi viitata myöhemmin pelkällä tunnuksella.</p>
+          <p class="view-lead" style="margin-top:8px">Testit ovat numeroituja testitapauksia. Testitapaus on yksi kirjattu testi, jolla on tunnus: T01 on ensimmäinen testitapaus, T02 toinen. Tunnukset T01–T12 annetaan viikon 45 testaustaulukossa. Viikkojen omat testit ovat vain testi 1, testi 2 ja niin edelleen. Kun tunnus on kerran annettu, se ei muutu – siihen voi viitata myöhemmin pelkällä tunnuksella.</p>
           <div class="card risk-box view-section">
             <p class="section-label">Testauksen kattavuus</p>
             <ul>
@@ -246,7 +257,7 @@
             <div><p class="section-label">Vaatimus</p><p>Omat reseptit toimivat ilman modeja</p></div>
             <div><p class="section-label">Issue</p><p>Lisää teemalyhdyn resepti</p></div>
             <div><p class="section-label">Valmis kun</p><p>Resepti löytyy reseptikirjasta ja tuottaa esineen selviytymistilassa</p></div>
-            <div><p class="section-label">Testi ja työnäyte</p><p>T44-02 + commit-linkki</p></div>
+            <div><p class="section-label">Testi ja työnäyte</p><p>Testitapaus T08 + commit-linkki</p></div>
           </div>
         </div>
       </section>
@@ -301,11 +312,13 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
+            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 5</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="34-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Lue toimeksianto, laadi vähintään 8 kysymystä ja pidä aloituskeskustelu. Tutki lisäksi kaksi jo julkaistua teemapakettia ja kirjaa, mitä ne tekevät ja mitä sinun pakettisi tekee toisin.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="34-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Asenna Blockbench ja VS Code, varmista sovittu Minecraft Java -versio ja luo tyhjä resurssipaketti, joka näkyy pelin pakettivalikossa.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="34-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Käy läpi, mitä julkiseen repositoryyn ei laiteta, sovi tekijänimi ja perusta sitten julkinen Git-repository: README, .gitignore ja kansiot resourcepack, datapack ja project-docs.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="34-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Lue toimeksianto ja kirjoita kuusi kysymystä ohjaajalle.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="34-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Pidä aloituskeskustelu ja kirjaa ohjaajan vastaukset.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="34-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tutki yksi julkaistu teemapaketti ja kuvaa oma kohdeyleisösi.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="34-4"><span class="task-box" aria-hidden="true"></span><span class="task-text">Luo tyhjä resurssipaketti, joka näkyy pelin valikossa.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="34-5"><span class="task-box" aria-hidden="true"></span><span class="task-text">Perusta julkinen Git-repository turvallisesti.</span></label>
             </div>
           </section>
 
@@ -327,7 +340,7 @@
 
           <div class="outcome-grid">
             <div class="card"><p class="section-label">Valmis kun</p><p class="checkpoint">Ennen kuin jatkat: tarkista viikon valmis kun -ehto.</p></div>
-            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">toimeksiantokeskustelun muistiinpano, linkit kahteen tutkittuun pakettiin havaintoineen, julkisen repositoryn linkki, ensimmäinen commit ja kuva paketista pelin valikossa.</p></div>
+            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">kysymykset ja ohjaajan vastaukset päiväkirjassa, tutkitun paketin linkki, kuva paketista pelin valikossa, julkisen repositoryn linkki ja ensimmäinen commit.</p></div>
           </div>
 
           <section class="week-journal" data-week-journal="34">
@@ -374,11 +387,12 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
+            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 4</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="35-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Täytä Asset-pack-suunnitelman omat päätökset tällä sivulla (mm. teema ja kohde omin sanoin) ja vie ladattu asset-pack-suunnitelma.md repositoryn project-docs-kansioon.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="35-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tee priorisoitu sisältölista (P0/P1/P2-backlog), työmääräarviot ja valmis kun -ehdot.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="35-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kokoa moodboard: väripaletti, referenssikuvat ja kolme tekstuuriluonnosta paperille tai Piskeliin.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="35-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Täytä asset-pack-suunnitelma ja vie se repositoryyn.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="35-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Sovi lisenssi ohjaajan kanssa ja lisää LICENSE-tiedosto.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="35-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tee pakollisesta sisällöstä tehtävälista GitHubiin.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="35-4"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kokoa moodboard ja piirrä kaksi tekstuuriluonnosta.</span></label>
             </div>
           </section>
 
@@ -400,7 +414,7 @@
 
           <div class="outcome-grid">
             <div class="card"><p class="section-label">Valmis kun</p><p class="checkpoint">Ennen kuin jatkat: tarkista viikon valmis kun -ehto.</p></div>
-            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">hyväksytty rajaus, päivätty moodboard, asset-pack-suunnitelma.md, LICENSE-tiedosto repositoryn juuressa ja backlog.</p></div>
+            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">asset-pack-suunnitelma.md, LICENSE-tiedosto, Issues-lista prioriteetteineen, rajauksen hyväksyntä sekä moodboard ja luonnokset.</p></div>
           </div>
 
           <section class="week-journal" data-week-journal="35">
@@ -449,9 +463,9 @@
           <section class="view-section">
             <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="36-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Piirrä kolme oman teeman blokkitekstuuria (16×16) sovitulla paletilla.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="36-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Vie tekstuurit resurssipaketin oikeaan kansiorakenteeseen ja lataa paketti peliin.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="36-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kirjaa ensimmäiset testit: tekstuuri näkyy pelissä ja saumat toimivat vierekkäisissä blokeissa.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="36-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Piirrä kolme blokkitekstuuria sovitulla paletilla.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="36-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Vie tekstuurit pakettiin ja lataa paketti peliin.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="36-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Testaa saumat ja kirjaa testit.</span></label>
             </div>
           </section>
 
@@ -473,7 +487,7 @@
 
           <div class="outcome-grid">
             <div class="card"><p class="section-label">Valmis kun</p><p class="checkpoint">Ennen kuin jatkat: tarkista viikon valmis kun -ehto.</p></div>
-            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">kuvakaappaus blokeista pelissä, tekstuuritiedostojen commit ja kaksi testimerkintää.</p></div>
+            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">kuvakaappaus blokeista pelissä, tekstuurien commit ja kaksi testiä.</p></div>
           </div>
 
           <section class="week-journal" data-week-journal="36">
@@ -522,9 +536,9 @@
           <section class="view-section">
             <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="37-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Piirrä kolme esinetekstuuria ja vie ne resurssipaketin item-kansioon.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="37-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tee kielitiedosto fi_fi.json: anna teeman mukaiset suomenkieliset nimet muokkaamillesi blokeille ja esineille.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="37-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Testaa nimet ja tekstuurit pelissä, korjaa JSON-virheet ja committaa.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="37-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Piirrä kaksi esinetekstuuria ja vie ne pakettiin.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="37-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Anna sisällölle omat suomenkieliset nimet kielitiedostolla.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="37-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Riko kielitiedosto tarkoituksella ja testaa nimet pelissä.</span></label>
             </div>
           </section>
 
@@ -595,9 +609,9 @@
           <section class="view-section">
             <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="38-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Mallinna Blockbenchillä yksinkertainen blokkimalli (esim. teemaan sopiva koriste) ja teksturoi se.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="38-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Vie malli ja tekstuuri resurssipakettiin valitun blokin malliksi.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="38-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Testaa malli pelissä maassa, kädessä ja eri suunnista; kirjaa havainnot.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="38-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Mallinna Blockbenchillä pieni blokkimalli.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="38-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Teksturoi malli ja vie se pakettiin.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="38-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Testaa malli pelissä eri suunnista.</span></label>
             </div>
           </section>
 
@@ -619,7 +633,7 @@
 
           <div class="outcome-grid">
             <div class="card"><p class="section-label">Valmis kun</p><p class="checkpoint">Ennen kuin jatkat: tarkista viikon valmis kun -ehto.</p></div>
-            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">Blockbench-projektitiedosto, kuvakaappaus mallista pelissä ja commit.</p></div>
+            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">Blockbench-projektitiedosto, kuvakaappaukset mallista pelissä ja commit.</p></div>
           </div>
 
           <section class="week-journal" data-week-journal="38">
@@ -668,9 +682,9 @@
           <section class="view-section">
             <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="39-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Vertaa toisen henkilön kanssa kahta vaihtoehtoa — monimutkaisempi blokkimalli vai hahmon (mobin) uusi tekstuuri — ja kirjaa perusteltu päätös.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="39-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Toteuta valittu kokonaisuus Blockbenchillä.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="39-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Testaa eri etäisyyksiltä, eri valaistuksessa ja yöllä; kirjaa havainnot ja committaa.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="39-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Vertaa kahta vaihtoehtoa ja tee valinta.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="39-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Toteuta valittu työ kahdessa vaiheessa.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="39-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Testaa työ läheltä, kaukaa ja yöllä.</span></label>
             </div>
           </section>
 
@@ -692,7 +706,7 @@
 
           <div class="outcome-grid">
             <div class="card"><p class="section-label">Valmis kun</p><p class="checkpoint">Ennen kuin jatkat: tarkista viikon valmis kun -ehto.</p></div>
-            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">vaihtoehtomuistio, kuvakaappaukset pelistä ja toteutuksen commit.</p></div>
+            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">vertailu ja valinta päiväkirjassa, kaksi toteutuksen committia ja kuvat pelistä.</p></div>
           </div>
 
           <section class="week-journal" data-week-journal="39">
@@ -741,9 +755,9 @@
           <section class="view-section">
             <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="40-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Hanki tai äänitä vähintään yksi ääni, muunna se ogg-muotoon ja lisää omaan nimiavaruuteen sounds.json-määrittelyllä.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="40-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kirjaa äänen lähde ja lisenssi CREDITS-tiedostoon; käytä vain materiaalia, jonka lisenssi sallii uudelleenjulkaisun.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="40-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Testaa ääni pelissä /playsound-komennolla ja kirjaa tulos.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="40-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Valitse ääni ja kirjaa sen lisenssi CREDITS-tiedostoon.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="40-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Muunna ääni ogg-muotoon ja lisää se sounds.json-tiedostoon.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="40-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Testaa ääni pelissä /playsound-komennolla.</span></label>
             </div>
           </section>
 
@@ -765,7 +779,7 @@
 
           <div class="outcome-grid">
             <div class="card"><p class="section-label">Valmis kun</p><p class="checkpoint">Ennen kuin jatkat: tarkista viikon valmis kun -ehto.</p></div>
-            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">sounds.json-commit, lisenssikirjaus CREDITS-tiedostossa ja testimerkintä.</p></div>
+            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">CREDITS.md-kirjaus, sounds.json-commit ja /playsound-testin tulos.</p></div>
           </div>
 
           <section class="week-journal" data-week-journal="40">
@@ -814,9 +828,9 @@
           <section class="view-section">
             <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="41-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kokoa kokeiltava väliversio (zip) ja lataajalle kirjoitettu asennusohje sekä valmistele 5–10 minuutin esittely.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="41-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Anna ohjaajan ja yhden vertaistestaajan pelata paketin kanssa, kerää palaute ja sovi yksi rajattu muutos.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="41-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Päivitä backlog, prioriteetit, arviot ja katselmointiloki.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="41-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kokoa testaajille väliversio ja asennusohje.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="41-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Anna testaajien kokeilla ja kirjaa, mitä he sanovat.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="41-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Sovi testaajien palautteesta yksi muutos.</span></label>
             </div>
           </section>
 
@@ -838,7 +852,7 @@
 
           <div class="outcome-grid">
             <div class="card"><p class="section-label">Valmis kun</p><p class="checkpoint">Ennen kuin jatkat: tarkista viikon valmis kun -ehto.</p></div>
-            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">katselmointiloki, esittelyn runko, palaute, päätetty muutos ja toimiva väliversio-zip.</p></div>
+            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">väliversion zip ja asennusohje, katselmointimuistio, palaute ja hyväksytty muutosissue.</p></div>
           </div>
 
           <section class="week-journal" data-week-journal="41">
@@ -893,9 +907,9 @@
           <section class="view-section">
             <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="43-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Muuta saatu palaute pieniksi tehtäviksi ja toteuta sovittu muutos omassa haarassa eli muutokselle rajatussa kopiossa projektista.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="43-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Luo datapaketin runko ja ensimmäinen mcfunction-skripti, joka toimii /reload- ja /function-komennoilla.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="43-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Katselmoi, testaa ja yhdistä muutokset toimivaan main-haaraan.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="43-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tee palautemuutos omassa Git-haarassa.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="43-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Yhdistä muutos main-haaraan pull requestilla.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="43-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Luo datapaketin runko ja ensimmäinen funktio.</span></label>
             </div>
           </section>
 
@@ -917,7 +931,7 @@
 
           <div class="outcome-grid">
             <div class="card"><p class="section-label">Valmis kun</p><p class="checkpoint">Ennen kuin jatkat: tarkista viikon valmis kun -ehto.</p></div>
-            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">GitHub-issue, haara ja merge tai pull request, funktion commit ja katselmointiloki.</p></div>
+            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">muutosissue, haara, pull request kommentteineen ja datapaketin rungon commit.</p></div>
           </div>
 
           <section class="week-journal" data-week-journal="43">
@@ -966,9 +980,9 @@
           <section class="view-section">
             <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="44-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tee kaksi omaa valmistusreseptiä (JSON) teemasi esineille.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="44-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tee saavutus (advancement), joka laukeaa teemaan sopivasta teosta ja palkitsee pelaajan funktiolla.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="44-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Testaa reseptit ja saavutus tuoreessa selviytymismaailmassa ja committaa.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="44-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tee teemaasi sopiva valmistusresepti.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="44-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tee saavutus, joka palkitsee pelaajan funktiolla.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="44-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Testaa koko polku uudessa selviytymismaailmassa.</span></label>
             </div>
           </section>
 
@@ -990,7 +1004,7 @@
 
           <div class="outcome-grid">
             <div class="card"><p class="section-label">Valmis kun</p><p class="checkpoint">Ennen kuin jatkat: tarkista viikon valmis kun -ehto.</p></div>
-            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">reseptien ja saavutuksen commitit sekä video tai kuvasarja koko polusta selviytymistilassa.</p></div>
+            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">reseptin ja saavutuksen commitit sekä kuvat tai video koko polusta selviytymistilassa.</p></div>
           </div>
 
           <section class="week-journal" data-week-journal="44">
@@ -1039,9 +1053,9 @@
           <section class="view-section">
             <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="45-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Laadi vähintään 12 testitapausta: asennus, tekstuurit, mallit, nimet, äänet, reseptit ja funktiot.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="45-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kirjaa kaikki aidosti löytyneet virheet. Osoita kolme täydellistä virheenkorjausketjua; käytä tarvittaessa opettajan erikseen merkitsemiä vikatehtäviä.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="45-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Testaa paketti puhtaassa maailmassa sekä tarkoituksella väärällä pack_format-arvolla ja rikkinäisellä JSONilla.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="45-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kirjoita 12 testitapausta ennen testaamista.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="45-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Aja testitapaukset puhtaassa pelissä ja kirjaa tulokset.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="45-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Korjaa kolme virhettä ja kirjaa jokaisesta koko ketju.</span></label>
             </div>
           </section>
 
@@ -1063,7 +1077,7 @@
 
           <div class="outcome-grid">
             <div class="card"><p class="section-label">Valmis kun</p><p class="checkpoint">Ennen kuin jatkat: tarkista viikon valmis kun -ehto.</p></div>
-            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">testausloki, tulokset, bugikorjaukset ja uusintatestit.</p></div>
+            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">project-docs/testaus.md, kolme virheenkorjausketjua ja korjauscommitit.</p></div>
           </div>
 
           <section class="week-journal" data-week-journal="45">
@@ -1112,9 +1126,9 @@
           <section class="view-section">
             <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="46-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Siisti kansiorakenne ja tiedostonimet, poista käyttämättömät tiedostot ja yhtenäistä nimiavaruus.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="46-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Pyydä laatukatselmointi ohjaajalta tai vertaiselta ja kirjaa palaute.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="46-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tee lisenssitarkistus: varmista että LICENSE on repositoryn juuressa ja vastaa sovittua, täydennä CREDITS ja tarkista, ettei paketissa ole Mojangin eikä muiden materiaalia ilman uudelleenjulkaisun sallivaa lisenssiä. Vastaa oman LICENSE-tiedostosi tekstin perusteella: saako toinen pelaaja julkaista muokatun version paketistasi, ja mitä hänen pitää tehdä?</span></label>
+              <label class="task-row"><input type="checkbox" data-task="46-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Siisti kansiot ja tiedostonimet niin, että paketti toimii kuten ennen.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="46-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tarkista LICENSE- ja CREDITS-tiedostot.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="46-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Pyydä laatukatselmointi ja selitä ratkaisusi.</span></label>
             </div>
           </section>
 
@@ -1136,7 +1150,7 @@
 
           <div class="outcome-grid">
             <div class="card"><p class="section-label">Valmis kun</p><p class="checkpoint">Ennen kuin jatkat: tarkista viikon valmis kun -ehto.</p></div>
-            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">katselmointimuistio, siivouscommit sekä LICENSE- ja CREDITS-tiedostot.</p></div>
+            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">siivouscommit, testi ennen ja jälkeen, LICENSE- ja CREDITS.md-tiedostot sekä katselmoinnin kommentti.</p></div>
           </div>
 
           <section class="week-journal" data-week-journal="46">
@@ -1185,9 +1199,9 @@
           <section class="view-section">
             <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="47-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kokoa ensimmäinen julkaisuehdokas eli release candidate (RC1): zip-paketit ja lataajalle kirjoitettu asennusohje. Jäädytä uuden sisällön lisääminen.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="47-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Anna ohjaajan ja vähintään yhden muun käyttäjän asentaa ja testata paketti pelkän ohjeen avulla. Jos et löydä toista testaajaa omasta ryhmästä, hän voi olla toisen ryhmän opiskelija tai toinen ohjaaja.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="47-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Luokittele palaute: korjataan, tunnettu puute tai myöhempään versioon.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="47-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kokoa ensimmäinen julkaisuehdokas (RC1) ja lopeta uuden sisällön lisääminen.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="47-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Anna ohjaajan ja yhden muun käyttäjän asentaa paketti pelkän ohjeen avulla.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="47-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Päätä jokaisesta havainnosta, korjataanko se ennen julkaisua.</span></label>
             </div>
           </section>
 
@@ -1209,7 +1223,7 @@
 
           <div class="outcome-grid">
             <div class="card"><p class="section-label">Valmis kun</p><p class="checkpoint">Ennen kuin jatkat: tarkista viikon valmis kun -ehto.</p></div>
-            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">RC1-zipit, testipalautteet, päätökset ja viimeinen korjauslista.</p></div>
+            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">RC1-zipit, asennusohje, kahden testaajan havainnot ja luokiteltu korjauslista.</p></div>
           </div>
 
           <section class="week-journal" data-week-journal="47">
@@ -1258,10 +1272,10 @@
           <section class="view-section">
             <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 4</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="48-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Korjaa vain julkaisemisen estävät ja selvästi tärkeät virheet.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="48-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tee v1.0-tagi ja julkaise GitHub-release: zip-paketit, README, LICENSE, CHANGELOG eli muutosloki, kuvakaappaukset ja asennusohje. Valinnainen bonus: julkaise lisäksi Modrinthissa tai Planet Minecraftissa opettajan kanssa sovitusti.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="48-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Testaa julkaistu lataus itse toisella koneella tai puhtaalla pelillä ja viimeistele käyttöohje.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="48-4"><span class="task-box" aria-hidden="true"></span><span class="task-text">Pyydä yksi henkilö, joka ei ole tekijä, asentamaan julkaistu v1.0 release-sivulta pelkän ohjeen avulla. Kirjaa hänen roolinsa, päivä ja havainnot.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="48-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Korjaa vain ne virheet, jotka päätit korjata ennen julkaisua.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="48-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kirjoita lataajalle README- ja CHANGELOG-tiedostot.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="48-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Julkaise GitHub-release v1.0.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="48-4"><span class="task-box" aria-hidden="true"></span><span class="task-text">Pyydä ulkopuolista asentamaan paketti pelkän ohjeen avulla.</span></label>
             </div>
           </section>
 
@@ -1283,7 +1297,7 @@
 
           <div class="outcome-grid">
             <div class="card"><p class="section-label">Valmis kun</p><p class="checkpoint">Ennen kuin jatkat: tarkista viikon valmis kun -ehto.</p></div>
-            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">toimiva release-linkki, v1.0-tagi, asennusohje, ulkopuolisen asennustestin kirjaus ja tunnetut puutteet.</p></div>
+            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">release-linkki, v1.0-tagi, README asennusohjeineen, CHANGELOG ja ulkopuolisen asennustestin kirjaus.</p></div>
           </div>
 
           <section class="week-journal" data-week-journal="48">
@@ -1330,12 +1344,13 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 4</span></div>
+            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 5</span></div>
             <div class="task-list">
-            <label class="task-row"><input type="checkbox" data-task="49-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tarkista kaikkien viikkojen projektipäiväkirja ja vie valmis tiedosto repositoryn project-docs-kansioon.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="49-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Täytä osaamisvaatimusten näyttömatriisiin linkit tai työnäytteet.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="49-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Harjoittele demo ja selitä tekstuurityö, malli, skriptit, testaus, Git ja tekoälyn käyttö.</span></label>
-            <label class="task-row"><input type="checkbox" data-task="49-4"><span class="task-box" aria-hidden="true"></span><span class="task-text">Luovuta paketti, repository, projektipäiväkirja ja näyttöaineisto viimeistään pe 4.12.2026.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="49-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tarkista projektipäiväkirja.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="49-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kirjoita itsearviointi omiin työnäytteisiin nojaten.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="49-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Liitä jokaiseen näyttömatriisin kohtaan tarkka linkki.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="49-4"><span class="task-box" aria-hidden="true"></span><span class="task-text">Harjoittele 8–10 minuutin demo.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="49-5"><span class="task-box" aria-hidden="true"></span><span class="task-text">Luovuta paketti ja aineisto viimeistään pe 4.12.2026.</span></label>
             </div>
           </section>
 
@@ -1389,7 +1404,7 @@
 
         <figure class="view-figure">
           <div class="image-stage"><img src="assets/suunnitelma-luonnos.svg" width="1128" height="540" alt="Työpöytä, jolla on luonnoslehtiö kolmella tekstuuri-idealla, viiden värin paletti ja ruutupaperille piirretty lista pakollisesta ydinsisällöstä eli P0:sta."></div>
-          <figcaption><strong>Asset-pack-suunnitelma alkaa luonnoksista:</strong> paletti ja kolme tekstuuri-ideaa paperille ennen pikseleitä.</figcaption>
+          <figcaption><strong>Asset-pack-suunnitelma alkaa luonnoksista:</strong> paletti ja tekstuuri-ideat paperille ennen pikseleitä.</figcaption>
         </figure>
 
         <div class="plan-prefilled" aria-label="Asset-pack-suunnitelman esitäytetty pohja">
@@ -1407,7 +1422,7 @@
               <li>Testaajan toivoma parannus + datapaketin runko <small>vko 43 · sisältö selviää katselmoinnissa vkolla 41</small></li>
               <li>Skriptattu ominaisuus: reseptit, funktio ja saavutus <small>vko 44</small></li>
             </ol>
-            <small>Tämä lista ei ole valmis suunnitelma: assettien pilkkominen 0,5–1 päivän issueiksi ja P0/P1/P2-priorisointi on sinun työtäsi (tehtävä 35-2).</small>
+            <small>Tämä lista ei ole valmis suunnitelma: assettien pilkkominen pieniksi GitHub-issueiksi ja niiden priorisointi on sinun työtäsi (viikon 35 tehtävä 3). Priorisoinnissa on kolme tasoa: pakollinen (P0) on ydin, jonka on valmistuttava; tärkeä (P1) tehdään, kun pakolliset toimivat; lisä (P2) voidaan jättää pois.</small>
           </article>
           <article><h3>4 · Teknologia</h3><p>Minecraft Java Edition, resurssipaketti + datapaketti, Blockbench ja Piskel, skriptaus mcfunction-komennoilla ja JSON-tiedostoilla, julkaisu GitHub-releasena.</p></article>
           <article><h3>5 · Rajaus — mitä ei tehdä</h3><p>Ei modeja, ei palvelinpluginejä, ei uusia pelimekaniikkoja eikä maksullista sisältöä. Ensin toimiva P0-versio.</p></article>
@@ -1442,8 +1457,8 @@
               </select>
             </label><span class="plan-row-week">viikko 35</span></div>
           <div class="plan-row"><span class="plan-tag plan-tag-oma">OMA</span><label class="plan-row-field">Väripaletti ja työkalut<input type="text" data-plan-field="palette" placeholder="esim. Lospec-paletti + Piskel ja Blockbench"></label><span class="plan-row-week">viikko 35</span></div>
-          <div class="plan-row"><span class="plan-tag plan-tag-oma">OMA</span><label class="plan-row-field">P0: tekstuureja vähintään<input type="number" data-plan-field="minTextures" min="8" placeholder="vähintään 8"></label><span class="plan-row-week">viikko 35</span></div>
-          <div class="plan-row"><span class="plan-tag plan-tag-oma">OMA</span><label class="plan-row-field">P0: malleja vähintään<input type="number" data-plan-field="minModels" min="2" placeholder="vähintään 2"></label><span class="plan-row-week">viikko 35</span></div>
+          <div class="plan-row"><span class="plan-tag plan-tag-oma">OMA</span><label class="plan-row-field">P0: tekstuureja vähintään<input type="number" data-plan-field="minTextures" min="5" placeholder="vähintään 5"></label><span class="plan-row-week">viikko 35</span></div>
+          <div class="plan-row"><span class="plan-tag plan-tag-oma">OMA</span><label class="plan-row-field">P0: Blockbench-malleja vähintään<input type="number" data-plan-field="minModels" min="1" placeholder="vähintään 1"></label><span class="plan-row-week">viikko 35</span></div>
           <div class="plan-row"><span class="plan-tag plan-tag-oma">OMA</span><label class="plan-row-field">Perustelut<textarea rows="3" data-plan-field="reasoning" placeholder="Miksi juuri tämä teema, resoluutio ja paletti tälle kohderyhmälle?"></textarea></label><span class="plan-row-week">viikko 35</span></div>
           <p class="plan-calibration"><strong>Ei riitä:</strong> ”koska se näyttää hyvältä” tai tekoälyn yleisperustelu ilman kytkentää omaan pakettiin. <strong>Riittää:</strong> ”Valitsin 16×16-resoluution, koska se sulautuu pelin muihin blokkeihin, ja Lospecin syyspaletin, koska halusin paketin sopivan tavalliseen selviytymismaailmaan ilman että se erottuu räikeästi.”</p>
 
