@@ -1,0 +1,969 @@
+{
+  "skeema": 1,
+  "slug": "bittibiomi",
+  "nimi": "BittiBiomi",
+  "kieli": "fi",
+  "paivaton": false,
+  "generoitu": "2026-09-28",
+  "lahde": {
+    "sisalto.js": "08d25412b96732ba",
+    "index.html": "ffcb59c271dedf7d"
+  },
+  "viikot": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49
+  ],
+  "lomaViikot": [
+    42
+  ],
+  "tyoviikot": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49
+  ],
+  "paivakirja": {
+    "polku": "project-docs/projektipaivakirja.md",
+    "tiedostonimi": "projektipaivakirja.md",
+    "viikkotiedosto": "projektipaivakirja-vko-{n}.md",
+    "viikkoOtsikko": "## Vko {n}",
+    "kentat": [
+      "### Mitä tein ja miten?",
+      "### Miksi tein näin?",
+      "### Missä työnäyte on?"
+    ],
+    "tyhja": "Ei vielä kirjattu."
+  },
+  "aiLoki": {
+    "otsikko": "## AI-loki",
+    "tiedosto": "AI-loki.md"
+  },
+  "suunnitelma": {
+    "tiedostonimi": "asset-pack-suunnitelma.md",
+    "polku": "project-docs/asset-pack-suunnitelma.md"
+  },
+  "viikko": {
+    "34": {
+      "jarjestys": 1,
+      "tyyppi": "pohjustus",
+      "vaihe": "A",
+      "otsikko": "Aloitus: teema ja työkalut",
+      "tehtavat": [
+        {
+          "id": "34-1",
+          "teksti": "Lue toimeksianto ja kirjoita kuusi kysymystä ohjaajalle.",
+          "valmis": "Sinulla on kuusi erilaista kysymystä, ja jokaisen perässä lukee, mitä päätät vastauksen perusteella.",
+          "tallenna": "Kysymyslista viikon 34 päiväkirjaan, kenttään Mitä tein ja miten?"
+        },
+        {
+          "id": "34-2",
+          "teksti": "Pidä aloituskeskustelu ja kirjaa ohjaajan vastaukset.",
+          "valmis": "Päiväkirjassa on jokaiselle kuudelle kysymykselle joko ohjaajan vastaus tai merkintä ”avoin”, ja Minecraft-versio on kirjattu.",
+          "tallenna": "Vastaukset ja avoimet asiat viikon 34 päiväkirjaan."
+        },
+        {
+          "id": "34-3",
+          "teksti": "Tutki yksi julkaistu teemapaketti ja kuvaa oma kohdeyleisösi.",
+          "valmis": "Päiväkirjassa on linkki tutkittuun pakettiin, kolme havaintoa, yksi ero ja oman paketin kohdeyleisö.",
+          "tallenna": "Linkki ja havainnot viikon 34 päiväkirjaan."
+        },
+        {
+          "id": "34-4",
+          "teksti": "Luo tyhjä resurssipaketti, joka näkyy pelin valikossa.",
+          "valmis": "Paketti näkyy pelin Resource Packs -valikossa omalla kuvalla ja kuvauksella, eikä peli varoita väärästä versiosta.",
+          "tallenna": "Kuvakaappaus valikosta. Viet sen tehtävässä 5 polkuun project-docs/evidence/week-34/valikko.png."
+        },
+        {
+          "id": "34-5",
+          "teksti": "Perusta julkinen Git-repository turvallisesti.",
+          "valmis": "Julkinen repository näkyy GitHubissa, ja siinä ovat resourcepack, datapack, project-docs ja README.md. Henkilötietoja ei ole mukana.",
+          "tallenna": "Repositoryn linkki ja ensimmäisen commitin tunniste (7 merkin koodi GitHubin commit-listassa) viikon 34 päiväkirjaan."
+        }
+      ],
+      "nayta": "kysymykset ja ohjaajan vastaukset päiväkirjassa, tutkitun paketin linkki, kuva paketista pelin valikossa, julkisen repositoryn linkki ja ensimmäinen commit.",
+      "tuotos": "Kysymykset ja ohjaajan vastaukset, yhden julkaistun paketin tutkimus, pelin valikossa näkyvä tyhjä resurssipaketti ja julkinen Git-repository.",
+      "valmis": "Ohjaajan vastaukset ja avoimet asiat ovat päiväkirjassa, tyhjä paketti näkyy pelin pakettivalikossa ja ensimmäinen commit näkyy GitHubissa.",
+      "tarkistukset": [
+        {
+          "id": "tiedosto:README.md",
+          "tyyppi": "tiedosto",
+          "polku": "README.md",
+          "lahde": "auto"
+        },
+        {
+          "id": "paivakirja:34",
+          "tyyppi": "paivakirja",
+          "viikko": 34,
+          "lahde": "oletus"
+        },
+        {
+          "id": "commitit:34",
+          "tyyppi": "commitit",
+          "viikko": 34,
+          "min": 1,
+          "lahde": "oletus"
+        }
+      ],
+      "vuosi": 2026,
+      "alku": "2026-08-17",
+      "loppu": "2026-08-23",
+      "erapaiva": "2026-08-21",
+      "label": "17.–21.8."
+    },
+    "35": {
+      "jarjestys": 2,
+      "tyyppi": "pohjustus",
+      "vaihe": "A",
+      "otsikko": "Asset-pack-suunnitelma: teema ja sisältölista",
+      "tehtavat": [
+        {
+          "id": "35-1",
+          "teksti": "Täytä asset-pack-suunnitelma ja vie se repositoryyn.",
+          "valmis": "project-docs/asset-pack-suunnitelma.md näkyy GitHubissa, eikä yhdessäkään OMA-merkityssä kentässä ole tyhjää kohtaa.",
+          "tallenna": "project-docs/asset-pack-suunnitelma.md ja commit-linkki viikon 35 päiväkirjaan."
+        },
+        {
+          "id": "35-2",
+          "teksti": "Sovi lisenssi ohjaajan kanssa ja lisää LICENSE-tiedosto.",
+          "valmis": "LICENSE-tiedosto on repositoryn juuressa ja vastaa ohjaajan kanssa sovittua lisenssiä.",
+          "tallenna": "Linkki LICENSE-tiedostoon ja sovittu lisenssi viikon 35 päiväkirjaan."
+        },
+        {
+          "id": "35-3",
+          "teksti": "Tee pakollisesta sisällöstä tehtävälista GitHubiin.",
+          "valmis": "Jokaisella issuella on arvio, Valmis kun -ehto ja yksi label: P0 pakollinen, P1 tärkeä tai P2 lisä. Ohjaaja on hyväksynyt listan.",
+          "tallenna": "Linkki GitHubin Issues-listaan sekä hyväksyjän rooli ja päivä viikon 35 päiväkirjaan."
+        },
+        {
+          "id": "35-4",
+          "teksti": "Kokoa moodboard ja piirrä kaksi tekstuuriluonnosta.",
+          "valmis": "Kansiossa project-docs/evidence/week-35/ ovat paletti.png, moodboard.png ja kaksi luonnosta, ja ohjaajan kommentti on päiväkirjassa.",
+          "tallenna": "Kuvat kansioon project-docs/evidence/week-35/, commit ja push. Polku viikon 35 päiväkirjaan."
+        }
+      ],
+      "nayta": "asset-pack-suunnitelma.md, LICENSE-tiedosto, Issues-lista prioriteetteineen, rajauksen hyväksyntä sekä moodboard ja luonnokset.",
+      "tuotos": "Asset-pack-suunnitelma, sovittu lisenssi ja LICENSE-tiedosto, tehtävälista GitHubissa, moodboard ja kaksi tekstuuriluonnosta.",
+      "valmis": "Pakollinen sisältö (P0) on hyväksytty. Jokaisella issuella on arvio, prioriteetti ja Valmis kun -ehto. Moodboardissa näkyvät paletti ja referenssit, ja LICENSE-tiedosto on repositoryn juuressa.",
+      "tarkistukset": [
+        {
+          "id": "tiedosto:project-docs/asset-pack-suunnitelma.md",
+          "tyyppi": "tiedosto",
+          "polku": "project-docs/asset-pack-suunnitelma.md",
+          "lahde": "auto"
+        },
+        {
+          "id": "tiedosto:LICENSE",
+          "tyyppi": "tiedosto",
+          "polku": "LICENSE",
+          "lahde": "auto"
+        },
+        {
+          "id": "kansio:project-docs/evidence/week-35/",
+          "tyyppi": "kansio",
+          "polku": "project-docs/evidence/week-35/",
+          "lahde": "auto"
+        },
+        {
+          "id": "paivakirja:35",
+          "tyyppi": "paivakirja",
+          "viikko": 35,
+          "lahde": "oletus"
+        },
+        {
+          "id": "commitit:35",
+          "tyyppi": "commitit",
+          "viikko": 35,
+          "min": 1,
+          "lahde": "oletus"
+        }
+      ],
+      "vuosi": 2026,
+      "alku": "2026-08-24",
+      "loppu": "2026-08-30",
+      "erapaiva": "2026-08-28",
+      "label": "24.–28.8."
+    },
+    "36": {
+      "jarjestys": 3,
+      "tyyppi": "feature",
+      "vaihe": "A",
+      "otsikko": "Asset 1 · Ensimmäiset blokkitekstuurit peliin",
+      "tehtavat": [
+        {
+          "id": "36-1",
+          "teksti": "Piirrä kolme blokkitekstuuria sovitulla paletilla.",
+          "valmis": "Sinulla on kolme 16 × 16 -kuvaa, jotka on piirretty moodboardin paletilla ja nimetty korvattavien blokkien mukaan.",
+          "tallenna": "Luonnokset tai välivaiheiden kuvat kansioon project-docs/evidence/week-36/."
+        },
+        {
+          "id": "36-2",
+          "teksti": "Vie tekstuurit pakettiin ja lataa paketti peliin.",
+          "valmis": "Kolme omaa tekstuuria näkyy pelissä, eikä peli näytä virheilmoitusta.",
+          "tallenna": "Commit ja push. Kuvakaappaus pelistä kansioon project-docs/evidence/week-36/."
+        },
+        {
+          "id": "36-3",
+          "teksti": "Testaa saumat ja kirjaa testit.",
+          "valmis": "Päiväkirjassa on kaksi testiä odotettuine ja todellisine tuloksineen, ja viimeinen ajo meni odotetusti.",
+          "tallenna": "Testit ja commit-linkki viikon 36 päiväkirjaan."
+        }
+      ],
+      "nayta": "kuvakaappaus blokeista pelissä, tekstuurien commit ja kaksi testiä.",
+      "tuotos": "Kolme omaa 16×16-blokkitekstuuria pelissä, oikea kansiorakenne ja ensimmäiset testimerkinnät.",
+      "valmis": "Kolme omaa blokkitekstuuria näkyy pelissä ilman virheilmoituksia. Vierekkäisten blokkien saumat toimivat 3 × 3 -ruudukossa, ja tiedostot ovat Gitissä.",
+      "tarkistukset": [
+        {
+          "id": "kansio:project-docs/evidence/week-36/",
+          "tyyppi": "kansio",
+          "polku": "project-docs/evidence/week-36/",
+          "lahde": "auto"
+        },
+        {
+          "id": "paivakirja:36",
+          "tyyppi": "paivakirja",
+          "viikko": 36,
+          "lahde": "oletus"
+        },
+        {
+          "id": "commitit:36",
+          "tyyppi": "commitit",
+          "viikko": 36,
+          "min": 1,
+          "lahde": "oletus"
+        }
+      ],
+      "vuosi": 2026,
+      "alku": "2026-08-31",
+      "loppu": "2026-09-06",
+      "erapaiva": "2026-09-04",
+      "label": "31.8.–4.9."
+    },
+    "37": {
+      "jarjestys": 4,
+      "tyyppi": "feature",
+      "vaihe": "A",
+      "otsikko": "Asset 2 · Esinetekstuurit ja omat nimet",
+      "tehtavat": [
+        {
+          "id": "37-1",
+          "teksti": "Piirrä kaksi esinetekstuuria ja vie ne pakettiin.",
+          "valmis": "Kaksi omaa esinetekstuuria näkyy pelissä tavaraluettelossa ja kädessä.",
+          "tallenna": "Commit ja push. Välivaiheiden kuvat ja kuvakaappaus pelistä kansioon project-docs/evidence/week-37/."
+        },
+        {
+          "id": "37-2",
+          "teksti": "Anna sisällölle omat suomenkieliset nimet kielitiedostolla.",
+          "valmis": "Muokatut blokit ja esineet näkyvät pelissä omilla suomenkielisillä nimillä.",
+          "tallenna": "Commit ja push. Kuvakaappaus nimistä kansioon project-docs/evidence/week-37/."
+        },
+        {
+          "id": "37-3",
+          "teksti": "Riko kielitiedosto tarkoituksella ja testaa nimet pelissä.",
+          "valmis": "Rikkinäisen ja korjatun tiedoston tulokset on kirjattu, ja omat nimet näkyvät taas pelissä.",
+          "tallenna": "Testin tulokset ja commit-linkki viikon 37 päiväkirjaan."
+        }
+      ],
+      "nayta": "kuvakaappaus esineistä ja nimistä, fi_fi.json-commit ja testi rikkinäisellä JSONilla.",
+      "tuotos": "Kaksi esinetekstuuria, fi_fi.json-kielitiedosto ja testi rikkinäisellä JSONilla.",
+      "valmis": "Esineet näkyvät omilla tekstuureilla. Muokatut blokit ja esineet näkyvät suomenkielisillä nimillä. Rikkinäisen JSONin vaikutus on testattu ja kirjattu.",
+      "tarkistukset": [
+        {
+          "id": "tiedosto:fi_fi.json",
+          "tyyppi": "tiedosto",
+          "polku": "fi_fi.json",
+          "lahde": "auto"
+        },
+        {
+          "id": "kansio:project-docs/evidence/week-37/",
+          "tyyppi": "kansio",
+          "polku": "project-docs/evidence/week-37/",
+          "lahde": "auto"
+        },
+        {
+          "id": "paivakirja:37",
+          "tyyppi": "paivakirja",
+          "viikko": 37,
+          "lahde": "oletus"
+        },
+        {
+          "id": "commitit:37",
+          "tyyppi": "commitit",
+          "viikko": 37,
+          "min": 1,
+          "lahde": "oletus"
+        }
+      ],
+      "vuosi": 2026,
+      "alku": "2026-09-07",
+      "loppu": "2026-09-13",
+      "erapaiva": "2026-09-11",
+      "label": "7.–11.9."
+    },
+    "38": {
+      "jarjestys": 5,
+      "tyyppi": "feature",
+      "vaihe": "B",
+      "otsikko": "Asset 3 · Ensimmäinen Blockbench-malli",
+      "tehtavat": [
+        {
+          "id": "38-1",
+          "teksti": "Mallinna Blockbenchillä pieni blokkimalli.",
+          "valmis": "Blockbenchissä on 2–4 kuution malli, joka mahtuu yhden blokin kokoon, ja .bbmodel-tiedosto on tallennettu.",
+          "tallenna": "Commit ja push. Kuvakaappaus Blockbenchistä kansioon project-docs/evidence/week-38/."
+        },
+        {
+          "id": "38-2",
+          "teksti": "Teksturoi malli ja vie se pakettiin.",
+          "valmis": "Malli ja tekstuuri ovat oikeissa kansioissa, ja peli lataa paketin ilman virheilmoitusta.",
+          "tallenna": "Commit ja push. Commit-linkki viikon 38 päiväkirjaan."
+        },
+        {
+          "id": "38-3",
+          "teksti": "Testaa malli pelissä eri suunnista.",
+          "valmis": "Päiväkirjassa on testin odotettu ja todellinen tulos, ja malli näkyy pelissä oikein joka suunnasta.",
+          "tallenna": "Kuvakaappaukset kansioon project-docs/evidence/week-38/ ja testin tulos viikon 38 päiväkirjaan."
+        }
+      ],
+      "nayta": "Blockbench-projektitiedosto, kuvakaappaukset mallista pelissä ja commit.",
+      "tuotos": "Blockbenchillä tehty ja teksturoitu blokkimalli, joka toimii pelissä maassa ja kädessä.",
+      "valmis": "Oma malli näkyy pelissä oikein maassa, kädessä ja eri suunnista katsottuna ilman virheilmoituksia. Malli ja tekstuuri ovat Gitissä.",
+      "tarkistukset": [
+        {
+          "id": "kansio:project-docs/evidence/week-38/",
+          "tyyppi": "kansio",
+          "polku": "project-docs/evidence/week-38/",
+          "lahde": "auto"
+        },
+        {
+          "id": "paivakirja:38",
+          "tyyppi": "paivakirja",
+          "viikko": 38,
+          "lahde": "oletus"
+        },
+        {
+          "id": "commitit:38",
+          "tyyppi": "commitit",
+          "viikko": 38,
+          "min": 1,
+          "lahde": "oletus"
+        }
+      ],
+      "vuosi": 2026,
+      "alku": "2026-09-14",
+      "loppu": "2026-09-20",
+      "erapaiva": "2026-09-18",
+      "label": "14.–18.9."
+    },
+    "39": {
+      "jarjestys": 6,
+      "tyyppi": "feature",
+      "vaihe": "B",
+      "otsikko": "Asset 4 · Isompi malli tai hahmon uusi ilme",
+      "tehtavat": [
+        {
+          "id": "39-1",
+          "teksti": "Vertaa kahta vaihtoehtoa ja tee valinta.",
+          "valmis": "Päiväkirjassa ovat molemmat vaihtoehdot, kolmen kysymyksen vastaukset, valinta, kaksi perustelua ja keskustelukumppanin rooli.",
+          "tallenna": "Vertailu viikon 39 päiväkirjaan."
+        },
+        {
+          "id": "39-2",
+          "teksti": "Toteuta valittu työ kahdessa vaiheessa.",
+          "valmis": "Valittu työ on paketissa, ja repositoryssa on kaksi erillistä committia: runko ja yksityiskohdat.",
+          "tallenna": "Kahden commitin linkit viikon 39 päiväkirjaan."
+        },
+        {
+          "id": "39-3",
+          "teksti": "Testaa työ läheltä, kaukaa ja yöllä.",
+          "valmis": "Kolme kuvaa ja testin tulos on kirjattu, ja teema tunnistuu jokaisesta kuvasta.",
+          "tallenna": "Kuvat kansioon project-docs/evidence/week-39/ ja testin tulos viikon 39 päiväkirjaan."
+        }
+      ],
+      "nayta": "vertailu ja valinta päiväkirjassa, kaksi toteutuksen committia ja kuvat pelistä.",
+      "tuotos": "Kahden vaihtoehdon vertailu, perusteltu päätös ja valmis toteutus pelissä.",
+      "valmis": "Valittu kokonaisuus toimii pelissä ja näyttää hyvältä läheltä, kaukaa ja pimeässä. Vertailumuistio päätöksineen on kirjattu.",
+      "tarkistukset": [
+        {
+          "id": "kansio:project-docs/evidence/week-39/",
+          "tyyppi": "kansio",
+          "polku": "project-docs/evidence/week-39/",
+          "lahde": "auto"
+        },
+        {
+          "id": "paivakirja:39",
+          "tyyppi": "paivakirja",
+          "viikko": 39,
+          "lahde": "oletus"
+        },
+        {
+          "id": "commitit:39",
+          "tyyppi": "commitit",
+          "viikko": 39,
+          "min": 1,
+          "lahde": "oletus"
+        }
+      ],
+      "vuosi": 2026,
+      "alku": "2026-09-21",
+      "loppu": "2026-09-27",
+      "erapaiva": "2026-09-25",
+      "label": "21.–25.9."
+    },
+    "40": {
+      "jarjestys": 7,
+      "tyyppi": "feature",
+      "vaihe": "B",
+      "otsikko": "Asset 5 · Äänet ja tunnelma",
+      "tehtavat": [
+        {
+          "id": "40-1",
+          "teksti": "Valitse ääni ja kirjaa sen lisenssi CREDITS-tiedostoon.",
+          "valmis": "CREDITS.md-tiedostossa on äänen tekijä, lähde ja lisenssi, ja lisenssi sallii uudelleenjulkaisun.",
+          "tallenna": "Linkki CREDITS.md-tiedostoon viikon 40 päiväkirjaan."
+        },
+        {
+          "id": "40-2",
+          "teksti": "Muunna ääni ogg-muotoon ja lisää se sounds.json-tiedostoon.",
+          "valmis": "Ogg-tiedosto ja sounds.json ovat oman nimiavaruuden kansiossa.",
+          "tallenna": "Commit-linkki viikon 40 päiväkirjaan."
+        },
+        {
+          "id": "40-3",
+          "teksti": "Testaa ääni pelissä /playsound-komennolla.",
+          "valmis": "Ääni kuuluu /playsound-komennolla, tekstitys näkyy, ja testin tulos on päiväkirjassa.",
+          "tallenna": "Kuvakaappaus tekstityksestä kansioon project-docs/evidence/week-40/. Testin tulos, kuvan polku ja commit-linkki viikon 40 päiväkirjaan."
+        }
+      ],
+      "nayta": "CREDITS.md-kirjaus, sounds.json-commit ja /playsound-testin tulos.",
+      "tuotos": "Ogg-muotoinen ääni omassa nimiavaruudessa, sounds.json-määrittely ja kirjattu lisenssi.",
+      "valmis": "Oma ääni kuuluu pelissä /playsound-komennolla, tekstitys näkyy ja äänen lähde sekä lisenssi on kirjattu CREDITS-tiedostoon.",
+      "tarkistukset": [
+        {
+          "id": "tiedosto:CREDITS.md",
+          "tyyppi": "tiedosto",
+          "polku": "CREDITS.md",
+          "lahde": "auto"
+        },
+        {
+          "id": "tiedosto:sounds.json",
+          "tyyppi": "tiedosto",
+          "polku": "sounds.json",
+          "lahde": "auto"
+        },
+        {
+          "id": "kansio:project-docs/evidence/week-40/",
+          "tyyppi": "kansio",
+          "polku": "project-docs/evidence/week-40/",
+          "lahde": "auto"
+        },
+        {
+          "id": "paivakirja:40",
+          "tyyppi": "paivakirja",
+          "viikko": 40,
+          "lahde": "oletus"
+        },
+        {
+          "id": "commitit:40",
+          "tyyppi": "commitit",
+          "viikko": 40,
+          "min": 1,
+          "lahde": "oletus"
+        }
+      ],
+      "vuosi": 2026,
+      "alku": "2026-09-28",
+      "loppu": "2026-10-04",
+      "erapaiva": "2026-10-02",
+      "label": "28.9.–2.10."
+    },
+    "41": {
+      "jarjestys": 8,
+      "tyyppi": "katselmointi",
+      "vaihe": "B",
+      "otsikko": "Katselmointi · Ensimmäiset testaajat",
+      "tehtavat": [
+        {
+          "id": "41-1",
+          "teksti": "Kokoa testaajille väliversio ja asennusohje.",
+          "valmis": "Väliversion zip asentuu pelkän ohjeen avulla, ja katselmoinnin aika on sovittu.",
+          "tallenna": "Zip ja asennusohje kansioon project-docs/evidence/week-41/, commit ja push."
+        },
+        {
+          "id": "41-2",
+          "teksti": "Anna testaajien kokeilla ja kirjaa, mitä he sanovat.",
+          "valmis": "Muistiinpanoissa ovat testaajien sanat ja omat havaintosi erikseen sekä kolme selittämääsi valintaa.",
+          "tallenna": "Muistiinpanot viikon 41 päiväkirjaan."
+        },
+        {
+          "id": "41-3",
+          "teksti": "Sovi testaajien palautteesta yksi muutos.",
+          "valmis": "GitHubissa on yksi hyväksytty muutosissue, ja katselmointimuistio sekä arvioiden vertailu ovat päiväkirjassa.",
+          "tallenna": "Issuen linkki ja katselmointimuistio viikon 41 päiväkirjaan."
+        }
+      ],
+      "nayta": "väliversion zip ja asennusohje, katselmointimuistio, palaute ja hyväksytty muutosissue.",
+      "tuotos": "Testattu väliversio, katselmointimuistio ja yksi hyväksytty muutostehtävä.",
+      "valmis": "Ohjaaja ja vertaistestaaja ovat kokeilleet pakettia pelissä. Muistiossa näkyvät alkuperäinen palaute, oma tulkinta, päätös, hyväksyjä ja yksi rajattu issue.",
+      "tarkistukset": [
+        {
+          "id": "kansio:project-docs/evidence/week-41/",
+          "tyyppi": "kansio",
+          "polku": "project-docs/evidence/week-41/",
+          "lahde": "auto"
+        },
+        {
+          "id": "paivakirja:41",
+          "tyyppi": "paivakirja",
+          "viikko": 41,
+          "lahde": "oletus"
+        },
+        {
+          "id": "commitit:41",
+          "tyyppi": "commitit",
+          "viikko": 41,
+          "min": 1,
+          "lahde": "oletus"
+        }
+      ],
+      "vuosi": 2026,
+      "alku": "2026-10-05",
+      "loppu": "2026-10-11",
+      "erapaiva": "2026-10-09",
+      "label": "5.–9.10."
+    },
+    "43": {
+      "jarjestys": 9,
+      "tyyppi": "feature",
+      "vaihe": "C",
+      "otsikko": "Asset 6 · Palautemuutos ja datapaketin runko",
+      "tehtavat": [
+        {
+          "id": "43-1",
+          "teksti": "Tee palautemuutos omassa Git-haarassa.",
+          "valmis": "Haara näkyy GitHubissa, ja siinä on vähintään kaksi pientä committia.",
+          "tallenna": "Haaran nimi ja commit-linkit viikon 43 päiväkirjaan."
+        },
+        {
+          "id": "43-2",
+          "teksti": "Yhdistä muutos main-haaraan pull requestilla.",
+          "valmis": "Pull request on yhdistetty, siinä on kommentti ja vastaus, ja muutosissue on suljettu.",
+          "tallenna": "Pull requestin linkki viikon 43 päiväkirjaan."
+        },
+        {
+          "id": "43-3",
+          "teksti": "Luo datapaketin runko ja ensimmäinen funktio.",
+          "valmis": "/reload näyttää tervehdyksen, ja /datapack list näyttää paketin ilman virheitä.",
+          "tallenna": "Kuvakaappaus chatista kansioon project-docs/evidence/week-43/. Kuvan polku ja commit-linkki viikon 43 päiväkirjaan."
+        }
+      ],
+      "nayta": "muutosissue, haara, pull request kommentteineen ja datapaketin rungon commit.",
+      "tuotos": "Testattu palautemuutos mainissa ja datapaketin runko, jonka funktio toimii /reload- ja /function-komennoilla.",
+      "valmis": "Main-haarassa on testattu palautemuutos. Datapaketti latautuu /reload-komennolla ilman virheitä, ja funktio toimii /function-komennolla.",
+      "tarkistukset": [
+        {
+          "id": "kansio:project-docs/evidence/week-43/",
+          "tyyppi": "kansio",
+          "polku": "project-docs/evidence/week-43/",
+          "lahde": "auto"
+        },
+        {
+          "id": "pr:yhdistetty",
+          "tyyppi": "pr",
+          "min": 1,
+          "lahde": "auto"
+        },
+        {
+          "id": "paivakirja:43",
+          "tyyppi": "paivakirja",
+          "viikko": 43,
+          "lahde": "oletus"
+        },
+        {
+          "id": "commitit:43",
+          "tyyppi": "commitit",
+          "viikko": 43,
+          "min": 1,
+          "lahde": "oletus"
+        }
+      ],
+      "vuosi": 2026,
+      "alku": "2026-10-19",
+      "loppu": "2026-10-25",
+      "erapaiva": "2026-10-23",
+      "label": "19.–23.10."
+    },
+    "44": {
+      "jarjestys": 10,
+      "tyyppi": "feature",
+      "vaihe": "C",
+      "otsikko": "Asset 7 · Skriptattu ominaisuus",
+      "tehtavat": [
+        {
+          "id": "44-1",
+          "teksti": "Tee teemaasi sopiva valmistusresepti.",
+          "valmis": "Oma resepti näkyy reseptikirjassa /recipe give -komennon jälkeen, ja työpöytä antaa tuloksen, kun ainekset ovat oikeassa kuviossa.",
+          "tallenna": "Commit ja push. Commit-linkki viikon 44 päiväkirjaan."
+        },
+        {
+          "id": "44-2",
+          "teksti": "Tee saavutus, joka palkitsee pelaajan funktiolla.",
+          "valmis": "/function teema:palkinto antaa viestin ja xp:n, ja kylan_valot näkyy ehdotuksena, kun kirjoitat chattiin /advancement grant @s only teema: (älä paina Enter).",
+          "tallenna": "Commit ja push. Commit-linkki viikon 44 päiväkirjaan."
+        },
+        {
+          "id": "44-3",
+          "teksti": "Testaa koko polku uudessa selviytymismaailmassa.",
+          "valmis": "Koko polku ainesten hankinnasta palkintoon toimii selviytymistilassa, ja testin tulos on kirjattu.",
+          "tallenna": "Kuvat tai video kansioon project-docs/evidence/week-44/ ja testin tulos viikon 44 päiväkirjaan."
+        }
+      ],
+      "nayta": "reseptin ja saavutuksen commitit sekä kuvat tai video koko polusta selviytymistilassa.",
+      "tuotos": "Oma resepti, saavutus laukaisimineen ja palkintofunktio, testattuna selviytymistilassa.",
+      "valmis": "Resepti löytyy reseptikirjasta ja tuottaa esineen. Saavutus laukeaa reseptin valmistuksesta, ja palkintofunktio toimii. Koko polku on testattu uudessa selviytymismaailmassa.",
+      "tarkistukset": [
+        {
+          "id": "kansio:project-docs/evidence/week-44/",
+          "tyyppi": "kansio",
+          "polku": "project-docs/evidence/week-44/",
+          "lahde": "auto"
+        },
+        {
+          "id": "paivakirja:44",
+          "tyyppi": "paivakirja",
+          "viikko": 44,
+          "lahde": "oletus"
+        },
+        {
+          "id": "commitit:44",
+          "tyyppi": "commitit",
+          "viikko": 44,
+          "min": 1,
+          "lahde": "oletus"
+        }
+      ],
+      "vuosi": 2026,
+      "alku": "2026-10-26",
+      "loppu": "2026-11-01",
+      "erapaiva": "2026-10-30",
+      "label": "26.–30.10."
+    },
+    "45": {
+      "jarjestys": 11,
+      "tyyppi": "laatu",
+      "vaihe": "C",
+      "otsikko": "Paketin laatu · Paketti kestää käyttöä",
+      "tehtavat": [
+        {
+          "id": "45-1",
+          "teksti": "Kirjoita 12 testitapausta ennen testaamista.",
+          "valmis": "Tiedostossa on 12 testitapausta T01–T12, ja jokaisella on odotettu tulos.",
+          "tallenna": "project-docs/testaus.md, commit ja push."
+        },
+        {
+          "id": "45-2",
+          "teksti": "Aja testitapaukset puhtaassa pelissä ja kirjaa tulokset.",
+          "valmis": "Jokaisella testitapauksella T01–T12 on todellinen tulos ja merkintä, läpäisikö se.",
+          "tallenna": "Päivitetty project-docs/testaus.md ja virhetestien kuvakaappaukset sekä lokiote kansioon project-docs/evidence/week-45/, commit ja push."
+        },
+        {
+          "id": "45-3",
+          "teksti": "Korjaa kolme virhettä ja kirjaa jokaisesta koko ketju.",
+          "valmis": "Päiväkirjassa on kolme täydellistä ketjua, ja jokaisen uusintatesti meni odotetusti.",
+          "tallenna": "Kolme ketjua commit-linkkeineen viikon 45 päiväkirjaan."
+        }
+      ],
+      "nayta": "project-docs/testaus.md, kolme virheenkorjausketjua ja korjauscommitit.",
+      "tuotos": "Vähintään 12 testitapauksen testausmatriisi ja kolme täydellistä virheenkorjausketjua.",
+      "valmis": "Kaikissa 12 testitapauksessa näkyvät lähtötila, toiminta, odotus, havainto ja tulos. Kolmessa ketjussa näkyvät havainto, syy, korjauscommit ja onnistunut uusintatesti.",
+      "tarkistukset": [
+        {
+          "id": "tiedosto:project-docs/testaus.md",
+          "tyyppi": "tiedosto",
+          "polku": "project-docs/testaus.md",
+          "lahde": "auto"
+        },
+        {
+          "id": "kansio:project-docs/evidence/week-45/",
+          "tyyppi": "kansio",
+          "polku": "project-docs/evidence/week-45/",
+          "lahde": "auto"
+        },
+        {
+          "id": "paivakirja:45",
+          "tyyppi": "paivakirja",
+          "viikko": 45,
+          "lahde": "oletus"
+        },
+        {
+          "id": "commitit:45",
+          "tyyppi": "commitit",
+          "viikko": 45,
+          "min": 1,
+          "lahde": "oletus"
+        }
+      ],
+      "vuosi": 2026,
+      "alku": "2026-11-02",
+      "loppu": "2026-11-08",
+      "erapaiva": "2026-11-06",
+      "label": "2.–6.11."
+    },
+    "46": {
+      "jarjestys": 12,
+      "tyyppi": "laatu",
+      "vaihe": "C",
+      "otsikko": "Paketin laatu · Rakenne, jonka toinen ymmärtää",
+      "tehtavat": [
+        {
+          "id": "46-1",
+          "teksti": "Siisti kansiot ja tiedostonimet niin, että paketti toimii kuten ennen.",
+          "valmis": "Kaksi laatuhaittaa on korjattu, ja sama testi menee läpi ennen ja jälkeen.",
+          "tallenna": "Siivouscommitin linkki ja testin tulokset viikon 46 päiväkirjaan."
+        },
+        {
+          "id": "46-2",
+          "teksti": "Tarkista LICENSE- ja CREDITS-tiedostot.",
+          "valmis": "LICENSE ja CREDITS.md ovat ajan tasalla, ja vastauksesi lisenssikysymykseen on päiväkirjassa.",
+          "tallenna": "Commit ja push. Linkit LICENSE- ja CREDITS.md-tiedostoihin viikon 46 päiväkirjaan."
+        },
+        {
+          "id": "46-3",
+          "teksti": "Pyydä laatukatselmointi ja selitä ratkaisusi.",
+          "valmis": "Päiväkirjassa ovat katselmoijan rooli, hänen kommenttinsa, oma vastauksesi ja se, minkä kohdan selitit.",
+          "tallenna": "Kommentti, vastaus ja selitetty kohta viikon 46 päiväkirjaan."
+        }
+      ],
+      "nayta": "siivouscommit, testi ennen ja jälkeen, LICENSE- ja CREDITS.md-tiedostot sekä katselmoinnin kommentti.",
+      "tuotos": "Siistitty kansiorakenne, tarkistetut LICENSE- ja CREDITS-tiedostot ja ihmisen tekemä laatukatselmointi.",
+      "valmis": "Sama testi menee läpi ennen siivousta ja sen jälkeen. LICENSE vastaa sovittua, CREDITS listaa jokaisen ulkopuolisen lähteen, ja katselmointikommenttiin on vastattu.",
+      "tarkistukset": [
+        {
+          "id": "paivakirja:46",
+          "tyyppi": "paivakirja",
+          "viikko": 46,
+          "lahde": "oletus"
+        },
+        {
+          "id": "commitit:46",
+          "tyyppi": "commitit",
+          "viikko": 46,
+          "min": 1,
+          "lahde": "oletus"
+        }
+      ],
+      "vuosi": 2026,
+      "alku": "2026-11-09",
+      "loppu": "2026-11-15",
+      "erapaiva": "2026-11-13",
+      "label": "9.–13.11."
+    },
+    "47": {
+      "jarjestys": 13,
+      "tyyppi": "julkaisu",
+      "vaihe": "D",
+      "otsikko": "Julkaisu · Julkaisuehdokas RC1 testissä",
+      "tehtavat": [
+        {
+          "id": "47-1",
+          "teksti": "Kokoa ensimmäinen julkaisuehdokas (RC1) ja lopeta uuden sisällön lisääminen.",
+          "valmis": "Kaksi zipiä ja asennusohje ovat valmiina, ja ne on koottu samasta commitista.",
+          "tallenna": "Zipit ja asennusohje kansioon project-docs/evidence/week-47/, commit ja push."
+        },
+        {
+          "id": "47-2",
+          "teksti": "Anna ohjaajan ja yhden muun käyttäjän asentaa paketti pelkän ohjeen avulla.",
+          "valmis": "Kahden testaajan havainnot on kirjattu erikseen, ja tiedät, onnistuiko asennus ohjeella.",
+          "tallenna": "Havainnot viikon 47 päiväkirjaan."
+        },
+        {
+          "id": "47-3",
+          "teksti": "Päätä jokaisesta havainnosta, korjataanko se ennen julkaisua.",
+          "valmis": "Jokaisella havainnolla on vakavuus, toistuvuus ja päätös, ja korjattavista on issuet.",
+          "tallenna": "Luokiteltu lista ja issueiden linkit viikon 47 päiväkirjaan."
+        }
+      ],
+      "nayta": "RC1-zipit, asennusohje, kahden testaajan havainnot ja luokiteltu korjauslista.",
+      "tuotos": "Jäädytetty RC1 (zipit + asennusohje), kahden henkilön testipalaute ja päätetty julkaisun korjauslista.",
+      "valmis": "Ensimmäinen julkaisuehdokas (RC1) on koottu yhdestä commitista. Ohjaaja ja toinen käyttäjä ovat asentaneet paketin pelkän ohjeen avulla, ja jokaisella havainnolla on vakavuus, toistuvuus ja päätös.",
+      "tarkistukset": [
+        {
+          "id": "kansio:project-docs/evidence/week-47/",
+          "tyyppi": "kansio",
+          "polku": "project-docs/evidence/week-47/",
+          "lahde": "auto"
+        },
+        {
+          "id": "paivakirja:47",
+          "tyyppi": "paivakirja",
+          "viikko": 47,
+          "lahde": "oletus"
+        },
+        {
+          "id": "commitit:47",
+          "tyyppi": "commitit",
+          "viikko": 47,
+          "min": 1,
+          "lahde": "oletus"
+        }
+      ],
+      "vuosi": 2026,
+      "alku": "2026-11-16",
+      "loppu": "2026-11-22",
+      "erapaiva": "2026-11-20",
+      "label": "16.–20.11."
+    },
+    "48": {
+      "jarjestys": 14,
+      "tyyppi": "julkaisu",
+      "vaihe": "D",
+      "otsikko": "Julkaisu · v1.0 julki",
+      "tehtavat": [
+        {
+          "id": "48-1",
+          "teksti": "Korjaa vain ne virheet, jotka päätit korjata ennen julkaisua.",
+          "valmis": "Kaikki ”korjataan nyt” -havainnot on korjattu ja testattu, ja niiden issuet on suljettu.",
+          "tallenna": "Korjauscommitien linkit viikon 48 päiväkirjaan."
+        },
+        {
+          "id": "48-2",
+          "teksti": "Kirjoita lataajalle README- ja CHANGELOG-tiedostot.",
+          "valmis": "README:ssä ovat asennusohje, peliversio, lisenssi, tunnetut puutteet ja kuvat, ja CHANGELOG.md kertoo, mitä v1.0 sisältää.",
+          "tallenna": "Linkit README.md- ja CHANGELOG.md-tiedostoihin viikon 48 päiväkirjaan."
+        },
+        {
+          "id": "48-3",
+          "teksti": "Julkaise GitHub-release v1.0.",
+          "valmis": "Release v1.0 on julkaistu kahden zipin kanssa, ja olet itse asentanut sen ohjeen avulla puhtaaseen peliin.",
+          "tallenna": "Release-linkki viikon 48 päiväkirjaan."
+        },
+        {
+          "id": "48-4",
+          "teksti": "Pyydä ulkopuolista asentamaan paketti pelkän ohjeen avulla.",
+          "valmis": "Ulkopuolinen on asentanut paketin pelkän ohjeen avulla, ja hänen epäröintikohtansa on korjattu ohjeeseen.",
+          "tallenna": "Asentajan rooli, päivä ja havainnot viikon 48 päiväkirjaan."
+        }
+      ],
+      "nayta": "release-linkki, v1.0-tagi, README asennusohjeineen, CHANGELOG ja ulkopuolisen asennustestin kirjaus.",
+      "tuotos": "Julkinen GitHub-release v1.0: zip-paketit, asennusohje, LICENSE, CHANGELOG, kuvakaappaukset ja tunnettujen puutteiden lista.",
+      "valmis": "v1.0-tagin commit vastaa julkaistua versiota. Toinen henkilö on ladannut releasen ja asentanut paketin puhtaaseen peliin pelkän ohjeen avulla.",
+      "tarkistukset": [
+        {
+          "id": "tiedosto:CHANGELOG.md",
+          "tyyppi": "tiedosto",
+          "polku": "CHANGELOG.md",
+          "lahde": "auto"
+        },
+        {
+          "id": "tagi:v1.0",
+          "tyyppi": "tagi",
+          "nimi": "v1.0",
+          "lahde": "auto"
+        },
+        {
+          "id": "paivakirja:48",
+          "tyyppi": "paivakirja",
+          "viikko": 48,
+          "lahde": "oletus"
+        },
+        {
+          "id": "commitit:48",
+          "tyyppi": "commitit",
+          "viikko": 48,
+          "min": 1,
+          "lahde": "oletus"
+        }
+      ],
+      "vuosi": 2026,
+      "alku": "2026-11-23",
+      "loppu": "2026-11-29",
+      "erapaiva": "2026-11-27",
+      "label": "23.–27.11."
+    },
+    "49": {
+      "jarjestys": 15,
+      "tyyppi": "naytto",
+      "vaihe": "D",
+      "otsikko": "Näyttö · Aineisto ja luovutus",
+      "tehtavat": [
+        {
+          "id": "49-1",
+          "teksti": "Tarkista projektipäiväkirja.",
+          "valmis": "Kaikki 15 viikkoa on kirjattu, ja jokaisen viikon työnäytelinkki aukeaa.",
+          "tallenna": "Täydennetyt viikkomerkinnät sivuston projektipäiväkirjassa. Lataat tiedoston repositoryyn tehtävässä 5."
+        },
+        {
+          "id": "49-2",
+          "teksti": "Kirjoita itsearviointi omiin työnäytteisiin nojaten.",
+          "valmis": "Viikon 49 päiväkirjassa on kolme vahvuutta työnäytteineen ja yksi kehitysaskel.",
+          "tallenna": "Itsearviointi viikon 49 päiväkirjaan."
+        },
+        {
+          "id": "49-3",
+          "teksti": "Liitä jokaiseen näyttömatriisin kohtaan tarkka linkki.",
+          "valmis": "Jokaisella näyttömatriisin vaatimuksella on tarkka linkki, joka aukeaa.",
+          "tallenna": "Vaatimusten linkit viikon 49 päiväkirjaan, josta ne tulevat mukaan projektipaivakirja.md-tiedostoon."
+        },
+        {
+          "id": "49-4",
+          "teksti": "Harjoittele 8–10 minuutin demo.",
+          "valmis": "Demo kestää 8–10 minuuttia ja käy läpi kaikki kuusi kohtaa.",
+          "tallenna": "Demon runko viikon 49 päiväkirjaan."
+        },
+        {
+          "id": "49-5",
+          "teksti": "Luovuta paketti ja aineisto viimeistään pe 4.12.2026.",
+          "valmis": "Aineisto on luovutettu viimeistään pe 4.12.2026, ja toinen ihminen on tarkistanut sen.",
+          "tallenna": "Luovutuksen päivä viikon 49 päiväkirjaan."
+        }
+      ],
+      "nayta": "julkaistu paketti, repository, `project-docs/projektipaivakirja.md`, näyttömatriisi, AI-loki ja demo.",
+      "tuotos": "Valmis projektipäiväkirja, näyttömatriisi, itsearviointi, jäädytetty v1.0 ja harjoiteltu demo.",
+      "valmis": "Jokaisella arviointikohdalla on avautuva tarkka linkki tai tunniste. Projektipäiväkirja ja AI-loki ovat repositoryssa, ja demo käyttää samaa jäädytettyä v1.0-versiota.",
+      "tarkistukset": [
+        {
+          "id": "paivakirja:49",
+          "tyyppi": "paivakirja",
+          "viikko": 49,
+          "lahde": "oletus"
+        },
+        {
+          "id": "commitit:49",
+          "tyyppi": "commitit",
+          "viikko": 49,
+          "min": 1,
+          "lahde": "oletus"
+        }
+      ],
+      "vuosi": 2026,
+      "alku": "2026-11-30",
+      "loppu": "2026-12-06",
+      "erapaiva": "2026-12-04",
+      "label": "30.11.–4.12."
+    }
+  }
+}
