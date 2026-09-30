@@ -852,8 +852,8 @@ window.NAYTTOPROJEKTI = {
       connection: "Viikoilla 36–40 rakensit resurssipaketin, jossa on tekstuurit, nimet, mallit ja ääni. Nyt testaajat kokeilevat väliversiota, koska toimeksiantaja haluaa nähdä toimivan version ennen lopullista ja omalle työlle sokeutuu. Palautteesta sovittu muutos tehdään loman jälkeen viikolla 43.",
       deliverable: "Testattu väliversio, katselmointimuistio ja yksi hyväksytty muutosissue.",
       why: "Palaute tarvitaan ennen viimeistelyä, jotta muutokselle jää aikaa. Testaajan alkuperäisen havainnon erottaminen omasta tulkinnastasi tekee päätöksestä luotettavan.",
-      done: "Ohjaaja ja vertaistestaaja ovat kokeilleet pakettia pelissä. Muistiossa näkyvät alkuperäinen palaute, oma tulkinta, päätös, hyväksyjä ja yksi rajattu issue.",
-      record: "Kirjoita Vko 41 -merkintään väliversion commit-tunniste, katselmoinnin päivä ja osallistujien roolit. Kirjaa myös esittelyssä kertomasi kolme valintaa, testaajien sanat, oma tulkinta ja linkki hyväksyttyyn muutosissueen. Rastita lopuksi Näyttömatriisi-näkymässä kohdat Asiakaslähtöinen viestintä, Priorisointi ja Suunnittelu ja arviointi.",
+      done: "Ohjaaja ja vertaistestaaja ovat kokeilleet pakettia pelissä. Muistiossa näkyvät testaajien havainnot roolin mukaan ilman nimiä, oma tulkinta, päätös, hyväksyjä ja yksi rajattu issue.",
+      record: "Kirjoita Vko 41 -merkintään väliversion commit-tunniste, katselmoinnin päivä ja osallistujien roolit. Kirjaa myös esittelyssä kertomasi kolme valintaa, testaajien havainnot roolin mukaan (ohjaaja, testaaja A), oma tulkinta ja linkki hyväksyttyyn muutosissueen. Rastita lopuksi Näyttömatriisi-näkymässä kohdat Asiakaslähtöinen viestintä, Priorisointi ja Suunnittelu ja arviointi.",
       skills: ["palautteen keruu", "katselmointi", "priorisointi"],
       tehtavat: {
         "41-1": {
@@ -884,13 +884,13 @@ window.NAYTTOPROJEKTI = {
           miksi: "Omalle työlle sokeutuu. Kun katsot testaajia neuvomatta, näet, mikä teemasta välittyy ja mikä jää huomaamatta.",
           osat: [
             ["Pyydä testaajat", "Testaajat ovat ohjaaja ja yksi vertainen eli toinen opiskelija. Pyydä heitä asentamaan paketti ohjeesi avulla ja pelaamaan vapaasti."],
-            ["Kirjaa sanat sellaisinaan", "Älä neuvo, ellei testaaja pyydä apua. Kirjoita ylös testaajan sanat sellaisinaan."],
+            ["Kirjaa havainnot roolin mukaan", "Älä neuvo, ellei testaaja pyydä apua. Kirjoita ylös, mitä testaaja sanoo ja tekee, roolin mukaan: ohjaaja tai testaaja A. Älä kirjoita nimiä."],
             ["Kirjaa omat havainnot", "Kirjoita erikseen, mitä itse näit: mitä testaaja huomasi ja mitä hän ohitti."],
             ["Esittele valintasi", "Kerro testauksen jälkeen viidessä minuutissa paketin sisältö ja kolme omaa valintaasi perusteluineen."],
             ["Kysy tärkein muutos", "Kysy lopuksi: mikä yksi asia pitäisi muuttaa ensin?"]
           ],
-          valmis: "Muistiinpanoissa ovat testaajien sanat ja omat havaintosi erikseen sekä kolme selittämääsi valintaa.",
-          tallenna: "Muistiinpanot viikon 41 päiväkirjaan.",
+          valmis: "Muistiinpanoissa ovat testaajien havainnot roolin mukaan ja omat havaintosi erikseen sekä kolme selittämääsi valintaa.",
+          tallenna: "Muistiinpanot viikon 41 päiväkirjaan roolein, ilman nimiä. Jos ohjaaja tarvitsee nimen tai sanatarkan lausuman, lähetä se hänelle Teamsissa.",
           sanat: ["vertainen"],
           eiRiita: "Itse tai tekoälyllä keksitty palaute ei ole katselmointi."
         },
@@ -899,15 +899,15 @@ window.NAYTTOPROJEKTI = {
           miksi: "Yksi selvästi rajattu muutos ehditään tehdä kunnolla. Monta epämääräistä toivetta jää kesken.",
           osat: [
             ["Valitse muutos", "Valitse palautteesta yhdessä ohjaajan kanssa yksi muutos, jonka ehdit tehdä viikolla 43."],
-            ["Tee muutosissue", "Tee muutoksesta GitHub-issue: verbillä alkava otsikko, testaajan alkuperäinen palaute, arvio ja Valmis kun -ehto."],
+            ["Tee muutosissue", "Tee muutoksesta GitHub-issue: verbillä alkava otsikko, testaajan havainto roolin kanssa (esimerkiksi testaaja A), arvio ja Valmis kun -ehto."],
             ["Anna prioriteetti", "Jos muutos on välttämätön, se on pakollinen (P0): anna label P0 pakollinen. Muuten se on tärkeä (P1): anna label P1 tärkeä."],
             ["Vertaa arvioita toteumaan", "Valitse viikolla 35 tehdyistä issueista kolme. Vertaa niiden arviota siihen, kauanko työ oikeasti kesti. Kirjaa ero ja sen syy."],
-            ["Kirjoita katselmointimuistio", "Kirjaa päiväkirjaan päivä, osallistujien roolit, testaajien sanat, oma tulkinta, päätös ja hyväksyjä."]
+            ["Kirjoita katselmointimuistio", "Kirjaa päiväkirjaan päivä, osallistujien roolit, testaajien havainnot roolin mukaan, oma tulkinta, päätös ja hyväksyjä."]
           ],
           valmis: "GitHubissa on yksi hyväksytty muutosissue, ja katselmointimuistio sekä arvioiden vertailu ovat päiväkirjassa.",
           tallenna: "Issuen linkki ja katselmointimuistio viikon 41 päiväkirjaan.",
           sanat: ["GitHub-issue", "P0", "P1"],
-          esimerkki: "Palaute: ”Lyhtyä ei erota tavallisesta.” Päätös: kirkkaampi hehkutekstuuri · P0 pakollinen · 0,5 päivää · hyväksytty 8.10."
+          esimerkki: "Testaaja A: lyhtyä ei erota tavallisesta. Päätös: kirkkaampi hehkutekstuuri · P0 pakollinen · 0,5 päivää · hyväksyjä ohjaaja 8.10."
         }
       }
     },
@@ -1186,7 +1186,7 @@ window.NAYTTOPROJEKTI = {
           osat: [
             ["Pyydä katselmoija", "Pyydä ohjaajaa tai vertaista katselmoimaan paketti eli käymään sen rakenne läpi ja kommentoimaan sitä."],
             ["Näytä rakenne", "Näytä hänelle, mistä lähdetiedostot, kuten .bbmodel, löytyvät ja mihin uusi tekstuuri lisättäisiin."],
-            ["Vastaa kommenttiin", "Kirjaa saamasi kommentti sellaisenaan ja vastaa siihen: korjaa tai perustele, miksi pidät ratkaisun."],
+            ["Vastaa kommenttiin", "Kirjaa kommentin sisältö ja katselmoijan rooli ilman nimeä ja vastaa siihen: korjaa tai perustele, miksi pidät ratkaisun."],
             ["Selitä yksi ratkaisu", "Selitä suullisesti yksi kohta, jossa käytit tekoälyä apuna. Jos et käyttänyt tekoälyä, selitä yksi JSON-tiedosto omin sanoin."],
             ["Tarkista AI-loki", "Tarkista, että tekoälyn käyttö on kirjattu sivuston AI-loki-näkymään."]
           ],
@@ -1230,7 +1230,7 @@ window.NAYTTOPROJEKTI = {
             ["Pyydä kaksi testaajaa", "Pyydä ohjaajaa ja yhtä muuta käyttäjää testaamaan julkaisuehdokas (RC1). Muu käyttäjä voi olla toisen ryhmän opiskelija tai toinen ohjaaja."],
             ["Anna vain zipit ja ohje", "Anna molemmille vain zipit ja asennusohje. Älä neuvo suullisesti."],
             ["Pyydä koko sisältö läpi", "Pyydä heitä käymään läpi tekstuurit, nimet, mallit, ääni, resepti ja saavutus."],
-            ["Kirjaa havainnot", "Kirjaa jokainen havainto erikseen: kuka testasi (rooli), mitä tapahtui ja missä kohdassa. Kirjaa myös, onnistuiko asennus pelkällä ohjeella."]
+            ["Kirjaa havainnot", "Kirjaa jokainen havainto erikseen: testaajan rooli (ohjaaja tai testaaja B, ei nimeä), mitä tapahtui ja missä kohdassa. Kirjaa myös, onnistuiko asennus pelkällä ohjeella."]
           ],
           valmis: "Kahden testaajan havainnot on kirjattu erikseen, ja tiedät, onnistuiko asennus ohjeella.",
           tallenna: "Havainnot viikon 47 päiväkirjaan.",
@@ -1262,8 +1262,8 @@ window.NAYTTOPROJEKTI = {
       connection: "Viikon 47 luokiteltu lista kertoo, mitkä virheet korjataan ennen julkaisua. Korjausten jälkeen kirjoitat lataajalle README- ja CHANGELOG-tiedostot ja julkaiset v1.0:n GitHub-releasena eli repositoryn virallisena julkaisuna, jonka versio merkitään tagilla. Vasta ulkopuolisen onnistunut asennus osoittaa, että kuka tahansa saa paketin toimimaan.",
       deliverable: "Julkinen GitHub-release v1.0: zip-paketit, asennusohje, LICENSE, CHANGELOG, kuvakaappaukset ja tunnettujen puutteiden lista.",
       why: "Lataajan pitää pystyä asentamaan paketti ilman sinua. Vain julkaistun latauksen testaaminen osoittaa, että zipit, ohje ja tiedostorakenne toimivat oikeassa ympäristössä.",
-      done: "v1.0-tagin commit vastaa julkaistua versiota. Toinen henkilö on ladannut releasen ja asentanut paketin puhtaaseen peliin pelkän ohjeen avulla.",
-      record: "Kirjoita Vko 48 -merkintään ketju v1.0-tagi → commit → release-linkki. Lisää testattu peliversio, ulkopuolisen asentajan rooli ja päivä, testitulos ja tunnetut puutteet. Jos julkaisit lisäksi Modrinthissa tai Planet Minecraftissa, kirjaa linkki ja se, mitä ehtoja palvelu vaati. Rastita lopuksi Näyttömatriisi-näkymässä kohdat Versionhallinta, Tuotantojulkaisu, Julkaisu asiakkaan ympäristöön ja Ohjelmiston dokumentointi.",
+      done: "v1.0-tagin commit vastaa julkaistua versiota. Toinen henkilö on ladannut releasen ja asentanut paketin puhtaaseen peliin pelkän ohjeen avulla. project-docs/nayttomatriisi.md on perustettu.",
+      record: "Kirjoita Vko 48 -merkintään ketju v1.0-tagi → commit → release-linkki. Lisää testattu peliversio, ulkopuolisen asentajan rooli ja päivä, testitulos ja tunnetut puutteet. Jos julkaisit lisäksi Modrinthissa tai Planet Minecraftissa, kirjaa linkki ja se, mitä ehtoja palvelu vaati. Lisää linkki tiedostoon project-docs/nayttomatriisi.md. Rastita lopuksi Näyttömatriisi-näkymässä kohdat Versionhallinta, Tuotantojulkaisu, Julkaisu asiakkaan ympäristöön ja Ohjelmiston dokumentointi.",
       skills: ["GitHub-release", "versiointi", "asennusohje"],
       tehtavat: {
         "48-1": {
@@ -1301,14 +1301,15 @@ window.NAYTTOPROJEKTI = {
             ["Luo release ja tagi", "Avaa GitHubissa Releases → Draft a new release. Kirjoita Choose a tag -kenttään v1.0 ja valitse Create new tag. Tagi on nimilappu, joka kiinnittyy yhteen committiin."],
             ["Kirjoita julkaisuteksti", "Liitä molemmat zipit. Kerro, mitä paketti sisältää, mille peliversiolle se on tehty, miten se asennetaan ja millä lisenssillä se julkaistaan."],
             ["Julkaise", "Paina Publish release."],
-            ["Asenna itse releasesta", "Lataa julkaistu release ja asenna se puhtaaseen peliin (uusi Installations-asennus omalla Game Directory -kansiolla) pelkän README:n ohjeen avulla. Korjaa ohje, jos jouduit poikkeamaan siitä."]
+            ["Asenna itse releasesta", "Lataa julkaistu release ja asenna se puhtaaseen peliin (uusi Installations-asennus omalla Game Directory -kansiolla) pelkän README:n ohjeen avulla. Korjaa ohje, jos jouduit poikkeamaan siitä."],
+            ["Perusta näyttömatriisi", "Luo avun pohjasta project-docs/nayttomatriisi.md: jokaista vaatimusta kohti rivi, jossa ovat tunnus, työnäytteen linkki ja viikko. Täytä julkaisun rivit, esimerkiksi s14 ja v1.0-release, ja tee commit."]
           ],
-          valmis: "Release v1.0 on julkaistu kahden zipin kanssa, ja olet itse asentanut sen ohjeen avulla puhtaaseen peliin.",
-          tallenna: "Release-linkki viikon 48 päiväkirjaan.",
+          valmis: "Release v1.0 on julkaistu kahden zipin kanssa, ja olet itse asentanut sen ohjeen avulla puhtaaseen peliin. project-docs/nayttomatriisi.md on perustettu, ja julkaisun rivit on täytetty.",
+          tallenna: "Release-linkki viikon 48 päiväkirjaan. project-docs/nayttomatriisi.md commitilla repositoryyn.",
           sanat: ["GitHub-release", "tagi"],
           apu: {
             title: "Julkaisun tarkistuslista",
-            code: "JULKAISUN TARKISTUSLISTA\n[ ] pack.mcmeta on zipin juuressa\n[ ] resurssi- ja datapaketti omina zippeinä\n[ ] v1.0-tagi vastaa julkaistua committia\n[ ] julkaisuteksti: sisältö, peliversio, asennus, lisenssi\n[ ] LICENSE ja CREDITS repositoryn juuressa\n[ ] CHANGELOG kertoo mitä v1.0 sisältää\n[ ] lataus testattu puhtaaseen peliin ohjeella",
+            code: "JULKAISUN TARKISTUSLISTA\n[ ] pack.mcmeta on zipin juuressa\n[ ] resurssi- ja datapaketti omina zippeinä\n[ ] v1.0-tagi vastaa julkaistua committia\n[ ] julkaisuteksti: sisältö, peliversio, asennus, lisenssi\n[ ] LICENSE ja CREDITS repositoryn juuressa\n[ ] CHANGELOG kertoo mitä v1.0 sisältää\n[ ] lataus testattu puhtaaseen peliin ohjeella\n\nNÄYTTÖMATRIISIN POHJA (project-docs/nayttomatriisi.md)\n| Tunnus | Vaatimus | Työnäyte (linkki) | Viikko |\n|---|---|---|---|\n| s14 | Tuotantojulkaisu | …/releases/tag/v1.0 | 48 |\n| s12 | Versionhallinta | …/commits/main | 34–49 |\nSama työnäyte saa olla usealla rivillä.",
             vinkit: [
               "Valinnainen lisä: voit julkaista paketin myös Modrinthissa tai Planet Minecraftissa ohjaajan kanssa sovitusti."
             ],
@@ -1341,8 +1342,8 @@ window.NAYTTOPROJEKTI = {
       connection: "Paketti on julkaistu, eikä siihen lisätä enää sisältöä. Kokoat viikkojen päiväkirjasta, testeistä ja releasesta näyttöaineiston, jossa jokaisella vaatimuksella on tarkka linkki työnäytteeseen. Demo ja luovutus viimeistään pe 4.12.2026 päättävät projektin.",
       deliverable: "Valmis projektipäiväkirja, näyttömatriisi, itsearviointi, jäädytetty v1.0 ja harjoiteltu demo.",
       why: "Arvioija voi arvioida vain näkyvän ja löydettävän osaamisen. Täsmälliset linkit säästävät aikaa ja osoittavat, miten vaatimus muuttui suunnitelmaksi, toteutukseksi ja testiksi.",
-      done: "Jokaisella arviointikohdalla on avautuva tarkka linkki tai tunniste. Projektipäiväkirja ja AI-loki ovat repositoryssa, ja demo käyttää samaa jäädytettyä v1.0-versiota.",
-      record: "Kirjoita Vko 49 -merkintään itsearviointi: kolme vahvuutta työnäytteineen ja yksi seuraava kehitysaskel. Lisää linkit näyttömatriisiin, AI-lokiin, v1.0-releaseen ja demon runkoon. Rastita lopuksi Näyttömatriisi-näkymässä kohta Oma toiminta tiimissä.",
+      done: "project-docs/nayttomatriisi.md:ssä jokaisella arviointikohdalla on avautuva tarkka linkki. Projektipäiväkirja ja AI-loki ovat repositoryssa, ja demo käyttää samaa jäädytettyä v1.0-versiota.",
+      record: "Kirjoita Vko 49 -merkintään itsearviointi: kolme vahvuutta työnäytteineen ja yksi seuraava kehitysaskel. Lisää linkit tiedostoon project-docs/nayttomatriisi.md, AI-lokiin, v1.0-releaseen ja demon runkoon. Rastita lopuksi Näyttömatriisi-näkymässä kohta Oma toiminta tiimissä.",
       skills: ["näyttömatriisi", "itsearviointi", "demo"],
       resources: [
         ["Avaa näyttömatriisi", "#view-naytto", false],
@@ -1377,14 +1378,14 @@ window.NAYTTOPROJEKTI = {
           perii: ["49-2"],
           miksi: "Arvioija löytää jokaisen osaamisen yhdellä klikkauksella, eikä hänen tarvitse etsiä sitä repositorysta.",
           osat: [
-            ["Katso puuttuvat kohdat", "Avaa Näyttömatriisi-näkymä eli luettelo osaamisvaatimuksista, joihin tarvitset työnäytteen. Katso, mitkä kohdat on vielä rastittamatta."],
-            ["Etsi työnäytteet", "Etsi jokaiselle rastittamattomalle kohdalle työnäyte: issue, tiedosto, commit, testitapaus tai päiväkirjan viikko."],
-            ["Kirjaa tarkat linkit", "Kirjoita viikon 49 päiväkirjaan jokaisen vaatimuksen nimi ja tarkka linkki. Linkin pitää avata juuri se kohta, ei repositoryn etusivua."],
-            ["Rastita vaatimus", "Rastita vaatimus Näyttömatriisi-näkymässä, kun linkki on kirjattu."]
+            ["Katso puuttuvat kohdat", "Avaa project-docs/nayttomatriisi.md ja sivun Näyttömatriisi-näkymä eli oma muistilistasi osaamisvaatimuksista. Katso, miltä vaatimuksilta rivi tai rasti vielä puuttuu."],
+            ["Etsi työnäytteet", "Etsi jokaiselle puuttuvalle kohdalle työnäyte: issue, tiedosto, commit, tagi, kuva tai testitapaus."],
+            ["Kirjaa tarkat linkit", "Kirjoita nayttomatriisi.md-tiedostoon jokaiselle vaatimukselle rivi: tunnus, tarkka linkki ja viikko. Linkin pitää avata juuri se kohta, ei repositoryn etusivua."],
+            ["Rastita vaatimus", "Rastita vaatimus sivun Näyttömatriisi-näkymässä, kun sen rivi on tiedostossa."]
           ],
-          valmis: "Jokaisella näyttömatriisin vaatimuksella on tarkka linkki, joka aukeaa.",
-          tallenna: "Vaatimusten linkit viikon 49 päiväkirjaan, josta ne tulevat mukaan projektipaivakirja.md-tiedostoon.",
-          esimerkki: "Toimintojen testaus → project-docs/testaus.md → testitapaukset T01–T12 → release v1.0 → tarkka linkki.",
+          valmis: "project-docs/nayttomatriisi.md:ssä on rivi jokaiselle 32 vaatimukselle, ja jokainen linkki aukeaa oikeaan kohtaan.",
+          tallenna: "project-docs/nayttomatriisi.md commitilla repositoryyn. Linkki tiedostoon viikon 49 päiväkirjaan.",
+          esimerkki: "Rivi: p3 · Toimintojen testaus · project-docs/testaus.md, testitapaukset T01–T12 · vko 45. Sama testaus.md voi olla myös rivillä p2.",
           eiRiita: "Pelkkä rastitettu matriisi tai linkki repositoryn etusivulle."
         },
         "49-4": {
@@ -1441,9 +1442,9 @@ window.NAYTTOPROJEKTI = {
 
     pohjat: {
       aloitusVko: 34,
-      kysymyksia: 8,
+      kysymyksia: 6,
       vertailuVko: 39,
-      katselmointiVkot: "41 ja 47",
+      katselmointiVkot: "41 ja 46",
       testiVko: 45,
       testeja: 12,
       ketjuja: 3,
@@ -1490,8 +1491,8 @@ window.NAYTTOPROJEKTI = {
         [35, "Rajaus", "P0-rajaus, moodboard, backlog ja LICENSE-tiedosto repositoryn juuressa"],
         [41, "Väliversion katselmointi", "Asennusohje toimii ilman apua, palaute kirjattu erillään omasta tulkinnasta, yksi muutos sovittu"],
         [46, "Laatukatselmointi", "Rakenne, LICENSE ja CREDITS, lisenssin ymmärrys, selitys omasta ja tekoälyavusteisesta ratkaisusta"],
-        [47, "RC1", "Sisältöjäädytys, kahden testaajan asennus ohjeella, palautteen luokittelu"],
-        [49, "Luovutus", "Näyttömatriisin täsmälinkit, projektipäiväkirja, AI-loki, demo ja jäädytetty v1.0"]
+        [47, "Julkaisuehdokkaan testaus (RC1)", "Sisältöjäädytys, kahden testaajan asennus ohjeella, palautteen luokittelu"],
+        [49, "Luovutus", "project-docs/nayttomatriisi.md täsmälinkkeineen, projektipäiväkirja, AI-loki, demo ja jäädytetty v1.0"]
       ],
       tyonaytteet: {
         p1: ["34, 38", "Kuva paketista pelin valikossa, Blockbench-projektitiedosto ja julkisen repositoryn linkki"],
@@ -1505,9 +1506,9 @@ window.NAYTTOPROJEKTI = {
         p9: ["39", "Kahden toteutusvaihtoehdon vertailumuistio ja perusteltu päätös"],
         p10: ["41, 46", "Katselmointilokit: palaute, oma tulkinta, päätös ja vastaus kommentteihin"],
         p11: ["49", "Itsearviointi: kolme vahvuutta työnäytteineen ja yksi kehitysaskel"],
-        s1: ["34", "Kysymyslista ohjaajalle vastauksineen, kahden julkaistun paketin vertailu ja kuvaus omasta kohdeyleisöstä"],
+        s1: ["34", "Kuuden kysymyksen lista ohjaajalle vastauksineen, yhden julkaistun paketin tutkimus ja kuvaus omasta kohdeyleisöstä"],
         s2: ["41, 47, 48", "Lataajalle kirjoitettu asennusohje, jonka ulkopuolinen läpäisee ilman apua; 5–10 min esittely ja julkaisuteksti"],
-        s3: ["41, 47", "Väliversion ja RC1:n katselmointilokit osallistujineen"],
+        s3: ["41, 47", "Väliversion katselmointimuistio (vko 41) ja julkaisuehdokkaan RC1 testaushavainnot (vko 47) osallistujien rooleineen"],
         s4: ["35, 41, 43", "P0/P1/P2-backlog ennen ja jälkeen palautteen"],
         s5: ["35", "Issuet, joiden työmäärä on 0,5–1 päivää, hyväksymisehtoineen"],
         s6: ["35, 43", "Työmääräarvio verrattuna toteumaan"],
@@ -1529,7 +1530,7 @@ window.NAYTTOPROJEKTI = {
       },
       dokumentaatio: {
         kayttajalle: "README, asennusohje, LICENSE, CREDITS, CHANGELOG ja julkaisuteksti releasessa.",
-        arviointiin: "Asset-pack-suunnitelma (project-docs/asset-pack-suunnitelma.md), projektipäiväkirja, AI-loki, testimatriisi ja näyttömatriisin täsmälinkit.",
+        arviointiin: "Asset-pack-suunnitelma (project-docs/asset-pack-suunnitelma.md), projektipäiväkirja, AI-loki, testimatriisi ja linkitetty näyttömatriisi project-docs/nayttomatriisi.md.",
         vaatimus: "Asennusohjeen vaatimus on kova: ulkopuolinen henkilö asentaa paketin pelkän ohjeen avulla ilman suullista apua (vkot 41, 47 ja 48). Tämä on samalla asiakaslähtöisen viestinnän työnäyte."
       },
       tekoaly: [
@@ -1540,7 +1541,7 @@ window.NAYTTOPROJEKTI = {
         ["Julkaistu paketti", "Julkinen GitHub-release v1.0: resurssipaketti- ja datapakettizipit, LICENSE, CREDITS, CHANGELOG ja asennusohje"],
         ["Repository", "Julkinen repository jatkuvalla Git-historialla ja toimivalla main-haaralla"],
         ["Projektipäiväkirja", "project-docs/projektipaivakirja.md, kaikki 15 viikkoa kirjattuina"],
-        ["Näyttömatriisi", "32 arviointikohdetta täsmälinkeillä työnäytteisiin"],
+        ["Näyttömatriisi", "project-docs/nayttomatriisi.md: 32 arviointikohdetta täsmälinkeillä työnäytteisiin"],
         ["Demo", "8–10 minuuttia: paketti pelissä, yksi tekninen ratkaisu, yksi korjattu bugi, Git-historia ja tekoälyn käyttö"]
       ],
       huomiot: [

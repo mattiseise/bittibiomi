@@ -6,8 +6,8 @@
   "paivaton": false,
   "generoitu": "2026-09-30",
   "lahde": {
-    "sisalto.js": "74e1f8063ccb2c3a",
-    "index.html": "9d67d1fd50b6d61e"
+    "sisalto.js": "ffb8a53755f918ee",
+    "index.html": "e8addf8281f06c95"
   },
   "viikot": [
     34,
@@ -516,8 +516,8 @@
         {
           "id": "41-2",
           "teksti": "Anna testaajien kokeilla ja kirjaa, mitä he sanovat.",
-          "valmis": "Muistiinpanoissa ovat testaajien sanat ja omat havaintosi erikseen sekä kolme selittämääsi valintaa.",
-          "tallenna": "Muistiinpanot viikon 41 päiväkirjaan."
+          "valmis": "Muistiinpanoissa ovat testaajien havainnot roolin mukaan ja omat havaintosi erikseen sekä kolme selittämääsi valintaa.",
+          "tallenna": "Muistiinpanot viikon 41 päiväkirjaan roolein, ilman nimiä. Jos ohjaaja tarvitsee nimen tai sanatarkan lausuman, lähetä se hänelle Teamsissa."
         },
         {
           "id": "41-3",
@@ -528,7 +528,7 @@
       ],
       "nayta": "väliversion zip ja asennusohje, katselmointimuistio, palaute ja hyväksytty muutosissue.",
       "tuotos": "Testattu väliversio, katselmointimuistio ja yksi hyväksytty muutosissue.",
-      "valmis": "Ohjaaja ja vertaistestaaja ovat kokeilleet pakettia pelissä. Muistiossa näkyvät alkuperäinen palaute, oma tulkinta, päätös, hyväksyjä ja yksi rajattu issue.",
+      "valmis": "Ohjaaja ja vertaistestaaja ovat kokeilleet pakettia pelissä. Muistiossa näkyvät testaajien havainnot roolin mukaan ilman nimiä, oma tulkinta, päätös, hyväksyjä ja yksi rajattu issue.",
       "tarkistukset": [
         {
           "id": "kansio:project-docs/evidence/week-41/",
@@ -858,8 +858,8 @@
         {
           "id": "48-3",
           "teksti": "Julkaise GitHub-release v1.0.",
-          "valmis": "Release v1.0 on julkaistu kahden zipin kanssa, ja olet itse asentanut sen ohjeen avulla puhtaaseen peliin.",
-          "tallenna": "Release-linkki viikon 48 päiväkirjaan."
+          "valmis": "Release v1.0 on julkaistu kahden zipin kanssa, ja olet itse asentanut sen ohjeen avulla puhtaaseen peliin. project-docs/nayttomatriisi.md on perustettu, ja julkaisun rivit on täytetty.",
+          "tallenna": "Release-linkki viikon 48 päiväkirjaan. project-docs/nayttomatriisi.md commitilla repositoryyn."
         },
         {
           "id": "48-4",
@@ -868,10 +868,16 @@
           "tallenna": "Asentajan rooli, päivä ja havainnot viikon 48 päiväkirjaan."
         }
       ],
-      "nayta": "release-linkki, v1.0-tagi, README asennusohjeineen, CHANGELOG ja ulkopuolisen asennustestin kirjaus.",
+      "nayta": "release-linkki, v1.0-tagi, README asennusohjeineen, CHANGELOG, ulkopuolisen asennustestin kirjaus ja perustettu `project-docs/nayttomatriisi.md`.",
       "tuotos": "Julkinen GitHub-release v1.0: zip-paketit, asennusohje, LICENSE, CHANGELOG, kuvakaappaukset ja tunnettujen puutteiden lista.",
-      "valmis": "v1.0-tagin commit vastaa julkaistua versiota. Toinen henkilö on ladannut releasen ja asentanut paketin puhtaaseen peliin pelkän ohjeen avulla.",
+      "valmis": "v1.0-tagin commit vastaa julkaistua versiota. Toinen henkilö on ladannut releasen ja asentanut paketin puhtaaseen peliin pelkän ohjeen avulla. project-docs/nayttomatriisi.md on perustettu.",
       "tarkistukset": [
+        {
+          "id": "tiedosto:project-docs/nayttomatriisi.md",
+          "tyyppi": "tiedosto",
+          "polku": "project-docs/nayttomatriisi.md",
+          "lahde": "auto"
+        },
         {
           "id": "tiedosto:CHANGELOG.md",
           "tyyppi": "tiedosto",
@@ -925,8 +931,8 @@
         {
           "id": "49-3",
           "teksti": "Liitä jokaiseen näyttömatriisin kohtaan tarkka linkki.",
-          "valmis": "Jokaisella näyttömatriisin vaatimuksella on tarkka linkki, joka aukeaa.",
-          "tallenna": "Vaatimusten linkit viikon 49 päiväkirjaan, josta ne tulevat mukaan projektipaivakirja.md-tiedostoon."
+          "valmis": "project-docs/nayttomatriisi.md:ssä on rivi jokaiselle 32 vaatimukselle, ja jokainen linkki aukeaa oikeaan kohtaan.",
+          "tallenna": "project-docs/nayttomatriisi.md commitilla repositoryyn. Linkki tiedostoon viikon 49 päiväkirjaan."
         },
         {
           "id": "49-4",
@@ -941,9 +947,9 @@
           "tallenna": "Luovutuksen päivä viikon 49 päiväkirjaan."
         }
       ],
-      "nayta": "julkaistu paketti, repository, `project-docs/projektipaivakirja.md`, näyttömatriisi, AI-loki ja demo.",
+      "nayta": "julkaistu paketti, repository, `project-docs/projektipaivakirja.md`, `project-docs/nayttomatriisi.md`, AI-loki ja demo.",
       "tuotos": "Valmis projektipäiväkirja, näyttömatriisi, itsearviointi, jäädytetty v1.0 ja harjoiteltu demo.",
-      "valmis": "Jokaisella arviointikohdalla on avautuva tarkka linkki tai tunniste. Projektipäiväkirja ja AI-loki ovat repositoryssa, ja demo käyttää samaa jäädytettyä v1.0-versiota.",
+      "valmis": "project-docs/nayttomatriisi.md:ssä jokaisella arviointikohdalla on avautuva tarkka linkki. Projektipäiväkirja ja AI-loki ovat repositoryssa, ja demo käyttää samaa jäädytettyä v1.0-versiota.",
       "tarkistukset": [
         {
           "id": "paivakirja:49",

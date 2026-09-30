@@ -21,9 +21,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap">
-  <link rel="stylesheet" href="styles.css?v2.7.1-20260930">
-  <script src="sisalto.js?v2.7.1-20260930" defer></script>
-  <script src="app.js?v2.7.1-20260930" defer></script>
+  <link rel="stylesheet" href="styles.css?v2.7.2-20260930">
+  <script src="sisalto.js?v2.7.2-20260930" defer></script>
+  <script src="app.js?v2.7.2-20260930" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#sisalto">Siirry sisältöön</a>
@@ -120,18 +120,19 @@
             <dt>Asset-pack-suunnitelma</dt><dd>Omat ja ohjaajan päätökset perusteluineen: teema, resoluutio, paletti, pakollisen sisällön määrät, peliversio ja lisenssi. Täytät sen tällä sivulla ja viet tiedostoksi <code>project-docs/asset-pack-suunnitelma.md</code>.</dd>
             <dt>GitHub-issue</dt><dd>Yhden assetin tai muutoksen otsikko, arvio, prioriteetti ja Valmis kun -ehto. Kun issue on valmis, lisäät sen kommenttiin linkin siihen commitiin, jossa työ tehtiin, ja suljet issuen.</dd>
             <dt>Projektipäiväkirja</dt><dd>Viikon kirjaukset: testien odotetut ja todelliset tulokset, päätökset perusteluineen, muistiot (esimerkiksi katselmointi ja vertailu) ja polut työnäytteisiin. Kirjoitat viikkonäkymässä, lataat ja viet tiedostoksi <code>project-docs/projektipaivakirja.md</code>.</dd>
-            <dt><code>project-docs/</code>-kansio</dt><dd>Työnäytteet viikon mukaan <code>evidence/week-N/</code>-kansioihin (kuvakaappaukset, zipit, asennusohje), Blockbenchin lähdetiedostot <code>lahdetiedostot/</code>-kansioon ja viikon 45 testitapaukset tiedostoon <code>testaus.md</code>.</dd>
+            <dt><code>project-docs/</code>-kansio</dt><dd>Työnäytteet viikon mukaan <code>evidence/week-N/</code>-kansioihin (kuvakaappaukset, zipit, asennusohje), Blockbenchin lähdetiedostot <code>lahdetiedostot/</code>-kansioon, viikon 45 testitapaukset tiedostoon <code>testaus.md</code> ja linkitetty näyttömatriisi tiedostoon <code>nayttomatriisi.md</code>.</dd>
             <dt>README, LICENSE, CREDITS ja CHANGELOG</dt><dd>Lataajalle kirjoitetut tiedostot repositoryn juuressa: asennusohje ja tunnetut puutteet, paketin oma lisenssi, lähteet ulkopuolisesta sisällöstä ja version sisältö.</dd>
             <dt>AI-loki</dt><dd>Mitä kysyit tekoälyltä ja mitä teit vastauksella: käytit, muutit tai hylkäsit, ja miten tarkistit.</dd>
-            <dt>Näyttömatriisi</dt><dd>Rastit osaamisvaatimuksista, joille on työnäyte. Tarkat linkit kirjoitat viikon 49 päiväkirjaan. Sama työnäyte voi osoittaa useita vaatimuksia.</dd>
+            <dt>Linkitetty näyttömatriisi <code>project-docs/nayttomatriisi.md</code></dt><dd>Jokaista vaatimusta kohti rivi: vaatimuksen tunnus, työnäytteen linkki (commit, issue, tiedosto, tagi tai kuva) ja viikko. Sama työnäyte saa olla usealla rivillä. Perustat tiedoston viimeistään julkaisuviikolla 48 ja viimeistelet sen näyttöviikolla 49. Sivun Näyttömatriisi-näkymän rastit ovat oma muistilistasi.</dd>
           </dl>
           <p>Työvaiheen tallennusohje kertoo aina, mihin näistä paikoista työnäyte menee. Sivuston rastit ja kentät tallentuvat vain tähän selaimeen: rasti ei ole palautus, ja työnäyte on aina repositoryssa.</p>
+          <p><strong>Henkilöt:</strong> repositoryyn, issueihin ja päiväkirjaan kirjataan henkilöistä vain rooli, esimerkiksi ohjaaja, vertainen, testaaja A tai testaaja B. Jos ohjaaja tarvitsee nimen tai sanatarkan lausuman, lähetä se hänelle Teamsissa.</p>
         </details>
 
         <details class="view-section project-reference">
           <summary>Vaatimus, ehdotus vai oma päätös?</summary>
           <p><strong>Vaatimus</strong> tulee toimeksiannosta, ja se pitää toteuttaa. Sisältö jaetaan viikolla 35 kolmeen luokkaan, ja samat tunnukset toistuvat koko sivustolla. Pakollinen ydin (P0) on saatava valmiiksi ennen mitään lisäsisältöä: 5 tekstuuria (3 blokkia ja 2 esinettä), omat nimet, 1 Blockbench-malli, 1 isompi malli tai mobin uusi ilme, 1 resepti, 1 saavutus ja 1 palkintofunktio. Tärkeä jatko (P1) tehdään, kun pakollinen toimii. Valinnainen lisä (P2) saa jäädä pois.</p>
-          <p><strong>Sovittu toteutustapa</strong> on lukittu: Minecraft Java Edition, resurssipaketti ja datapaketti, skriptaus komennoilla ja JSON-tiedostoilla sekä julkaisu julkisena GitHub-releasena. <strong>Ehdotus</strong> on oletus, josta voit poiketa perustellusti: esimerkiksi Piskel, Lospecin paletit, Audacity ja ohjeiden esimerkkinimet, kuten Kotikylä ja teemalyhty. <strong>Oma päätös</strong> perustellaan suunnitelmassa tai päiväkirjassa: teema, resoluutio, paletti, vertailun valinta viikolla 39 ja oma resepti. <strong>Ohjaajan kanssa sovittavat asiat</strong>, kuten peliversio, lisenssi ja julkaisun ehdot, ovat toimeksiannon lopussa. Tyhjä kenttä suunnitelmassa on oikea tulos, kunnes asia on sovittu.</p>
+          <p><strong>Sovittu toteutustapa</strong> on lukittu: Minecraft Java Edition, resurssipaketti ja datapaketti, skriptaus komennoilla ja JSON-tiedostoilla sekä julkaisu julkisena GitHub-releasena. Myös tietovarasto on sovittu: paketin tiedot ovat pelin määräämissä JSON-tiedostoissa (kielitiedosto, reseptit ja saavutus), eikä sitä valita itse. Kun peliversio on sovittu ohjaajan kanssa, se on lukittu koko projektin ajaksi. <strong>Ehdotus</strong> on oletus, josta voit poiketa perustellusti: esimerkiksi Piskel, Lospecin paletit, Audacity ja ohjeiden esimerkkinimet, kuten Kotikylä ja teemalyhty. <strong>Oma päätös</strong> perustellaan suunnitelmassa tai päiväkirjassa: teema, resoluutio, paletti, vertailun valinta viikolla 39 ja oma resepti. <strong>Ohjaajan kanssa sovittavat asiat</strong>, kuten peliversio, lisenssi ja julkaisun ehdot, ovat toimeksiannon lopussa. Tyhjä kenttä suunnitelmassa on oikea tulos, kunnes asia on sovittu.</p>
           <a href="#view-toimeksianto" data-open-view="toimeksianto">Avaa toimeksianto →</a>
         </details>
 
@@ -139,7 +140,7 @@
           <summary>Mitä näytössä arvioidaan?</summary>
           <p>Näytössä arvioidaan sama työ kolmesta tutkinnon osasta: Ohjelmointi (11 vaatimusta), Ohjelmistokehittäjänä toimiminen (14 vaatimusta) ja Ohjelmiston toteuttaminen ohjelmistokomponenttikirjastolla (7 vaatimusta). Näyttömatriisissa on kaikki 32 vaatimusta. Tunnukset p1–p11, s1–s14 ja k1–k7 viittaavat näihin kolmeen osaan.</p>
           <p>Ohjelmoinnin osaaminen näkyy datapaketin rakenteessa, testeissä, virheenkorjausketjuissa ja siinä, miten vertailet ja perustelet ratkaisusi, vaikka skriptaus tehdään komennoilla. Ohjelmistokehittäjänä toimiminen on työtapa: selvität toimeksiannon, pilkot ja priorisoit sisällön issueiksi, ohjaat työtä Gitillä, katselmoit ja julkaiset. Komponenttikirjasto-osan työnäytteet tulevat Blockbench-mallinnuksesta, paketin rakenteesta, ulkoisten komponenttien lisensseistä, dokumentaatiosta ja julkaisusta lataajan ympäristöön.</p>
-          <p>Näyttöympäristö on kaksiosainen: oppilaitoksen työtila ja julkinen jakelukanava. Työnäyte on yksi tuotos, joka osoittaa osaamisesi: commit, kuva, testirivi tai muistio.</p>
+          <p>Näyttöympäristö on kaksiosainen: oppilaitoksen työtila ja julkinen jakelukanava. Työnäyte on yksi tuotos, joka osoittaa osaamisesi: commit, kuva, testirivi tai muistio. Arvioijalle työnäytteiden linkit kootaan tiedostoon <code>project-docs/nayttomatriisi.md</code>.</p>
           <a href="#view-naytto" data-open-view="naytto">Avaa näyttömatriisi →</a>
         </details>
 
@@ -206,6 +207,7 @@
               <li>tekstuurit ja Blockbench-mallit <code>resourcepack</code>-kansioon</li>
               <li>reseptit, funktiot ja saavutus <code>datapack</code>-kansioon</li>
               <li>skriptaus mcfunction-komennoilla ja JSON-tiedostoilla — ei ohjelmointikieltä</li>
+              <li>tietovarasto: paketin tiedot ovat pelin määräämissä JSON-tiedostoissa (kielitiedosto, reseptit ja saavutus), eikä sitä valita itse</li>
               <li>lopuksi julkinen GitHub-release: zip-paketit, LICENSE ja lataajalle kirjoitettu asennusohje</li>
             </ul>
             <p style="margin-top:8px">Käytä projektin alussa sovittua Minecraft Java -versiota koko projektin ajan. Version vaihto kesken projektin muuttaa pack_format-arvoja. Pack_format on numero, joka kertoo pelille, mille Minecraft-versiolle paketti on tehty; väärä arvo näkyy pelissä varoituksena.</p>
@@ -1345,7 +1347,7 @@
 
           <div class="outcome-grid">
             <div class="card"><p class="section-label">Valmis kun</p><p class="checkpoint">Ennen kuin jatkat: tarkista viikon valmis kun -ehto.</p></div>
-            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">release-linkki, v1.0-tagi, README asennusohjeineen, CHANGELOG ja ulkopuolisen asennustestin kirjaus.</p></div>
+            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">release-linkki, v1.0-tagi, README asennusohjeineen, CHANGELOG, ulkopuolisen asennustestin kirjaus ja perustettu <code>project-docs/nayttomatriisi.md</code>.</p></div>
           </div>
 
           <section class="week-journal" data-week-journal="48">
@@ -1420,7 +1422,7 @@
 
           <div class="outcome-grid">
             <div class="card"><p class="section-label">Valmis kun</p><p class="checkpoint">Ennen kuin jatkat: tarkista viikon valmis kun -ehto.</p></div>
-            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">julkaistu paketti, repository, <code>project-docs/projektipaivakirja.md</code>, näyttömatriisi, AI-loki ja demo.</p></div>
+            <div class="card"><p class="section-label section-label-accent">Näytä</p><p class="evidence">julkaistu paketti, repository, <code>project-docs/projektipaivakirja.md</code>, <code>project-docs/nayttomatriisi.md</code>, AI-loki ja demo.</p></div>
           </div>
 
           <section class="week-journal" data-week-journal="49">
@@ -1587,7 +1589,7 @@
       <section class="view" data-view="naytto" id="view-naytto">
         <p class="view-eyebrow">Näyttöaineisto syntyy työn aikana</p>
         <h1 class="view-title">Näyttömatriisi</h1>
-        <p class="view-lead">Pelkkä valmis paketti ei näytä koko osaamista. Työnäyte on yksi tuotos, joka osoittaa osaamisesi: commit, kuva, testirivi tai muistio. Sama työnäyte voi kelvata useaan kohtaan: esimerkiksi repository ja peliin ladattu paketti todentavat sekä kehitysympäristön että sen käyttöönoton. Kokoa jokaisesta kohdasta linkki, commit, kuva, lokimerkintä tai päätösmuistio.</p>
+        <p class="view-lead">Pelkkä valmis paketti ei näytä koko osaamista. Työnäyte on yksi tuotos, joka osoittaa osaamisesi: commit, kuva, testirivi tai muistio. Sama työnäyte voi kelvata useaan kohtaan: esimerkiksi repository ja peliin ladattu paketti todentavat sekä kehitysympäristön että sen käyttöönoton. Kokoa jokaisesta kohdasta linkki, commit, kuva, lokimerkintä tai päätösmuistio. Arvioijalle linkit kootaan tiedostoon <code>project-docs/nayttomatriisi.md</code>: jokaista vaatimusta kohti rivi, jossa ovat tunnus, työnäytteen linkki ja viikko. Tämän näkymän rastit ovat oma muistilistasi.</p>
 
         <div class="card card-tint evidence-summary"><strong data-evidence-count>0 / 32</strong><span>osaamisvaatimuksen työnäyte merkitty</span></div>
 
