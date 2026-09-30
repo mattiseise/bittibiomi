@@ -21,9 +21,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap">
-  <link rel="stylesheet" href="styles.css">
-  <script src="sisalto.js" defer></script>
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v2.7-20260930">
+  <script src="sisalto.js?v2.7-20260930" defer></script>
+  <script src="app.js?v2.7-20260930" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#sisalto">Siirry sisältöön</a>
@@ -52,7 +52,7 @@
       <div class="sidebar-scroll">
         <nav class="nav-group" aria-label="Ohjeet ja tausta">
           <p class="nav-group-title">Ohjeet ja tausta · lue ennen aloitusta</p>
-          <a class="nav-row" href="#view-kaytto" data-view-nav="kaytto">Näin käytät sivua<span class="nav-meta">aloita tästä</span></a>
+          <a class="nav-row" href="#view-kaytto" data-view-nav="kaytto">Projektin kokonaiskuva<span class="nav-meta">aloita tästä</span></a>
           <a class="nav-row" href="#view-toimeksianto" data-view-nav="toimeksianto">Toimeksianto<span class="nav-meta"></span></a>
           <a class="nav-row" href="#view-tyotapa" data-view-nav="tyotapa">Työtapa<span class="nav-meta"></span></a>
           <a class="nav-row" href="#view-termit" data-view-nav="termit">Termit<span class="nav-meta" data-glossary-count></span></a>
@@ -75,50 +75,73 @@
 
       <!-- ============ NÄIN KÄYTÄT SIVUA ============ -->
       <section class="view" data-view="kaytto" id="view-kaytto">
-        <p class="view-eyebrow">Mitä tässä näytetään ja miten tätä sivua käytetään</p>
-        <h1 class="view-title">Yksi projekti, yksi kirjoituspaikka</h1>
-        <p class="view-lead">Teet oman teemapaketin Minecraft Java Editioniin asset kerrallaan ja julkaiset sen avoimella lisenssillä kaikkien ladattavaksi. Asset on pelissä näkyvä tai kuuluva paketin osa: tekstuuri, 3D-malli, ääni tai skriptattu lisä. Järjestys: blokkitekstuurit, esineet ja nimet, Blockbench-mallit, äänet, reseptit ja funktiot. Jokaisen assetin tekniikka arvioidaan näytössä. Projektipäiväkirja kirjoitetaan tälle sivulle.</p>
+        <p class="view-eyebrow">Aloita tästä · kokonaiskuva ennen viikkoa 34</p>
+        <h1 class="view-title">BittiBiomi: mitä rakennat ja miten etenet</h1>
+        <p class="view-lead">Rakennat oman teemapaketin Minecraft Java Editioniin ja julkaiset sen avoimella lisenssillä kaikkien ladattavaksi. Pelaaja lataa paketin GitHubista, asentaa sen ohjeesi avulla ja pelaa sinun teemassasi: omat tekstuurit, mallit, nimet ja ääni sekä resepti, joka avaa saavutuksen.</p>
+        <p>Sinä päätät teeman ja rajauksen, piirrät ja mallinnat assetit itse ja testaat jokaisen pelissä ennen kuin kirjaat sen valmiiksi. Ohjaaja päättää peliversion, lisenssin ja julkaisun ehdot: kirjaa hänen vastauksensa, älä keksi niitä itse tai tekoälyllä.</p>
+        <section data-goal></section>
 
-        <section class="view-section">
-          <h2>Kolme tutkinnon osaa, yksi paketti</h2>
-          <p class="view-lead" style="margin-top:10px">Näytössä arvioidaan sama työ kolmesta tutkinnon osasta: matriisin osiot Ohjelmointi (11 vaatimusta), Ohjelmistokehittäjänä toimiminen (14 vaatimusta) ja Ohjelmiston toteuttaminen ohjelmistokomponenttikirjastolla (7 vaatimusta) kattavat yhteensä 32 vaatimusta.</p>
-          <p class="view-lead" style="margin-top:10px">Opiskelija suunnittelee, toteuttaa ja julkaisee oman teemapaketin Minecraft Java Editioniin. Paketti koostuu kahdesta osasta. Resurssipaketti (englanniksi resource pack) muuttaa sitä, miltä peli näyttää ja kuulostaa: itse piirretyt tekstuurit, Blockbench-mallit, äänet ja suomenkieliset nimet. Blockbench on ilmainen 3D-mallinnusohjelma. Kevyt datapaketti (data pack) lisää peliin sääntöjä: reseptit, saavutuksen ja mcfunction-skriptit.</p>
-          <p class="view-lead" style="margin-top:10px">Mcfunction on tekstitiedosto, jossa on pelin omia komentoja rivi riviltä. Skriptaus tehdään näillä komennoilla ja JSON-tiedostoilla, ei ohjelmointikielellä. JSON on yksinkertainen tekstimuoto, jolla paketin määrittelyt kirjoitetaan – peli lukee tiedoston sellaisenaan. Tällä sivulla käytetään suomenkielisiä termejä resurssipaketti ja datapaketti; englanninkieliset nimet on hyvä tuntea, koska Minecraft Wiki ja kansiorakenne käyttävät niitä.</p>
-          <p class="view-lead" style="margin-top:10px">Paketti julkaistaan avoimella lisenssillä julkisena GitHub-releasena. Release on GitHubissa julkaistu versio, jonka kuka tahansa voi ladata. Repository eli projektin koko tiedosto- ja versiohistoria GitHubissa on julkinen ensimmäisestä commitista asti. Commit on yksi Gitiin tallennettu muutos, jolla on oma viesti ja tunniste. Näyttöympäristö on siis kaksiosainen: oppilaitoksen työtila ja julkinen jakelukanava.</p>
+        <section data-roadmap></section>
+
+        <section class="card card-tint view-section">
+          <h2>Näin käytät viikko-ohjetta</h2>
+          <ol>
+            <li>Lue ensin, miten viikon asiat liittyvät kokonaisprojektiin, ja viikon tavoite.</li>
+            <li>Tee viikon työvaiheet järjestyksessä. Ensimmäinen keskeneräinen työvaihe on auki. Rastita osatehtävä heti, kun olet tehnyt sen.</li>
+            <li>Kun teet assetin tai muutoksen pakettiin, käytä Työtapa-sivun asset-työkiertoa. Assetin arvio ja Valmis kun -ehto ovat sen GitHub-issuessa, ja valmiin issuen kommenttiin lisäät commit-linkin.</li>
+            <li>Jos jäät jumiin, avaa työvaiheen kohta <strong>Tarvitsen apua tähän työvaiheeseen</strong>. Kokeile ensin itse.</li>
+            <li>Tee viikon lopputarkistus. Kirjoita projektipäiväkirjan kolme kenttää, lataa koko päiväkirja ja korvaa sillä repositoryn tiedosto <code>project-docs/projektipaivakirja.md</code>.</li>
+          </ol>
+          <p><strong>Työvaihe</strong> on tämän sivun viikko-ohjeen kohta, jonka osatehtävät rastitat. <strong>GitHub-issue</strong> on repositoryyn kirjattu yksi asset tai muutos, esimerkiksi ”Piirrä kolme blokkitekstuuria”, ja se on noin puolen tai yhden päivän työ. <strong>Asset-työkierto</strong> on Työtapa-sivun kuusi askelta, joilla teet yhden issuen valmiiksi. Yksi työvaihe voi koskea useaa issueta, ja yhden assetin työ voi jatkua usean työvaiheen läpi.</p>
+          <a class="button button-primary" href="#week-34" data-open-week="34">Avaa viikko 34 →</a>
         </section>
 
-        <figure class="view-figure view-section">
-          <div class="image-stage"><img src="assets/paketti-vaiheet.svg" width="1129" height="369" alt="Neljä numeroitua vaihetta: tyhjä harmaa blokki, blokki omalla tekstuurilla, blokki 3D-mallin ja komentorivin kanssa sekä valmis julkaistu paketti latauskuvakkeineen."></div>
-          <figcaption><strong>Paketin vaiheet:</strong> tyhjä paketti → omat tekstuurit → mallit ja skriptit → julkaistu v1.0.</figcaption>
-        </figure>
+        <details class="view-section project-reference">
+          <summary>Paketin osat ja työkalut</summary>
+          <figure class="project-figure">
+            <img src="assets/sovelluksen-osat.svg" width="880" height="640" alt="Havainnekuva teemapaketin osista. Vasemmalla työkalut: Piskelillä piirretään tekstuurit PNG-kuviksi, Blockbenchillä tehdään 3D-mallit, Audacityllä ääni muunnetaan ogg-muotoon ja VS Codella kirjoitetaan JSON- ja mcfunction-tiedostot. Keskellä julkinen repository, jossa on resourcepack-kansio (tekstuurit, mallit, kielitiedosto, äänet ja pack.mcmeta), datapack-kansio (resepti, saavutus, funktiot, load.json ja pack.mcmeta), project-docs-kansio sekä README, LICENSE, CREDITS ja CHANGELOG. Oikealla Minecraft Java: resurssipaketti asennetaan pelin resourcepacks-kansioon ja muuttaa ilmeen ja äänen, datapaketti asennetaan maailman datapacks-kansioon, jossa resepti laukaisee saavutuksen ja saavutus ajaa palkintofunktion. Alarivillä GitHub-release v1.0 jakaa kaksi zipiä ja ohjeen lataajalle." loading="lazy">
+            <figcaption>Havainnekuva teemapaketin osista ja niiden yhteydestä. Se ei ole kuvakaappaus valmiista paketista.</figcaption>
+          </figure>
+          <dl class="project-roles">
+            <dt>Resurssipaketti (<code>resourcepack/</code>)</dt><dd>Resurssipaketti (englanniksi resource pack) muuttaa sitä, miltä peli näyttää ja kuulostaa: blokki- ja esinetekstuurit, Blockbench-mallit, mobin ilme, suomenkieliset nimet ja ääni. Pelaaja asentaa sen pelin resourcepacks-kansioon.</dd>
+            <dt>Datapaketti (<code>datapack/</code>)</dt><dd>Datapaketti (data pack) lisää peliin sääntöjä: reseptin, saavutuksen ja palkintofunktion. Skriptaus tehdään pelin komennoilla ja JSON-tiedostoilla, ei ohjelmointikielellä. JSON on yksinkertainen tekstimuoto, jolla paketin määrittelyt kirjoitetaan, ja mcfunction-tiedosto on lista pelin komentoja. Pelaaja asentaa datapaketin maailman datapacks-kansioon.</dd>
+            <dt><code>pack.mcmeta</code> ja oma nimiavaruus</dt><dd>Kummankin paketin juuressa on pack.mcmeta, jonka pack_format-arvo kertoo pelille, mille Minecraft-versiolle paketti on tehty. Omat äänet ja datapaketin tiedostot ovat paketin omassa nimiavaruudessa eli omalla nimellä nimetyssä kansiossa, esimerkiksi <code>kotikyla</code>.</dd>
+            <dt>Piskel, Blockbench, Audacity ja VS Code</dt><dd>Piskelillä piirrät tekstuurit, Blockbenchillä mallinnat ja teksturoit 3D-mallit, Audacityllä muunnat äänen ogg-muotoon ja VS Codella kirjoitat JSON- ja mcfunction-tiedostot. Blockbench-malli kuuluu pakolliseen sisältöön. Muut ovat ehdotuksia, joille ohjeet on kirjoitettu.</dd>
+            <dt>Minecraft Java Edition</dt><dd>Projektin alussa sovittu versio pysyy samana koko projektin ajan. Testaat luovan tilan testimaailmassa, ja lopputestit tehdään selviytymistilassa ja puhtaassa asennuksessa.</dd>
+            <dt>GitHub ja GitHub Desktop</dt><dd>Repository eli projektin koko tiedosto- ja versiohistoria GitHubissa on julkinen ensimmäisestä commitista asti. Commit on yksi Gitiin tallennettu muutos, jolla on oma viesti ja tunniste. Issuet ohjaavat työtä, ja GitHub-release eli GitHubissa julkaistu versio on lataajan jakelukanava.</dd>
+            <dt>Tekoäly</dt><dd>Saa selittää, auttaa JSON- ja komentovirheissä ja ehdottaa testitapauksia. Pakollinen sisältö piirretään ja mallinnetaan aina itse, ja lisäsisällössä tekoälyn tuottama grafiikka käy vain opettajan erillisellä luvalla. Merkittävä käyttö kirjataan AI-lokiin eli kirjaukseen siitä, miten olet käyttänyt tekoälyä.</dd>
+          </dl>
+        </details>
 
-        <div class="principle-grid">
-          <div class="card"><span class="num">1</span><h3>Rakenna paketissa</h3><p>Tekstuurit, mallit, äänet ja skriptit ovat paketin kansioissa.</p><small>Repository sisältää kansiot <code>resourcepack</code>, <code>datapack</code> ja <code>project-docs</code>.</small></div>
-          <div class="card"><span class="num">2</span><h3>Ohjaa työ Gitillä</h3><p>Työ ohjataan GitHub-issueilla. Issue on repositoryyn kirjattu tehtävä: otsikko, kuvaus ja Valmis kun -ehto. Valmis työ näkyy repositoryssa committeina.</p><small>Yksi issue = yleensä puolen tai yhden päivän työ.</small></div>
-          <div class="card"><span class="num">3</span><h3>Kirjoita tällä sivulla</h3><p>Jokaisen viikon lopussa vastaat kolmeen kysymykseen: mitä ja miten, miksi sekä missä työnäyte on. Työnäyte on yksi tuotos, joka osoittaa osaamisesi: commit, kuva, testirivi tai muistio.</p><small>Kentät tallentuvat vain tähän selaimeen.</small></div>
-          <div class="card"><span class="num">4</span><h3>Vie päiväkirja talteen</h3><p>Lataa koko projektipäiväkirja jokaisen viikon lopussa ja korvaa repositoryn vanha tiedosto.</p><small>Tiedosto: <code>project-docs/projektipaivakirja.md</code>. Valmis paketti julkaistaan GitHub-releasena viikolla 48.</small></div>
-        </div>
+        <details class="view-section project-reference">
+          <summary>Mihin kirjoitan mitäkin?</summary>
+          <dl class="project-roles">
+            <dt>Toimeksianto</dt><dd>Paketin vaatimukset, sovittu toteutustapa ja rajaus. Tästä tarkistat, mitä pitää tehdä.</dd>
+            <dt>Asset-pack-suunnitelma</dt><dd>Omat ja ohjaajan päätökset perusteluineen: teema, resoluutio, paletti, pakollisen sisällön määrät, peliversio ja lisenssi. Täytät sen tällä sivulla ja viet tiedostoksi <code>project-docs/asset-pack-suunnitelma.md</code>.</dd>
+            <dt>GitHub-issue</dt><dd>Yhden assetin tai muutoksen otsikko, arvio, prioriteetti ja Valmis kun -ehto. Kun issue on valmis, lisäät sen kommenttiin linkin siihen commitiin, jossa työ tehtiin, ja suljet issuen.</dd>
+            <dt>Projektipäiväkirja</dt><dd>Viikon kirjaukset: testien odotetut ja todelliset tulokset, päätökset perusteluineen, muistiot (esimerkiksi katselmointi ja vertailu) ja polut työnäytteisiin. Kirjoitat viikkonäkymässä, lataat ja viet tiedostoksi <code>project-docs/projektipaivakirja.md</code>.</dd>
+            <dt><code>project-docs/</code>-kansio</dt><dd>Työnäytteet viikon mukaan <code>evidence/week-N/</code>-kansioihin (kuvakaappaukset, zipit, asennusohje), Blockbenchin lähdetiedostot <code>lahdetiedostot/</code>-kansioon ja viikon 45 testitapaukset tiedostoon <code>testaus.md</code>.</dd>
+            <dt>README, LICENSE, CREDITS ja CHANGELOG</dt><dd>Lataajalle kirjoitetut tiedostot repositoryn juuressa: asennusohje ja tunnetut puutteet, paketin oma lisenssi, lähteet ulkopuolisesta sisällöstä ja version sisältö.</dd>
+            <dt>AI-loki</dt><dd>Mitä kysyit tekoälyltä ja mitä teit vastauksella: käytit, muutit tai hylkäsit, ja miten tarkistit.</dd>
+            <dt>Näyttömatriisi</dt><dd>Rastit osaamisvaatimuksista, joille on työnäyte. Tarkat linkit kirjoitat viikon 49 päiväkirjaan. Sama työnäyte voi osoittaa useita vaatimuksia.</dd>
+          </dl>
+          <p>Työvaiheen tallennusohje kertoo aina, mihin näistä paikoista työnäyte menee. Sivuston rastit ja kentät tallentuvat vain tähän selaimeen: rasti ei ole palautus, ja työnäyte on aina repositoryssa.</p>
+        </details>
 
-        <div class="card view-section checklist-box">
-          <p class="section-label section-label-accent">Näin viikon tehtävät toimivat</p>
-          <ol>
-            <li>Joka viikolla on 3–5 tehtävää. Tee ne järjestyksessä. Vain kesken oleva tehtävä on auki.</li>
-            <li>Jokainen tehtävä on pilkottu pieniin osatehtäviin. Yksi osatehtävä on yksi asia, jonka teet. Rastita se heti, kun olet tehnyt sen.</li>
-            <li>Tehtävän alussa lukee, miksi se tehdään. Uudet sanat ja tunnukset selitetään tehtävässä, jossa niitä tarvitaan.</li>
-            <li>Tehtävän lopussa lukee <strong>Valmis kun</strong> ja <strong>Tallenna työnäyte</strong>. Tarkista ne ennen kuin siirryt seuraavaan tehtävään.</li>
-            <li>Jos jäät jumiin, avaa tehtävän kohta <strong>Tarvitsen apua tähän tehtävään</strong>. Kokeile ensin itse.</li>
-          </ol>
-        </div>
+        <details class="view-section project-reference">
+          <summary>Vaatimus, ehdotus vai oma päätös?</summary>
+          <p><strong>Vaatimus</strong> tulee toimeksiannosta, ja se pitää toteuttaa. Sisältö jaetaan viikolla 35 kolmeen luokkaan, ja samat tunnukset toistuvat koko sivustolla. Pakollinen ydin (P0) on saatava valmiiksi ennen mitään lisäsisältöä: 5 tekstuuria (3 blokkia ja 2 esinettä), omat nimet, 1 Blockbench-malli, 1 isompi malli tai mobin uusi ilme, 1 resepti, 1 saavutus ja 1 palkintofunktio. Tärkeä jatko (P1) tehdään, kun pakollinen toimii. Valinnainen lisä (P2) saa jäädä pois.</p>
+          <p><strong>Sovittu toteutustapa</strong> on lukittu: Minecraft Java Edition, resurssipaketti ja datapaketti, skriptaus komennoilla ja JSON-tiedostoilla sekä julkaisu julkisena GitHub-releasena. <strong>Ehdotus</strong> on oletus, josta voit poiketa perustellusti: esimerkiksi Piskel, Lospecin paletit, Audacity ja ohjeiden esimerkkinimet, kuten Kotikylä ja teemalyhty. <strong>Oma päätös</strong> perustellaan suunnitelmassa tai päiväkirjassa: teema, resoluutio, paletti, vertailun valinta viikolla 39 ja oma resepti. <strong>Ohjaajan kanssa sovittavat asiat</strong>, kuten peliversio, lisenssi ja julkaisun ehdot, ovat toimeksiannon lopussa. Tyhjä kenttä suunnitelmassa on oikea tulos, kunnes asia on sovittu.</p>
+          <a href="#view-toimeksianto" data-open-view="toimeksianto">Avaa toimeksianto →</a>
+        </details>
 
-        <div class="card card-tint view-section checklist-box">
-          <p class="section-label section-label-accent">Tee kerran projektin alussa</p>
-          <ol>
-            <li>Luo repositoryyn kansiot <code>resourcepack</code>, <code>datapack</code> ja <code>project-docs</code>.</li>
-            <li>Avaa viikko 34 ja tee yksi tehtävä kerrallaan.</li>
-            <li>Kirjoita viikon lopussa projektipäiväkirjan kolme kenttää.</li>
-            <li>Paina <strong>Lataa koko projektipäiväkirja</strong>, siirrä tiedosto <code>project-docs</code>-kansioon ja tee commit.</li>
-          </ol>
-        </div>
+        <details class="view-section project-reference">
+          <summary>Mitä näytössä arvioidaan?</summary>
+          <p>Näytössä arvioidaan sama työ kolmesta tutkinnon osasta: Ohjelmointi (11 vaatimusta), Ohjelmistokehittäjänä toimiminen (14 vaatimusta) ja Ohjelmiston toteuttaminen ohjelmistokomponenttikirjastolla (7 vaatimusta). Näyttömatriisissa on kaikki 32 vaatimusta. Tunnukset p1–p11, s1–s14 ja k1–k7 viittaavat näihin kolmeen osaan.</p>
+          <p>Ohjelmoinnin osaaminen näkyy datapaketin rakenteessa, testeissä, virheenkorjausketjuissa ja siinä, miten vertailet ja perustelet ratkaisusi, vaikka skriptaus tehdään komennoilla. Ohjelmistokehittäjänä toimiminen on työtapa: selvität toimeksiannon, pilkot ja priorisoit sisällön issueiksi, ohjaat työtä Gitillä, katselmoit ja julkaiset. Komponenttikirjasto-osan työnäytteet tulevat Blockbench-mallinnuksesta, paketin rakenteesta, ulkoisten komponenttien lisensseistä, dokumentaatiosta ja julkaisusta lataajan ympäristöön.</p>
+          <p>Näyttöympäristö on kaksiosainen: oppilaitoksen työtila ja julkinen jakelukanava. Työnäyte on yksi tuotos, joka osoittaa osaamisesi: commit, kuva, testirivi tai muistio.</p>
+          <a href="#view-naytto" data-open-view="naytto">Avaa näyttömatriisi →</a>
+        </details>
 
         <div class="card view-section download-card">
           <div>
@@ -136,7 +159,7 @@
         <details class="source-role">
           <summary>Mitä paperinen työpaketti ja alkuperäinen Word-pohja tekevät?</summary>
           <p><strong>Paperinen työpaketti</strong> on aikataulu ja tarkistuslista tilanteisiin, joissa sivu ei ole auki. Siihen ei tarvitse kirjoittaa samoja vastauksia uudelleen.</p>
-          <p><strong>Alkuperäinen Word-pohja</strong> on tämän pakettipolun lähdeaineisto. Sen aiheet on tuotu sivuston viikkotehtäviin ja projektipäiväkirjaan. Täytä Word-pohja erikseen vain, jos opettaja antaa siitä erillisen palautusohjeen.</p>
+          <p><strong>Alkuperäinen Word-pohja</strong> on tämän pakettipolun lähdeaineisto. Sen aiheet on tuotu sivuston viikko-ohjeisiin ja projektipäiväkirjaan. Täytä Word-pohja erikseen vain, jos opettaja antaa siitä erillisen palautusohjeen.</p>
         </details>
 
         <div class="download-card view-section" style="margin-top:20px">
@@ -146,7 +169,7 @@
 
         <details class="source-role">
           <summary>Opettajan lähdeaineisto · ei erillistä täyttämistä ilman ohjetta</summary>
-          <p>Nämä ovat opettajan lähdeaineistoa. Opiskelija ei täytä niitä ilman erillistä ohjetta. Viikkotehtävät ja projektipäiväkirja kattavat saman sisällön.</p>
+          <p>Nämä ovat opettajan lähdeaineistoa. Opiskelija ei täytä niitä ilman erillistä ohjetta. Viikko-ohjeet ja projektipäiväkirja kattavat saman sisällön.</p>
           <p><a href="downloads/nayttosuunnitelma.docx" download>Näyttösuunnitelma (.docx)</a> – näytön kohde, roolit, tarkistuspisteet ja 32 vaatimuksen työnäytemäppäys.</p>
           <p><a href="downloads/nayton-dokumentointipohjat.docx" download>Dokumentointipohjat (.docx)</a> – aloituskeskustelu, vertailumuistio, katselmointiloki, testimatriisi, virheenkorjausketju, lisenssikirjaus ja AI-lokin paperiversio.</p>
           <p><a href="downloads/teemaideat.docx" download>Teemaideat (.docx)</a> – 10 teemaideaa sisältölistoineen ja rajausehdotus.</p>
@@ -157,6 +180,7 @@
       <section class="view" data-view="toimeksianto" id="view-toimeksianto">
         <p class="view-eyebrow">Alkuperäinen toimeksianto · annettu 17.8.2026</p>
         <h1 class="view-title">Avoin teemapaketti</h1>
+        <p class="section-label section-label-accent">Vaatimus · toimeksiantajan teksti, toteutetaan aina</p>
         <div class="brief-text">
           <p>Tee oma teemapaketti Minecraft Java Editioniin ja julkaise se avoimena lähdekoodina. Paketti muuttaa pelin ilmettä valitun teeman mukaiseksi: siihen kuuluu omia blokki- ja esinetekstuureja, uusia 3D-malleja ja teeman mukaiset suomenkieliset nimet.</p>
           <p>Pakettiin kuuluu myös pelillinen lisä: omia valmistusreseptejä, vähintään yksi saavutus ja komentoskripti, jotka toimivat tavallisessa selviytymismaailmassa ilman modeja. Paketin pitää latautua ilman virheilmoituksia sillä Minecraft-versiolla, joka sovitaan projektin alussa.</p>
@@ -166,25 +190,48 @@
 
         <div class="grid-2 view-section">
           <div class="card">
-            <p class="section-label section-label-accent">Sovittu toteutustapa</p>
+            <p class="section-label section-label-accent">Vaatimus · pakollinen ydin (P0)</p>
+            <p style="margin-top:8px">Toimeksiannon teksti yllä on vaatimus. Sen pohjalta pakollinen ydin, joka on saatava valmiiksi ennen mitään lisäsisältöä, on:</p>
+            <ul>
+              <li>5 tekstuuria: 3 blokkia ja 2 esinettä</li>
+              <li>omat suomenkieliset nimet</li>
+              <li>1 Blockbench-malli ja 1 isompi malli tai mobin uusi ilme</li>
+              <li>1 resepti, 1 saavutus ja 1 palkintofunktio, jotka toimivat selviytymismaailmassa ilman modeja</li>
+            </ul>
+          </div>
+          <div class="card">
+            <p class="section-label section-label-accent">Sovittu toteutustapa · lukittu projektin alussa</p>
             <p style="margin-top:8px"><strong>Minecraft Java: resurssipaketti + datapaketti</strong></p>
             <ul>
               <li>tekstuurit ja Blockbench-mallit <code>resourcepack</code>-kansioon</li>
               <li>reseptit, funktiot ja saavutus <code>datapack</code>-kansioon</li>
               <li>skriptaus mcfunction-komennoilla ja JSON-tiedostoilla — ei ohjelmointikieltä</li>
-              <li>Pakollinen ydin (P0): 5 tekstuuria (3 blokkia ja 2 esinettä), omat nimet, 1 Blockbench-malli, 1 isompi malli tai mobin uusi ilme, 1 resepti, 1 saavutus ja 1 palkintofunktio</li>
               <li>lopuksi julkinen GitHub-release: zip-paketit, LICENSE ja lataajalle kirjoitettu asennusohje</li>
             </ul>
             <p style="margin-top:8px">Käytä projektin alussa sovittua Minecraft Java -versiota koko projektin ajan. Version vaihto kesken projektin muuttaa pack_format-arvoja. Pack_format on numero, joka kertoo pelille, mille Minecraft-versiolle paketti on tehty; väärä arvo näkyy pelissä varoituksena.</p>
           </div>
+        </div>
+
+        <div class="grid-2 view-section">
+          <div class="card">
+            <p class="section-label">Ehdotus · oletus, josta voit poiketa perustellusti</p>
+            <ul>
+              <li>Piskel tekstuureille, Lospecin valmiit paletit, Audacity äänille, VS Code ja GitHub Desktop: ohjeet on kirjoitettu näille työkaluille</li>
+              <li>16 × 16 pikselin tekstuurit, koska se on pelin oma koko</li>
+              <li>oma äänitys tai CC0- tai CC BY -lisensoitu ääni Freesoundista</li>
+              <li>ohjeiden esimerkit, kuten teema Kotikylä, resepti teemalyhty ja saavutus Kylän valot</li>
+            </ul>
+            <p>Jos valitset toisin, kirjaa valinta ja perustelu Asset-pack-suunnitelmaan.</p>
+          </div>
           <div class="card">
             <p class="section-label">Pidä rajaus</p>
             <p style="margin-top:8px"><strong>Tee ensin toimiva P0-versio.</strong> Sisältö priorisoidaan koko projektin ajan kolmeen luokkaan: P0 on pakollinen ydin, jonka on valmistuttava; P1 on tärkeä jatkosisältö, joka tehdään vasta kun P0 toimii; P2 on valinnainen lisä, joka voidaan jättää pois. Modit (Forge/Fabric), palvelinpluginit, uudet pelimekaniikat ja maksullinen sisältö eivät kuulu tähän projektiin.</p>
+            <p><strong>Oma päätös</strong> perustellaan suunnitelmassa tai päiväkirjassa: teema ja kohdeyleisö, resoluutio, paletti ja työkalut sekä pakollisen sisällön määrät (viikko 35), isompi malli vai mobin ilme (viikko 39) ja oma resepti (viikko 44).</p>
           </div>
         </div>
 
         <div class="card card-tint decision-box view-section">
-          <p class="section-label">Sovi ohjaajan kanssa</p>
+          <p class="section-label">Sovi ohjaajan kanssa · näitä ei päätetä itse eikä tekoälyllä</p>
           <ul>
             <li>Mikä Minecraft-versio ja kuka päättää versiopäivityksistä?</li>
             <li>Millä avoimella lisenssillä paketti julkaistaan?</li>
@@ -213,10 +260,11 @@
 
       <!-- ============ TYÖTAPA ============ -->
       <section class="view" data-view="tyotapa" id="view-tyotapa">
-        <p class="view-eyebrow">Jokainen työskentelykerta</p>
+        <p class="view-eyebrow">Asset-työkierto · jokainen asset ja muutos</p>
         <h1 class="view-title">Kuusi askelta joka kerralla</h1>
+        <p class="view-lead">Asset-työkierto on tapa tehdä yksi asset tai yksi GitHub-issue valmiiksi. Viikon työvaiheet kertovat, mitä teet tällä viikolla. Kierto kertoo, miten teet jokaisen assetin: kun issue on valmis, lisäät sen kommenttiin commit-linkin ja jatkat viikon seuraavasta työvaiheesta.</p>
         <ol class="workflow-loop">
-          <li><span>1</span><strong>Valitse</strong><small>yksi pieni tehtävä</small></li>
+          <li><span>1</span><strong>Valitse</strong><small>yksi issue</small></li>
           <li><span>2</span><strong>Suunnittele</strong><small>asset ja sen testi</small></li>
           <li><span>3</span><strong>Toteuta</strong><small>pala kerrallaan</small></li>
           <li><span>4</span><strong>Testaa</strong><small>pelissä, myös virhetilanne</small></li>
@@ -290,7 +338,7 @@
       <section class="view" data-view="viikko" id="view-viikko">
 
         <article class="week-card" id="week-34" data-week="34">
-          <p class="view-eyebrow" data-week-label="17.–21.8.">Vaihe A · Paketin ydin · Vko 34 · 17.–21.8.</p>
+          <p class="view-eyebrow" data-week-label="17.–21.8.">Vaihe 1 · Valmistelu · Vko 34 · 17.–21.8.</p>
           <h1 class="view-title">Aloitus: teema ja työkalut</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -312,7 +360,7 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 5</span></div>
+            <div class="section-heading-row"><h2>Viikon työvaiheet</h2><span class="week-status" data-week-status>0 / 5</span></div>
             <div class="task-list">
               <label class="task-row"><input type="checkbox" data-task="34-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Lue toimeksianto ja kirjoita kuusi kysymystä ohjaajalle.</span></label>
               <label class="task-row"><input type="checkbox" data-task="34-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Pidä aloituskeskustelu ja kirjaa ohjaajan vastaukset.</span></label>
@@ -365,7 +413,7 @@
         </article>
 
         <article class="week-card" id="week-35" data-week="35">
-          <p class="view-eyebrow" data-week-label="24.–28.8.">Vaihe A · Paketin ydin · Vko 35 · 24.–28.8.</p>
+          <p class="view-eyebrow" data-week-label="24.–28.8.">Vaihe 1 · Valmistelu · Vko 35 · 24.–28.8.</p>
           <h1 class="view-title">Asset-pack-suunnitelma: teema ja sisältölista</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -387,11 +435,11 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 4</span></div>
+            <div class="section-heading-row"><h2>Viikon työvaiheet</h2><span class="week-status" data-week-status>0 / 4</span></div>
             <div class="task-list">
               <label class="task-row"><input type="checkbox" data-task="35-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Täytä asset-pack-suunnitelma ja vie se repositoryyn.</span></label>
               <label class="task-row"><input type="checkbox" data-task="35-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Sovi lisenssi ohjaajan kanssa ja lisää LICENSE-tiedosto.</span></label>
-              <label class="task-row"><input type="checkbox" data-task="35-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tee pakollisesta sisällöstä tehtävälista GitHubiin.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="35-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Pilko pakollinen sisältö GitHub-issueiksi.</span></label>
               <label class="task-row"><input type="checkbox" data-task="35-4"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kokoa moodboard ja piirrä kaksi tekstuuriluonnosta.</span></label>
             </div>
           </section>
@@ -439,7 +487,7 @@
         </article>
 
         <article class="week-card" id="week-36" data-week="36">
-          <p class="view-eyebrow" data-week-label="31.8.–4.9.">Vaihe A · Paketin ydin · Vko 36 · 31.8.–4.9.</p>
+          <p class="view-eyebrow" data-week-label="31.8.–4.9.">Vaihe 2 · Paketin ilme · Vko 36 · 31.8.–4.9.</p>
           <h1 class="view-title">Asset 1 · Ensimmäiset blokkitekstuurit peliin</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -461,7 +509,7 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
+            <div class="section-heading-row"><h2>Viikon työvaiheet</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
               <label class="task-row"><input type="checkbox" data-task="36-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Piirrä kolme blokkitekstuuria sovitulla paletilla.</span></label>
               <label class="task-row"><input type="checkbox" data-task="36-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Vie tekstuurit pakettiin ja lataa paketti peliin.</span></label>
@@ -512,7 +560,7 @@
         </article>
 
         <article class="week-card" id="week-37" data-week="37">
-          <p class="view-eyebrow" data-week-label="7.–11.9.">Vaihe A · Paketin ydin · Vko 37 · 7.–11.9.</p>
+          <p class="view-eyebrow" data-week-label="7.–11.9.">Vaihe 2 · Paketin ilme · Vko 37 · 7.–11.9.</p>
           <h1 class="view-title">Asset 2 · Esinetekstuurit ja omat nimet</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -534,7 +582,7 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
+            <div class="section-heading-row"><h2>Viikon työvaiheet</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
               <label class="task-row"><input type="checkbox" data-task="37-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Piirrä kaksi esinetekstuuria ja vie ne pakettiin.</span></label>
               <label class="task-row"><input type="checkbox" data-task="37-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Anna sisällölle omat suomenkieliset nimet kielitiedostolla.</span></label>
@@ -585,7 +633,7 @@
         </article>
 
         <article class="week-card" id="week-38" data-week="38">
-          <p class="view-eyebrow" data-week-label="14.–18.9.">Vaihe B · Paketin ominaisuudet · Vko 38 · 14.–18.9.</p>
+          <p class="view-eyebrow" data-week-label="14.–18.9.">Vaihe 2 · Paketin ilme · Vko 38 · 14.–18.9.</p>
           <h1 class="view-title">Asset 3 · Ensimmäinen Blockbench-malli</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -607,7 +655,7 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
+            <div class="section-heading-row"><h2>Viikon työvaiheet</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
               <label class="task-row"><input type="checkbox" data-task="38-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Mallinna Blockbenchillä pieni blokkimalli.</span></label>
               <label class="task-row"><input type="checkbox" data-task="38-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Teksturoi malli ja vie se pakettiin.</span></label>
@@ -658,7 +706,7 @@
         </article>
 
         <article class="week-card" id="week-39" data-week="39">
-          <p class="view-eyebrow" data-week-label="21.–25.9.">Vaihe B · Paketin ominaisuudet · Vko 39 · 21.–25.9.</p>
+          <p class="view-eyebrow" data-week-label="21.–25.9.">Vaihe 2 · Paketin ilme · Vko 39 · 21.–25.9.</p>
           <h1 class="view-title">Asset 4 · Isompi malli tai hahmon uusi ilme</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -680,7 +728,7 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
+            <div class="section-heading-row"><h2>Viikon työvaiheet</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
               <label class="task-row"><input type="checkbox" data-task="39-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Vertaa kahta vaihtoehtoa ja tee valinta.</span></label>
               <label class="task-row"><input type="checkbox" data-task="39-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Toteuta valittu työ kahdessa vaiheessa.</span></label>
@@ -731,7 +779,7 @@
         </article>
 
         <article class="week-card" id="week-40" data-week="40">
-          <p class="view-eyebrow" data-week-label="28.9.–2.10.">Vaihe B · Paketin ominaisuudet · Vko 40 · 28.9.–2.10.</p>
+          <p class="view-eyebrow" data-week-label="28.9.–2.10.">Vaihe 2 · Paketin ilme · Vko 40 · 28.9.–2.10.</p>
           <h1 class="view-title">Asset 5 · Äänet ja tunnelma</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -753,7 +801,7 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
+            <div class="section-heading-row"><h2>Viikon työvaiheet</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
               <label class="task-row"><input type="checkbox" data-task="40-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Valitse ääni ja kirjaa sen lisenssi CREDITS-tiedostoon.</span></label>
               <label class="task-row"><input type="checkbox" data-task="40-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Muunna ääni ogg-muotoon ja lisää se sounds.json-tiedostoon.</span></label>
@@ -804,7 +852,7 @@
         </article>
 
         <article class="week-card" id="week-41" data-week="41">
-          <p class="view-eyebrow" data-week-label="5.–9.10.">Vaihe B · Paketin ominaisuudet · Vko 41 · 5.–9.10.</p>
+          <p class="view-eyebrow" data-week-label="5.–9.10.">Vaihe 3 · Palaute ja datapaketti · Vko 41 · 5.–9.10.</p>
           <h1 class="view-title">Katselmointi · Ensimmäiset testaajat</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -826,7 +874,7 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
+            <div class="section-heading-row"><h2>Viikon työvaiheet</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
               <label class="task-row"><input type="checkbox" data-task="41-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kokoa testaajille väliversio ja asennusohje.</span></label>
               <label class="task-row"><input type="checkbox" data-task="41-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Anna testaajien kokeilla ja kirjaa, mitä he sanovat.</span></label>
@@ -883,7 +931,7 @@
         </article>
 
         <article class="week-card" id="week-43" data-week="43">
-          <p class="view-eyebrow" data-week-label="19.–23.10.">Vaihe C · Paketti valmiiksi · Vko 43 · 19.–23.10.</p>
+          <p class="view-eyebrow" data-week-label="19.–23.10.">Vaihe 3 · Palaute ja datapaketti · Vko 43 · 19.–23.10.</p>
           <h1 class="view-title">Asset 6 · Palautemuutos ja datapaketin runko</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -905,7 +953,7 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
+            <div class="section-heading-row"><h2>Viikon työvaiheet</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
               <label class="task-row"><input type="checkbox" data-task="43-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tee palautemuutos omassa Git-haarassa.</span></label>
               <label class="task-row"><input type="checkbox" data-task="43-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Yhdistä muutos main-haaraan pull requestilla.</span></label>
@@ -956,7 +1004,7 @@
         </article>
 
         <article class="week-card" id="week-44" data-week="44">
-          <p class="view-eyebrow" data-week-label="26.–30.10.">Vaihe C · Paketti valmiiksi · Vko 44 · 26.–30.10.</p>
+          <p class="view-eyebrow" data-week-label="26.–30.10.">Vaihe 3 · Palaute ja datapaketti · Vko 44 · 26.–30.10.</p>
           <h1 class="view-title">Asset 7 · Skriptattu ominaisuus</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -978,7 +1026,7 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
+            <div class="section-heading-row"><h2>Viikon työvaiheet</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
               <label class="task-row"><input type="checkbox" data-task="44-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tee teemaasi sopiva valmistusresepti.</span></label>
               <label class="task-row"><input type="checkbox" data-task="44-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tee saavutus, joka palkitsee pelaajan funktiolla.</span></label>
@@ -1029,7 +1077,7 @@
         </article>
 
         <article class="week-card" id="week-45" data-week="45">
-          <p class="view-eyebrow" data-week-label="2.–6.11.">Vaihe C · Paketti valmiiksi · Vko 45 · 2.–6.11.</p>
+          <p class="view-eyebrow" data-week-label="2.–6.11.">Vaihe 4 · Testaus ja laatu · Vko 45 · 2.–6.11.</p>
           <h1 class="view-title">Paketin laatu · Paketti kestää käyttöä</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -1051,7 +1099,7 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
+            <div class="section-heading-row"><h2>Viikon työvaiheet</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
               <label class="task-row"><input type="checkbox" data-task="45-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kirjoita 12 testitapausta ennen testaamista.</span></label>
               <label class="task-row"><input type="checkbox" data-task="45-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Aja testitapaukset puhtaassa pelissä ja kirjaa tulokset.</span></label>
@@ -1102,7 +1150,7 @@
         </article>
 
         <article class="week-card" id="week-46" data-week="46">
-          <p class="view-eyebrow" data-week-label="9.–13.11.">Vaihe C · Paketti valmiiksi · Vko 46 · 9.–13.11.</p>
+          <p class="view-eyebrow" data-week-label="9.–13.11.">Vaihe 4 · Testaus ja laatu · Vko 46 · 9.–13.11.</p>
           <h1 class="view-title">Paketin laatu · Rakenne, jonka toinen ymmärtää</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -1124,7 +1172,7 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
+            <div class="section-heading-row"><h2>Viikon työvaiheet</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
               <label class="task-row"><input type="checkbox" data-task="46-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Siisti kansiot ja tiedostonimet niin, että paketti toimii kuten ennen.</span></label>
               <label class="task-row"><input type="checkbox" data-task="46-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tarkista LICENSE- ja CREDITS-tiedostot.</span></label>
@@ -1175,7 +1223,7 @@
         </article>
 
         <article class="week-card" id="week-47" data-week="47">
-          <p class="view-eyebrow" data-week-label="16.–20.11.">Vaihe D · Julkaisu ja näyttö · Vko 47 · 16.–20.11.</p>
+          <p class="view-eyebrow" data-week-label="16.–20.11.">Vaihe 5 · Julkaisu ja näyttö · Vko 47 · 16.–20.11.</p>
           <h1 class="view-title">Julkaisu · Julkaisuehdokas RC1 testissä</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -1197,10 +1245,10 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 3</span></div>
+            <div class="section-heading-row"><h2>Viikon työvaiheet</h2><span class="week-status" data-week-status>0 / 3</span></div>
             <div class="task-list">
-              <label class="task-row"><input type="checkbox" data-task="47-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kokoa ensimmäinen julkaisuehdokas (RC1) ja lopeta uuden sisällön lisääminen.</span></label>
-              <label class="task-row"><input type="checkbox" data-task="47-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Anna ohjaajan ja yhden muun käyttäjän asentaa paketti pelkän ohjeen avulla.</span></label>
+              <label class="task-row"><input type="checkbox" data-task="47-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Jäädytä sisältö ja kokoa ensimmäinen julkaisuehdokas (RC1).</span></label>
+              <label class="task-row"><input type="checkbox" data-task="47-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Anna kahden testaajan asentaa julkaisuehdokas pelkän ohjeen avulla.</span></label>
               <label class="task-row"><input type="checkbox" data-task="47-3"><span class="task-box" aria-hidden="true"></span><span class="task-text">Päätä jokaisesta havainnosta, korjataanko se ennen julkaisua.</span></label>
             </div>
           </section>
@@ -1248,7 +1296,7 @@
         </article>
 
         <article class="week-card" id="week-48" data-week="48">
-          <p class="view-eyebrow" data-week-label="23.–27.11.">Vaihe D · Julkaisu ja näyttö · Vko 48 · 23.–27.11.</p>
+          <p class="view-eyebrow" data-week-label="23.–27.11.">Vaihe 5 · Julkaisu ja näyttö · Vko 48 · 23.–27.11.</p>
           <h1 class="view-title">Julkaisu · v1.0 julki</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -1270,7 +1318,7 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 4</span></div>
+            <div class="section-heading-row"><h2>Viikon työvaiheet</h2><span class="week-status" data-week-status>0 / 4</span></div>
             <div class="task-list">
               <label class="task-row"><input type="checkbox" data-task="48-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Korjaa vain ne virheet, jotka päätit korjata ennen julkaisua.</span></label>
               <label class="task-row"><input type="checkbox" data-task="48-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kirjoita lataajalle README- ja CHANGELOG-tiedostot.</span></label>
@@ -1322,7 +1370,7 @@
         </article>
 
         <article class="week-card" id="week-49" data-week="49">
-          <p class="view-eyebrow" data-week-label="30.11.–4.12.">Vaihe D · Julkaisu ja näyttö · Vko 49 · 30.11.–4.12.</p>
+          <p class="view-eyebrow" data-week-label="30.11.–4.12.">Vaihe 5 · Julkaisu ja näyttö · Vko 49 · 30.11.–4.12.</p>
           <h1 class="view-title">Näyttö · Aineisto ja luovutus</h1>
 
           <div class="week-kicker" data-week-kicker hidden>
@@ -1344,7 +1392,7 @@
           </div>
 
           <section class="view-section">
-            <div class="section-heading-row"><h2>Viikon tehtävät</h2><span class="week-status" data-week-status>0 / 5</span></div>
+            <div class="section-heading-row"><h2>Viikon työvaiheet</h2><span class="week-status" data-week-status>0 / 5</span></div>
             <div class="task-list">
               <label class="task-row"><input type="checkbox" data-task="49-1"><span class="task-box" aria-hidden="true"></span><span class="task-text">Tarkista projektipäiväkirja.</span></label>
               <label class="task-row"><input type="checkbox" data-task="49-2"><span class="task-box" aria-hidden="true"></span><span class="task-text">Kirjoita itsearviointi omiin työnäytteisiin nojaten.</span></label>
@@ -1401,6 +1449,7 @@
         <p class="view-eyebrow">Paketin suunnitteludokumentti · täytä viikolla 35</p>
         <h1 class="view-title">Asset-pack-suunnitelma: teema ja sisältölista</h1>
         <p class="view-lead">Asset-pack-suunnitelma on tämän projektin suunnitteludokumentti: se kertoo, mitä assetteja pakettiin tehdään, missä järjestyksessä ja millä säännöillä. Asset pack tarkoittaa assettien kokoelmaa – tässä projektissa resurssipakettia ja datapakettia yhdessä. Pohja on esitäytetty toimeksiannosta. Sinä teet omat päätökset ja lataat valmiin asset-pack-suunnitelma.md-tiedoston repositoryysi. Omat päätökset vaativat viikon 34 vastaukset ohjaajalta; palaat niihin viikoilla 36, 39 ja 44.</p>
+        <p class="card card-tint view-section"><strong>Merkinnät:</strong> <strong>vaatimus</strong> tulee toimeksiannosta, eikä sitä muuteta. <strong>Sovittu toteutustapa</strong> on lukittu projektin alussa. <strong>Ehdotus</strong> on oletus, josta voit poiketa perustellusti. <strong>OMA</strong> on sinun päätöksesi perusteluineen. <strong>OHJAAJA</strong> sovitaan ohjaajan kanssa, eikä sitä päätetä itse eikä tekoälyllä.</p>
 
         <figure class="view-figure">
           <div class="image-stage"><img src="assets/suunnitelma-luonnos.svg" width="1128" height="540" alt="Työpöytä, jolla on luonnoslehtiö kolmella tekstuuri-idealla, viiden värin paletti ja ruutupaperille piirretty lista pakollisesta ydinsisällöstä eli P0:sta."></div>
@@ -1408,11 +1457,11 @@
         </figure>
 
         <div class="plan-prefilled" aria-label="Asset-pack-suunnitelman esitäytetty pohja">
-          <p class="section-label">Esitäytetty pohja · tulee mukaan tiedostoon</p>
-          <article><h3>1 · Konsepti</h3><p>Avoimella lisenssillä julkaistava teemapaketti Minecraft Java Editioniin: resurssipaketti muuttaa pelin ilmettä ja datapaketti lisää reseptit, saavutuksen ja funktiot.</p></article>
-          <article><h3>2 · Asset-työkierto</h3><p>Luonnos → Blockbench tai Piskel → pakettiin → peliin → testi → commit.</p></article>
+          <p class="section-label">Esitäytetty pohja · toimeksiannosta ja sovitusta toteutustavasta · tulee mukaan tiedostoon</p>
+          <article><h3>1 · Konsepti · vaatimus</h3><p>Avoimella lisenssillä julkaistava teemapaketti Minecraft Java Editioniin: resurssipaketti muuttaa pelin ilmettä ja datapaketti lisää reseptit, saavutuksen ja funktiot.</p></article>
+          <article><h3>2 · Asset-työkierto · sovittu työtapa</h3><p>Luonnos → Blockbench tai Piskel → pakettiin → peliin → testi → commit.</p></article>
           <article>
-            <h3>3 · Assetit tekojärjestyksessä</h3>
+            <h3>3 · Assetit tekojärjestyksessä · ehdotus viikkoaikataulusta</h3>
             <ol>
               <li>Ensimmäiset blokkitekstuurit <small>vko 36</small></li>
               <li>Esinetekstuurit ja omat nimet <small>vko 37</small></li>
@@ -1422,10 +1471,10 @@
               <li>Testaajan toivoma parannus + datapaketin runko <small>vko 43 · sisältö selviää katselmoinnissa vkolla 41</small></li>
               <li>Skriptattu ominaisuus: reseptit, funktio ja saavutus <small>vko 44</small></li>
             </ol>
-            <small>Tämä lista ei ole valmis suunnitelma: assettien pilkkominen pieniksi GitHub-issueiksi ja niiden priorisointi on sinun työtäsi (viikon 35 tehtävä 3). Priorisoinnissa on kolme tasoa: pakollinen (P0) on ydin, jonka on valmistuttava; tärkeä (P1) tehdään, kun pakolliset toimivat; lisä (P2) voidaan jättää pois.</small>
+            <small>Tämä lista ei ole valmis suunnitelma: assettien pilkkominen pieniksi GitHub-issueiksi ja niiden priorisointi on oma päätöksesi (viikon 35 työvaihe 3). Priorisoinnissa on kolme tasoa: pakollinen (P0) on ydin, jonka on valmistuttava; tärkeä (P1) tehdään, kun pakolliset toimivat; lisä (P2) voidaan jättää pois.</small>
           </article>
-          <article><h3>4 · Teknologia</h3><p>Minecraft Java Edition, resurssipaketti + datapaketti, Blockbench ja Piskel, skriptaus mcfunction-komennoilla ja JSON-tiedostoilla, julkaisu GitHub-releasena.</p></article>
-          <article><h3>5 · Rajaus — mitä ei tehdä</h3><p>Ei modeja, ei palvelinpluginejä, ei uusia pelimekaniikkoja eikä maksullista sisältöä. Ensin toimiva P0-versio.</p></article>
+          <article><h3>4 · Teknologia · sovittu toteutustapa</h3><p>Minecraft Java Edition, resurssipaketti + datapaketti, Blockbench-mallit, skriptaus mcfunction-komennoilla ja JSON-tiedostoilla, julkaisu GitHub-releasena. Ehdotus: Piskel tekstuureille ja Audacity äänille. Oma työkaluvalinta kirjataan alla kenttään Väripaletti ja työkalut.</p></article>
+          <article><h3>5 · Rajaus — mitä ei tehdä · vaatimus</h3><p>Ei modeja, ei palvelinpluginejä, ei uusia pelimekaniikkoja eikä maksullista sisältöä. Ensin toimiva P0-versio.</p></article>
           <article>
             <h3>6 · Avoimet asiat — ohjaaja omistaa</h3>
             <ul>
@@ -1487,7 +1536,7 @@
       <section class="view" data-view="paivakirja" id="view-paivakirja">
         <p class="view-eyebrow">Yksi kirjoituspaikka · viedään Gitiin joka viikko</p>
         <h1 class="view-title">Projektipäiväkirja</h1>
-        <p class="view-lead">Viikon merkintä kirjoitetaan viikkonäkymässä tehtävien alla. Tämä näkymä on arkisto: näet mitkä viikot on kirjattu ja lataat koko päiväkirjan tiedostona.</p>
+        <p class="view-lead">Viikon merkintä kirjoitetaan viikkonäkymässä työvaiheiden alla. Tämä näkymä on arkisto: näet mitkä viikot on kirjattu ja lataat koko päiväkirjan tiedostona.</p>
 
         <div class="card card-tint journal-summary-card">
           <div><span class="big" data-journal-count>0 / 15 viikkoa kirjattu</span><p>Tiedosto: <code>project-docs/projektipaivakirja.md</code></p></div>

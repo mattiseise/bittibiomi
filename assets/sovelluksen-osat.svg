@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="640" viewBox="0 0 880 640" role="img" aria-labelledby="title desc">
+<title id="title">Miten teemapaketin osat liittyvät toisiinsa?</title>
+<desc id="desc">Havainnekuva teemapaketin osista, ei kuvakaappaus. Vasemmalla työkalut: Piskelillä piirretään tekstuurit PNG-kuviksi, Blockbenchillä tehdään 3D-mallit ja niiden .bbmodel-lähdetiedostot, Audacityllä ääni muunnetaan ogg-muotoon ja VS Codella kirjoitetaan JSON- ja mcfunction-tiedostot. Työkalujen tulokset tallennetaan julkiseen repositoryyn GitHubissa. Repositoryssa on resourcepack-kansio, joka muuttaa pelin ilmettä ja ääntä (textures/block, textures/item, models/block, lang/fi_fi.json, oman nimiavaruuden äänet ja sounds.json sekä pack.mcmeta ja pack.png), datapack-kansio, joka lisää säännöt (oman nimiavaruuden recipe-, advancement- ja function-kansiot, load.json ja pack.mcmeta), project-docs-kansio arviointia varten (suunnitelma, päiväkirja ja testaus.md) sekä README, LICENSE, CREDITS ja CHANGELOG. Oikealla Minecraft Java: resurssipaketti luetaan pelin resourcepacks-kansiosta, ja se näyttää tekstuurit, mallit ja nimet ja soittaa äänen. Datapaketti luetaan maailman datapacks-kansiosta: resepti työpöydällä laukaisee saavutuksen, ja saavutus ajaa palkintofunktion. Alhaalla GitHub-release v1.0 jakaa lataajalle kaksi zipiä ja README-ohjeen, joilla kuka tahansa asentaa paketin. Työn aikana kopioit kansiot itse peliin ja testaat jokaisen muutoksen.</desc>
+<rect width="880" height="640" fill="#ffffff"/>
+<defs>
+  <marker id="nuoli" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#5c5347"/></marker>
+</defs>
+<text x="28" y="44" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">Miten teemapaketin osat liittyvät toisiinsa?</text>
+<text x="28" y="70" fill="#5c5347" font-family="Arial, Helvetica, sans-serif" font-size="15">Havainnekuva, ei kuvakaappaus valmiista paketista</text>
+
+<!-- 1 Työkalut -->
+<text x="28" y="108" fill="#1b5e20" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Työkalut</text>
+<rect x="28" y="122" width="190" height="62" rx="8" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="42" y="146" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">Piskel</text>
+<text x="42" y="168" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">tekstuurit PNG-kuviksi</text>
+<rect x="28" y="196" width="190" height="62" rx="8" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="42" y="220" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">Blockbench</text>
+<text x="42" y="242" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">3D-mallit ja .bbmodel</text>
+<rect x="28" y="270" width="190" height="62" rx="8" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="42" y="294" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">Audacity</text>
+<text x="42" y="316" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">ääni ogg-muotoon</text>
+<rect x="28" y="344" width="190" height="62" rx="8" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="42" y="368" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">VS Code</text>
+<text x="42" y="390" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">JSON ja mcfunction</text>
+<path d="M221 153H254" stroke="#5c5347" stroke-width="2" marker-end="url(#nuoli)"/>
+<path d="M221 227H254" stroke="#5c5347" stroke-width="2" marker-end="url(#nuoli)"/>
+<path d="M221 301H254" stroke="#5c5347" stroke-width="2" marker-end="url(#nuoli)"/>
+<path d="M221 375H254" stroke="#5c5347" stroke-width="2" marker-end="url(#nuoli)"/>
+
+<!-- 2 Julkinen repository -->
+<rect x="258" y="86" width="340" height="392" rx="12" fill="#fdfcf9" stroke="#1b5e20" stroke-width="2"/>
+<text x="274" y="108" fill="#1b5e20" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Julkinen repository · GitHub</text>
+<rect x="270" y="122" width="316" height="118" rx="8" fill="#f1f8e9" stroke="#1a6fae" stroke-width="1.5"/>
+<text x="284" y="146" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">resourcepack/ · ilme ja ääni</text>
+<text x="284" y="168" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">textures/block · textures/item</text>
+<text x="284" y="188" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">models/block · lang/fi_fi.json</text>
+<text x="284" y="208" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">teema/sounds · sounds.json</text>
+<text x="284" y="228" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">pack.mcmeta · pack.png</text>
+<rect x="270" y="252" width="316" height="98" rx="8" fill="#f1f8e9" stroke="#c03434" stroke-width="1.5"/>
+<text x="284" y="276" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">datapack/ · säännöt</text>
+<text x="284" y="298" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">teema/recipe · teema/advancement</text>
+<text x="284" y="318" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">teema/function · load.json</text>
+<text x="284" y="338" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">pack.mcmeta</text>
+<rect x="270" y="362" width="316" height="62" rx="8" fill="#ffffff" stroke="#c9bfae" stroke-width="1.5"/>
+<text x="284" y="386" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">project-docs/ · arviointiin</text>
+<text x="284" y="408" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">suunnitelma, päiväkirja, testaus.md</text>
+<rect x="270" y="436" width="316" height="32" rx="8" fill="#ffffff" stroke="#c9bfae" stroke-width="1.5"/>
+<text x="428" y="457" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle">README · LICENSE · CREDITS · CHANGELOG</text>
+
+<!-- 3 Minecraft Java -->
+<text x="638" y="108" fill="#1b5e20" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Minecraft Java</text>
+<rect x="638" y="122" width="214" height="118" rx="8" fill="#e8f5e9" stroke="#1a6fae" stroke-width="1.5"/>
+<text x="652" y="146" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">resourcepacks-kansio</text>
+<text x="652" y="170" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">näyttää tekstuurit,</text>
+<text x="652" y="190" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">mallit ja nimet ja</text>
+<text x="652" y="210" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">soittaa äänen</text>
+<rect x="638" y="252" width="214" height="184" rx="8" fill="#e8f5e9" stroke="#c03434" stroke-width="1.5"/>
+<text x="652" y="276" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">maailman datapacks</text>
+<rect x="652" y="288" width="186" height="28" rx="14" fill="#ffffff" stroke="#c03434" stroke-width="1.5"/>
+<text x="745" y="307" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle">resepti työpöydällä</text>
+<path d="M745 318V339" stroke="#5c5347" stroke-width="2" marker-end="url(#nuoli)"/>
+<rect x="652" y="342" width="186" height="28" rx="14" fill="#ffffff" stroke="#c03434" stroke-width="1.5"/>
+<text x="745" y="361" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle">saavutus laukeaa</text>
+<path d="M745 372V393" stroke="#5c5347" stroke-width="2" marker-end="url(#nuoli)"/>
+<rect x="652" y="396" width="186" height="28" rx="14" fill="#ffffff" stroke="#c03434" stroke-width="1.5"/>
+<text x="745" y="415" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle">palkintofunktio</text>
+<path d="M590 181H634" stroke="#5c5347" stroke-width="2" marker-end="url(#nuoli)"/>
+<path d="M590 301H634" stroke="#5c5347" stroke-width="2" marker-end="url(#nuoli)"/>
+
+<!-- Julkaisu lataajalle -->
+<path d="M428 480V510" stroke="#5c5347" stroke-width="2.5" marker-end="url(#nuoli)"/>
+<rect x="28" y="514" width="824" height="104" rx="12" fill="#f1f8e9" stroke="#0f766e" stroke-width="2"/>
+<text x="48" y="542" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">GitHub-release v1.0 · lataajalle</text>
+<text x="48" y="566" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">Kaksi zipiä (resurssipaketti ja datapaketti) ja README-ohje: kuka tahansa lataa paketin</text>
+<text x="48" y="586" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">ja asentaa sen pelkän ohjeen avulla.</text>
+<text x="48" y="606" fill="#5c5347" font-family="Arial, Helvetica, sans-serif" font-size="14">Työn aikana kopioit kansiot itse peliin ja testaat jokaisen muutoksen.</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="518" viewBox="0 0 600 518" role="img" aria-labelledby="title desc">
+<title id="title">Resepti → saavutus → palkinto</title>
+<desc id="desc">Havainnekuva datapaketin ketjusta, ei kuvakaappaus. 1 Resepti: tiedosto recipe/teemalyhty.json. Kohdat pattern ja key kertovat ainekset ja result valmiin esineen, ja pelaaja valmistaa esineen työpöydällä. 2 Saavutus: tiedosto advancement/kylan_valot.json. Sen criteria-kohdan laukaisin recipe_crafted ja ehto recipe_id teema:teemalyhty tunnistavat, että juuri tämä resepti valmistettiin, display näyttää ilmoituksen pelaajalle ja rewards ajaa funktion teema:palkinto. 3 Palkinto: tiedosto function/palkinto.mcfunction, jossa tellraw näyttää viestin ja xp add antaa pienen palkinnon. Tunnisteen pitää olla täsmälleen sama molemmissa päissä, muuten ketju katkeaa.</desc>
+<rect width="600" height="518" fill="#ffffff"/>
+<defs>
+  <marker id="nuoli" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#5c5347"/></marker>
+</defs>
+<text x="20" y="36" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Resepti → saavutus → palkinto</text>
+<text x="20" y="60" fill="#5c5347" font-family="Arial, Helvetica, sans-serif" font-size="14">Havainnekuva datapaketin ketjusta, ei kuvakaappaus</text>
+
+<!-- 1 Resepti -->
+<rect x="20" y="76" width="560" height="100" rx="12" fill="#fdfcf9" stroke="#c03434" stroke-width="2"/>
+<circle cx="46" cy="106" r="16" fill="#c03434"/>
+<text x="46" y="112" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle">1</text>
+<text x="74" y="112" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Resepti · recipe/teemalyhty.json</text>
+<text x="74" y="140" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="15">pattern ja key kertovat ainekset, result valmiin esineen.</text>
+<text x="74" y="162" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="15">Pelaaja valmistaa esineen työpöydällä.</text>
+
+<path d="M46 180V200" stroke="#5c5347" stroke-width="2.5" marker-end="url(#nuoli)"/>
+
+<!-- 2 Saavutus -->
+<rect x="20" y="204" width="560" height="122" rx="12" fill="#fdfcf9" stroke="#c03434" stroke-width="2"/>
+<circle cx="46" cy="234" r="16" fill="#c03434"/>
+<text x="46" y="240" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle">2</text>
+<text x="74" y="240" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Saavutus · advancement/kylan_valot.json</text>
+<text x="74" y="266" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="15">criteria: recipe_crafted + recipe_id teema:teemalyhty</text>
+<text x="74" y="288" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="15">display: ilmoitus pelaajalle</text>
+<text x="74" y="310" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="15">rewards: ajaa funktion teema:palkinto</text>
+
+<path d="M46 330V350" stroke="#5c5347" stroke-width="2.5" marker-end="url(#nuoli)"/>
+
+<!-- 3 Palkinto -->
+<rect x="20" y="354" width="560" height="78" rx="12" fill="#fdfcf9" stroke="#c03434" stroke-width="2"/>
+<circle cx="46" cy="384" r="16" fill="#c03434"/>
+<text x="46" y="390" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle">3</text>
+<text x="74" y="390" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Palkinto · function/palkinto.mcfunction</text>
+<text x="74" y="416" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="15">tellraw näyttää viestin, xp add antaa pienen palkinnon.</text>
+
+<!-- Huomio -->
+<rect x="20" y="452" width="560" height="48" rx="10" fill="#f1f8e9" stroke="#c9bfae" stroke-width="1.5"/>
+<text x="36" y="482" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="15">Tunnisteen pitää olla täsmälleen sama molemmissa päissä.</text>
+</svg>

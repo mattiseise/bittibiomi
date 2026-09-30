@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="428" viewBox="0 0 600 428" role="img" aria-labelledby="title desc">
+<title id="title">Mistä peli lukee paketin testin aikana?</title>
+<desc id="desc">Havainnekuva, ei kuvakaappaus. Vasemmalla repositoryn työkansio, jossa on resourcepack- ja datapack-kansio. Muokkaat aina näitä kansioita. Testiä varten resourcepack-kansio kopioidaan pelin resourcepacks-kansioon ja korvataan vanha, ja peli lataa sen uudelleen näppäimillä F3 + T. Datapack-kansio kopioidaan testimaailman datapacks-kansioon, jonka löydät valikosta Singleplayer, Edit, Open World Folder, ja peli lataa sen komennolla /reload. Pelin kansiot ovat vain testikopioita: commit tehdään aina repositoryn kansiosta.</desc>
+<rect width="600" height="428" fill="#ffffff"/>
+<defs>
+  <marker id="nuoli" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#5c5347"/></marker>
+</defs>
+<text x="20" y="36" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Mistä peli lukee paketin testin aikana?</text>
+<text x="20" y="60" fill="#5c5347" font-family="Arial, Helvetica, sans-serif" font-size="14">Havainnekuva, ei kuvakaappaus</text>
+
+<!-- Repository -->
+<rect x="20" y="78" width="230" height="236" rx="12" fill="#fdfcf9" stroke="#1b5e20" stroke-width="2"/>
+<text x="34" y="104" fill="#1b5e20" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Repository</text>
+<text x="34" y="124" fill="#5c5347" font-family="Arial, Helvetica, sans-serif" font-size="14">työkansio: muokkaa täällä</text>
+<rect x="34" y="140" width="202" height="66" rx="8" fill="#f1f8e9" stroke="#1a6fae" stroke-width="1.5"/>
+<text x="48" y="166" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">resourcepack/</text>
+<text x="48" y="189" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">ilme ja ääni</text>
+<rect x="34" y="222" width="202" height="66" rx="8" fill="#f1f8e9" stroke="#c03434" stroke-width="1.5"/>
+<text x="48" y="248" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">datapack/</text>
+<text x="48" y="271" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">resepti, saavutus, funktiot</text>
+
+<!-- Nuolet -->
+<path d="M240 173H344" stroke="#5c5347" stroke-width="2.5" marker-end="url(#nuoli)"/>
+<text x="300" y="162" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">kopioi</text>
+<path d="M240 255H344" stroke="#5c5347" stroke-width="2.5" marker-end="url(#nuoli)"/>
+<text x="300" y="244" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">kopioi</text>
+
+<!-- Peli -->
+<rect x="350" y="78" width="230" height="236" rx="12" fill="#fdfcf9" stroke="#8d5a2b" stroke-width="2"/>
+<text x="364" y="104" fill="#8d5a2b" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Minecraft</text>
+<text x="364" y="124" fill="#5c5347" font-family="Arial, Helvetica, sans-serif" font-size="14">testikopio, ei committeja</text>
+<rect x="364" y="140" width="202" height="66" rx="8" fill="#e8f5e9" stroke="#1a6fae" stroke-width="1.5"/>
+<text x="378" y="166" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">resourcepacks</text>
+<text x="378" y="189" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">lataa uudelleen: F3 + T</text>
+<rect x="364" y="222" width="202" height="66" rx="8" fill="#e8f5e9" stroke="#c03434" stroke-width="1.5"/>
+<text x="378" y="248" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">maailma/datapacks</text>
+<text x="378" y="271" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">lataa uudelleen: /reload</text>
+
+<!-- Huomio -->
+<rect x="20" y="334" width="560" height="74" rx="10" fill="#f1f8e9" stroke="#c9bfae" stroke-width="1.5"/>
+<text x="36" y="364" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">Kopioi ja korvaa vanha kansio. Maailman kansio: Singleplayer →</text>
+<text x="36" y="388" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">Edit → Open World Folder. Commit tehdään aina repositoryn kansiosta.</text>
+</svg>

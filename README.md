@@ -20,6 +20,19 @@ Tehtävien tila, projektipäiväkirja, Asset-pack-suunnitelma ja AI-loki tallent
 
 BittiBiomi ei ole virallinen Minecraft-tuote, eikä se ole Mojangin tai Microsoftin hyväksymä tai niihin liittyvä. Sivuston kuvitukset ovat itse tehtyjä, eikä sivusto sisällä Mojangin aineistoa.
 
+## Rakenne (moottori v2.7, selkeytetty 30.9.2026)
+
+Sivusto käyttää yhtenäisiä viikko-ohjeita (`yhtenaisetViikot: true`): viisi numeroitua vaihetta,
+jokaisen viikon yhteys kokonaisprojektiin ja tavoite sekä rastitettavat työvaiheet (`tehtavat`).
+Projekti on käynnissä, joten osatehtävien järjestystä ja määrää ei muuteta: rastit tallentuvat
+osan järjestysnumerolla. Uusi osa lisätään vain loppuun.
+
+Käsin kirjoitetut havainnekuvat (muokkaa suoraan SVG:tä):
+`assets/tyonkulku.svg` (pelaajan työnkulku), `assets/sovelluksen-osat.svg` (paketin osat),
+`assets/kansiot-peliin.svg` (viikko 43) ja `assets/datapaketin-ketju.svg` (viikko 44).
+Vaihekuva `assets/projektin-vaiheet.svg` generoidaan `sisalto.js`:n vaiheista komennolla
+`node tyokalut/tee_vaihekuva.js`.
+
 ## Materiaalien generointi
 
 Ladattavat docx-tiedostot ja kuvitukset generoidaan `tyokalut/`-kansion skripteillä:

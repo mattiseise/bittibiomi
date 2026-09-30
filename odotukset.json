@@ -4,10 +4,10 @@
   "nimi": "BittiBiomi",
   "kieli": "fi",
   "paivaton": false,
-  "generoitu": "2026-09-28",
+  "generoitu": "2026-09-30",
   "lahde": {
-    "sisalto.js": "08d25412b96732ba",
-    "index.html": "ffcb59c271dedf7d"
+    "sisalto.js": "74e1f8063ccb2c3a",
+    "index.html": "4dd7435df0ff7eae"
   },
   "viikot": [
     34,
@@ -71,7 +71,7 @@
     "34": {
       "jarjestys": 1,
       "tyyppi": "pohjustus",
-      "vaihe": "A",
+      "vaihe": "1",
       "otsikko": "Aloitus: teema ja työkalut",
       "tehtavat": [
         {
@@ -96,7 +96,7 @@
           "id": "34-4",
           "teksti": "Luo tyhjä resurssipaketti, joka näkyy pelin valikossa.",
           "valmis": "Paketti näkyy pelin Resource Packs -valikossa omalla kuvalla ja kuvauksella, eikä peli varoita väärästä versiosta.",
-          "tallenna": "Kuvakaappaus valikosta. Viet sen tehtävässä 5 polkuun project-docs/evidence/week-34/valikko.png."
+          "tallenna": "Kuvakaappaus valikosta. Viet sen työvaiheessa 5 polkuun project-docs/evidence/week-34/valikko.png."
         },
         {
           "id": "34-5",
@@ -138,7 +138,7 @@
     "35": {
       "jarjestys": 2,
       "tyyppi": "pohjustus",
-      "vaihe": "A",
+      "vaihe": "1",
       "otsikko": "Asset-pack-suunnitelma: teema ja sisältölista",
       "tehtavat": [
         {
@@ -155,7 +155,7 @@
         },
         {
           "id": "35-3",
-          "teksti": "Tee pakollisesta sisällöstä tehtävälista GitHubiin.",
+          "teksti": "Pilko pakollinen sisältö GitHub-issueiksi.",
           "valmis": "Jokaisella issuella on arvio, Valmis kun -ehto ja yksi label: P0 pakollinen, P1 tärkeä tai P2 lisä. Ohjaaja on hyväksynyt listan.",
           "tallenna": "Linkki GitHubin Issues-listaan sekä hyväksyjän rooli ja päivä viikon 35 päiväkirjaan."
         },
@@ -167,7 +167,7 @@
         }
       ],
       "nayta": "asset-pack-suunnitelma.md, LICENSE-tiedosto, Issues-lista prioriteetteineen, rajauksen hyväksyntä sekä moodboard ja luonnokset.",
-      "tuotos": "Asset-pack-suunnitelma, sovittu lisenssi ja LICENSE-tiedosto, tehtävälista GitHubissa, moodboard ja kaksi tekstuuriluonnosta.",
+      "tuotos": "Asset-pack-suunnitelma, sovittu lisenssi ja LICENSE-tiedosto, issue-lista GitHubissa, moodboard ja kaksi tekstuuriluonnosta.",
       "valmis": "Pakollinen sisältö (P0) on hyväksytty. Jokaisella issuella on arvio, prioriteetti ja Valmis kun -ehto. Moodboardissa näkyvät paletti ja referenssit, ja LICENSE-tiedosto on repositoryn juuressa.",
       "tarkistukset": [
         {
@@ -211,7 +211,7 @@
     "36": {
       "jarjestys": 3,
       "tyyppi": "feature",
-      "vaihe": "A",
+      "vaihe": "2",
       "otsikko": "Asset 1 · Ensimmäiset blokkitekstuurit peliin",
       "tehtavat": [
         {
@@ -266,7 +266,7 @@
     "37": {
       "jarjestys": 4,
       "tyyppi": "feature",
-      "vaihe": "A",
+      "vaihe": "2",
       "otsikko": "Asset 2 · Esinetekstuurit ja omat nimet",
       "tehtavat": [
         {
@@ -327,7 +327,7 @@
     "38": {
       "jarjestys": 5,
       "tyyppi": "feature",
-      "vaihe": "B",
+      "vaihe": "2",
       "otsikko": "Asset 3 · Ensimmäinen Blockbench-malli",
       "tehtavat": [
         {
@@ -382,7 +382,7 @@
     "39": {
       "jarjestys": 6,
       "tyyppi": "feature",
-      "vaihe": "B",
+      "vaihe": "2",
       "otsikko": "Asset 4 · Isompi malli tai hahmon uusi ilme",
       "tehtavat": [
         {
@@ -437,7 +437,7 @@
     "40": {
       "jarjestys": 7,
       "tyyppi": "feature",
-      "vaihe": "B",
+      "vaihe": "2",
       "otsikko": "Asset 5 · Äänet ja tunnelma",
       "tehtavat": [
         {
@@ -504,7 +504,7 @@
     "41": {
       "jarjestys": 8,
       "tyyppi": "katselmointi",
-      "vaihe": "B",
+      "vaihe": "3",
       "otsikko": "Katselmointi · Ensimmäiset testaajat",
       "tehtavat": [
         {
@@ -527,7 +527,7 @@
         }
       ],
       "nayta": "väliversion zip ja asennusohje, katselmointimuistio, palaute ja hyväksytty muutosissue.",
-      "tuotos": "Testattu väliversio, katselmointimuistio ja yksi hyväksytty muutostehtävä.",
+      "tuotos": "Testattu väliversio, katselmointimuistio ja yksi hyväksytty muutosissue.",
       "valmis": "Ohjaaja ja vertaistestaaja ovat kokeilleet pakettia pelissä. Muistiossa näkyvät alkuperäinen palaute, oma tulkinta, päätös, hyväksyjä ja yksi rajattu issue.",
       "tarkistukset": [
         {
@@ -559,7 +559,7 @@
     "43": {
       "jarjestys": 9,
       "tyyppi": "feature",
-      "vaihe": "C",
+      "vaihe": "3",
       "otsikko": "Asset 6 · Palautemuutos ja datapaketin runko",
       "tehtavat": [
         {
@@ -620,7 +620,7 @@
     "44": {
       "jarjestys": 10,
       "tyyppi": "feature",
-      "vaihe": "C",
+      "vaihe": "3",
       "otsikko": "Asset 7 · Skriptattu ominaisuus",
       "tehtavat": [
         {
@@ -675,7 +675,7 @@
     "45": {
       "jarjestys": 11,
       "tyyppi": "laatu",
-      "vaihe": "C",
+      "vaihe": "4",
       "otsikko": "Paketin laatu · Paketti kestää käyttöä",
       "tehtavat": [
         {
@@ -736,7 +736,7 @@
     "46": {
       "jarjestys": 12,
       "tyyppi": "laatu",
-      "vaihe": "C",
+      "vaihe": "4",
       "otsikko": "Paketin laatu · Rakenne, jonka toinen ymmärtää",
       "tehtavat": [
         {
@@ -785,18 +785,18 @@
     "47": {
       "jarjestys": 13,
       "tyyppi": "julkaisu",
-      "vaihe": "D",
+      "vaihe": "5",
       "otsikko": "Julkaisu · Julkaisuehdokas RC1 testissä",
       "tehtavat": [
         {
           "id": "47-1",
-          "teksti": "Kokoa ensimmäinen julkaisuehdokas (RC1) ja lopeta uuden sisällön lisääminen.",
+          "teksti": "Jäädytä sisältö ja kokoa ensimmäinen julkaisuehdokas (RC1).",
           "valmis": "Kaksi zipiä ja asennusohje ovat valmiina, ja ne on koottu samasta commitista.",
           "tallenna": "Zipit ja asennusohje kansioon project-docs/evidence/week-47/, commit ja push."
         },
         {
           "id": "47-2",
-          "teksti": "Anna ohjaajan ja yhden muun käyttäjän asentaa paketti pelkän ohjeen avulla.",
+          "teksti": "Anna kahden testaajan asentaa julkaisuehdokas pelkän ohjeen avulla.",
           "valmis": "Kahden testaajan havainnot on kirjattu erikseen, ja tiedät, onnistuiko asennus ohjeella.",
           "tallenna": "Havainnot viikon 47 päiväkirjaan."
         },
@@ -840,7 +840,7 @@
     "48": {
       "jarjestys": 14,
       "tyyppi": "julkaisu",
-      "vaihe": "D",
+      "vaihe": "5",
       "otsikko": "Julkaisu · v1.0 julki",
       "tehtavat": [
         {
@@ -907,14 +907,14 @@
     "49": {
       "jarjestys": 15,
       "tyyppi": "naytto",
-      "vaihe": "D",
+      "vaihe": "5",
       "otsikko": "Näyttö · Aineisto ja luovutus",
       "tehtavat": [
         {
           "id": "49-1",
           "teksti": "Tarkista projektipäiväkirja.",
           "valmis": "Kaikki 15 viikkoa on kirjattu, ja jokaisen viikon työnäytelinkki aukeaa.",
-          "tallenna": "Täydennetyt viikkomerkinnät sivuston projektipäiväkirjassa. Lataat tiedoston repositoryyn tehtävässä 5."
+          "tallenna": "Täydennetyt viikkomerkinnät sivuston projektipäiväkirjassa. Lataat tiedoston repositoryyn työvaiheessa 5."
         },
         {
           "id": "49-2",

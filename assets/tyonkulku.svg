@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="470" viewBox="0 0 880 470" role="img" aria-labelledby="title desc">
+<title id="title">Näin pelaaja käyttää valmista teemapakettia</title>
+<desc id="desc">Havainnekuva pelaajan työnkulusta neljänä numeroituna vaiheena, ei kuvakaappaus. 1 Lataa: pelaaja avaa julkisen GitHub-releasen v1.0 ja lataa kaksi zip-pakettia ja README-ohjeen. 2 Asenna: resurssipaketti menee pelin resourcepacks-kansioon ja datapaketti maailman datapacks-kansioon, ja pelin kieleksi vaihdetaan suomi. 3 Pelaa: pelissä näkyvät omat tekstuurit, 3D-malli ja suomenkieliset nimet, ja paketin oma ääni kuuluu. 4 Valmista: pelaaja valmistaa teeman reseptin työpöydällä, saavutus laukeaa ja palkintofunktio antaa palkinnon. Alarivi: avoin lisenssi, LICENSE ja CREDITS kertovat, mitä toinen tekijä saa paketilla tehdä.</desc>
+<rect width="880" height="470" fill="#ffffff"/>
+<defs>
+  <marker id="nuoli" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#5c5347"/></marker>
+</defs>
+<text x="28" y="44" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">Näin pelaaja käyttää valmista teemapakettia</text>
+<text x="28" y="70" fill="#5c5347" font-family="Arial, Helvetica, sans-serif" font-size="15">Havainnekuva pelaajan työnkulusta, ei kuvakaappaus valmiista paketista</text>
+
+<!-- 1 Lataa -->
+<rect x="28" y="96" width="188" height="272" rx="12" fill="#fdfcf9" stroke="#2e7d32" stroke-width="2"/>
+<circle cx="54" cy="126" r="18" fill="#1b5e20"/>
+<text x="54" y="133" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">1</text>
+<text x="82" y="133" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">Lataa</text>
+<rect x="46" y="158" width="152" height="100" rx="8" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="58" y="178" fill="#1b5e20" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700">Release v1.0</text>
+<path d="M62 190H92L100 198V246H62Z" fill="#ffffff" stroke="#5c5347" stroke-width="1.5"/>
+<path d="M92 190V198H100" fill="none" stroke="#5c5347" stroke-width="1.5"/>
+<text x="81" y="228" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" text-anchor="middle">zip</text>
+<path d="M118 190H148L156 198V246H118Z" fill="#ffffff" stroke="#5c5347" stroke-width="1.5"/>
+<path d="M148 190V198H156" fill="none" stroke="#5c5347" stroke-width="1.5"/>
+<text x="137" y="228" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" text-anchor="middle">zip</text>
+<text x="44" y="288" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">GitHub-release v1.0:</text>
+<text x="44" y="308" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">kaksi zip-pakettia</text>
+<text x="44" y="328" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">ja README-ohje</text>
+
+<path d="M219 232H237" stroke="#5c5347" stroke-width="2.5" marker-end="url(#nuoli)"/>
+
+<!-- 2 Asenna -->
+<rect x="240" y="96" width="188" height="272" rx="12" fill="#fdfcf9" stroke="#2e7d32" stroke-width="2"/>
+<circle cx="266" cy="126" r="18" fill="#1b5e20"/>
+<text x="266" y="133" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">2</text>
+<text x="294" y="133" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">Asenna</text>
+<path d="M258 164H300L308 172H410V206H258Z" fill="#f1f8e9" stroke="#8d5a2b" stroke-width="1.5"/>
+<text x="334" y="194" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" text-anchor="middle">resourcepacks</text>
+<path d="M258 218H300L308 226H410V260H258Z" fill="#f1f8e9" stroke="#8d5a2b" stroke-width="1.5"/>
+<text x="334" y="248" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" text-anchor="middle">maailma / datapacks</text>
+<text x="256" y="288" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">Resurssipaketti ja</text>
+<text x="256" y="308" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">datapaketti omiin</text>
+<text x="256" y="328" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">kansioihinsa ohjeesi</text>
+<text x="256" y="348" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">avulla, kieleksi suomi</text>
+
+<path d="M431 232H449" stroke="#5c5347" stroke-width="2.5" marker-end="url(#nuoli)"/>
+
+<!-- 3 Pelaa -->
+<rect x="452" y="96" width="188" height="272" rx="12" fill="#fdfcf9" stroke="#2e7d32" stroke-width="2"/>
+<circle cx="478" cy="126" r="18" fill="#1b5e20"/>
+<text x="478" y="133" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">3</text>
+<text x="506" y="133" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">Pelaa</text>
+<g stroke="#ffffff" stroke-width="1.5">
+  <rect x="472" y="166" width="28" height="28" fill="#2e7d32"/>
+  <rect x="500" y="166" width="28" height="28" fill="#1b5e20"/>
+  <rect x="528" y="166" width="28" height="28" fill="#2e7d32"/>
+  <rect x="472" y="194" width="28" height="28" fill="#8d5a2b"/>
+  <rect x="500" y="194" width="28" height="28" fill="#a16207"/>
+  <rect x="528" y="194" width="28" height="28" fill="#8d5a2b"/>
+  <rect x="472" y="222" width="28" height="28" fill="#a16207"/>
+  <rect x="500" y="222" width="28" height="28" fill="#8d5a2b"/>
+  <rect x="528" y="222" width="28" height="28" fill="#a16207"/>
+</g>
+<path d="M574 196H584L596 184V232L584 220H574Z" fill="#5c5347"/>
+<path d="M604 196Q610 208 604 220" fill="none" stroke="#5c5347" stroke-width="2.5"/>
+<path d="M612 188Q622 208 612 228" fill="none" stroke="#5c5347" stroke-width="2.5"/>
+<text x="468" y="288" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">Omat tekstuurit,</text>
+<text x="468" y="308" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">3D-malli ja nimet</text>
+<text x="468" y="328" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">näkyvät, ja oma</text>
+<text x="468" y="348" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">ääni kuuluu</text>
+
+<path d="M643 232H661" stroke="#5c5347" stroke-width="2.5" marker-end="url(#nuoli)"/>
+
+<!-- 4 Valmista -->
+<rect x="664" y="96" width="188" height="272" rx="12" fill="#fdfcf9" stroke="#2e7d32" stroke-width="2"/>
+<circle cx="690" cy="126" r="18" fill="#1b5e20"/>
+<text x="690" y="133" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">4</text>
+<text x="718" y="133" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">Valmista</text>
+<g fill="#ffffff" stroke="#5c5347" stroke-width="1.5">
+  <rect x="680" y="176" width="20" height="20"/>
+  <rect x="700" y="176" width="20" height="20" fill="#c03434"/>
+  <rect x="720" y="176" width="20" height="20"/>
+  <rect x="680" y="196" width="20" height="20" fill="#c03434"/>
+  <rect x="700" y="196" width="20" height="20" fill="#a16207"/>
+  <rect x="720" y="196" width="20" height="20" fill="#c03434"/>
+  <rect x="680" y="216" width="20" height="20"/>
+  <rect x="700" y="216" width="20" height="20" fill="#c03434"/>
+  <rect x="720" y="216" width="20" height="20"/>
+</g>
+<path d="M748 206H768" stroke="#5c5347" stroke-width="2.5" marker-end="url(#nuoli)"/>
+<path d="M804 180L811 197L829 198L815 209L820 226L804 216L788 226L793 209L779 198L797 197Z" fill="#a16207" stroke="#8d5a2b" stroke-width="1.5"/>
+<text x="680" y="288" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">Resepti työpöydällä</text>
+<text x="680" y="308" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">→ saavutus laukeaa</text>
+<text x="680" y="328" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">→ palkintofunktio</text>
+<text x="680" y="348" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="14">antaa palkinnon</text>
+
+<!-- Lisenssi -->
+<rect x="28" y="392" width="824" height="56" rx="10" fill="#f1f8e9" stroke="#c9bfae" stroke-width="1.5"/>
+<text x="48" y="426" fill="#241f1a" font-family="Arial, Helvetica, sans-serif" font-size="15"><tspan font-weight="700">Avoin lisenssi:</tspan> LICENSE ja CREDITS kertovat, mitä toinen tekijä saa paketilla tehdä.</text>
+</svg>
