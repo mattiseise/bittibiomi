@@ -49,6 +49,7 @@ window.NAYTTOPROJEKTI = {
 
   /* ---- paperiaineiston kielisäädöt (moottori v2.7) ---- */
   lataukset: {
+    resurssienPerusosoite: "https://mattiseise.github.io/bittibiomi/",
     aloitusHuomio: "Viikon työvaihe on tämän sivuston työohje. Yhden assetin tai muutoksen teet Työtapa-sivun asset-työkierrolla, ja sen arvio ja Valmis kun -ehto ovat GitHub-issuessa. Testien tulokset ja päätökset kirjaat projektipäiväkirjaan, ja valmiin issuen kommenttiin lisäät commit-linkin."
   },
 
@@ -291,6 +292,9 @@ window.NAYTTOPROJEKTI = {
       done: "Ohjaajan vastaukset ja avoimet asiat ovat päiväkirjassa, tyhjä paketti näkyy pelin pakettivalikossa ja ensimmäinen commit näkyy GitHubissa.",
       record: "Kirjoita Vko 34 -merkintään keskustelun päivä, osallistujien roolit, kuusi kysymystä vastauksineen ja avoimet asiat. Lisää tutkitun paketin havainnot, oma kohdeyleisö, sovittu Minecraft-versio, ensimmäisen commitin tunniste ja kuvan polku. Rastita lopuksi Näyttömatriisi-näkymässä kohdat Kehitysympäristö, Asiakkaan tarpeet ja Kehittämisympäristön käyttöönotto.",
       skills: ["toimeksianto", "pakettirunko", "Git"],
+      resources: [
+        ["GitHub Desktop: kuvaohje ilman Git-komentoja", "https://mattiseise.github.io/projektikoontisivu/ohjeet/github-desktop/?projekti=bittibiomi#asennus", false]
+      ],
       tehtavat: {
         "34-1": {
           perii: ["34-1"],
@@ -338,7 +342,7 @@ window.NAYTTOPROJEKTI = {
           perii: ["34-2"],
           miksi: "Kun tyhjä paketti näkyy pelissä heti alussa, tiedät jo ennen varsinaista työtä, että kansiorakenne ja versio toimivat.",
           osat: [
-            "Asenna Blockbench, VS Code ja GitHub Desktop. Tarkista Minecraft Launcherista, että sovittu Minecraft Java -versio käynnistyy.",
+            "Asenna Blockbench, VS Code ja GitHub Desktop (kuvaohjeen kohta 1). Tarkista Minecraft Launcherista, että sovittu Minecraft Java -versio käynnistyy.",
             "Luo koneellesi kansio resourcepack. Tee sinne VS Codella tiedosto pack.mcmeta avun mallin mukaan.",
             "Tarkista Minecraft Wikin Pack format -sivulta, mikä pack_format-arvo kuuluu sovitulle versiolle. Kirjoita se pack.mcmeta-tiedostoon.",
             "Piirrä Piskelillä 64 × 64 pikselin kuva paketin kuvakkeeksi ja tallenna se resourcepack-kansioon nimellä pack.png.",
@@ -358,7 +362,8 @@ window.NAYTTOPROJEKTI = {
             ],
             test: "Sulje peli ja avaa se uudelleen. Paketti näkyy yhä valikossa omalla kuvallaan.",
             links: [
-              ["Minecraft Wiki: Pack format -taulukko", "https://minecraft.wiki/w/Pack_format"]
+              ["Minecraft Wiki: Pack format -taulukko", "https://minecraft.wiki/w/Pack_format"],
+              ["GitHub Desktop: lataa ja asenna", "https://mattiseise.github.io/projektikoontisivu/ohjeet/github-desktop/?projekti=bittibiomi#asennus"]
             ]
           }
         },
@@ -366,10 +371,11 @@ window.NAYTTOPROJEKTI = {
           perii: ["34-3"],
           miksi: "Repository eli koodivarasto on tässä projektissa julkinen alusta asti. Siksi tarkistat ensin, ettei sinne päädy mitään henkilökohtaista.",
           osat: [
-            "Lue avun lista siitä, mitä julkiseen repositoryyn ei laiteta. Git-historia on pysyvä. Piilota sähköpostisi: GitHubissa Settings → Emails → Keep my email addresses private ja GitHub Desktopissa Options (Macissa Settings) → Git → Email-kohtaan noreply-osoite.",
+            "Lue avun lista siitä, mitä julkiseen repositoryyn ei laiteta. Git-historia on pysyvä. Piilota sähköpostisi GitHubissa: Settings → Emails → Keep my email addresses private.",
             "Sovi ohjaajan kanssa, millä tekijänimellä julkaiset. Jos olet alaikäinen, sovi julkisesta repositorysta myös huoltajan kanssa.",
-            "Luo GitHubiin uusi repository, valitse näkyvyydeksi Public ja valitse luontisivulla README-tiedoston lisäys (Add a README file). Kirjaudu GitHub Desktopiin ja kloonaa eli kopioi repository koneellesi: File → Clone repository.",
-            "Siirrä resourcepack-kansio repositoryn kansioon. Luo sinne myös kansiot datapack ja project-docs.",
+            "Luo GitHubiin uusi repository: valitse näkyvyydeksi Public ja rastita Add a README file.",
+            "Kirjaudu GitHub Desktopiin ja aseta tekijätietoihin sovittu tekijänimi ja noreply-osoite (kuvaohjeen kohta 2). Kloonaa repository: File → Clone repository → URL, eli kuvaohjeen reitti C.",
+            "Siirrä resourcepack-kansio repositoryn kansioon. Luo sinne myös kansiot datapack ja project-docs sekä kuvaohjeen mallin mukainen .gitignore.",
             "Lisää datapack-kansioon tiedosto README.md, jossa lukee ”Datapaketti tehdään viikolla 43.” Tiedosto tarvitaan, koska Git ei tallenna tyhjää kansiota.",
             "Kirjoita repositoryn juuren README.md-tiedostoon paketin nimi ja yksi virke siitä, mitä se tekee. Lisää valikon kuva polkuun project-docs/evidence/week-34/valikko.png.",
             "Tee commit ja push: kirjoita GitHub Desktopin Summary-kenttään ”Pakettirunko”, paina Commit to main ja sitten Push origin."
@@ -379,10 +385,16 @@ window.NAYTTOPROJEKTI = {
           sanat: ["repository", "commit", "push"],
           apu: {
             title: "Mitä julkiseen repositoryyn ei laiteta",
-            tree: "teemapaketti/ (julkinen repository)\n├─ resourcepack/\n│  ├─ pack.mcmeta\n│  └─ pack.png\n├─ datapack/\n│  └─ README.md       (datapaketti viikolla 43)\n├─ project-docs/\n│  └─ evidence/week-34/valikko.png\n└─ README.md",
+            tree: "teemapaketti/ (julkinen repository)\n├─ resourcepack/\n│  ├─ pack.mcmeta\n│  └─ pack.png\n├─ datapack/\n│  └─ README.md       (datapaketti viikolla 43)\n├─ project-docs/\n│  └─ evidence/week-34/valikko.png\n├─ README.md\n└─ .gitignore",
             code: "EI JULKISEEN REPOSITORYYN\n[ ] oma tai muiden oikea nimi, jos sitä ei ole sovittu\n[ ] kotiosoite, puhelinnumero, sähköposti\n[ ] koulun tai luokan tunnisteet\n[ ] muiden käyttäjänimet kuvakaappauksissa\n[ ] salasanat ja kirjautumistiedot",
             vinkit: [
               "Pelin resourcepacks-kansio on pelin oma. Työkansiosi on repositoryn resourcepack-kansio: kun testaat, kopioit sen pelin kansioon. Viikosta 43 alkaen datapack-kansio kopioidaan samalla tavalla testimaailman datapacks-kansioon."
+            ],
+            links: [
+              ["GitHub Desktop: kirjaudu ja tarkista tekijätiedot", "https://mattiseise.github.io/projektikoontisivu/ohjeet/github-desktop/?projekti=bittibiomi#kirjautuminen"],
+              ["GitHub Desktop: kloonaa oma repository (reitti C)", "https://mattiseise.github.io/projektikoontisivu/ohjeet/github-desktop/?projekti=bittibiomi#kloonaa"],
+              ["GitHub Desktop: .gitignore ja tiedostot oikeaan kansioon", "https://mattiseise.github.io/projektikoontisivu/ohjeet/github-desktop/?projekti=bittibiomi#tiedostot"],
+              ["GitHub Desktop: commit ja Push origin", "https://mattiseise.github.io/projektikoontisivu/ohjeet/github-desktop/?projekti=bittibiomi#commit"]
             ]
           }
         }
